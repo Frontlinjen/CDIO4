@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fields>
+	<field type="territory">
+		<translateID>1</translateID>
+		<rent>100</rent>
+		<price>1000</price>
+	</field>
+	<field type="territory">
+		<translateID>2</translateID>
+		<rent>300</rent>
+		<price>1500</price>
+	</field>
+	<field type="territory">
+		<translateID>3</translateID>
+		<rent>500</rent>
+		<price>2000</price>
+	</field>
+	<field type="territory">
+		<translateID>4</translateID>
+		<rent>700</rent>
+		<price>3000</price>
+	</field>
+	<field type="territory">
+		<translateID>5</translateID>
+		<rent>1000</rent>
+		<price>4000</price>
+	</field>
+	<field type="territory">
+		<translateID>6</translateID>
+		<rent>1300</rent>
+		<price>4300</price>
+	</field>
+	<field type="territory">
+		<translateID>7</translateID>
+		<rent>1600</rent>
+		<price>4750</price>
+	</field>
+	<field type="territory">
+		<translateID>8</translateID>
+		<rent>2000</rent>
+		<price>5000</price>
+	</field>
+	<field type="territory">
+		<translateID>9</translateID>
+		<rent>2600</rent>
+		<price>5500</price>
+	</field>
+	<field type="territory">
+		<translateID>10</translateID>
+		<rent>3200</rent>
+		<price>6000</price>
+	</field>
+	<field type="territory">
+		<translateID>11</translateID>
+		<rent>4000</rent>
+		<price>8000</price>
+	</field>
+	<field type="refuge">
+		<translateID>12</translateID>
+		<bonus>5000</bonus>
+	</field>
+	<field type="refuge">
+		<translateID>13</translateID>
+		<bonus>500</bonus>
+	</field>
+	<field type="laborCamp">
+		<translateID>14</translateID>
+		<rent>100</rent>
+		<price>2500</price>
+	</field>
+	<field type="laborCamp">
+		<translateID>15</translateID>
+		<rent>100</rent>
+		<price>2500</price>
+	</field>
+	<field type="tax">
+		<translateID>16</translateID>
+		<tax>2000</tax>
+	</field>
+	<field type="tax">
+		<translateID>17</translateID>
+		<tax>4000</tax>
+	</field>
+	<field type="fleet">
+		<translateID>18</translateID>
+		<price>4000</price>
+	</field>
+	<field type="fleet">
+		<translateID>19</translateID>
+		<price>4000</price>
+	</field>
+	<field type="fleet">
+		<translateID>20</translateID>
+		<price>4000</price>
+	</field>
+	<field type="fleet">
+		<translateID>21</translateID>
+		<price>4000</price>
+	</field>
+</fields>
