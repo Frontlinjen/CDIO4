@@ -14,21 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>MagicDraw/BCE CDIO4.mdzip</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Desktop/BCE%20CDIO4.mdzip</locationURI>
-		</link>
-		<link>
-			<name>MagicDraw/Klassediagram CDIO4 delt.mdzip</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Desktop/Klassediagram%20CDIO4%20delt.mdzip</locationURI>
-		</link>
-		<link>
-			<name>MagicDraw/Klassediagram CDIO4.mdzip</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Desktop/Klassediagram%20CDIO4.mdzip</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
