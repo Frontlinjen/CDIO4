@@ -120,7 +120,7 @@ public class FieldLoader {
 			int translateID = parseInteger(translateNode);
 			int tax = parseInteger(taxNode);
 			int taxPercentage = parseInteger(taxPercentageNode); 
-			return new Tax(translateID, Types.TAX, tax);
+			return new Tax(translateID, Types.TAX, tax, taxPercentage);
 			
 		} catch (Exception exc) {
 			
