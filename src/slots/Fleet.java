@@ -13,7 +13,7 @@ import game.Translator;
 
 public class Fleet extends Ownable{
 	private final int[] RENT = {500, 1000, 2000, 4000};
-	
+	desktop_fields.Street fleet;
 	public Fleet(int i, int price) {
 		super(i, price);
 	}
