@@ -2,23 +2,17 @@ package slots;
 
 import game.*;
 import desktop_resources.GUI;
-import slots.Field;
+import slots.FieldController;
 
-public abstract class Ownable extends Field{
-
-	public Ownable(int i, int price) {
-		super(i);
-		this.price = price;
+public abstract class OwnableController extends FieldController{
+	private OwnableData ownableData;
+	desktop_fields.Street LaborCamp;
+	OwnableController(OwnableData dat)
+	{
+		ownableData = dat;
 	}
-
-	protected int price;
-	private Player owner;
-	
 	public abstract int getRent();
-
-	public Player getOwner() {
-		return owner;
-	}
+	
 	public void removeOwner()
 	{
 		this.owner = null;

@@ -2,7 +2,7 @@ package slots;
 
 import game.Player;
 
-public class EmptyFieldController extends Field{
+public class EmptyFieldController extends FieldController{
 
 	public EmptyFieldController(int i, Types type) {
 		super(i, type);

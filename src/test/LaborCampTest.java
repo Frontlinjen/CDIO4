@@ -1,7 +1,7 @@
 package test;	
 import game.*;
 import slots.*;
-import slots.Field.Types;
+import slots.FieldController.Types;
 
 import static org.junit.Assert.*;
 
@@ -11,7 +11,7 @@ public class LaborCampTest {
 
 	@Test
 	public void testGetRent() {
-		Brewery laborCamp = new Brewery(1, Types.LABORCAMP, 2500, 100);
+		BreweryController laborCamp = new BreweryController(1, Types.LABORCAMP, 2500, 100);
 		
 		Player player1 = new Player("Test1");
 		Player player2 = new Player("Test2");

@@ -5,14 +5,14 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import game.Account;
 import game.Player;
-import slots.Field.Types;
-import slots.Tax;
+import slots.FieldController.Types;
+import slots.TaxData;
 
 public class TaxTest {
 
 	@Test
 	public void test() {
-		Tax tax = new Tax(1, Types.TAX, 1000);
+		TaxData tax = new TaxData(1, Types.TAX, 1000);
 
 		Player player = new Player("Test");
 

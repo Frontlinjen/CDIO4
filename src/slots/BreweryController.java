@@ -4,19 +4,19 @@ import java.awt.Color;
 
 
 import desktop_resources.GUI;
-import slots.Ownable;
+import slots.OwnableController;
 import game.DiceResult;
 import game.Player;
 import game.Translator;
 
-public class Brewery extends Ownable{
+public class BreweryController extends OwnableController{
 
-	private int baseRent;
+	private BreweryData breweryData;
 	desktop_fields.Street LaborCamp;
 	
-	public Brewery(int i, int price, int baseRent) {
-		super(i, price);
-		this.baseRent = baseRent;
+	public BreweryController(BreweryData data) {
+		super((OwnableData)data);
+		breweryData = data;
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class Brewery extends Ownable{
 		 */
 		LaborCamp.displayOnCenter();
 		if(hasOwner()){
-			if(getOwner()!=player)
+			if(breweryData.getOwner()!=player)
 			{
 				GUI.getUserButtonPressed(Translator.getString("LABORCAMP"), Translator.getString("ROLL"));
 				DiceResult res = player.getDice().rollDice();

@@ -5,15 +5,15 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import game.Player;
-import slots.Tax;
-import slots.Field.Types;
-import slots.ParkingLot;
+import slots.TaxData;
+import slots.FieldController.Types;
+import slots.ParkinglotData;
 
 public class RefugeTest {
 
 	@Test
 	public void test() {
-		ParkingLot refuge = new ParkingLot (1, Types.REFUGE, 5000);
+		ParkinglotData refuge = new ParkinglotData (1, Types.REFUGE, 5000);
 
 		Player player = new Player("Test");
 
