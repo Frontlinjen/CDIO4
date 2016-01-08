@@ -13,7 +13,7 @@ public class ParkinglotController extends FieldController{
 	{
 		parkinglotData = data;
 	}
-	
+
 	@Override
 	public void landOnField(Player player) {
 		//Player lands on the Parking lot field and is given gold.

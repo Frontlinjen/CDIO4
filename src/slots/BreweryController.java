@@ -13,7 +13,7 @@ public class BreweryController extends OwnableController{
 
 	private BreweryData breweryData;
 	desktop_fields.Street LaborCamp;
-	
+
 	public BreweryController(BreweryData data) {
 		super((OwnableData)data);
 		breweryData = data;
@@ -57,12 +57,12 @@ public class BreweryController extends OwnableController{
 		LaborCamp = new desktop_fields.Street.Builder().setRent(Translator.getString("LABORCAMPRENT", baseRent)).setBgColor(new Color(255f/255, 165f/255, 48f/255)).build();
 		LaborCamp.setDescription(this.getDescription());
 		LaborCamp.setTitle(this.getName());
-		
+
 		LaborCamp.setSubText(price+"");
-		
+
 		return LaborCamp;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "LaborCamp [LaborCamp=" + LaborCamp + ", price=" + price + ", position=" + position

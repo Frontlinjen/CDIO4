@@ -12,12 +12,12 @@ public abstract class OwnableController extends FieldController{
 		ownableData = dat;
 	}
 	public abstract int getRent();
-	
+
 	public void removeOwner()
 	{
 		this.owner = null;
 		GUI.removeOwner(getPosition());
-		
+
 	}
 	public void setOwner(Player owner) {
 		/**
@@ -31,7 +31,7 @@ public abstract class OwnableController extends FieldController{
 	{
 		return(getOwner()!=null);
 	}
-	
+
 	public boolean BuyField (Player visitor){
 		/**
 		 * General purchase procedure, with a withdrawal of money
@@ -50,7 +50,7 @@ public abstract class OwnableController extends FieldController{
 			GUI.showMessage(Translator.getString("ENDTURN"));
 		}
 		return false;
-		
+
 	}
 
 	@Override

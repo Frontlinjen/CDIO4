@@ -23,13 +23,13 @@ public class TaxController extends FieldController {
 			GUI.getUserButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxAmount));
 		}
 		else {
-		tax.displayOnCenter();
-		if (GUI.getUserLeftButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxRate) , Integer.toString(taxAmount))) {
-			player.getAccount().withdraw(taxRate);
-		}
-		else {
-			player.getAccount().withdraw(taxAmount);
-		}
+			tax.displayOnCenter();
+			if (GUI.getUserLeftButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxRate) , Integer.toString(taxAmount))) {
+				player.getAccount().withdraw(taxRate);
+			}
+			else {
+				player.getAccount().withdraw(taxAmount);
+			}
 		}
 	}
 
@@ -42,5 +42,5 @@ public class TaxController extends FieldController {
 		tax.setSubText(taxAmount + "");
 		return tax;
 	}
-	
+
 }

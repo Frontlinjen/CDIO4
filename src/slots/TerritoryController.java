@@ -9,12 +9,12 @@ import game.Translator;
 public class TerritoryController extends OwnableController {
 	desktop_fields.Street territory;
 	TerritoryData territoryData;
-	
+
 	TerritoryController(TerritoryData data)
 	{
 		super((OwnableData)data);
 		territoryData = data;
-		
+
 	}
 	@Override
 	public void landOnField(Player player) {
