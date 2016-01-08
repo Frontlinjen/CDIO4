@@ -49,6 +49,19 @@ public class DiceResult
 	public int getDiceAmount(){
 		return dice.length;
 	}
+	
+	public boolean isEqual(){
+		if(getDiceAmount() < 2)
+			return true;
+		else{
+		for(int i = 1; i < getDiceAmount(); i++){
+			if(dice[i]!=dice[i-1])
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	@Override
 	public String toString() {
 		return "DiceResult [dice=" + Arrays.toString(dice) + ", getSum()=" + getSum() + ", getDiceAmount()="

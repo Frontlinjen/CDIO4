@@ -76,7 +76,7 @@ public class FieldLoader {
 		}
 		
 	}
-	private static Refuge parseRefuge(Element e) throws Exception
+	private static ParkingLot parseRefuge(Element e) throws Exception
 	{
 		System.out.println("Parsing refuge...");
 		try {
@@ -85,7 +85,7 @@ public class FieldLoader {
 			Node bonusNode = getUnique(e, "bonus");
 			int translateID = parseInteger(translateNode);
 			int bonus = parseInteger(bonusNode);
-			return new Refuge(translateID, Types.REFUGE, bonus);
+			return new ParkingLot(translateID, Types.REFUGE, bonus);
 			
 		} catch (Exception exc) {
 			
@@ -94,7 +94,7 @@ public class FieldLoader {
 		}
 		
 	}
-	private static LaborCamp parseLaborCamp(Element e) throws Exception
+	private static Brewery parseLaborCamp(Element e) throws Exception
 	{
 		System.out.println("Parsing labotCamp...");
 		try {
@@ -104,7 +104,7 @@ public class FieldLoader {
 			int translateID = parseInteger(translateNode);
 			int rent = parseInteger(rentNode);
 			int price = parseInteger(priceNode);
-			return new LaborCamp(translateID, Types.REFUGE, price, rent);
+			return new Brewery(translateID, Types.REFUGE, price, rent);
 			
 		} catch (Exception exc) {
 			
@@ -118,9 +118,11 @@ public class FieldLoader {
 		try {
 			Node translateNode = getUnique(e, "translateID");
 			Node taxNode = getUnique(e, "tax");
+			Node taxPercentageNode = getUnique(e, "taxPercentage");
 			int translateID = parseInteger(translateNode);
 			int tax = parseInteger(taxNode);
-			return new Tax(translateID, Types.TAX, tax);
+			int taxPercentage = parseInteger(taxPercentageNode); 
+			return new Tax(translateID, Types.TAX, tax, taxPercentage);
 			
 		} catch (Exception exc) {
 			

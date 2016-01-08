@@ -14,10 +14,7 @@ import slots.Field.Types;
 
 public class Fleet extends Ownable{
 	desktop_fields.Street fleet;
-	private final int RENT_1 = 500;
-	private final int RENT_2 = 1000;
-	private final int RENT_3 = 2000;
-	private final int RENT_4 = 4000;
+	private final int[] RENT = {500, 1000, 2000, 4000};
 	
 	public Fleet(int i, Types type, int price) {
 		super(i, type, price);
@@ -29,24 +26,7 @@ public class Fleet extends Ownable{
 	 * many fleets the owner has.
 	 */
 	public int getRent() {
-	switch (getOwner().getProperty().getFleetOwned()){
-	case 1: {
-		return RENT_1;
-	}
-	case 2: {
-		return RENT_2;
-	}
-	case 3: {
-		return RENT_3;
-	}
-	case 4: {
-		return RENT_4;
-	}
-	default: {
-		
-	}
-	}
-		return 0;
+	return RENT[getOwner().getProperty().getFleetOwned()-1];
 	}
 
 	@Override
@@ -69,7 +49,6 @@ public class Fleet extends Ownable{
 			}
 		}else{
 			if(BuyField(player)){
-				player.getProperty().expandFleet();
 				GUI.showMessage(Translator.getString("BOUGHTFIELD", getName(), price));
 			}	
 		}
@@ -78,7 +57,7 @@ public class Fleet extends Ownable{
 	@Override
 	public desktop_fields.Field pushToGUI(int position) {
 		this.position = position;
-		fleet = new desktop_fields.Street.Builder().setRent(String.format("%d, %d, %d, %d", RENT_1, RENT_2, RENT_3, RENT_4)).setBgColor(new Color(144f/255,211f/255, 212f/255)).build();
+		fleet = new desktop_fields.Street.Builder().setRent(String.format("%d, %d, %d, %d", RENT[0], RENT[1], RENT[2], RENT[3])).setBgColor(new Color(144f/255,211f/255, 212f/255)).build();
 		fleet.setTitle(getName());
 		fleet.setDescription(getDescription());
 		fleet.setSubText("" + price);

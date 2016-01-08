@@ -11,7 +11,7 @@ public class Translator {
 		//If not previous set, use default locale(da, DK)
 		if(strings==null)
 		{
-			setLocale(new Locale("en", "GB"));
+			setLocale(new Locale("dk", "DA"));
 		}
 		if(args!=null)
 		{

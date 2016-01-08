@@ -2,7 +2,6 @@ package slots;
 
 import java.awt.Color;
 
-import javax.management.DescriptorKey;
 
 import desktop_resources.GUI;
 import slots.Ownable;
@@ -11,12 +10,12 @@ import game.Player;
 import game.Translator;
 import slots.Field.Types;
 
-public class LaborCamp extends Ownable{
+public class Brewery extends Ownable{
 
 	private int baseRent;
 	desktop_fields.Street LaborCamp;
 	
-	public LaborCamp(int i, Types type, int price, int baseRent) {
+	public Brewery(int i, Types type, int price, int baseRent) {
 		super(i, type, price);
 		this.baseRent = baseRent;
 	}
@@ -40,7 +39,7 @@ public class LaborCamp extends Ownable{
 			{
 				GUI.getUserButtonPressed(Translator.getString("LABORCAMP"), Translator.getString("ROLL"));
 				DiceResult res = player.getDice().rollDice();
-				int price = res.getSum() * 100 * getOwner().getProperty().getLaborCampOwned();
+				int price = res.getSum() * 100 * getOwner().getProperty().getBreweriesOwned();
 				GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
 				GUI.showMessage(Translator.getString("LABORCAMPCONCLUSION", res.getSum(), price));
 				player.getAccount().transferTo(getOwner().getAccount(), price);
@@ -49,7 +48,6 @@ public class LaborCamp extends Ownable{
 			}
 		}else{
 			if(BuyField(player)){
-				player.getProperty().expandLaborCamp();
 				GUI.showMessage(Translator.getString("BOUGHTFIELD", getName(), price));
 			}	
 		}

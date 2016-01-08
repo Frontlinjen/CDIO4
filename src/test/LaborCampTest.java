@@ -11,7 +11,7 @@ public class LaborCampTest {
 
 	@Test
 	public void testGetRent() {
-		LaborCamp laborCamp = new LaborCamp(1, Types.LABORCAMP, 2500, 100);
+		Brewery laborCamp = new Brewery(1, Types.LABORCAMP, 2500, 100);
 		
 		Player player1 = new Player("Test1");
 		Player player2 = new Player("Test2");
