@@ -7,13 +7,13 @@ import org.junit.Test;
 import game.Player;
 import slots.Tax;
 import slots.Field.Types;
-import slots.Refuge;
+import slots.ParkingLot;
 
 public class RefugeTest {
 
 	@Test
 	public void test() {
-		Refuge refuge = new Refuge (1, Types.REFUGE, 5000);
+		ParkingLot refuge = new ParkingLot (1, Types.REFUGE, 5000);
 
 		Player player = new Player("Test");
 
