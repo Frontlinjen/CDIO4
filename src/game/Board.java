@@ -10,7 +10,7 @@ import javax.swing.Icon;
 
 import desktop_codebehind.Car;
 import desktop_resources.GUI;
-import slots.Ownable;
+import slots.OwnableController;
 import utilities.ShuffleBag;
 
 public class Board {
@@ -132,7 +132,7 @@ public class Board {
 			//Board goes from 1-21, while our array goes from 0-20, hence we subtract 1
 			slots.getField(currentPlayer.getPosition()-1).landOnField(currentPlayer);
 			if (currentPlayer.getAccount().getGold() <= 0) {
-				Iterator<Ownable> iterator = currentPlayer.getProperty().getPropertiesOwned();
+				Iterator<OwnableController> iterator = currentPlayer.getProperty().getPropertiesOwned();
 				while(iterator.hasNext()){
 					iterator.next().removeOwner();
 				}

@@ -1,8 +1,8 @@
 package game;
 
-import slots.Brewery;
+import slots.BreweryController;
 import slots.Fleet;
-import slots.Ownable;
+import slots.OwnableController;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,14 +13,14 @@ public class Property {
  * 'Expand' adds an additional fleet/breweries, when the plays buys on of them
  */
 
-	private List<slots.Ownable> properties = new ArrayList<slots.Ownable>();
+	private List<slots.OwnableController> properties = new ArrayList<slots.OwnableController>();
 	
 	 
-	public Iterator<Ownable> getPropertiesOwned()
+	public Iterator<OwnableController> getPropertiesOwned()
 	{
 		return properties.iterator();
 	}
-	public void addProperty(Ownable p)
+	public void addProperty(OwnableController p)
 	{
 		properties.add(p);
 	}
@@ -33,7 +33,7 @@ public class Property {
 		int breweriesOwned = 0;
 		for(int i = 0; i<=properties.size(); i++)
 		{
-			if(properties.get(i) instanceof Brewery)
+			if(properties.get(i) instanceof BreweryController)
 			{
 				breweriesOwned++;
 			}

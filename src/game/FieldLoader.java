@@ -56,7 +56,7 @@ public class FieldLoader {
 		}
 	}
 	
-	private static Territory parseTerritory(Element e) throws Exception
+	private static TerritoryData parseTerritory(Element e) throws Exception
 	{
 		System.out.println("Parsing territory...");
 		try
@@ -67,7 +67,7 @@ public class FieldLoader {
 			int translateID = parseInteger(translateNode);
 			int rent = parseInteger(rentNode);
 			int price = parseInteger(priceNode);
-			return new Territory(translateID,price, rent);
+			return new TerritoryData(translateID,price, rent);
 		}
 		catch(Exception exc)
 		{
@@ -75,7 +75,7 @@ public class FieldLoader {
 		}
 		
 	}
-	private static ParkingLot parseRefuge(Element e) throws Exception
+	private static ParkinglotData parseRefuge(Element e) throws Exception
 	{
 		System.out.println("Parsing refuge...");
 		try {
@@ -84,7 +84,7 @@ public class FieldLoader {
 			Node bonusNode = getUnique(e, "bonus");
 			int translateID = parseInteger(translateNode);
 			int bonus = parseInteger(bonusNode);
-			return new ParkingLot(translateID, bonus);
+			return new ParkinglotData(translateID, bonus);
 			
 		} catch (Exception exc) {
 			
@@ -93,7 +93,7 @@ public class FieldLoader {
 		}
 		
 	}
-	private static Brewery parseLaborCamp(Element e) throws Exception
+	private static BreweryController parseLaborCamp(Element e) throws Exception
 	{
 		System.out.println("Parsing labotCamp...");
 		try {
@@ -103,7 +103,7 @@ public class FieldLoader {
 			int translateID = parseInteger(translateNode);
 			int rent = parseInteger(rentNode);
 			int price = parseInteger(priceNode);
-			return new Brewery(translateID, price, rent);
+			return new BreweryController(translateID, price, rent);
 			
 		} catch (Exception exc) {
 			
@@ -111,7 +111,7 @@ public class FieldLoader {
 		
 		}
 	}
-	private static Tax parseTax(Element e) throws Exception
+	private static TaxData parseTax(Element e) throws Exception
 	{
 		System.out.println("Parsing tax...");
 		try {
@@ -121,7 +121,7 @@ public class FieldLoader {
 			int translateID = parseInteger(translateNode);
 			int tax = parseInteger(taxNode);
 			int taxPercentage = parseInteger(taxPercentageNode); 
-			return new Tax(translateID, tax, taxPercentage);
+			return new TaxData(translateID, tax, taxPercentage);
 			
 		} catch (Exception exc) {
 			
@@ -147,7 +147,7 @@ public class FieldLoader {
 		
 		}
 	}
-	static public Field[] parseFields(String path)
+	static public FieldController[] parseFields(String path)
 	{
 		File fieldFile;
 		try{
@@ -166,7 +166,7 @@ public class FieldLoader {
 				 * Parses over the fields in the XML document, seperated by types. 
 				 */
 				NodeList fieldNodes = fields.getElementsByTagName("field");
-				List<Field> fieldList = new ArrayList<Field>();
+				List<FieldController> fieldList = new ArrayList<FieldController>();
 				for(int index=0;index < fieldNodes.getLength();++index)
 				{
 					Node node = fieldNodes.item(index);
@@ -178,31 +178,31 @@ public class FieldLoader {
 						{
 							case "territory":
 							{
-								Field f = parseTerritory(element);
+								FieldController f = parseTerritory(element);
 								fieldList.add(f);
 								break;
 							}
 							case "refuge":
 							{
-								Field f = parseRefuge(element);
+								FieldController f = parseRefuge(element);
 								fieldList.add(f);
 								break;
 							}
 							case "laborCamp":
 							{
-								Field f = parseLaborCamp(element);
+								FieldController f = parseLaborCamp(element);
 								fieldList.add(f);
 								break;
 							}
 							case "tax":
 							{
-								Field f = parseTax(element);
+								FieldController f = parseTax(element);
 								fieldList.add(f);
 								break;
 							}
 							case "fleet":
 							{
-								Field f = parseFleet(element);
+								FieldController f = parseFleet(element);
 								fieldList.add(f);
 								break;
 								
@@ -210,7 +210,7 @@ public class FieldLoader {
 						}
 					}
 				}
-				Field[] retFields = new Field[fieldList.size()];
+				FieldController[] retFields = new FieldController[fieldList.size()];
 				retFields = fieldList.toArray(retFields);
 				return retFields;
 			}
@@ -231,9 +231,9 @@ public class FieldLoader {
 		
 	}
 	public static void main(String[] args) {
-		Field[] f = FieldLoader.parseFields("Fields.xml");
+		FieldController[] f = FieldLoader.parseFields("Fields.xml");
 		int i=1;
-		for(Field fi : f)
+		for(FieldController fi : f)
 		{
 			System.out.println(fi.getName()+ " " + i++);
 			System.out.println(fi.getDescription());
