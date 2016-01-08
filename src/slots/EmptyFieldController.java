@@ -2,9 +2,9 @@ package slots;
 
 import game.Player;
 
-public class EmptyField extends Field{
+public class EmptyFieldController extends Field{
 
-	public EmptyField(int i, Types type) {
+	public EmptyFieldController(int i, Types type) {
 		super(i, type);
 		
 	}
@@ -17,7 +17,7 @@ public class EmptyField extends Field{
 
 	@Override
 	public String toString() {
-		return "EmptyField";
+		return "EmptyFieldController";
 }
 	
 }
