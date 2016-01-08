@@ -7,6 +7,7 @@ public class DiceCup {
 
 	private int[] diceArray;
 	private Random rGen = new Random(System.currentTimeMillis());
+	private int[] latestRoll;
 	
 	public DiceCup(int numberOfDice){
 		
@@ -22,6 +23,7 @@ public class DiceCup {
  */
 			
 			for(int i=0; i < diceArray.length; i++){
+				latestRoll = diceArray;
 				diceArray[i] = rGen.nextInt(6)+1;
 			}
 			return new DiceResult(diceArray);
