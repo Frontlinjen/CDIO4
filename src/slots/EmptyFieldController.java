@@ -1,12 +1,11 @@
 package slots;
 
+import desktop_fields.Field;
 import game.Player;
 
 public class EmptyFieldController extends FieldController{
 
-	public EmptyFieldController(int i, Types type) {
-		super(i, type);
-
+	public EmptyFieldController() {
 	}
 
 	@Override
@@ -18,6 +17,12 @@ public class EmptyFieldController extends FieldController{
 	@Override
 	public String toString() {
 		return "EmptyFieldController";
+	}
+
+	@Override
+	public Field pushToGUI(int position) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
