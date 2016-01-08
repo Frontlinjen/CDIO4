@@ -11,12 +11,12 @@ import game.Player;
 import game.Translator;
 import slots.Field.Types;
 
-public class LaborCamp extends Ownable{
+public class Brewery extends Ownable{
 
 	private int baseRent;
 	desktop_fields.Street LaborCamp;
 	
-	public LaborCamp(int i, Types type, int price, int baseRent) {
+	public Brewery(int i, Types type, int price, int baseRent) {
 		super(i, type, price);
 		this.baseRent = baseRent;
 	}
