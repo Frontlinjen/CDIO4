@@ -12,9 +12,10 @@ public class Tax extends Field{
 	private int taxRate = -1;
 	desktop_fields.Tax tax;
 	
-	public Tax(int i, Types type, int price) {
+	public Tax(int i, Types type, int price, int taxPercentage) {
 		super(i, type);
 		this.taxAmount = price;
+		taxRate = taxPercentage;
 	}
 
 	@Override
@@ -23,12 +24,17 @@ public class Tax extends Field{
 		 * Player lands on Tax and has to pay, either a flat amount or
 		 * a percentage of his fortune. 
 		 */
+		if (taxRate == 0){
+			GUI.getUserButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxAmount));
+		}
+		else {
 		tax.displayOnCenter();
-		if (GUI.getUserLeftButtonPressed(Translator.getString("LANDONTAX"), Translator.getString("TAX%"), Translator.getString("TAXCASH",taxAmount))) {
-			player.getAccount().withdraw((player.getAccount().getGold()/10));
+		if (GUI.getUserLeftButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxRate) , Integer.toString(taxAmount))) {
+			player.getAccount().withdraw(taxRate);
 		}
 		else {
 			player.getAccount().withdraw(taxAmount);
+		}
 		}
 	}
 
