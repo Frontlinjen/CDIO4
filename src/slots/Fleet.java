@@ -49,7 +49,6 @@ public class Fleet extends Ownable{
 			}
 		}else{
 			if(BuyField(player)){
-				player.getProperty().expandFleet();
 				GUI.showMessage(Translator.getString("BOUGHTFIELD", getName(), price));
 			}	
 		}

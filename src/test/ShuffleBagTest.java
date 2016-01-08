@@ -1,6 +1,7 @@
 package test;
 import game.*;
 import slots.Field;
+import utilities.ShuffleBag;
 
 import static org.junit.Assert.*;
 import org.junit.Test;

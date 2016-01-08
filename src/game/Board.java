@@ -11,6 +11,7 @@ import javax.swing.Icon;
 import desktop_codebehind.Car;
 import desktop_resources.GUI;
 import slots.Ownable;
+import utilities.ShuffleBag;
 
 public class Board {
 	private GameBoard slots = new GameBoard();
