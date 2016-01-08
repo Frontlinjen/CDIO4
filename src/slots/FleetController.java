@@ -16,7 +16,7 @@ public class FleetController extends OwnableController{
 	}
 	@Override
 	public void landOnField(Player player) {
-		
+
 		fleet.displayOnCenter();
 		/**
 		 * Player lands on a fleet.
@@ -53,6 +53,6 @@ public class FleetController extends OwnableController{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
-	
+
+
 }

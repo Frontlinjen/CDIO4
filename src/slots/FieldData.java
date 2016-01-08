@@ -6,9 +6,9 @@ public class FieldData {
 	private int translateID;
 	protected int position;
 
-		
-	
-	
+
+
+
 	public FieldData(int i){
 		translateID = i;
 	}
