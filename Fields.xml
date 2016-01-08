@@ -5,6 +5,7 @@
 	</field>
 	<field type="Territory">
 		<translateID>2</translateID>
+		<groupID>1</groupID>
 		<rent>50</rent>
 		<price>1200</price>
 	</field>
@@ -12,6 +13,7 @@
 	</field>
 	<field type="Territory">
 		<translateID>4</translateID>
+		<groupID>1</groupID>
 		<rent>50</rent>
 		<price>1200</price>
 	</field>
@@ -25,6 +27,7 @@
 	</field>
 	<field type="Territory">
 		<translateID>7</translateID>
+		<groupID>2</groupID>
 		<rent>100</rent>
 		<price>2000</price>
 	</field>
@@ -32,11 +35,13 @@
 	</field>
 	<field type="Territory">
 		<translateID>9</translateID>
+		<groupID>2</groupID>
 		<rent>100</rent>
 		<price>2000</price>
 	</field>
 	<field type="Territory">
 		<translateID>10</translateID>
+		<groupID>2</groupID>
 		<rent>150</rent>
 		<price>2400</price>
 	</field>
@@ -45,6 +50,7 @@
 	</field>
 	<field type="Territory">
 		<translateID>12</translateID>
+		<groupID>3</groupID>
 		<rent>200</rent>
 		<price>2800</price>
 	</field>
@@ -54,11 +60,13 @@
 	</field>
 	<field type="Territory">
 		<translateID>14</translateID>
+		<groupID>3</groupID>
 		<rent>200</rent>
 		<price>2800</price>
 	</field>
 	<field type="Territory">
 		<translateID>15</translateID>
+		<groupID>3</groupID>
 		<rent>250</rent>
 		<price>3200</price>
 	</field>
@@ -68,6 +76,7 @@
 	</field>
 	<field type="Territory">
 		<translateID>17</translateID>
+		<groupID>4</groupID>
 		<rent>300</rent>
 		<price>3600</price>
 	</field>
@@ -75,11 +84,13 @@
 	</field>
 	<field type="Territory">
 		<translateID>19</translateID>
+		<groupID>4</groupID>
 		<rent>300</rent>
 		<price>3600</price>
 	</field>
 	<field type="Territory">
 		<translateID>20</translateID>
+		<groupID>4</groupID>
 		<rent>350</rent>
 		<price>4000</price>
 	</field>
@@ -89,6 +100,7 @@
 	</field>
 	<field type="Territory">
 		<translateID>22</translateID>
+		<groupID>5</groupID>
 		<rent>350</rent>
 		<price>4400</price>
 	</field>
@@ -96,11 +108,13 @@
 	</field>
 	<field type="Territory">
 		<translateID>24</translateID>
+		<groupID>5</groupID>
 		<rent>350</rent>
 		<price>440</price>
 	</field>
 	<field type="Territory">
 		<translateID>25</translateID>
+		<groupID>5</groupID>
 		<rent>400</rent>
 		<price>4800</price>
 	</field>
@@ -110,11 +124,13 @@
 	</field>
 	<field type="Territory">
 		<translateID>27</translateID>
+		<groupID>6</groupID>
 		<rent>450</rent>
 		<price>5200</price>
 	</field>
 	<field type="Territory">
 		<translateID>28</translateID>
+		<groupID>6</groupID>
 		<rent>450</rent>
 		<price>5200</price>
 	</field>
@@ -124,6 +140,7 @@
 	</field>
 	<field type="Territory">
 		<translateID>30</translateID>
+		<groupID>6</groupID>
 		<rent>500</rent>
 		<price>5600</price>
 	</field>
@@ -132,11 +149,13 @@
 	</field>
 	<field type="Territory">
 		<translateID>32</translateID>
+		<groupID>7</groupID>
 		<rent>550</rent>
 		<price>6000</price>
 	</field>
 	<field type="Territory">
 		<translateID>33</translateID>
+		<groupID>7</groupID>
 		<rent>550</rent>
 		<price>6000</price>
 	</field>
@@ -144,6 +163,7 @@
 	</field>
 	<field type="Territory">
 		<translateID>35</translateID>
+		<groupID>7</groupID>
 		<rent>600</rent>
 		<price>6400</price>
 	</field>
@@ -155,6 +175,7 @@
 	</field>
 	<field type="Territory">
 		<translateID>38</translateID>
+		<groupID>8</groupID>
 		<rent>700</rent>
 		<price>7000</price>
 	</field>
@@ -164,6 +185,7 @@
 	</field>
 	<field type="Territory">
 		<translateID>40</translateID>
+		<groupID>8</groupID>
 		<rent>1000</rent>
 		<price>8000</price>
 	</field>
