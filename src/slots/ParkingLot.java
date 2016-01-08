@@ -39,7 +39,7 @@ public class ParkingLot extends Field{
 	
 	@Override
 	public String toString() {
-		return "Refuge [refuge=" + parkingLot + ", bonus=" + bonus + ", position=" + position
+		return "ParkingLot [parkingLot=" + parkingLot + ", bonus=" + bonus + ", position=" + position
 				+ ", getName()=" + getName() + ", getPosition()=" + getPosition() + "]";
 	}
 }
