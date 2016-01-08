@@ -1,5 +1,29 @@
 package game;
 
-public class Inmate {
+import desktop_resources.GUI;
 
+public class Inmate {
+	private int days;
+	private Player player;
+	
+	public Inmate(int d, Player p)
+	{
+		days = d;
+		player = p;
+	}
+	
+	public int getDaysLeft()
+	{
+		return days;
+	}
+	
+	public void decreaseDaysLeft()
+	{
+		days--;
+	}
+	
+	public boolean isPlayer(Player p)
+	{
+		return p==player;
+	}
 }
