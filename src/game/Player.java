@@ -39,12 +39,14 @@ public class Player {
 	}
 	
 	public void move (int afstand){
-		final int ANTALSLOTS = 21;
+		final int ANTALSLOTS = 40;
+		final int STARTBONUS = 4000;
 		position += afstand; 
 		//add the moved distance to the old position.
 		
 		if(position > ANTALSLOTS){ 
 			position -= ANTALSLOTS;
+			account.addGold(STARTBONUS);
 	/**
 	 * Decide wether or not the new position exeeds the board.
 	 * If it does, it take the amount of fields from the position
