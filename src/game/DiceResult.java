@@ -50,15 +50,23 @@ public class DiceResult
 		return dice.length;
 	}
 	
-	public boolean isEqual(){
+	public boolean areDiceEqual(){
 		if(getDiceAmount() < 2)
 			return true;
 		else{
 		for(int i = 1; i < getDiceAmount(); i++){
-			if(dice[i]!=dice[i-1])
+			if(dice[i] != dice[i-1])
 				return false;
 			}
 		}
+		return true;
+	}
+	
+	public boolean areRollsEqual(DiceResult res){
+		for(int i = 0; i < getDiceAmount(); i++){
+			if(dice[i] != res.getDice(i))
+				return false;
+			}
 		return true;
 	}
 	
