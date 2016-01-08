@@ -6,8 +6,8 @@ import slots.Field;
 
 public abstract class Ownable extends Field{
 
-	public Ownable(int i, Types type, int price) {
-		super(i, type);
+	public Ownable(int i, int price) {
+		super(i);
 		this.price = price;
 	}
 

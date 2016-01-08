@@ -12,8 +12,8 @@ public class Territory extends Ownable{
 	private int rent;
 	desktop_fields.Street territory;
 
-	public Territory(int i, Types type, int price, int rent) {
-		super(i, type,price);
+	public Territory(int i, int price, int rent) {
+		super(i, price);
 		this.rent = rent;
 	}
 

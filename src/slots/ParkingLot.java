@@ -5,7 +5,6 @@ import java.awt.Color;
 import desktop_resources.GUI;
 import game.Player;
 import game.Translator;
-import slots.Field.Types;
 
 public class ParkingLot extends Field{
 
@@ -14,8 +13,8 @@ public class ParkingLot extends Field{
 	desktop_fields.Street parkingLot; 
 	
 	
-	public ParkingLot(int i, Types type, int bonus) {
-		super(i, type);
+	public ParkingLot(int i, int bonus) {
+		super(i);
 		this.bonus = bonus;
 	}
 

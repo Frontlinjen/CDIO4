@@ -8,15 +8,14 @@ import slots.Ownable;
 import game.DiceResult;
 import game.Player;
 import game.Translator;
-import slots.Field.Types;
 
 public class Brewery extends Ownable{
 
 	private int baseRent;
 	desktop_fields.Street LaborCamp;
 	
-	public Brewery(int i, Types type, int price, int baseRent) {
-		super(i, type, price);
+	public Brewery(int i, int price, int baseRent) {
+		super(i, price);
 		this.baseRent = baseRent;
 	}
 

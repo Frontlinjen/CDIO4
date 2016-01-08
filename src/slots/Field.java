@@ -5,19 +5,13 @@ import game.*;
 public abstract class Field {
 
 	private int translateID;
-	private Types type;
 	protected int position;
-	//private String type;
-	
-	public enum Types {
-		TERRITORY, REFUGE, LABORCAMP, TAX, FLEET
-	}
+
 		
 	
 	
-	public Field(int i, Types type){
+	public Field(int i){
 		translateID = i;
-		this.type = type;
 	}
 
 	public String getName() {

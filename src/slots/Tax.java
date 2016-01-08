@@ -12,8 +12,8 @@ public class Tax extends Field{
 	private int taxRate = -1;
 	desktop_fields.Tax tax;
 	
-	public Tax(int i, Types type, int price, int taxPercentage) {
-		super(i, type);
+	public Tax(int i, int price, int taxPercentage) {
+		super(i);
 		this.taxAmount = price;
 		taxRate = taxPercentage;
 	}

@@ -15,7 +15,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import slots.Field.Types;
 
 public class FieldLoader {
 	/**
@@ -68,7 +67,7 @@ public class FieldLoader {
 			int translateID = parseInteger(translateNode);
 			int rent = parseInteger(rentNode);
 			int price = parseInteger(priceNode);
-			return new Territory(translateID, Types.TERRITORY,price, rent);
+			return new Territory(translateID,price, rent);
 		}
 		catch(Exception exc)
 		{
@@ -85,7 +84,7 @@ public class FieldLoader {
 			Node bonusNode = getUnique(e, "bonus");
 			int translateID = parseInteger(translateNode);
 			int bonus = parseInteger(bonusNode);
-			return new ParkingLot(translateID, Types.REFUGE, bonus);
+			return new ParkingLot(translateID, bonus);
 			
 		} catch (Exception exc) {
 			
@@ -104,7 +103,7 @@ public class FieldLoader {
 			int translateID = parseInteger(translateNode);
 			int rent = parseInteger(rentNode);
 			int price = parseInteger(priceNode);
-			return new Brewery(translateID, Types.REFUGE, price, rent);
+			return new Brewery(translateID, price, rent);
 			
 		} catch (Exception exc) {
 			
@@ -122,7 +121,7 @@ public class FieldLoader {
 			int translateID = parseInteger(translateNode);
 			int tax = parseInteger(taxNode);
 			int taxPercentage = parseInteger(taxPercentageNode); 
-			return new Tax(translateID, Types.TAX, tax, taxPercentage);
+			return new Tax(translateID, tax, taxPercentage);
 			
 		} catch (Exception exc) {
 			
@@ -140,7 +139,7 @@ public class FieldLoader {
 			int translateID = parseInteger(translateNode);
 			int price = parseInteger(priceNode);
 			
-			return new Fleet(translateID, Types.REFUGE, price);
+			return new Fleet(translateID, price);
 			
 		} catch (Exception exc) {
 			
