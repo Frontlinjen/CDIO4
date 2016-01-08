@@ -2,7 +2,6 @@
 <fields>
 	<field type="Empty">
 		<translateID>1</translateID>
-		<bonus>4000</bonus>
 	</field>
 	<field type="Territory">
 		<translateID>2</translateID>
@@ -41,7 +40,7 @@
 		<rent>150</rent>
 		<price>2400</price>
 	</field>
-	<field type="Prison">
+	<field type="Empty">
 		<translateID>11</translateID>
 	</field>
 	<field type="Territory">
