@@ -74,7 +74,7 @@ public class FieldLoader {
 		}
 		
 	}
-	private static Refuge parseRefuge(Element e) throws Exception
+	private static ParkingLot parseRefuge(Element e) throws Exception
 	{
 		System.out.println("Parsing refuge...");
 		try {
@@ -83,7 +83,7 @@ public class FieldLoader {
 			Node bonusNode = getUnique(e, "bonus");
 			int translateID = parseInteger(translateNode);
 			int bonus = parseInteger(bonusNode);
-			return new Refuge(translateID, Types.REFUGE, bonus);
+			return new ParkingLot(translateID, Types.REFUGE, bonus);
 			
 		} catch (Exception exc) {
 			
