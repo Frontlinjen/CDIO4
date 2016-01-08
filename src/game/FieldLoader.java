@@ -2,9 +2,11 @@ package game;
 import slots.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -74,7 +76,7 @@ public class FieldLoader {
 		}
 		
 	}
-	private static Refuge parseRefuge(Element e) throws Exception
+	private static ParkingLot parseRefuge(Element e) throws Exception
 	{
 		System.out.println("Parsing refuge...");
 		try {
@@ -83,7 +85,7 @@ public class FieldLoader {
 			Node bonusNode = getUnique(e, "bonus");
 			int translateID = parseInteger(translateNode);
 			int bonus = parseInteger(bonusNode);
-			return new Refuge(translateID, Types.REFUGE, bonus);
+			return new ParkingLot(translateID, Types.REFUGE, bonus);
 			
 		} catch (Exception exc) {
 			
@@ -116,9 +118,11 @@ public class FieldLoader {
 		try {
 			Node translateNode = getUnique(e, "translateID");
 			Node taxNode = getUnique(e, "tax");
+			Node taxPercentageNode = getUnique(e, "taxPercentage");
 			int translateID = parseInteger(translateNode);
 			int tax = parseInteger(taxNode);
-			return new Tax(translateID, Types.TAX, tax);
+			int taxPercentage = parseInteger(taxPercentageNode); 
+			return new Tax(translateID, Types.TAX, tax, taxPercentage);
 			
 		} catch (Exception exc) {
 			
@@ -146,74 +150,83 @@ public class FieldLoader {
 	}
 	static public Field[] parseFields(String path)
 	{
-		try
-		{
+		File fieldFile;
+		try{
 			//Does not need to be closed, as it just represents a path to the file. 
 			//the actual read/writing is done by the XMLparser. 
-			File fieldFile = new File(path);
-			System.out.println(fieldFile.getAbsolutePath());
-			//No need to store the DocumentBuilderFactory instance as we are using default settings:
-			DocumentBuilder XMLparser = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-			Document fields = XMLparser.parse(fieldFile);
-			
-			/***
-			 * Parses over the fields in the XML document, seperated by types. 
-			 */
-			NodeList fieldNodes = fields.getElementsByTagName("field");
-			List<Field> fieldList = new ArrayList<Field>();
-			for(int index=0;index < fieldNodes.getLength();++index)
+			fieldFile = new File(path);
+			try
 			{
-				Node node = fieldNodes.item(index);
-				//Saveguard to check if the node actually is an element and not a comment, etc. 
-				if(node.getNodeType()==Node.ELEMENT_NODE)
+				
+				System.out.println(fieldFile.getAbsolutePath());
+				//No need to store the DocumentBuilderFactory instance as we are using default settings:
+				DocumentBuilder XMLparser = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+				Document fields = XMLparser.parse(fieldFile);
+				
+				/***
+				 * Parses over the fields in the XML document, seperated by types. 
+				 */
+				NodeList fieldNodes = fields.getElementsByTagName("field");
+				List<Field> fieldList = new ArrayList<Field>();
+				for(int index=0;index < fieldNodes.getLength();++index)
 				{
-					Element element = (Element)node;
-					switch(element.getAttribute("type"))
+					Node node = fieldNodes.item(index);
+					//Saveguard to check if the node actually is an element and not a comment, etc. 
+					if(node.getNodeType()==Node.ELEMENT_NODE)
 					{
-						case "territory":
+						Element element = (Element)node;
+						switch(element.getAttribute("type"))
 						{
-							Field f = parseTerritory(element);
-							fieldList.add(f);
-							break;
-						}
-						case "refuge":
-						{
-							Field f = parseRefuge(element);
-							fieldList.add(f);
-							break;
-						}
-						case "laborCamp":
-						{
-							Field f = parseLaborCamp(element);
-							fieldList.add(f);
-							break;
-						}
-						case "tax":
-						{
-							Field f = parseTax(element);
-							fieldList.add(f);
-							break;
-						}
-						case "fleet":
-						{
-							Field f = parseFleet(element);
-							fieldList.add(f);
-							break;
-							
+							case "territory":
+							{
+								Field f = parseTerritory(element);
+								fieldList.add(f);
+								break;
+							}
+							case "refuge":
+							{
+								Field f = parseRefuge(element);
+								fieldList.add(f);
+								break;
+							}
+							case "laborCamp":
+							{
+								Field f = parseLaborCamp(element);
+								fieldList.add(f);
+								break;
+							}
+							case "tax":
+							{
+								Field f = parseTax(element);
+								fieldList.add(f);
+								break;
+							}
+							case "fleet":
+							{
+								Field f = parseFleet(element);
+								fieldList.add(f);
+								break;
+								
+							}
 						}
 					}
 				}
+				Field[] retFields = new Field[fieldList.size()];
+				retFields = fieldList.toArray(retFields);
+				return retFields;
 			}
-			Field[] retFields = new Field[fieldList.size()];
-			retFields = fieldList.toArray(retFields);
-			return retFields;
+			catch(IOException fileEx)
+			{
+				JOptionPane.showMessageDialog(desktop_board.Board.getInstance().getComponent(0), "File not found at: " + fieldFile.getAbsolutePath() + "\nPlease restore the file or the board cannot be created.", "Critical error accoured", JOptionPane.ERROR_MESSAGE);
+				return null;	
+			}
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 			return null;
 		}
-		 
+		
 		
 		
 		

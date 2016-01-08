@@ -49,6 +49,27 @@ public class DiceResult
 	public int getDiceAmount(){
 		return dice.length;
 	}
+	
+	public boolean areDiceEqual(){
+		if(getDiceAmount() < 2)
+			return true;
+		else{
+		for(int i = 1; i < getDiceAmount(); i++){
+			if(dice[i] != dice[i-1])
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public boolean areRollsEqual(DiceResult res){
+		for(int i = 0; i < getDiceAmount(); i++){
+			if(dice[i] != res.getDice(i))
+				return false;
+			}
+		return true;
+	}
+	
 	@Override
 	public String toString() {
 		return "DiceResult [dice=" + Arrays.toString(dice) + ", getSum()=" + getSum() + ", getDiceAmount()="
