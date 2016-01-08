@@ -92,7 +92,7 @@ public class FieldLoader {
 		}
 		
 	}
-	private static LaborCamp parseLaborCamp(Element e) throws Exception
+	private static Brewery parseLaborCamp(Element e) throws Exception
 	{
 		System.out.println("Parsing labotCamp...");
 		try {
@@ -102,7 +102,7 @@ public class FieldLoader {
 			int translateID = parseInteger(translateNode);
 			int rent = parseInteger(rentNode);
 			int price = parseInteger(priceNode);
-			return new LaborCamp(translateID, Types.REFUGE, price, rent);
+			return new Brewery(translateID, Types.REFUGE, price, rent);
 			
 		} catch (Exception exc) {
 			
