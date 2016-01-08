@@ -116,8 +116,10 @@ public class FieldLoader {
 		try {
 			Node translateNode = getUnique(e, "translateID");
 			Node taxNode = getUnique(e, "tax");
+			Node taxPercentageNode = getUnique(e, "taxPercentage");
 			int translateID = parseInteger(translateNode);
 			int tax = parseInteger(taxNode);
+			int taxPercentage = parseInteger(taxPercentageNode); 
 			return new Tax(translateID, Types.TAX, tax);
 			
 		} catch (Exception exc) {
