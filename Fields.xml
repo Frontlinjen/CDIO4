@@ -10,7 +10,6 @@
 		<price>1200</price>
 	</field>
 	<field type="ChanceField">
-		<translateID>3</translateID>
 	</field>
 	<field type="Territory">
 		<translateID>4</translateID>
@@ -31,7 +30,6 @@
 		<price>2000</price>
 	</field>
 	<field type="ChanceField">
-		<translateID>8</translateID>
 	</field>
 	<field type="Territory">
 		<translateID>9</translateID>
@@ -75,7 +73,6 @@
 		<price>3600</price>
 	</field>
 	<field type="ChanceField">
-		<translateID>18</translateID>
 	</field>
 	<field type="Territory">
 		<translateID>19</translateID>
@@ -97,7 +94,6 @@
 		<price>4400</price>
 	</field>
 	<field type="ChanceField">
-		<translateID>23</translateID>
 	</field>
 	<field type="Territory">
 		<translateID>24</translateID>
@@ -146,7 +142,6 @@
 		<price>6000</price>
 	</field>
 	<field type="ChanceField">
-		<translateID>34</translateID>
 	</field>
 	<field type="Territory">
 		<translateID>35</translateID>
@@ -158,7 +153,6 @@
 		<price>4000</price>
 	</field>
 	<field type="ChanceField">
-		<translateID>37</translateID>
 	</field>
 	<field type="Territory">
 		<translateID>38</translateID>
