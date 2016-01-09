@@ -11,25 +11,29 @@ public abstract class OwnableController extends FieldController{
 	{
 		ownableData = dat;
 	}
-	public abstract int getRent();
+	//TODO: Implement this so that it takes the amount of houses on this propery into account	
+	public int getRent()
+	{
+		return 0;
+	}
 
 	public void removeOwner()
 	{
-		this.owner = null;
-		GUI.removeOwner(getPosition());
+		ownableData.removeOwner();
+		GUI.removeOwner(ownableData.getPosition());
 
 	}
 	public void setOwner(Player owner) {
 		/**
 		 * General way to make the buyer of a field the owner.
 		 */
-		System.out.println(getName() + " now has " + owner.getName() + " as their owner" + " at slot " + getPosition());
-		this.owner = owner;
-		GUI.setOwner(getPosition(), owner.getName());
+		System.out.println(ownableData.getName() + " now has " + owner.getName() + " as their owner" + " at slot " + ownableData.getPosition());
+		ownableData.setOwner(owner);
+		GUI.setOwner(ownableData.getPosition(), owner.getName());
 	}
 	public boolean hasOwner()
 	{
-		return(getOwner()!=null);
+		return(ownableData.getOwner()!=null);
 	}
 
 	public boolean BuyField (Player visitor){
@@ -37,8 +41,8 @@ public abstract class OwnableController extends FieldController{
 		 * General purchase procedure, with a withdrawal of money
 		 * and a call to setOwner if the withdraw was completed.
 		 */
-		if(GUI.getUserLeftButtonPressed(Translator.getString("BUYFIELD", price), Translator.getString("YES"), Translator.getString("NO"))){
-			if(visitor.getAccount().withdraw(price)){
+		if(GUI.getUserLeftButtonPressed(Translator.getString("BUYFIELD", ownableData.getPrice()), Translator.getString("YES"), Translator.getString("NO"))){
+			if(visitor.getAccount().withdraw(ownableData.getPosition())){
 				setOwner(visitor);
 				visitor.getProperty().addProperty(this);
 				return true;
@@ -55,6 +59,6 @@ public abstract class OwnableController extends FieldController{
 
 	@Override
 	public String toString() {
-		return "Ownable [price=" + price + ", owner=" + owner + "]";
+		return "Ownable [price=" + ownableData.getPrice() + ", owner=" + ownableData.getOwner() + "]";
 	}
 }

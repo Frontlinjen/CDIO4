@@ -8,7 +8,6 @@ import slots.OwnableController;
 import game.DiceResult;
 import game.Player;
 import game.Translator;
-import slots.FieldController.Types;
 
 public class BreweryData extends OwnableData{
 

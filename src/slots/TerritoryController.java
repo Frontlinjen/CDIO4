@@ -12,7 +12,7 @@ public class TerritoryController extends OwnableController {
 
 	TerritoryController(TerritoryData data)
 	{
-		super((OwnableData)data);
+		super(data);
 		territoryData = data;
 
 	}
@@ -26,29 +26,30 @@ public class TerritoryController extends OwnableController {
 		territory.displayOnCenter();
 		if(hasOwner())
 		{
-			if(getOwner()!=player)
+			if(territoryData.getOwner()!=player)
 			{
-				GUI.showMessage(Translator.getString("PAYTHEOWNER", rent));
-				player.getAccount().transferTo(getOwner().getAccount(), rent);
+				GUI.showMessage(Translator.getString("PAYTHEOWNER", territoryData.getRent()));
+				player.getAccount().transferTo(territoryData.getOwner().getAccount(), territoryData.getRent());
 			}else{
 				GUI.showMessage(Translator.getString("YOURFIELD"));
 			}
 		}else{
 			if(BuyField(player)){
-				GUI.showMessage(Translator.getString("BOUGHTFIELD", getName(), price));
+				GUI.showMessage(Translator.getString("BOUGHTFIELD", territoryData.getName(), territoryData.getPrice()));
 			}
 		}
 	}
 
 	@Override
 	public desktop_fields.Field pushToGUI(int position) {
-		this.position = position;
-		territory = new desktop_fields.Street.Builder().setRent(rent+"").setBgColor(new Color(68f/255, 255f/255, 43f/255)).build();
-		territory.setDescription(this.getDescription());
-		territory.setTitle(this.getName());
-		territory.setSubText(this.price+"");
+		territoryData.setPosition(position);
+		territory = new desktop_fields.Street.Builder().setRent(Integer.toString(territoryData.getRent())).setBgColor(new Color(68f/255, 255f/255, 43f/255)).build();
+		territory.setDescription(territoryData.getDescription());
+		territory.setTitle(territoryData.getName());
+		territory.setSubText(Integer.toString(territoryData.getPrice()));
 		return territory;
 	}
+
 
 
 }

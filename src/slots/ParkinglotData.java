@@ -13,6 +13,13 @@ public class ParkinglotData extends FieldData{
 
 
 
+	public int getBonus() {
+		return bonus;
+	}
+
+
+
+
 	public ParkinglotData(int i, int bonus) {
 		super(i);
 		this.bonus = bonus;

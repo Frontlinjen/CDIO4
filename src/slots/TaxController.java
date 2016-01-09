@@ -19,27 +19,27 @@ public class TaxController extends FieldController {
 		 * Player lands on Tax and has to pay, either a flat amount or
 		 * a percentage of his fortune. 
 		 */
-		if (taxRate == 0){
-			GUI.getUserButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxAmount));
+		if (taxData.getTaxRate() == 0){
+			GUI.getUserButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxData.getTaxAmount()));
 		}
 		else {
 			tax.displayOnCenter();
-			if (GUI.getUserLeftButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxRate) , Integer.toString(taxAmount))) {
-				player.getAccount().withdraw(taxRate);
+			if (GUI.getUserLeftButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxData.getTaxRate()) , Integer.toString(taxData.getTaxAmount()))) {
+				player.getAccount().withdraw(taxData.getTaxRate());
 			}
 			else {
-				player.getAccount().withdraw(taxAmount);
+				player.getAccount().withdraw(taxData.getTaxAmount());
 			}
 		}
 	}
 
 	@Override
 	public desktop_fields.Field pushToGUI(int position) {
-		this.position = position;
+		taxData.setPosition(position);
 		tax = new desktop_fields.Tax.Builder().setBgColor(new Color(255f/255, 43f/255, 57f/255)).build();
-		tax.setDescription(this.getDescription());
-		tax.setTitle(this.getName());
-		tax.setSubText(taxAmount + "");
+		tax.setDescription(taxData.getDescription());
+		tax.setTitle(taxData.getName());
+		tax.setSubText(Integer.toString(taxData.getTaxAmount()));
 		return tax;
 	}
 

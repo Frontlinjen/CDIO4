@@ -9,6 +9,7 @@ import game.Translator;
 public class FleetController extends OwnableController{
 	desktop_fields.Street fleet;
 	FleetData fleetData;
+	final int RENT[] = {500, 1000, 2000, 4000};
 	FleetController(FleetData data)
 	{
 		super((OwnableData)data);
@@ -25,27 +26,27 @@ public class FleetController extends OwnableController{
 		 * If the field is not owned, he has the choice to buy it.
 		 */
 		if(hasOwner()){
-			if(getOwner()!=player)
+			if(fleetData.getOwner()!=player)
 			{
 				GUI.showMessage(Translator.getString("PAYTHEOWNER", getRent()));
-				player.getAccount().transferTo(getOwner().getAccount(), getRent());
+				player.getAccount().transferTo(fleetData.getOwner().getAccount(), getRent());
 			}else{
 				GUI.showMessage(Translator.getString("YOURFIELD"));
 			}
 		}else{
 			if(BuyField(player)){
-				GUI.showMessage(Translator.getString("BOUGHTFIELD", getName(), price));
+				GUI.showMessage(Translator.getString("BOUGHTFIELD",fleetData.getName(), fleetData.getPrice()));
 			}	
 		}
 	}
 
 	@Override
 	public desktop_fields.Field pushToGUI(int position) {
-		this.position = position;
+		fleetData.setPosition(position);
 		fleet = new desktop_fields.Street.Builder().setRent(String.format("%d, %d, %d, %d", RENT[0], RENT[1], RENT[2], RENT[3])).setBgColor(new Color(144f/255,211f/255, 212f/255)).build();
-		fleet.setTitle(getName());
-		fleet.setDescription(getDescription());
-		fleet.setSubText("" + price);
+		fleet.setTitle(fleetData.getName());
+		fleet.setDescription(fleetData.getDescription());
+		fleet.setSubText("" + fleetData.price);
 		return fleet;
 	}
 	@Override
