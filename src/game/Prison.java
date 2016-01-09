@@ -19,6 +19,7 @@ public class Prison {
 				/*
 				 * inmate is player
 				 */
+				
 			}
 		}
 	}
@@ -36,12 +37,14 @@ public class Prison {
 	
 	public void advanceDay() {
 		for (int i = 0; i < inmates.length;i++){
+			for (Inmate inmate : inmates){
 			if(inmates[i] != null)
-				inmate[i].decreaseDay();
+				inmate.decreaseDaysLeft();
 		}
 			
 		
 	}
 	
 	
+	}
 }
