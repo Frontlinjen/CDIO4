@@ -129,7 +129,7 @@ public class FieldLoader {
 		
 		}
 	}
-	private static Fleet parseFleet(Element e) throws Exception
+	private static FleetController parseFleet(Element e) throws Exception
 	{
 		System.out.println("Parsing fleet...");
 		try {
@@ -138,8 +138,8 @@ public class FieldLoader {
 			
 			int translateID = parseInteger(translateNode);
 			int price = parseInteger(priceNode);
-			
-			return new Fleet(translateID, price);
+			FleetData newData = new FleetData(translateID, price);
+			return new FleetController(newData);
 			
 		} catch (Exception exc) {
 			

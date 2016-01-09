@@ -7,8 +7,8 @@ import game.Player;
 import game.Translator;
 
 public class ParkinglotController extends FieldController{
-	desktop_fields.Street parkingLot; 
-	ParkinglotData parkinglotData;
+	private desktop_fields.Street parkingLot; 
+	private ParkinglotData parkinglotData;
 	ParkinglotController(ParkinglotData data)
 	{
 		parkinglotData = data;

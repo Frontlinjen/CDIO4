@@ -7,8 +7,8 @@ import game.Player;
 import game.Translator;
 
 public class TerritoryController extends OwnableController {
-	desktop_fields.Street territory;
-	TerritoryData territoryData;
+	private desktop_fields.Street territory;
+	private TerritoryData territoryData;
 
 	TerritoryController(TerritoryData data)
 	{

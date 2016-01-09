@@ -12,7 +12,7 @@ import game.Translator;
 public class BreweryController extends OwnableController{
 
 	private BreweryData breweryData;
-	desktop_fields.Street LaborCamp;
+	private desktop_fields.Street LaborCamp;
 
 	public BreweryController(BreweryData data) {
 		super((OwnableData)data);

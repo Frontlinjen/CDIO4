@@ -7,9 +7,9 @@ import game.Player;
 import game.Translator;
 
 public class FleetController extends OwnableController{
-	desktop_fields.Street fleet;
-	FleetData fleetData;
-	final int RENT[] = {500, 1000, 2000, 4000};
+	private desktop_fields.Street fleet;
+	private FleetData fleetData;
+	private final int RENT[] = {500, 1000, 2000, 4000};
 	FleetController(FleetData data)
 	{
 		super((OwnableData)data);
