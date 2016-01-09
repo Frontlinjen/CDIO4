@@ -28,9 +28,4 @@ public class ParkinglotData extends FieldData{
 
 
 
-	@Override
-	public String toString() {
-		return "ParkingLot [parkingLot=" + parkingLot + ", bonus=" + bonus + ", position=" + position
-				+ ", getName()=" + getName() + ", getPosition()=" + getPosition() + "]";
-	}
 }

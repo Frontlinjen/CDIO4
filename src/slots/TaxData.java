@@ -28,11 +28,4 @@ public class TaxData extends FieldData{
 		taxRate = taxPercentage;
 	}
 
-
-	@Override
-	public String toString() {
-		return "Tax [taxAmount=" + taxAmount + ", tax=" + tax + ", position=" + position
-				+ ", getName()=" + getName() + ", getPosition()= " + getPosition() + "]";
-	}
-
 }
