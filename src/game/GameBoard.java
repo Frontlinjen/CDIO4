@@ -13,10 +13,10 @@ public class GameBoard {
 		
 		System.out.println("Loading board...");
 		fields = FieldLoader.parseFields("Fields.xml");
-		for(FieldController f : fields)
+		/*for(FieldController f : fields)
 		{
 			System.out.println(f.getName());
-		}
+		}*/
 		desktop_fields.Field[] guiFields = new desktop_fields.Field[fields.length];
 		
 		int pos = 1;
