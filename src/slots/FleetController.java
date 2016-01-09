@@ -10,7 +10,7 @@ public class FleetController extends OwnableController{
 	private desktop_fields.Street fleet;
 	private FleetData fleetData;
 	private final int RENT[] = {500, 1000, 2000, 4000};
-	FleetController(FleetData data)
+	public FleetController(FleetData data)
 	{
 		super((OwnableData)data);
 		fleetData = data;

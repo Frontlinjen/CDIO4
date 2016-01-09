@@ -10,7 +10,7 @@ public class TerritoryController extends OwnableController {
 	private desktop_fields.Street territory;
 	private TerritoryData territoryData;
 
-	TerritoryController(TerritoryData data)
+	public TerritoryController(TerritoryData data)
 	{
 		super(data);
 		territoryData = data;

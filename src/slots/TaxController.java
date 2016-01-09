@@ -9,7 +9,7 @@ import game.Translator;
 public class TaxController extends FieldController {
 	private desktop_fields.Tax tax;
 	private TaxData taxData;
-	TaxController(TaxData data)
+	public TaxController(TaxData data)
 	{
 		taxData = data;
 	}

@@ -9,7 +9,7 @@ import game.Translator;
 public class ParkinglotController extends FieldController{
 	private desktop_fields.Street parkingLot; 
 	private ParkinglotData parkinglotData;
-	ParkinglotController(ParkinglotData data)
+	public ParkinglotController(ParkinglotData data)
 	{
 		parkinglotData = data;
 	}

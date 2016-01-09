@@ -7,7 +7,7 @@ import slots.FieldController;
 public abstract class OwnableController extends FieldController{
 	private OwnableData ownableData;
 	private desktop_fields.Street LaborCamp;
-	OwnableController(OwnableData dat)
+	public OwnableController(OwnableData dat)
 	{
 		ownableData = dat;
 	}
