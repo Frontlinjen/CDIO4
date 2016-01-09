@@ -58,6 +58,10 @@ public class Player {
 	public int getPosition(){
 		return position;
 	}
+	
+	public void setPosition(int a){
+		position = a;
+	}
 
 	@Override
 	public String toString() {
