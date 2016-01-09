@@ -56,7 +56,7 @@ public class FieldLoader {
 		}
 	}
 	
-	private static TerritoryData parseTerritory(Element e) throws Exception
+	private static TerritoryController parseTerritory(Element e) throws Exception
 	{
 		System.out.println("Parsing territory...");
 		try
@@ -67,7 +67,8 @@ public class FieldLoader {
 			int translateID = parseInteger(translateNode);
 			int rent = parseInteger(rentNode);
 			int price = parseInteger(priceNode);
-			return new TerritoryData(translateID,price, rent);
+			TerritoryData newData = new TerritoryData(translateID, price, rent);
+			return new TerritoryController(newData);
 		}
 		catch(Exception exc)
 		{
@@ -75,7 +76,7 @@ public class FieldLoader {
 		}
 		
 	}
-	private static ParkinglotData parseRefuge(Element e) throws Exception
+	private static ParkinglotController parseRefuge(Element e) throws Exception
 	{
 		System.out.println("Parsing refuge...");
 		try {
@@ -84,7 +85,8 @@ public class FieldLoader {
 			Node bonusNode = getUnique(e, "bonus");
 			int translateID = parseInteger(translateNode);
 			int bonus = parseInteger(bonusNode);
-			return new ParkinglotData(translateID, bonus);
+			ParkinglotData newData = new ParkinglotData(translateID, bonus);
+			return new ParkinglotController(newData);
 			
 		} catch (Exception exc) {
 			
@@ -103,7 +105,8 @@ public class FieldLoader {
 			int translateID = parseInteger(translateNode);
 			int rent = parseInteger(rentNode);
 			int price = parseInteger(priceNode);
-			return new BreweryController(translateID, price, rent);
+			BreweryData newData = new BreweryData(translateID, price, rent);
+			return new BreweryController(newData);
 			
 		} catch (Exception exc) {
 			
@@ -111,7 +114,7 @@ public class FieldLoader {
 		
 		}
 	}
-	private static TaxData parseTax(Element e) throws Exception
+	private static TaxController parseTax(Element e) throws Exception
 	{
 		System.out.println("Parsing tax...");
 		try {
@@ -121,7 +124,8 @@ public class FieldLoader {
 			int translateID = parseInteger(translateNode);
 			int tax = parseInteger(taxNode);
 			int taxPercentage = parseInteger(taxPercentageNode); 
-			return new TaxData(translateID, tax, taxPercentage);
+			TaxData newData = new TaxData(translateID, tax, taxPercentage);
+			return new TaxController(newData);
 			
 		} catch (Exception exc) {
 			
@@ -138,6 +142,7 @@ public class FieldLoader {
 			
 			int translateID = parseInteger(translateNode);
 			int price = parseInteger(priceNode);
+			
 			FleetData newData = new FleetData(translateID, price);
 			return new FleetController(newData);
 			
@@ -228,16 +233,6 @@ public class FieldLoader {
 		
 		
 		
-		
-	}
-	public static void main(String[] args) {
-		FieldController[] f = FieldLoader.parseFields("Fields.xml");
-		int i=1;
-		for(FieldController fi : f)
-		{
-			System.out.println(fi.getName()+ " " + i++);
-			System.out.println(fi.getDescription());
-		}
 		
 	}
 	
