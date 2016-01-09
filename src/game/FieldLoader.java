@@ -212,6 +212,10 @@ public class FieldLoader {
 								break;
 								
 							}
+							default:
+							{
+								System.out.println("Unknown type: " + element.getAttribute("type") + " detected!");
+							}
 						}
 					}
 				}
