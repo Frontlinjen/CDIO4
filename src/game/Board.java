@@ -123,23 +123,32 @@ public class Board {
 	private void advanceGame()
 	{
 		while(players.size() > 1) {
+			DiceResult res;
+			int timesEq = 0;
 			GUI.getUserButtonPressed(Translator.getString("NEXTTURN", currentPlayer.getName()), Translator.getString("ROLL"));
-			DiceResult res = currentPlayer.getDice().rollDice();
-			currentPlayer.move(res.getSum());
-			GUI.removeAllCars(currentPlayer.getName());
-			GUI.setCar(currentPlayer.getPosition(), currentPlayer.getName());
-			GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
-			//Board goes from 1-21, while our array goes from 0-20, hence we subtract 1
-			slots.getField(currentPlayer.getPosition()-1).landOnField(currentPlayer);
-			if (currentPlayer.getAccount().getGold() <= 0) {
-				Iterator<OwnableController> iterator = currentPlayer.getProperty().getPropertiesOwned();
-				while(iterator.hasNext()){
-					iterator.next().removeOwner();
-				}
-				GUI.showMessage(Translator.getString("LOSINGPLAYER", currentPlayer.getName()));
-				players.remove(currentPlayer);
+			do while(res.areDiceEqual() && timesEq < 3){
+				++timesEq;
+				if(timesEq >= 3){
+					currentPlayer.setPosition(/*fængsel*/);
+					swapPlayers();
+						}
+				res = currentPlayer.getDice().rollDice();
+				currentPlayer.move(res.getSum());
 				GUI.removeAllCars(currentPlayer.getName());
-			}
+				GUI.setCar(currentPlayer.getPosition(), currentPlayer.getName());
+				GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
+				//Board goes from 1-21, while our array goes from 0-20, hence we subtract 1
+				slots.getField(currentPlayer.getPosition()-1).landOnField(currentPlayer);
+				if (currentPlayer.getAccount().getGold() <= 0) {
+					Iterator<OwnableController> iterator = currentPlayer.getProperty().getPropertiesOwned();
+						while(iterator.hasNext()){
+							iterator.next().removeOwner();
+						}
+						GUI.showMessage(Translator.getString("LOSINGPLAYER", currentPlayer.getName()));
+						players.remove(currentPlayer);
+						GUI.removeAllCars(currentPlayer.getName());
+				}
+			} //what do?
 			swapPlayers();
 		}
 	}
