@@ -1,8 +1,6 @@
 package test;
 import game.*;
 import slots.*;
-import slots.FieldController.Types;
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;

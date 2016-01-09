@@ -1,7 +1,7 @@
 package game;
 
 import slots.BreweryController;
-import slots.Fleet;
+import slots.FleetController;
 import slots.OwnableController;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -45,7 +45,7 @@ public class Property {
 		int fleetsOwned = 0;
 		for(int i = 0; i<=properties.size(); i++)
 		{
-			if(properties.get(i) instanceof Fleet)
+			if(properties.get(i) instanceof FleetController)
 				{
 					fleetsOwned++;
 				}
