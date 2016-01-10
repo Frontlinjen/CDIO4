@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cards>
+	<card type="bonus">
+		<translateID>1</translateID>
+		<cash>1000</cash>
+	</card>
+	<card type="bonus">
+		<translateID>2</translateID>
+		<cash>500</cash>
+	</card>
+	<card type="bonus">
+		<translateID>3</translateID>
+		<cash>-3000</cash>
+	</card>
+	<card type="bonus">
+		<translateID>4</translateID>
+		<cash>200</cash>
+	</card>
+	<card type="bonus">
+		<translateID>5</translateID>
+		<cash>-3000</cash>
+	</card>
+	<card type="bonus">
+		<translateID>6</translateID>
+		<cash>-2000</cash>
+	</card>
+	<card type="bonus">
+		<translateID>7</translateID>
+		<cash>3000</cash>
+	</card>
+	<card type="bonus">
+		<translateID>8</translateID>
+		<cash>1000</cash>
+	</card>
+	<card type="bonus">
+		<translateID>9</translateID>
+		<cash>-1000</cash>
+	</card>
+	<card type="bonus">
+		<translateID>10</translateID>
+		<cash>500</cash>
+	</card>
+	<card type="bonus">
+		<translateID>11</translateID>
+		<cash>1000</cash>
+	</card>
+	<card type="bonus">
+		<translateID>12</translateID>
+		<cash>1000</cash>
+	</card>
+	<card type="bonus">
+		<translateID>13</translateID>
+		<cash>-1000</cash>
+	</card>
+	<card type="bonus">
+		<translateID>14</translateID>
+		<cash>-300</cash>
+	</card>
+	<card type="bonus">
+		<translateID>15</translateID>
+		<cash>1000</cash>
+	</card>
+	<card type="bonus">
+		<translateID>16</translateID>
+		<cash>-200</cash>
+	</card>
+	<card type="bonus">
+		<translateID>17</translateID>
+		<cash>-1000</cash>
+	</card>
+	<card type="bonus">
+		<translateID>18</translateID>
+		<cash>1000</cash>
+	</card>
+	<card type="bonus">
+		<translateID>19</translateID>
+		<cash>1000</cash>
+	</card>
+	<card type="bonus">
+		<translateID>20</translateID>
+		<cash>-200</cash>
+	</card>
+	<card type="bonus">
+		<translateID>21</translateID>
+		<cash>-200</cash>
+	</card>
+	<card type="bonus">
+		<translateID>22</translateID>
+		<cash>1000</cash>
+	</card>
+	<card type="outofprison">
+		<translateID>23</translateID>
+	</card>
+	<card type="outofprison">
+		<translateID>24</translateID>
+	</card>
+	<card type="cashtransfer">
+		<translateID>25</translateID>
+		<money>500</money>
+	</card>
+	<card type="cashtransfer">
+		<translateID>26</translateID>
+		<money>500</money>
+	</card>
+	<card type="cashtransfer">
+		<translateID>27</translateID>
+		<money>200</money>
+	</card>
+	<card type="moveplayer">
+		<translateID>28</translateID>
+		<fieldnumber>20</fieldnumber>
+	</card>
+	<card type="moveplayer">
+		<translateID>29</translateID>
+		<fieldnumber>-3</fieldnumber>
+	</card>
+	<card type="moveplayer">
+		<translateID>30</translateID>
+		<fieldnumber>-3</fieldnumber>
+	</card>
+	<card type="moveplayer">
+		<translateID>31</translateID>
+		<fieldnumber>11</fieldnumber>
+	</card>
+	<card type="moveplayer">
+		<translateID>32</translateID>
+		<fieldnumber>11</fieldnumber>
+	</card>
+	<card type="moveplayer">
+		<translateID>33</translateID>
+		<fieldnumber>33</fieldnumber>
+	</card>
+	<card type="moveplayer">
+		<translateID>34</translateID>
+		<fieldnumber>16</fieldnumber>
+	</card>
+	<card type="moveplayer">
+		<translateID>35</translateID>
+		<fieldnumber>38</fieldnumber>
+	</card>
+	<card type="moveplayer">
+		<translateID>36</translateID>
+		<fieldnumber>1</fieldnumber>
+	</card>
+	<card type="moveplayer">
+		<translateID>37</translateID>
+		<fieldnumber>40</fieldnumber>
+	</card>
+	<card type="moveplayer">
+		<translateID>38</translateID>
+		<fieldnumber>25</fieldnumber>
+	</card>
+	<card type="moveplayer">
+		<translateID>28</translateID>
+		<fieldnumber>20</fieldnumber>
+	</card>
+</cards>
