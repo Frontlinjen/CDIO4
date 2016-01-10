@@ -1,10 +1,46 @@
 package game;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.swing.JOptionPane;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public abstract class XMLParser {
+	
+	
+	protected static Document getXMLDocument(String path)
+	{
+		Document fields;
+		try{
+			//Does not need to be closed, as it just represents a path to the file. 
+			//the actual read/writing is done by the XMLparser. 
+			File fieldFile = new File(path);
+			System.out.println(fieldFile.getAbsolutePath());
+			//No need to store the DocumentBuilderFactory instance as we are using default settings:
+			DocumentBuilder XMLparser = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			 fields = = XMLparser.parse(fieldFile);
+			
+		}
+		catch(IOException fileEx)
+		{
+			JOptionPane.showMessageDialog(desktop_board.Board.getInstance().getComponent(0), "File not found at: " + fieldFile.getAbsolutePath() + "\nPlease restore the file or the board cannot be created.", "Critical error accoured", JOptionPane.ERROR_MESSAGE);	
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			return 	fields;
+		}
+	}
 	/**
 	 * Checks if multiple accourances exists within the Element node and prints to the console if true
 	 * @param The element containing the element
