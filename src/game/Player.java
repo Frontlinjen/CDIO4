@@ -7,6 +7,31 @@ public class Player {
 	 */
 	private String name;
 	private int position = 0;
+	private int nextPosition = 0;
+	private boolean cashAtStart = true;
+	public int getNextPosition() {
+		return nextPosition;
+	}
+
+	public void setNextPosition(int nextPosition, boolean passStart) {
+		this.nextPosition = nextPosition;
+		cashAtStart = passStart;
+	}
+	public void moveToNextPosition()
+	{
+		int distance = nextPosition-position;
+		if(distance < 0)
+		{
+			move(distance+40);
+		}
+		else
+		{
+			move(distance);
+		}
+		
+	}
+
+
 	/**
 	 * Each player has their own set of dice which keeps track of their rolls. 
 	 */
@@ -44,14 +69,15 @@ public class Player {
 		position += afstand; 
 		//add the moved distance to the old position.
 		
+		/**
+		 * Decide wether or not the new position exeeds the board.
+		 * If it does, it take the amount of fields from the position
+		 * to find the new position.
+		 */
 		if(position > ANTALSLOTS){ 
 			position -= ANTALSLOTS;
-			account.addGold(STARTBONUS);
-	/**
-	 * Decide wether or not the new position exeeds the board.
-	 * If it does, it take the amount of fields from the position
-	 * to find the new position.
-	 */
+			if(cashAtStart)
+				account.addGold(STARTBONUS);
 		}
 	}
 	
@@ -59,9 +85,7 @@ public class Player {
 		return position;
 	}
 	
-	public void setPosition(int a){
-		position = a;
-	}
+	
 
 	@Override
 	public String toString() {
