@@ -160,6 +160,10 @@
 	</card>
 	<card type="moveplayerfleet">
 		<translateID>41</translateID>
+		<fleetPosition1>6</fleetPosition1>
+		<fleetPosition2>16</fleetPosition2>
+		<fleetPosition3>26</fleetPosition3>
+		<fleetPosition4>36</fleetPosition4>
 	</card>
 	<card type="moveplayerfleet">
 		<translateID>42</translateID>
