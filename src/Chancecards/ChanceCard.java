@@ -4,7 +4,11 @@ import game.Player;
 import game.Translator;
 
 public abstract class ChanceCard {
-	private int translateID;
+	protected int translateID;
+	
+	public ChanceCard(int translateID) {
+		this.translateID = translateID;
+	}
 	
 	public abstract void onDrawn(Player player);
 	
