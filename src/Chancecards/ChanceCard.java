@@ -1,20 +1,13 @@
 package Chancecards;
 
 import game.Player;
+import game.Translator;
 
 public abstract class ChanceCard {
-	private String description;
-	private Player player;
+	private int translateID;
 	
 	public abstract void onDrawn(Player player);
 	
-	public String getDescription() 
-	{
-		return description;
-	}
+	public abstract String getDescription();
 	
-	public void chanceCard(String description)
-	{
-		
-	}
 }
