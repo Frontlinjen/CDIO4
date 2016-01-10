@@ -16,16 +16,18 @@ public class Prison {
 		{
 			if(inmate!=null)
 			{
-				/*
-				 * inmate is player
-				 */
+				inmate.isPlayer(player);
 				
 			}
 		}
+		return null;
 	}
 	
-	public void release(Inmate inmate) {
-		for (int i = 0; i < inmates.length; i++) {
+	public void release(Inmate inmate) 
+	{
+		for (int i = 0; i < inmates.length; i++)
+		//for (Inmate inmate : inmates)
+		{
 			if(inmate==inmates[i])
 				inmates[i] = null;
 		}
@@ -36,15 +38,15 @@ public class Prison {
 	}
 	
 	public void advanceDay() {
-		for (int i = 0; i < inmates.length;i++){
-			for (Inmate inmate : inmates){
-			if(inmates[i] != null)
+	
+		for (Inmate inmate : inmates)
+			{
+			if(inmates != null)
 				inmate.decreaseDaysLeft();
 		}
 			
 		
 	}
 	
-	
-	}
 }
+
