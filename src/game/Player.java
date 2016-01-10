@@ -3,12 +3,13 @@ package game;
 
 public class Player {
 	/**
-	 * Holds all information about the player, including a reference to th account.
+	 * Holds all information about the player, including a reference to the account.
 	 */
 	private String name;
 	private int position = 0;
 	private int nextPosition = 0;
 	private boolean cashAtStart = true;
+	private boolean getOutOfPrisonCard = false;
 	public int getNextPosition() {
 		return nextPosition;
 	}
@@ -22,11 +23,11 @@ public class Player {
 		int distance = nextPosition-position;
 		if(distance < 0)
 		{
-			move(distance+40);
+			moveToPosition(distance+40);
 		}
 		else
 		{
-			move(distance);
+			moveToPosition(distance);
 		}
 		
 	}
@@ -63,7 +64,7 @@ public class Player {
 		return propertyOwned;
 	}
 	
-	public void move (int afstand){
+	private void moveToPosition (int afstand){
 		final int ANTALSLOTS = 40;
 		final int STARTBONUS = 4000;
 		position += afstand; 
@@ -81,11 +82,22 @@ public class Player {
 		}
 	}
 	
+	public void move(int afstand, boolean cashAtStart) {
+		nextPosition += afstand;
+		this.cashAtStart = cashAtStart;
+	}
+	
 	public int getPosition(){
 		return position;
 	}
 	
+	public boolean hasGetOutOfPrisonCard() {
+		return getOutOfPrisonCard;
+	}
 	
+	public void setHasGetOutOfPrisonCard(boolean b) {
+		getOutOfPrisonCard = b;
+	}
 
 	@Override
 	public String toString() {
