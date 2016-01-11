@@ -39,6 +39,7 @@ public class FleetController extends OwnableController{
 			}	
 		}
 	}
+		
 
 	@Override
 	public desktop_fields.Field pushToGUI(int position) {
@@ -53,6 +54,10 @@ public class FleetController extends OwnableController{
 	public int getRent() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	@Override
+	public int getWorth() {
+		return fleetData.getPrice();
 	}
 
 
