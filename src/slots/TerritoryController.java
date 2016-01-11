@@ -22,7 +22,7 @@ public class TerritoryController extends OwnableController {
 	public void buyHouse(Player player){
 		if(territoryData.getOwner() == player){
 			if(territoryData.getHouses() < 5){
-				if(player.getAccount().getGold() > territoryData.getHouseCost()){
+				if(player.getAccount().withdraw(territoryData.price)){
 					player.getAccount().removeGold(territoryData.getHouseCost());
 					territoryData.addHouse();
 				}
@@ -32,6 +32,25 @@ public class TerritoryController extends OwnableController {
 			}
 			else{
 				GUI.showMessage(Translator.getString("BUILDLIMIT"));
+			}
+		}
+		else{
+			GUI.showMessage(Translator.getString("YOUARENOTTHEOWNER"));
+		}
+	}
+	
+	public void buyHotel(Player player){
+		if (territoryData.getOwner() == player){
+			if (territoryData.getHouses() == 4){
+				if (player.getAccount().withdraw(territoryData.getHouseCost())){
+					territoryData.addHouse();
+				}
+			}
+			else if (territoryData.getHouses() == 5){
+				GUI.showMessage(Translator.getString("THEREISALREADYAHOTEL"));
+			}
+			else {
+				GUI.showMessage(Translator.getString("YOUNEEDMOREHOUSES"));
 			}
 		}
 		else{
@@ -75,8 +94,8 @@ public class TerritoryController extends OwnableController {
 
 	@Override
 	public int getWorth() {
-		// TODO Auto-generated method stub
-		return 0;
+		int territoryWorth = 0;
+		return territoryWorth + territoryData.getPrice()+(territoryData.getHouses()*territoryData.getHouseCost());
 	}
 
 
