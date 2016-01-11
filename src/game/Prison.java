@@ -4,7 +4,7 @@ public class Prison {
 
 	private Inmate[] inmates;
 
-	private final int SERVINGDAYS = 3;
+	public final int SERVINGDAYS = 3;
 
 	public Prison(int maxInmates){
 		inmates = new Inmate [maxInmates];  
@@ -23,20 +23,6 @@ public class Prison {
 		return null;
 	}
 
-	public void release(Inmate inmate) 
-	{
-		for (int i = 0; i < inmates.length; i++)
-			//for (Inmate inmate : inmates)
-		{
-			if(inmate==inmates[i])
-				inmates[i] = null;
-		}
-	}
-
-	private final int getSERVINGDAYS() {
-		return SERVINGDAYS;
-	}
-
 	public void addInmate(Player player){
 		for (int i = 0; i < inmates.length; i++)
 		{
@@ -51,7 +37,7 @@ public class Prison {
 
 		for (Inmate inmate : inmates)
 		{
-			if(inmates != null)
+			if(inmate != null)
 				inmate.decreaseDaysLeft();
 		}
 		
