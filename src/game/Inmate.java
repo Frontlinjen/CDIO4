@@ -17,6 +17,11 @@ public class Inmate {
 		return days;
 	}
 	
+	public int setDaysLeft(int daysLeft)
+	{
+		return daysLeft;
+	}
+	
 	public void decreaseDaysLeft()
 	{
 		days--;

@@ -3,10 +3,36 @@ package game;
 
 public class Player {
 	/**
-	 * Holds all information about the player, including a reference to th account.
+	 * Holds all information about the player, including a reference to the account.
 	 */
 	private String name;
 	private int position = 0;
+	private int nextPosition = 0;
+	private boolean cashAtStart = true;
+	private boolean getOutOfPrisonCard = false;
+	public int getNextPosition() {
+		return nextPosition;
+	}
+
+	public void setNextPosition(int nextPosition, boolean passStart) {
+		this.nextPosition = nextPosition;
+		cashAtStart = passStart;
+	}
+	public void moveToNextPosition()
+	{
+		int distance = nextPosition-position;
+		if(distance < 0)
+		{
+			moveToPosition(distance+40);
+		}
+		else
+		{
+			moveToPosition(distance);
+		}
+		
+	}
+
+
 	/**
 	 * Each player has their own set of dice which keeps track of their rolls. 
 	 */
@@ -38,29 +64,39 @@ public class Player {
 		return propertyOwned;
 	}
 	
-	public void move (int afstand){
+	private void moveToPosition (int afstand){
 		final int ANTALSLOTS = 40;
 		final int STARTBONUS = 4000;
 		position += afstand; 
 		//add the moved distance to the old position.
 		
+		/**
+		 * Decide wether or not the new position exeeds the board.
+		 * If it does, it take the amount of fields from the position
+		 * to find the new position.
+		 */
 		if(position > ANTALSLOTS){ 
 			position -= ANTALSLOTS;
-			account.addGold(STARTBONUS);
-	/**
-	 * Decide wether or not the new position exeeds the board.
-	 * If it does, it take the amount of fields from the position
-	 * to find the new position.
-	 */
+			if(cashAtStart)
+				account.addGold(STARTBONUS);
 		}
+	}
+	
+	public void move(int afstand, boolean cashAtStart) {
+		nextPosition += afstand;
+		this.cashAtStart = cashAtStart;
 	}
 	
 	public int getPosition(){
 		return position;
 	}
 	
-	public void setPosition(int a){
-		position = a;
+	public boolean hasGetOutOfPrisonCard() {
+		return getOutOfPrisonCard;
+	}
+	
+	public void setHasGetOutOfPrisonCard(boolean b) {
+		getOutOfPrisonCard = b;
 	}
 
 	@Override
