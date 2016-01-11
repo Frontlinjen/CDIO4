@@ -5,13 +5,11 @@ import game.Account;
 public class ChanceCardBuildingTaxData extends ChanceCardData{
 	private int houseTax;
 	private int hotelTax;
-	private Account parkinglotAccount;
 	
-	public ChanceCardBuildingTaxData(int translateID, int houseTax, int hotelTax, Account parkinglotAccount) {
+	public ChanceCardBuildingTaxData(int translateID, int houseTax, int hotelTax) {
 		super(translateID);
 		this.houseTax = houseTax;
 		this.hotelTax = hotelTax;
-		this.parkinglotAccount = parkinglotAccount;
 	}
 	
 	public int getHouseTax() {
@@ -20,9 +18,5 @@ public class ChanceCardBuildingTaxData extends ChanceCardData{
 	
 	public int getHotelTax() {
 		return hotelTax;
-	}
-	
-	public Account getParkinglotAccount(){
-		return parkinglotAccount;
 	}
 }
