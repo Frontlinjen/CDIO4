@@ -1,5 +1,7 @@
 package slots;
 
+import game.Translator;
+
 public class FleetData extends OwnableData{
 	private final int[] RENT = {500, 1000, 2000, 4000};
 	public FleetData(int i, int price) {
@@ -9,6 +11,11 @@ public class FleetData extends OwnableData{
 	public int getRent(int shipAmount)
 	{
 		return RENT[shipAmount];
+	}
+	@Override
+	public String getDescription() {
+		
+		return Translator.getString("FLEETRENTDSC");
 	}
 
 }

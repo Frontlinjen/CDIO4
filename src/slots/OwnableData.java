@@ -2,7 +2,7 @@ package slots;
 
 import game.Player;
 
-public class OwnableData extends FieldData {
+public abstract class OwnableData extends FieldData {
 
 	private boolean pawned = false;
 	protected int price;
