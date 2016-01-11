@@ -4,9 +4,9 @@ import game.Player;
 import game.Property;
 
 public class ChanceCardMatadorLegatController extends ChanceCardController{
-private ChanceCardMatadorLegatData chanceCardData;
+private ChanceCardCashData chanceCardData;
 	
-	public ChanceCardMatadorLegatController(ChanceCardMatadorLegatData chanceCardData) {
+	public ChanceCardMatadorLegatController(ChanceCardCashData chanceCardData) {
 		this.chanceCardData = chanceCardData;
 	}
 	
@@ -17,7 +17,7 @@ private ChanceCardMatadorLegatData chanceCardData;
 		int g = player.getAccount().getGold();
 		int n = player.getProperty().getPropertyWorth();
 		if(g + n < MAXALLOWEDVALUE){
-			player.getAccount().addGold(chanceCardData.getBonus());
+			player.getAccount().addGold(chanceCardData.getMoney());
 		}
 		else {
 			

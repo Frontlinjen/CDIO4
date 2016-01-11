@@ -1,18 +1,21 @@
 package Chancecards;
 
+import game.Account;
 import game.Player;
 
 public class ChanceCardTaxController extends ChanceCardController{
-	private ChanceCardTaxData chanceCardData;
+	private ChanceCardCashData chanceCardData;
+	private Account parkinglotAccount;
 	
-	public ChanceCardTaxController(ChanceCardTaxData chanceCardData) {
+	public ChanceCardTaxController(ChanceCardCashData chanceCardData, Account parkinlotAccount) {
 		this.chanceCardData = chanceCardData;
+		this.parkinglotAccount = parkinglotAccount;
 	}
 	
 	
 	@Override
 	public void onDrawn(Player player) {
-		player.getAccount().transferTo(chanceCardData.getAccount(), chanceCardData.getTax());;
+		player.getAccount().transferTo(parkinglotAccount, chanceCardData.getMoney());;
 	}
 
 	@Override
