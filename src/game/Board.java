@@ -192,16 +192,18 @@ public class Board {
 			swapPlayers();
 		}
 	}
-
+	//Pawns a field, if the field aren't pawned already, and add the pawn gold to the owner
 	public void pawnField(OwnableData data){
 		if(!data.pawned()){
-			
 			data.getOwner().getAccount().addGold(data.getWorth(null));
 			data.setPawned(true);
 		}
 		
 	}
 	
+	/*Releases a field from it's pawn, 
+	but only if the field are pawned 
+	and the owner have enough gold to pay the pawn gold back*/
 	public void releaseField(OwnableData data){
 		if(data.pawned() && data.getOwner().getAccount().withdraw(data.getWorth(null))){
 			data.setPawned(false);
