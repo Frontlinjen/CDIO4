@@ -2,29 +2,31 @@ package Chancecards;
 
 import game.Player;
 
-public class ChanceCardMoveToNextFleet extends ChanceCard{
-	int[] fleetPositions;
+public class ChanceCardMoveToNextFleetController extends ChanceCardController{
+	private ChanceCardMoveToNextFleetData chanceCardData;
 	
-	public ChanceCardMoveToNextFleet(int translateID, int[] fleetPositions) {
-		super(translateID);
-		this.fleetPositions = fleetPositions;
+	public ChanceCardMoveToNextFleetController(ChanceCardMoveToNextFleetData chanceCardData) {
+		this.chanceCardData = chanceCardData;
 	}
-
+	
+	
 	@Override
 	public void onDrawn(Player player) {
 		int plrPos = player.getPosition();
 		int closestIndex = -1;
 		int shortestDistance = Integer.MAX_VALUE;
+		int[] fp = chanceCardData.getFleetPositions();
+		int fl = chanceCardData.getFleetPositions().length;
 		
-		for(int i = 0; i < fleetPositions.length; i++) {
-			int distance = fleetPositions[i] - plrPos;
+		for(int i = 0; i < fl; i++) {
+			int distance = fp[i] - plrPos;
 			if(distance > 0 && distance < shortestDistance) {
 				shortestDistance = distance;
 				closestIndex = i;
 			}	
 		}
 		if(shortestDistance == Integer.MAX_VALUE){
-			for(int j : fleetPositions) {
+			for(int j : chanceCardData.getFleetPositions()) {
 				if(j < shortestDistance){
 					shortestDistance = j;
 				}
@@ -33,13 +35,13 @@ public class ChanceCardMoveToNextFleet extends ChanceCard{
 		}
 		else
 		{
-			player.setNextPosition(fleetPositions[closestIndex], true);
+			player.setNextPosition(fp[closestIndex], true);
 		}
 	}
 
 	@Override
 	public String getDescription() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

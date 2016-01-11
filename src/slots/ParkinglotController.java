@@ -18,8 +18,8 @@ public class ParkinglotController extends FieldController{
 	public void landOnField(Player player) {
 		//Player lands on the Parking lot field and is given gold.
 		parkingLot.displayOnCenter();
-		GUI.showMessage(Translator.getString("LANDONPARKINGLOT", parkinglotData.getBonus()));
-		player.getAccount().addGold(parkinglotData.getBonus());		
+		GUI.showMessage(Translator.getString("LANDONPARKINGLOT", parkinglotData.getAccount().getGold()));
+		parkinglotData.TransferBonus(player.getAccount());	
 	}
 	@Override
 	public desktop_fields.Field pushToGUI(int position){

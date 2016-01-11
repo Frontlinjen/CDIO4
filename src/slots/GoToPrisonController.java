@@ -21,8 +21,8 @@ public class GoToPrisonController extends FieldController{
 		 */
 		goToPrison.displayOnCenter();
 		GUI.showMessage(Translator.getString("LANDONGOTOPRISON", goToPrisonData.getPrisonPosition()));
-		player.setPosition(goToPrisonData.getPrisonPosition());
-		
+		player.setNextPosition(goToPrisonData.getPrisonPosition(),false);
+		goToPrisonData.getPrison().addInmate(player);
 	}
 
 	@Override

@@ -8,7 +8,7 @@
 		<translateID>2</translateID>
 		<cash>500</cash>
 	</card>
-	<card type="bonus">
+	<card type="tax">
 		<translateID>3</translateID>
 		<cash>-3000</cash>
 	</card>
@@ -16,11 +16,11 @@
 		<translateID>4</translateID>
 		<cash>200</cash>
 	</card>
-	<card type="bonus">
+	<card type="tax">
 		<translateID>5</translateID>
 		<cash>-3000</cash>
 	</card>
-	<card type="bonus">
+	<card type="tax">
 		<translateID>6</translateID>
 		<cash>-2000</cash>
 	</card>
@@ -32,7 +32,7 @@
 		<translateID>8</translateID>
 		<cash>1000</cash>
 	</card>
-	<card type="bonus">
+	<card type="tax">
 		<translateID>9</translateID>
 		<cash>-1000</cash>
 	</card>
@@ -48,11 +48,11 @@
 		<translateID>12</translateID>
 		<cash>1000</cash>
 	</card>
-	<card type="bonus">
+	<card type="tax">
 		<translateID>13</translateID>
 		<cash>-1000</cash>
 	</card>
-	<card type="bonus">
+	<card type="tax">
 		<translateID>14</translateID>
 		<cash>-300</cash>
 	</card>
@@ -60,11 +60,11 @@
 		<translateID>15</translateID>
 		<cash>1000</cash>
 	</card>
-	<card type="bonus">
+	<card type="tax">
 		<translateID>16</translateID>
 		<cash>-200</cash>
 	</card>
-	<card type="bonus">
+	<card type="tax">
 		<translateID>17</translateID>
 		<cash>-1000</cash>
 	</card>
@@ -76,11 +76,11 @@
 		<translateID>19</translateID>
 		<cash>1000</cash>
 	</card>
-	<card type="bonus">
+	<card type="tax">
 		<translateID>20</translateID>
 		<cash>-200</cash>
 	</card>
-	<card type="bonus">
+	<card type="tax">
 		<translateID>21</translateID>
 		<cash>-200</cash>
 	</card>
