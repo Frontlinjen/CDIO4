@@ -4,12 +4,12 @@ import game.Player;
 
 public class ChanceCardCashTransferData extends ChanceCardData{
 	private Player[] players;
-	private int bonus;
+	private int money;
 	
 	public ChanceCardCashTransferData(int translateID, Player[] player, int bonus) {
 		super(translateID);
 		this.players = player;
-		this.bonus = bonus;
+		this.money = bonus;
 	}
 	
 	public Player[] getPlayers() {
@@ -17,6 +17,6 @@ public class ChanceCardCashTransferData extends ChanceCardData{
 	}
 	
 	public int getBonus() {
-		return this.bonus;
+		return this.money;
 	}
 }
