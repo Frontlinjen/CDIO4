@@ -3,20 +3,23 @@ package game;
 import slots.*;
 import utilities.ShuffleBag;
 import desktop_resources.GUI;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import Chancecards.*;
 
 public class GameBoard {
 
 	FieldController[] fields;
-	public void initializeBoard(Prison prison, Player[] players)
+	public void initializeBoard(Prison prison, List<Player> players)
 	{	
 		//desktop_fields.Brewery b = new desktop_fields.Brewery.Builder().setRent("2000").build();
 		
 		System.out.println("Loading board...");
-		Account a;
-		a.setGold(1000);
-		ChanceCardController[] chanceCards = ChanceCardLoader.parseChanceCards("ChanceCard.xml", a, prison, players);
-		fields = FieldLoader.parseFields("Fields.xml", chanceCards, prison);
+		Account acc = new Account(0, "Unused");
+		ChanceCardController[] chanceCards = ChanceCardLoader.parseChanceCards("ChanceCard.xml", acc, prison, players);
+		fields = FieldLoader.parseFields("Fields.xml", new ShuffleBag<ChanceCardController>(chanceCards), prison,acc);
 		/*for(FieldController f : fields)
 		{
 			System.out.println(f.getName());
