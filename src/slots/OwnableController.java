@@ -4,8 +4,24 @@ import game.*;
 import desktop_resources.GUI;
 import slots.FieldController;
 
+
+
 public abstract class OwnableController extends FieldController{
+	public enum FIELDGROUPS
+	{
+		BLUE,
+		PINK,
+		GREEN,
+		GRAY,
+		RED,
+		WHITE,
+		YELLOW,
+		BROWN,
+		FLEET,
+		BREWERY
+	}
 	private OwnableData ownableData;
+	private boolean pawned = false;
 	private desktop_fields.Street LaborCamp;
 	public OwnableController(OwnableData dat)
 	{
@@ -15,6 +31,11 @@ public abstract class OwnableController extends FieldController{
 	public int getRent()
 	{
 		return 0;
+	}
+	
+	public Player getOwner()
+	{
+		return ownableData.getOwner();
 	}
 	
 	public void removeOwner()
@@ -57,7 +78,17 @@ public abstract class OwnableController extends FieldController{
 
 		
 	}
+	public boolean pawned()
+	{
+		return pawned;
+	}
 	
+	public void setPawned(boolean pawned)
+	{
+		pawned = pawned();
+	}
+	
+	public abstract FIELDGROUPS getFieldGroup();
 	public abstract int getWorth();
 
 	@Override

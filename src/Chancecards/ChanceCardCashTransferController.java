@@ -1,12 +1,14 @@
 package Chancecards;
 
+import java.util.List;
+
 import game.Player;
 
 public class ChanceCardCashTransferController extends ChanceCardController{
 	private ChanceCardCashData chanceCardData;
-	private Player[] players;
+	private  List<Player>  players;
 	
-	public ChanceCardCashTransferController(ChanceCardCashData chanceCardData, Player[] players) {
+	public ChanceCardCashTransferController(ChanceCardCashData chanceCardData, List<Player> players) {
 		this.chanceCardData = chanceCardData;
 		this.players = players;
 	}

@@ -67,7 +67,7 @@ public class TerritoryController extends OwnableController {
 	public desktop_fields.Field pushToGUI(int position) {
 		territoryData.setPosition(position);
 		territory = new desktop_fields.Street.Builder().setRent(Integer.toString(territoryData.getRent())).setBgColor(new Color(68f/255, 255f/255, 43f/255)).build();
-		territory.setDescription(territoryData.getDescription());
+		territory.setDescription(getDescription());
 		territory.setTitle(territoryData.getName());
 		territory.setSubText(Integer.toString(territoryData.getPrice()));
 		return territory;
@@ -88,6 +88,11 @@ public class TerritoryController extends OwnableController {
 	public int getWorth() {
 		int territoryWorth = 0;
 		return territoryWorth + territoryData.getPrice()+(territoryData.getHouses()*territoryData.getHouseCost());
+	}
+	@Override
+	public String getDescription() {
+		
+		return null;
 	}
 
 

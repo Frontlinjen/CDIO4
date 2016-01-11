@@ -1,5 +1,6 @@
 package game;
 
+
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,9 +10,12 @@ import java.util.regex.Pattern;
 import javax.swing.Icon;
 
 import desktop_codebehind.Car;
+import desktop_fields.Ownable;
 import desktop_resources.GUI;
 import slots.OwnableController;
 import slots.OwnableData;
+import slots.TerritoryController;
+import slots.TerritoryData;
 import utilities.ShuffleBag;
 
 public class Board {
@@ -149,20 +153,26 @@ public class Board {
 			{
 				String buyHouse = Translator.getString("BUYHOUSE", currentPlayer.getName());
 				String pawnField = Translator.getString("PAWNFIELD", currentPlayer.getName());
+				String releaseField = Translator.getString("PAWNFIELD", currentPlayer.getName());
 				String rollTurn = Translator.getString("ROLLTURN", currentPlayer.getName());
-				String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), buyHouse, pawnField, rollTurn);
+				String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), buyHouse, pawnField, releaseField, rollTurn);
 				switch(response){
-				case buyHouse:
+				case buyHouse: 
+					int fieldResponse = GUI.getUserInteger(Translator.getString("WHATFIELD", currentPlayer.getName()));
+					if(slots.getField(fieldResponse)){
+						
+						
+					}
 					break;
-				case pawnField:
+				case pawnField: pawnField(null);
 					break;
-				case rollTurn:
+				case releaseField: releaseField(null);
+					break;
+				case rollTurn: res = currentPlayer.getDice().rollDice();
 					break;
 				default:
 					break;
-						
 				}
-				res = currentPlayer.getDice().rollDice();
 			}
 			while(rollsLeft!=0)
 			{
@@ -201,16 +211,16 @@ public class Board {
 				}
 				if(rollsLeft==0)
 				{
-					currentPlayer.setNextPosition(/*prison start*/);
+					currentPlayer.setNextPosition(11, false);
 				}
 			} //what do?
 			swapPlayers();
 		}
 	}
 	//Pawns a field, if the field aren't pawned already, and add the pawn gold to the owner
-	public void pawnField(OwnableData data){
+	public void pawnField(OwnableController data){
 		if(!data.pawned()){
-			data.getOwner().getAccount().addGold(data.getWorth(null));
+			data.getOwner().getAccount().addGold(data.getWorth());
 			data.setPawned(true);
 		}
 		
@@ -219,8 +229,8 @@ public class Board {
 	/*Releases a field from it's pawn, 
 	but only if the field are pawned 
 	and the owner have enough gold to pay the pawn gold back*/
-	public void releaseField(OwnableData data){
-		if(data.pawned() && data.getOwner().getAccount().withdraw(data.getWorth(null))){
+	public void releaseField(OwnableController data){
+		if(data.pawned() && data.getOwner().getAccount().withdraw(data.getWorth())){
 			data.setPawned(false);
 		}
 		
@@ -228,7 +238,8 @@ public class Board {
 	
 	public void startGame(){
 		System.out.println("Starting game..");
-		slots.initializeBoard();
+		prison = new Prison(6);
+		slots.initializeBoard(prison,  players);
 		int amount = GUI.getUserInteger(Translator.getString("NUMBEROFPLAYERS"));
 		final int PLAYERAMOUNTMIN = 2;
 		final int PLAYERAMOUNTMAX = 6;

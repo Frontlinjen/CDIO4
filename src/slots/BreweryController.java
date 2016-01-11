@@ -55,7 +55,7 @@ public class BreweryController extends OwnableController{
 
 		breweryData.setPosition(position);
 		LaborCamp = new desktop_fields.Street.Builder().setRent(Translator.getString("LABORCAMPRENT",/*HARDCODED VARIABLES IS NEVER GOOD! TODO: REMOVE*/ 100)).setBgColor(new Color(255f/255, 165f/255, 48f/255)).build();
-		LaborCamp.setDescription(breweryData.getDescription());
+		LaborCamp.setDescription(getDescription());
 		LaborCamp.setTitle(breweryData.getName());
 
 		LaborCamp.setSubText(Integer.toString(breweryData.getPrice()));
