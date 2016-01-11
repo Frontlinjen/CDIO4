@@ -17,35 +17,37 @@ public abstract class XMLParser {
 	
 	protected static Document getXMLDocument(String path)
 	{
-		Document fields;
+		Document fields = null;
+		File fieldFile = null;
 		try{
 			//Does not need to be closed, as it just represents a path to the file. 
 			//the actual read/writing is done by the XMLparser. 
-			File fieldFile = new File(path);
+			 fieldFile = new File(path);
 			System.out.println(fieldFile.getAbsolutePath());
 			//No need to store the DocumentBuilderFactory instance as we are using default settings:
 			DocumentBuilder XMLparser = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-			 fields = = XMLparser.parse(fieldFile);
-			
+			 fields = XMLparser.parse(fieldFile);
+			return fields;
 		}
 		catch(IOException fileEx)
 		{
-			JOptionPane.showMessageDialog(desktop_board.Board.getInstance().getComponent(0), "File not found at: " + fieldFile.getAbsolutePath() + "\nPlease restore the file or the board cannot be created.", "Critical error accoured", JOptionPane.ERROR_MESSAGE);	
+			JOptionPane.showMessageDialog(desktop_board.Board.getInstance().getComponent(0), 
+					"File not found at: " + fieldFile.getAbsolutePath() + "\nPlease restore "
+							+ "the file or the board cannot be created.", "Critical error accoured", 
+							JOptionPane.ERROR_MESSAGE);	
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-			return 	fields;
-		}
+
+		return null;
 	}
 	/**
-	 * Checks if multiple accourances exists within the Element node and prints to the console if true
+	 * Checks if multiple occurrences exists within the Element node and prints to the console if true
 	 * @param The element containing the element
 	 * @param The name of the element to get
-	 * @return The first occourance of the element 
+	 * @return The first occurrence of the element 
 	 * @throws An exception is thrown if no elements were found.  
 	 */
 	protected static Node getUnique(Element e, String elementNameTag) throws Exception
