@@ -4,7 +4,22 @@ import game.*;
 import desktop_resources.GUI;
 import slots.FieldController;
 
+
+
 public abstract class OwnableController extends FieldController{
+	public enum FIELDGROUPS
+	{
+		BLUE,
+		PINK,
+		GREEN,
+		GRAY,
+		RED,
+		WHITE,
+		YELLOW,
+		BROWN,
+		FLEET,
+		BREWERY
+	}
 	private OwnableData ownableData;
 	private desktop_fields.Street LaborCamp;
 	public OwnableController(OwnableData dat)
@@ -63,6 +78,7 @@ public abstract class OwnableController extends FieldController{
 		
 	}
 	
+	public abstract 
 	public abstract int getWorth();
 
 	@Override
