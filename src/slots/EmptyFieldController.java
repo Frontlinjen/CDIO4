@@ -2,6 +2,7 @@ package slots;
 
 import desktop_fields.Field;
 import game.Player;
+import game.Translator;
 
 public class EmptyFieldController extends FieldController{
 
@@ -23,5 +24,9 @@ public class EmptyFieldController extends FieldController{
 	public Field pushToGUI(int position) {
 		return null;
 	}
-
+	@Override
+	public String getDescription() {
+		
+		return Translator.getString("EMPTYFIELDDSC");
+	}
 }

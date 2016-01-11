@@ -10,8 +10,9 @@ public class ChanceCardCashBonusController extends ChanceCardController{
 	}
 	
 	@Override
-	public void onDrawn(Player player) {
+	public boolean onDrawn(Player player) {
 		player.getAccount().addGold(chanceCardCashData.getMoney());
+		return false;
 	}
 
 	@Override

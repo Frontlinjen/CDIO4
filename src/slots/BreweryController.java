@@ -67,5 +67,9 @@ public class BreweryController extends OwnableController{
 	public int getWorth() {
 		return breweryData.getPrice();
 	}
-
+	@Override
+	public String getDescription() {
+		
+		return Translator.getString("BREWERYDSC");
+	}
 }

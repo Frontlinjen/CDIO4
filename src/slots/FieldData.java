@@ -6,9 +6,6 @@ public class FieldData {
 	private int translateID;
 	protected int position;
 
-
-
-
 	public FieldData(int i){
 		translateID = i;
 	}
@@ -16,10 +13,7 @@ public class FieldData {
 	public String getName() {
 		return Translator.getString("SLOT" + translateID);
 	}
-
-	public String getDescription() {
-		return Translator.getString("SLOTDSC" + translateID);
-	}
+	
 	public void setPosition(int p)
 	{
 		position = p;

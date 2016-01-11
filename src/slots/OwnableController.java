@@ -11,12 +11,12 @@ public abstract class OwnableController extends FieldController{
 	{
 		ownableData = dat;
 	}
-	//TODO: Implement this so that it takes the amount of houses on this propery into account	
+	
 	public int getRent()
 	{
 		return 0;
 	}
-
+	
 	public void removeOwner()
 	{
 		ownableData.removeOwner();
@@ -57,7 +57,9 @@ public abstract class OwnableController extends FieldController{
 
 		
 	}
+	
 	public abstract int getWorth();
+
 	@Override
 	public String toString() {
 		return "Ownable [price=" + ownableData.getPrice() + ", owner=" + ownableData.getOwner() + "]";

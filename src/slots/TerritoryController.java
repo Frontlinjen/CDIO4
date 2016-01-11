@@ -39,25 +39,6 @@ public class TerritoryController extends OwnableController {
 		}
 	}
 	
-	public void buyHotel(Player player){
-		if (territoryData.getOwner() == player){
-			if (territoryData.getHouses() == 4){
-				if (player.getAccount().withdraw(territoryData.getHouseCost())){
-					territoryData.addHouse();
-				}
-			}
-			else if (territoryData.getHouses() == 5){
-				GUI.showMessage(Translator.getString("THEREISALREADYAHOTEL"));
-			}
-			else {
-				GUI.showMessage(Translator.getString("YOUNEEDMOREHOUSES"));
-			}
-		}
-		else{
-			GUI.showMessage(Translator.getString("YOUARENOTTHEOWNER"));
-		}
-	}
-	
 	@Override
 	public void landOnField(Player player) {
 		/**
@@ -90,6 +71,17 @@ public class TerritoryController extends OwnableController {
 		territory.setTitle(territoryData.getName());
 		territory.setSubText(Integer.toString(territoryData.getPrice()));
 		return territory;
+	}
+	public int getHouseAmount()
+	{
+		if(territoryData.getHouses()<5)
+			return territoryData.getHouses();
+		else
+			return 0;
+	}
+	public int getHotelAmount()
+	{
+		return territoryData.getHouses()==5 ? 1 : 0;
 	}
 
 	@Override

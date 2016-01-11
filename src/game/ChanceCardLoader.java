@@ -242,7 +242,7 @@ public class ChanceCardLoader extends XMLParser{
 							case "buildingtax":
 							{
 								ChanceCardBuildingTaxData newCard =parseBuildingTax(element);
-								newController = new ChanceCardBuildingTaxController(newCard);
+								newController = new ChanceCardBuildingTaxController(newCard, parkinglotAcc);
 								break;
 							}
 							case "gotoprison":

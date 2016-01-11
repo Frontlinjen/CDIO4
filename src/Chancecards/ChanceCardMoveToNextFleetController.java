@@ -11,7 +11,7 @@ public class ChanceCardMoveToNextFleetController extends ChanceCardController{
 	
 	
 	@Override
-	public void onDrawn(Player player) {
+	public boolean onDrawn(Player player) {
 		int plrPos = player.getPosition();
 		int closestIndex = -1;
 		int shortestDistance = Integer.MAX_VALUE;
@@ -37,6 +37,7 @@ public class ChanceCardMoveToNextFleetController extends ChanceCardController{
 		{
 			player.setNextPosition(fp[closestIndex], true);
 		}
+		return false;
 	}
 
 	@Override

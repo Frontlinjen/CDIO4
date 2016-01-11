@@ -12,12 +12,14 @@ public class TerritoryData extends OwnableData{
 	private int rent;
 	private int houses;
 	private int houseCost;
+	private int groupID;
 	
-	public TerritoryData(int i, int price, int rent, int houseCost) {
+	public TerritoryData(int i, int id, int price, int rent, int houseCost) {
 		super(i, price);
 		this.rent = rent;
 		this.houseCost = houseCost;
 		houses = 0;
+		groupID = id;
 	}
 
 

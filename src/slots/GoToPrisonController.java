@@ -9,7 +9,7 @@ import game.Translator;
 public class GoToPrisonController extends FieldController{
 	desktop_fields.Street goToPrison; 
 	GoToPrisonData goToPrisonData;
-	GoToPrisonController(GoToPrisonData data)
+	public GoToPrisonController(GoToPrisonData data)
 	{
 		goToPrisonData = data;
 	}
@@ -34,5 +34,9 @@ public class GoToPrisonController extends FieldController{
 		goToPrison.setSubText("You are going to prison!");
 		return goToPrison;
 	}
-
+	@Override
+	public String getDescription() {
+		
+		return Translator.getString("GOTOPRISONDSC");
+	}
 }

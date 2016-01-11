@@ -42,5 +42,9 @@ public class TaxController extends FieldController {
 		tax.setSubText(Integer.toString(taxData.getTaxAmount()));
 		return tax;
 	}
-
+	@Override
+	public String getDescription() {
+		
+		return Translator.getString("TAXCONTROLLERDSC");
+	}
 }

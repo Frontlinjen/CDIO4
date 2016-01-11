@@ -10,5 +10,6 @@ public abstract class FieldController {
 	 * @param position
 	 */
 	public abstract	desktop_fields.Field pushToGUI(int position);
+	public abstract String getDescription();
 }
 

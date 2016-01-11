@@ -13,8 +13,9 @@ public class ChanceCardGoToPrisonController extends ChanceCardController{
 	}
 	
 	@Override
-	public void onDrawn(Player player) {
+	public boolean onDrawn(Player player) {
 		prison.addInmate(player);
+		return false;
 	}
 
 	@Override
