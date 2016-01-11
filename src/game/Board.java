@@ -201,7 +201,7 @@ public class Board {
 				}
 				if(rollsLeft==0)
 				{
-					currentPlayer.setNextPosition(/*prison start*/);
+					currentPlayer.setNextPosition(11, false);
 				}
 			} //what do?
 			swapPlayers();
@@ -228,7 +228,8 @@ public class Board {
 	
 	public void startGame(){
 		System.out.println("Starting game..");
-		slots.initializeBoard();
+		prison = new Prison(6);
+		slots.initializeBoard(prison,  players);
 		int amount = GUI.getUserInteger(Translator.getString("NUMBEROFPLAYERS"));
 		final int PLAYERAMOUNTMIN = 2;
 		final int PLAYERAMOUNTMAX = 6;
