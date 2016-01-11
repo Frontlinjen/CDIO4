@@ -2,12 +2,7 @@ package Chancecards;
 
 import game.Player;
 
-public class ChanceCardOutOfPrison extends ChanceCard{
-	
-	public ChanceCardOutOfPrison(int translateID) {
-		super(translateID);
-		
-	}
+public class ChanceCardOutOfPrisonController extends ChanceCardController{
 	
 	@Override
 	public void onDrawn(Player player) {
@@ -23,7 +18,8 @@ public class ChanceCardOutOfPrison extends ChanceCard{
 
 	@Override
 	public String getDescription() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
+
 }
