@@ -88,97 +88,100 @@
 		<translateID>22</translateID>
 		<cash>1000</cash>
 	</card>
-	<card type="outofprison">
+	<card type="outofprison" amount="2">
 		<translateID>23</translateID>
 	</card>
-	<card type="outofprison">
+	<card type="cashtransfer">
 		<translateID>24</translateID>
+		<cash>500</cash>
 	</card>
 	<card type="cashtransfer">
 		<translateID>25</translateID>
-		<money>500</money>
+		<cash>500</cash>
 	</card>
 	<card type="cashtransfer">
 		<translateID>26</translateID>
-		<money>500</money>
+		<cash>200</cash>
 	</card>
-	<card type="cashtransfer">
+	<card type="moveplayer">
 		<translateID>27</translateID>
-		<money>200</money>
+		<fieldnumber>20</fieldnumber>
+		<cashatstart>1</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>28</translateID>
-		<fieldnumber>20</fieldnumber>
+		<fieldnumber>11</fieldnumber>
+		<cashatstart>0</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>29</translateID>
 		<fieldnumber>11</fieldnumber>
+		<cashatstart>0</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>30</translateID>
-		<fieldnumber>11</fieldnumber>
+		<fieldnumber>33</fieldnumber>
+		<cashatstart>1</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>31</translateID>
-		<fieldnumber>33</fieldnumber>
+		<fieldnumber>16</fieldnumber>
+		<cashatstart>1</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>32</translateID>
-		<fieldnumber>16</fieldnumber>
+		<fieldnumber>38</fieldnumber>
+		<cashatstart>1</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>33</translateID>
-		<fieldnumber>38</fieldnumber>
+		<fieldnumber>1</fieldnumber>
+		<cashatstart>1</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>34</translateID>
-		<fieldnumber>1</fieldnumber>
+		<fieldnumber>40</fieldnumber>
+		<cashatstart>1</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>35</translateID>
-		<fieldnumber>40</fieldnumber>
+		<fieldnumber>25</fieldnumber>
+		<cashatstart>1</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>36</translateID>
-		<fieldnumber>25</fieldnumber>
-	</card>
-	<card type="moveplayer">
-		<translateID>37</translateID>
 		<fieldnumber>20</fieldnumber>
+		<cashatstart>1</cashatstart>
 	</card>
 	<card type="matadorlegat">
-		<translateID>38</translateID>
+		<translateID>37</translateID>
 		<cash>40000</cash>
 	</card>
-	<card type="moveplayerfields">
+	<card type="moveplayerfields" amount="2">
+		<translateID>38</translateID>
+		<fields>-3</fields>
+		<cashatstart>0</cashatstart>
+	</card>
+	<card type="moveplayerfleet" amount="3">
 		<translateID>39</translateID>
-		<fields>-3</fields>
-	</card>
-	<card type="moveplayerfields">
-		<translateID>40</translateID>
-		<fields>-3</fields>
-	</card>
-	<card type="moveplayerfleet">
-		<translateID>41</translateID>
 		<fleetPosition1>6</fleetPosition1>
 		<fleetPosition2>16</fleetPosition2>
 		<fleetPosition3>26</fleetPosition3>
 		<fleetPosition4>36</fleetPosition4>
-	</card>
-	<card type="moveplayerfleet">
-		<translateID>42</translateID>
-	</card>
-	<card type="moveplayerfleet">
-		<translateID>43</translateID>
+		<cashatstart>1</cashatstart>
 	</card>
 	<card type="buildingtax">
-		<translateID>44</translateID>
-		<prhouse>500</prhouse>
-		<prhotel>2000</prhotel>
+		<translateID>40</translateID>
+		<houseTax>500</houseTax>
+		<hotelTax>2000</hotelTax>
 	</card>
 	<card type="buildingtax">
-		<translateID>45</translateID>
+		<translateID>41</translateID>
 		<prhouse>800</prhouse>
 		<prhotel>2300</prhotel>
+	</card>
+	<card type="gotoprison" amount="2">
+		<translateID>42</translateID>
+		<fieldnumber>11</fieldnumber>
 	</card>
 </cards>
