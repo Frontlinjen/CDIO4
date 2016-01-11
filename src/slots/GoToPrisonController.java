@@ -34,5 +34,9 @@ public class GoToPrisonController extends FieldController{
 		goToPrison.setSubText("You are going to prison!");
 		return goToPrison;
 	}
-
+	@Override
+	public String getDescription() {
+		
+		return Translator.getString("GOTOPRISONDSC");
+	}
 }

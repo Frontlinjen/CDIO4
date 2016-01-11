@@ -1,5 +1,6 @@
 package game;
 
+
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,9 +10,12 @@ import java.util.regex.Pattern;
 import javax.swing.Icon;
 
 import desktop_codebehind.Car;
+import desktop_fields.Ownable;
 import desktop_resources.GUI;
 import slots.OwnableController;
 import slots.OwnableData;
+import slots.TerritoryController;
+import slots.TerritoryData;
 import utilities.ShuffleBag;
 
 public class Board {
@@ -149,20 +153,26 @@ public class Board {
 			{
 				String buyHouse = Translator.getString("BUYHOUSE", currentPlayer.getName());
 				String pawnField = Translator.getString("PAWNFIELD", currentPlayer.getName());
+				String releaseField = Translator.getString("PAWNFIELD", currentPlayer.getName());
 				String rollTurn = Translator.getString("ROLLTURN", currentPlayer.getName());
-				String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), buyHouse, pawnField, rollTurn);
+				String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), buyHouse, pawnField, releaseField, rollTurn);
 				switch(response){
-				case buyHouse:
+				case buyHouse: 
+					int fieldResponse = GUI.getUserInteger(Translator.getString("WHATFIELD", currentPlayer.getName()));
+					if(slots.getField(fieldResponse)){
+						
+						
+					}
 					break;
-				case pawnField:
+				case pawnField: pawnField(null);
 					break;
-				case rollTurn:
+				case releaseField: releaseField(null);
+					break;
+				case rollTurn: res = currentPlayer.getDice().rollDice();
 					break;
 				default:
 					break;
-						
 				}
-				res = currentPlayer.getDice().rollDice();
 			}
 			while(rollsLeft!=0)
 			{

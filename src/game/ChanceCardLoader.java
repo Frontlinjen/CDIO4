@@ -1,6 +1,5 @@
 package game;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -168,7 +167,7 @@ public class ChanceCardLoader extends XMLParser{
 		}	
 	}
 	
-	static public ChanceCardController[] parseChanceCards(String path, Account parkinglotAcc, Prison prison, List<Player> players)
+	static public ChanceCardController[] parseChanceCards(String path, Account parkinglotAcc, Prison prison, Player[] players)
 	{
 		
 			
@@ -243,7 +242,7 @@ public class ChanceCardLoader extends XMLParser{
 							case "buildingtax":
 							{
 								ChanceCardBuildingTaxData newCard =parseBuildingTax(element);
-								newController = new ChanceCardBuildingTaxController(newCard);
+								newController = new ChanceCardBuildingTaxController(newCard, parkinglotAcc);
 								break;
 							}
 							case "gotoprison":

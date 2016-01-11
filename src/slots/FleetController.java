@@ -59,6 +59,10 @@ public class FleetController extends OwnableController{
 	public int getWorth() {
 		return fleetData.getPrice();
 	}
-
+	@Override
+	public String getDescription() {
+		
+		return Translator.getString("FLEETDSC");
+	}
 
 }

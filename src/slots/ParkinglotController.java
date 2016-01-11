@@ -36,4 +36,9 @@ public class ParkinglotController extends FieldController{
 		parkingLot.setSubText("Payout: " + parkinglotData.getAccount());
 		return parkingLot;
 	}
+	@Override
+	public String getDescription() {
+		
+		return Translator.getString("PARKINGLOTDSC");
+	}
 }

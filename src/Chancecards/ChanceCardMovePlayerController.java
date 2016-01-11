@@ -10,8 +10,9 @@ public class ChanceCardMovePlayerController extends ChanceCardController{
 	}
 	
 	@Override
-	public void onDrawn(Player player) {
+	public boolean onDrawn(Player player) {
 		player.setNextPosition(chanceCardData.getFieldPosition(), chanceCardData.getCashInAtStart());
+		return false;
 	}
 
 	@Override

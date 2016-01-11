@@ -14,13 +14,14 @@ public class ChanceCardCashTransferController extends ChanceCardController{
 	}
 	
 	@Override
-	public void onDrawn(Player player) {
+	public boolean onDrawn(Player player) {
 		for(Player p : players)
 		{
 			if(p != player) {
 			p.getAccount().transferTo(player.getAccount(), chanceCardData.getMoney());
 			}
 		}
+		return false;
 	}
 
 	@Override

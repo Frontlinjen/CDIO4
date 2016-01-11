@@ -10,8 +10,9 @@ public class ChanceCardMovePlayerRelativeController extends ChanceCardController
 	}
 	
 	@Override
-	public void onDrawn(Player player) {
+	public boolean onDrawn(Player player) {
 		player.move(chanceCardData.getDistance(), chanceCardData.getCashAtStart());
+		return false;
 	}
 
 	@Override

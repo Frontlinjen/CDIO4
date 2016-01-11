@@ -1,5 +1,7 @@
 package Chancecards;
 
+import game.Account;
+
 public class ChanceCardBuildingTaxData extends ChanceCardData{
 	private int houseTax;
 	private int hotelTax;
@@ -8,5 +10,13 @@ public class ChanceCardBuildingTaxData extends ChanceCardData{
 		super(translateID);
 		this.houseTax = houseTax;
 		this.hotelTax = hotelTax;
+	}
+	
+	public int getHouseTax() {
+		return houseTax;
+	}
+	
+	public int getHotelTax() {
+		return hotelTax;
 	}
 }
