@@ -26,7 +26,6 @@ import Chancecards.ChanceCardMoveToNextFleetController;
 import Chancecards.ChanceCardMoveToNextFleetData;
 import Chancecards.ChanceCardOutOfPrisonController;
 import Chancecards.ChanceCardTaxController;
-import slots.FieldController;
 
 public class ChanceCardLoader extends XMLParser{
 
