@@ -1,28 +1,19 @@
 package Chancecards;
 
-import game.Account;
 import game.Player;
 
 public class ChanceCardCashBonus extends ChanceCard{
-	private int bonus;
-	private Account parkinglotAccount;
+	protected int bonus;
 
-	public ChanceCardCashBonus(int translateID, int bonus, Account account) {
+	public ChanceCardCashBonus(int translateID, int bonus) {
 		super(translateID);
 		this.bonus = bonus;
-		this.parkinglotAccount = account;
 	}
 	
 	@Override
 	public void onDrawn(Player player) {
-		if(bonus>0) 
-		{
 		player.getAccount().addGold(bonus);
-		}
-		else
-		{
-			player.getAccount().transferTo(parkinglotAccount, Math.abs(bonus));
-		}
+		
 	}
 
 	@Override
