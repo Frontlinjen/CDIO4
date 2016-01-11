@@ -22,7 +22,7 @@ public class TerritoryController extends OwnableController {
 	public void buyHouse(Player player){
 		if(territoryData.getOwner() == player){
 			if(territoryData.getHouses() < 5){
-				if(player.getAccount().getGold() > territoryData.getHouseCost()){
+				if(player.getAccount().withdraw(territoryData.price)){
 					player.getAccount().removeGold(territoryData.getHouseCost());
 					territoryData.addHouse();
 				}
@@ -75,8 +75,8 @@ public class TerritoryController extends OwnableController {
 
 	@Override
 	public int getWorth() {
-		// TODO Auto-generated method stub
-		return 0;
+		int territoryWorth = 0;
+		return territoryWorth + territoryData.getPrice()+(territoryData.getHouses()*territoryData.getHouseCost());
 	}
 
 
