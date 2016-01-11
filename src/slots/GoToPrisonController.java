@@ -9,7 +9,7 @@ import game.Translator;
 public class GoToPrisonController extends FieldController{
 	desktop_fields.Street goToPrison; 
 	GoToPrisonData goToPrisonData;
-	GoToPrisonController(GoToPrisonData data)
+	public GoToPrisonController(GoToPrisonData data)
 	{
 		goToPrisonData = data;
 	}

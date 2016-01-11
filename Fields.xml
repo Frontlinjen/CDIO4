@@ -19,6 +19,7 @@
 	</field>
 	<field type="tax">
 		<translateID>5</translateID>
+		<taxPercentage>0</taxPercentage>
 		<tax>4000</tax>
 	</field>
 	<field type="fleet">
@@ -146,6 +147,7 @@
 	</field>
 	<field type="gotoprison">
 		<translateID>31</translateID>
+		<prisonPosition>11</prisonPosition>
 	</field>
 	<field type="territory">
 		<translateID>32</translateID>
@@ -181,6 +183,7 @@
 	</field>
 	<field type="tax">
 		<translateID>39</translateID>
+		<taxPercentage>0</taxPercentage>
 		<tax>2000</tax>
 	</field>
 	<field type="territory">

@@ -147,6 +147,21 @@ public class Board {
 			}
 			else
 			{
+				String buyHouse = Translator.getString("BUYHOUSE", currentPlayer.getName());
+				String pawnField = Translator.getString("PAWNFIELD", currentPlayer.getName());
+				String rollTurn = Translator.getString("ROLLTURN", currentPlayer.getName());
+				String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), buyHouse, pawnField, rollTurn);
+				switch(response){
+				case buyHouse:
+					break;
+				case pawnField:
+					break;
+				case rollTurn:
+					break;
+				default:
+					break;
+						
+				}
 				res = currentPlayer.getDice().rollDice();
 			}
 			while(rollsLeft!=0)
