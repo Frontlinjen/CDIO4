@@ -63,4 +63,9 @@ public class BreweryController extends OwnableController{
 		return LaborCamp;
 	}
 
+	@Override
+	public int getWorth() {
+		return breweryData.getPrice();
+	}
+
 }
