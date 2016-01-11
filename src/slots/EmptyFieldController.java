@@ -7,7 +7,7 @@ public class EmptyFieldController extends FieldController{
 
 	public EmptyFieldController() {
 	}
-
+//Field is supposed to do nothing, so there for it is empty.
 	@Override
 	public void landOnField(Player player) {
 
@@ -21,7 +21,6 @@ public class EmptyFieldController extends FieldController{
 
 	@Override
 	public Field pushToGUI(int position) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

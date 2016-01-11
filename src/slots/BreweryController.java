@@ -27,7 +27,7 @@ public class BreweryController extends OwnableController{
 	@Override 
 	public void landOnField(Player player) {
 		/**
-		 * Player lands on laborcamp.
+		 * Player lands on brewery.
 		 * If field is owned, he pays an amount depending on a roll with
 		 * two dice times the amount of labor camps owned by the owner.
 		 * If field is not owned, player can choose to buy it.

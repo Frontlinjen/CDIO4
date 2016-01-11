@@ -16,7 +16,7 @@ public class ParkinglotController extends FieldController{
 
 	@Override
 	public void landOnField(Player player) {
-		//Player lands on the Parking lot field and is given gold.
+		//Player lands on the Parking lot field and is given the bonus. The bonus is at minimum a 1000 but will get all the penality money.
 		parkingLot.displayOnCenter();
 		GUI.showMessage(Translator.getString("LANDONPARKINGLOT", parkinglotData.getAccount().getGold()));
 		parkinglotData.TransferBonus(player.getAccount());	
