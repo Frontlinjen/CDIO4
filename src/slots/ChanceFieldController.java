@@ -1,13 +1,34 @@
 package slots;
 
+import Chancecards.ChanceCardController;
 import desktop_fields.Field;
+import desktop_resources.GUI;
 import game.Player;
+import utilities.ShuffleBag;
 
 public class ChanceFieldController extends FieldController {
+	ShuffleBag<ChanceCardController> cards;
+	
+	
+	public ChanceFieldController(ShuffleBag<ChanceCardController> cards) {
+		super();
+		this.cards = cards;
+	}
 
 	@Override
 	public void landOnField(Player player) {
-		// TODO Auto-generated method stub
+		try{
+			ChanceCardController newCard = cards.getNext();
+			//If onDrawn returns false, then the card should be put back into the pile
+			if(!newCard.onDrawn(player))
+			{
+				cards.pushBackLastCard();
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}		
 		
 	}
 
