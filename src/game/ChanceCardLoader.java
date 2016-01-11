@@ -167,7 +167,7 @@ public class ChanceCardLoader extends XMLParser{
 		}	
 	}
 	
-	static public ChanceCardController[] parseChanceCards(String path, Account parkinglotAcc, Prison prison, Player[] players)
+	static public ChanceCardController[] parseChanceCards(String path, Account parkinglotAcc, Prison prison, List<Player> players)
 	{
 		
 			
