@@ -35,10 +35,15 @@ public class Prison {
 	}
 	public void advanceDay() {
 
-		for (Inmate inmate : inmates)
+		for (int i=0;i<inmates.length;++i)
 		{
-			if(inmate != null)
-				inmate.decreaseDaysLeft();
+			if(inmates[i] != null)
+				inmates[i].decreaseDaysLeft();
+			
+			if(inmates[i].getDaysLeft()<=0)
+			{	
+				inmates[i] = null;
+			}
 		}
 		
 
