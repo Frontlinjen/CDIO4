@@ -27,10 +27,10 @@ public class GoToPrisonController extends FieldController{
 
 	@Override
 	public desktop_fields.Field pushToGUI(int position){
-		this.position = position;
+		position = goToPrisonData.getPrisonPosition();
 		goToPrison = new desktop_fields.Street.Builder().setBgColor(new Color(223f/255, 255f/255, 43f/255)).build();
 		goToPrison.setDescription(this.getDescription());
-		goToPrison.setTitle(this.getName());
+		goToPrison.setTitle(goToPrisonData.getName());
 		goToPrison.setSubText("You are going to prison!");
 		return goToPrison;
 	}

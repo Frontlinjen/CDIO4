@@ -37,7 +37,7 @@ public class TaxController extends FieldController {
 	public desktop_fields.Field pushToGUI(int position) {
 		taxData.setPosition(position);
 		tax = new desktop_fields.Tax.Builder().setBgColor(new Color(255f/255, 43f/255, 57f/255)).build();
-		tax.setDescription(taxData.getDescription());
+		tax.setDescription(getDescription());
 		tax.setTitle(taxData.getName());
 		tax.setSubText(Integer.toString(taxData.getTaxAmount()));
 		return tax;
