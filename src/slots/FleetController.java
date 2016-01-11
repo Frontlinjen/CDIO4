@@ -46,7 +46,7 @@ public class FleetController extends OwnableController{
 		fleetData.setPosition(position);
 		fleet = new desktop_fields.Street.Builder().setRent(String.format("%d, %d, %d, %d", RENT[0], RENT[1], RENT[2], RENT[3])).setBgColor(new Color(144f/255,211f/255, 212f/255)).build();
 		fleet.setTitle(fleetData.getName());
-		fleet.setDescription(fleetData.getDescription());
+		fleet.setDescription(getDescription());
 		fleet.setSubText("" + fleetData.price);
 		return fleet;
 	}
