@@ -25,13 +25,4 @@ public class ParkinglotData extends FieldData{
 		return balance;
 	}
 
-	@Override
-	public String getDescription() {
-		
-		return Translator.getString(keyword, args);
-	}
-
-	
-
-
 }

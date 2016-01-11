@@ -2,7 +2,7 @@ package slots;
 
 import game.Translator;
 
-public abstract class FieldData {
+public class FieldData {
 	private int translateID;
 	protected int position;
 
@@ -13,8 +13,6 @@ public abstract class FieldData {
 	public String getName() {
 		return Translator.getString("SLOT" + translateID);
 	}
-
-	public abstract String getDescription();
 	
 	public void setPosition(int p)
 	{

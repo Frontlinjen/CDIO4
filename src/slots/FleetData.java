@@ -12,10 +12,5 @@ public class FleetData extends OwnableData{
 	{
 		return RENT[shipAmount];
 	}
-	@Override
-	public String getDescription() {
-		
-		return Translator.getString("FLEETRENTDSC");
-	}
-
+	
 }
