@@ -20,7 +20,10 @@ public class ParkinglotData extends FieldData{
 		super(i);
 		this.balance = acc;
 	}
-
+	
+	public Account getAccount(){
+		return balance;
+	}
 
 
 
