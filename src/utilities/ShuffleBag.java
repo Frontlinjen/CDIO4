@@ -29,6 +29,13 @@ public class ShuffleBag<T> {
 		//Removed the used index out of scope. 
 		--currentPos;
 	}
+	public void pushBackLastCard()
+	{
+		if(currentPos < values.length-1)
+		{
+			currentPos++;
+		}
+	}
 	public T getNext() throws Exception
 	{
 		if(currentPos==-1)

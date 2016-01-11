@@ -3,6 +3,8 @@ package game;
 import slots.BreweryController;
 import slots.FleetController;
 import slots.OwnableController;
+import slots.TerritoryController;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -27,6 +29,32 @@ public class Property {
 	public int getPropertyCount()
 	{
 		return properties.size();
+	}
+	public int getTotalHotelCount()
+	{
+		int amount = 0;
+		for(OwnableController ownable : properties)
+		{
+			if(properties instanceof TerritoryController)
+			{
+				TerritoryController territory = (TerritoryController)ownable;
+				amount += territory.getHotelAmount();
+			}
+		}
+		return amount;
+	}
+	public int getTotalHouseCount()
+	{
+		int amount = 0;
+		for(OwnableController ownable : properties)
+		{
+			if(properties instanceof TerritoryController)
+			{
+				TerritoryController territory = (TerritoryController)ownable;
+				amount += territory.getHouseAmount();
+			}
+		}
+		return amount;
 	}
 	public int getBreweriesOwned()
 	{

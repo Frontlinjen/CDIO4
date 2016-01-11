@@ -14,8 +14,9 @@ public class ChanceCardTaxController extends ChanceCardController{
 	
 	
 	@Override
-	public void onDrawn(Player player) {
-		player.getAccount().transferTo(parkinglotAccount, chanceCardData.getMoney());;
+	public boolean onDrawn(Player player) {
+		player.getAccount().transferTo(parkinglotAccount, chanceCardData.getMoney());
+		return false;
 	}
 
 	@Override
