@@ -17,7 +17,7 @@ public class GoToPrisonController extends FieldController{
 	@Override
 	public void landOnField(Player player) {
 		/**
-		 * When player lands on GoToPrison he is immediately sent to prison
+		 * When player lands on GoToPrison he is immediately sent to prison, and will remain there until he gets a double or 3 turns pass.
 		 */
 		goToPrison.displayOnCenter();
 		GUI.showMessage(Translator.getString("LANDONGOTOPRISON", goToPrisonData.getPrisonPosition()));
