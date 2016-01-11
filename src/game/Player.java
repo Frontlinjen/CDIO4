@@ -10,6 +10,11 @@ public class Player {
 	private int nextPosition = 0;
 	private boolean cashAtStart = true;
 	private boolean getOutOfPrisonCard = false;
+	private Account account;
+	private Property propertyOwned = new Property();
+	
+	DiceCup dice = new DiceCup(2);
+	
 	public int getNextPosition() {
 		return nextPosition;
 	}
@@ -36,11 +41,7 @@ public class Player {
 	/**
 	 * Each player has their own set of dice which keeps track of their rolls. 
 	 */
-	private Account account;
-	private Property propertyOwned = new Property();
-	
-	DiceCup dice = new DiceCup(2);
-	
+
 	public DiceCup getDice()
 	{
 		return dice;
