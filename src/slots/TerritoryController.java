@@ -72,6 +72,17 @@ public class TerritoryController extends OwnableController {
 		territory.setSubText(Integer.toString(territoryData.getPrice()));
 		return territory;
 	}
+	public int getHouseAmount()
+	{
+		if(territoryData.getHouses()<5)
+			return territoryData.getHouses();
+		else
+			return 0;
+	}
+	public int getHotelAmount()
+	{
+		return territoryData.getHouses()==5 ? 1 : 0;
+	}
 
 	@Override
 	public int getWorth() {
