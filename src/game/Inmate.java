@@ -11,7 +11,10 @@ public class Inmate {
 		days = d;
 		player = p;
 	}
-	
+	public void release()
+	{
+		days = 0;
+	}
 	public int getDaysLeft()
 	{
 		return days;
