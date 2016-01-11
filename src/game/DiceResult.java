@@ -50,6 +50,11 @@ public class DiceResult
 		return dice.length;
 	}
 	
+	/*
+	 * Checks if the dice are two of a kind, in order to incoorperate rule of extra roles
+	 * in case of two of a kind.
+	 */
+	
 	public boolean areDiceEqual(){
 		if(getDiceAmount() < 2)
 			return true;
@@ -61,6 +66,11 @@ public class DiceResult
 		}
 		return true;
 	}
+	
+	/*
+	 * Checks if rolls are the same, in order to incoorperate rule, that if this happens 
+	 * 3 times in a row, player is thrown in prison.
+	 */
 	
 	public boolean areRollsEqual(DiceResult res){
 		for(int i = 0; i < getDiceAmount(); i++){

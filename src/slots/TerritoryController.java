@@ -16,15 +16,22 @@ public class TerritoryController extends OwnableController {
 		territoryData = data;
 
 	}
-	
+	/*
+	 * If a player owns a territory it will enable him to purchase a house.
+	 */
 	public void buyHouse(Player player){
 		if(territoryData.getOwner() == player){
-			if(player.getAccount().getGold() > territoryData.getHouseCost()){
-				player.getAccount().removeGold(territoryData.getHouseCost());
-				territoryData.addHouse();
+			if(territoryData.getHouses() < 5){
+				if(player.getAccount().getGold() > territoryData.getHouseCost()){
+					player.getAccount().removeGold(territoryData.getHouseCost());
+					territoryData.addHouse();
+				}
+				else{
+					GUI.showMessage(Translator.getString("YOUCANNOTAFFORDTHAT"));	
+				}
 			}
 			else{
-				GUI.showMessage(Translator.getString("YOUCANNOTAFFORDTHAT"));	
+				GUI.showMessage(Translator.getString("BUILDLIMIT"));
 			}
 		}
 		else{
@@ -64,6 +71,12 @@ public class TerritoryController extends OwnableController {
 		territory.setTitle(territoryData.getName());
 		territory.setSubText(Integer.toString(territoryData.getPrice()));
 		return territory;
+	}
+
+	@Override
+	public int getWorth() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 

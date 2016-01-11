@@ -16,7 +16,13 @@ public class ParkinglotController extends FieldController{
 
 	@Override
 	public void landOnField(Player player) {
-		//Player lands on the Parking lot field and is given gold.
+		
+		/*
+		 * Player lands on the Parking lot field and is given the bonus. 
+		 * The bonus is at minimum a 1000 but will get all the penality money,
+		 * which is continously added throughout the game.
+		 */
+		
 		parkingLot.displayOnCenter();
 		GUI.showMessage(Translator.getString("LANDONPARKINGLOT", parkinglotData.getAccount().getGold()));
 		parkinglotData.TransferBonus(player.getAccount());	
@@ -27,7 +33,7 @@ public class ParkinglotController extends FieldController{
 		parkingLot = new desktop_fields.Street.Builder().setBgColor(new Color(223f/255, 255f/255, 43f/255)).build();
 		parkingLot.setDescription(parkinglotData.getDescription());
 		parkingLot.setTitle(parkinglotData.getName());
-		parkingLot.setSubText("Payout: " + parkinglotData.getBonus());
+		parkingLot.setSubText("Payout: " + parkinglotData.getAccount());
 		return parkingLot;
 	}
 }
