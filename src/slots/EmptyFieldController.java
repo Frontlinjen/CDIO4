@@ -5,8 +5,10 @@ import game.Player;
 import game.Translator;
 
 public class EmptyFieldController extends FieldController{
-
-	public EmptyFieldController() {
+	FieldData fieldData;
+	
+	public EmptyFieldController(FieldData fieldData) {
+		this.fieldData = fieldData;
 	}
 //Field is supposed to do nothing, so there for it is empty.
 	@Override
@@ -26,7 +28,10 @@ public class EmptyFieldController extends FieldController{
 	}
 	@Override
 	public String getDescription() {
-		
-		return Translator.getString("EMPTYFIELDDSC");
+		if(fieldData.getPosition() == 1) {
+		return Translator.getString("EMPTYFIELDDSC",2);
+		} else {
+		return Translator.getString("EMPTYFIELDDSC",1);
+		}
 	}
 }
