@@ -5,17 +5,19 @@
 	</field>
 	<field type="territory">
 		<translateID>2</translateID>
-		<groupID>1</groupID>
+		<groupID>0</groupID>
 		<rent>50</rent>
 		<price>1200</price>
+		<houseprice>1000</houseprice>
 	</field>
 	<field type="chancefield">
 	</field>
 	<field type="territory">
 		<translateID>4</translateID>
-		<groupID>1</groupID>
+		<groupID>0</groupID>
 		<rent>50</rent>
 		<price>1200</price>
+		<houseprice>1000</houseprice>
 	</field>
 	<field type="tax">
 		<translateID>5</translateID>
@@ -28,32 +30,36 @@
 	</field>
 	<field type="territory">
 		<translateID>7</translateID>
-		<groupID>2</groupID>
+		<groupID>1</groupID>
 		<rent>100</rent>
 		<price>2000</price>
+		<houseprice>1000</houseprice>
 	</field>
 	<field type="chancefield">
 	</field>
 	<field type="territory">
 		<translateID>9</translateID>
-		<groupID>2</groupID>
+		<groupID>1</groupID>
 		<rent>100</rent>
 		<price>2000</price>
+		<houseprice>1000</houseprice>
 	</field>
 	<field type="territory">
 		<translateID>10</translateID>
-		<groupID>2</groupID>
+		<groupID>1</groupID>
 		<rent>150</rent>
 		<price>2400</price>
+		<houseprice>1000</houseprice>
 	</field>
 	<field type="empty">
 		<translateID>11</translateID>
 	</field>
 	<field type="territory">
 		<translateID>12</translateID>
-		<groupID>3</groupID>
+		<groupID>2</groupID>
 		<rent>200</rent>
 		<price>2800</price>
+		<houseprice>2000</houseprice>
 	</field>
 	<field type="brewery">
 		<translateID>13</translateID>
@@ -61,15 +67,17 @@
 	</field>
 	<field type="territory">
 		<translateID>14</translateID>
-		<groupID>3</groupID>
+		<groupID>2</groupID>
 		<rent>200</rent>
 		<price>2800</price>
+		<houseprice>2000</houseprice>
 	</field>
 	<field type="territory">
 		<translateID>15</translateID>
-		<groupID>3</groupID>
+		<groupID>2</groupID>
 		<rent>250</rent>
 		<price>3200</price>
+		<houseprice>2000</houseprice>
 	</field>
 	<field type="fleet">
 		<translateID>16</translateID>
@@ -77,23 +85,26 @@
 	</field>
 	<field type="territory">
 		<translateID>17</translateID>
-		<groupID>4</groupID>
+		<groupID>3</groupID>
 		<rent>300</rent>
 		<price>3600</price>
+		<houseprice>2000</houseprice>
 	</field>
 	<field type="chancefield">
 	</field>
 	<field type="territory">
 		<translateID>19</translateID>
-		<groupID>4</groupID>
+		<groupID>3</groupID>
 		<rent>300</rent>
 		<price>3600</price>
+		<houseprice>2000</houseprice>
 	</field>
 	<field type="territory">
 		<translateID>20</translateID>
-		<groupID>4</groupID>
+		<groupID>3</groupID>
 		<rent>350</rent>
 		<price>4000</price>
+		<houseprice>2000</houseprice>
 	</field>
 	<field type="parkinglot">
 		<translateID>21</translateID>
@@ -101,23 +112,26 @@
 	</field>
 	<field type="territory">
 		<translateID>22</translateID>
-		<groupID>5</groupID>
+		<groupID>4</groupID>
 		<rent>350</rent>
 		<price>4400</price>
+		<houseprice>3000</houseprice>
 	</field>
 	<field type="chancefield">
 	</field>
 	<field type="territory">
 		<translateID>24</translateID>
-		<groupID>5</groupID>
+		<groupID>4</groupID>
 		<rent>350</rent>
 		<price>440</price>
+		<houseprice>3000</houseprice>
 	</field>
 	<field type="territory">
 		<translateID>25</translateID>
-		<groupID>5</groupID>
+		<groupID>4</groupID>
 		<rent>400</rent>
 		<price>4800</price>
+		<houseprice>3000</houseprice>
 	</field>
 	<field type="fleet">
 		<translateID>26</translateID>
@@ -125,15 +139,17 @@
 	</field>
 	<field type="territory">
 		<translateID>27</translateID>
-		<groupID>6</groupID>
+		<groupID>5</groupID>
 		<rent>450</rent>
 		<price>5200</price>
+		<houseprice>3000</houseprice>
 	</field>
 	<field type="territory">
 		<translateID>28</translateID>
-		<groupID>6</groupID>
+		<groupID>5</groupID>
 		<rent>450</rent>
 		<price>5200</price>
+		<houseprice>3000</houseprice>
 	</field>
 	<field type="brewery">
 		<translateID>29</translateID>
@@ -141,9 +157,10 @@
 	</field>
 	<field type="territory">
 		<translateID>30</translateID>
-		<groupID>6</groupID>
+		<groupID>5</groupID>
 		<rent>500</rent>
 		<price>5600</price>
+		<houseprice>3000</houseprice>
 	</field>
 	<field type="gotoprison">
 		<translateID>31</translateID>
@@ -151,23 +168,26 @@
 	</field>
 	<field type="territory">
 		<translateID>32</translateID>
-		<groupID>7</groupID>
+		<groupID>6</groupID>
 		<rent>550</rent>
 		<price>6000</price>
+		<houseprice>4000</houseprice>
 	</field>
 	<field type="territory">
 		<translateID>33</translateID>
-		<groupID>7</groupID>
+		<groupID>6</groupID>
 		<rent>550</rent>
 		<price>6000</price>
+		<houseprice>4000</houseprice>
 	</field>
 	<field type="chancefield">
 	</field>
 	<field type="territory">
 		<translateID>35</translateID>
-		<groupID>7</groupID>
+		<groupID>6</groupID>
 		<rent>600</rent>
 		<price>6400</price>
+		<houseprice>4000</houseprice>
 	</field>
 	<field type="fleet">
 		<translateID>36</translateID>
@@ -177,9 +197,10 @@
 	</field>
 	<field type="territory">
 		<translateID>38</translateID>
-		<groupID>8</groupID>
+		<groupID>7</groupID>
 		<rent>700</rent>
 		<price>7000</price>
+		<houseprice>4000</houseprice>
 	</field>
 	<field type="tax">
 		<translateID>39</translateID>
@@ -188,8 +209,9 @@
 	</field>
 	<field type="territory">
 		<translateID>40</translateID>
-		<groupID>8</groupID>
+		<groupID>7</groupID>
 		<rent>1000</rent>
 		<price>8000</price>
+		<houseprice>4000</houseprice>
 	</field>
 </fields>
