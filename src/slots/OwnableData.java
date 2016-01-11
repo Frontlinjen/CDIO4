@@ -4,7 +4,7 @@ import game.Player;
 
 public abstract class OwnableData extends FieldData {
 
-	private boolean pawned = false;
+	
 	protected int price;
 	private Player owner;
 	public OwnableData(int i, int price) {
@@ -32,19 +32,6 @@ public abstract class OwnableData extends FieldData {
 		return (owner!=null);
 	}
 	
-	public boolean pawned()
-	{
-		return pawned;
-	}
-	
-	public void setPawned(boolean pawned)
-	{
-		pawned = pawned();
-	}
-	
-	public int getWorth(OwnableController data)
-	{
-		 return data.getWorth();
-	}
-	
+
+		
 }
