@@ -19,6 +19,7 @@ public class Board {
 	private final int PLAYERSTARTINGCASH = 30000;
 	private Player currentPlayer;
 	private ShuffleBag<Color> availableCarColors = new ShuffleBag<Color>(new Color[]{Color.BLUE, Color.YELLOW, new Color(0, 107f/255, 15f/255), Color.PINK, Color.RED, Color.MAGENTA});
+	private Prison prison;
 	
 	public Player getCurrentPlayer()
 	{
@@ -123,22 +124,46 @@ public class Board {
 	private void advanceGame()
 	{
 		while(players.size() > 1) {
-			DiceResult res;
-			int timesEq = 0;
+			prison.advanceDay();
+			DiceResult res = null;
+			int rollsLeft = 2;
 			GUI.getUserButtonPressed(Translator.getString("NEXTTURN", currentPlayer.getName()), Translator.getString("ROLL"));
-			do while(res.areDiceEqual() && timesEq < 3){
-				++timesEq;
-				if(timesEq >= 3){
-					currentPlayer.setPosition(/*fængsel*/);
-					swapPlayers();
-						}
+			Inmate inmate = prison.getInmate(currentPlayer);
+			if (inmate != null){
+					for(int i = 0; i != 3; i++){
+						 res = currentPlayer.dice.rollDice();
+						 if(res.areDiceEqual())
+						 {
+							 inmate.release();
+							 break;
+						 }
+					}
+					//If you failed to roll two equal dices, you skip your turn. 
+					if(!res.areDiceEqual())
+					{
+						rollsLeft = 0;
+					}	
+			}
+			else
+			{
 				res = currentPlayer.getDice().rollDice();
-				currentPlayer.move(res.getSum());
-				GUI.removeAllCars(currentPlayer.getName());
-				GUI.setCar(currentPlayer.getPosition(), currentPlayer.getName());
+			}
+			while(rollsLeft!=0)
+			{
 				GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
-				//Board goes from 1-21, while our array goes from 0-20, hence we subtract 1
-				slots.getField(currentPlayer.getPosition()-1).landOnField(currentPlayer);
+				
+				currentPlayer.move(res.getSum(), true);
+				while(currentPlayer.getNextPosition()!=currentPlayer.getPosition())
+				{
+					GUI.removeAllCars(currentPlayer.getName());
+					
+					currentPlayer.moveToNextPosition();
+					
+					GUI.setCar(currentPlayer.getPosition(), currentPlayer.getName());
+					slots.getField(currentPlayer.getPosition()).landOnField(currentPlayer);
+				}
+				
+				
 				if (currentPlayer.getAccount().getGold() <= 0) {
 					Iterator<OwnableController> iterator = currentPlayer.getProperty().getPropertiesOwned();
 						while(iterator.hasNext()){
@@ -147,6 +172,20 @@ public class Board {
 						GUI.showMessage(Translator.getString("LOSINGPLAYER", currentPlayer.getName()));
 						players.remove(currentPlayer);
 						GUI.removeAllCars(currentPlayer.getName());
+						break;
+				}
+				if(res.areDiceEqual())
+				{
+					res = currentPlayer.getDice().rollDice();
+					--rollsLeft;
+				}
+				else
+				{
+					break;
+				}
+				if(rollsLeft==0)
+				{
+					currentPlayer.setNextPosition(/*prison start*/);
 				}
 			} //what do?
 			swapPlayers();

@@ -3,26 +3,22 @@ package slots;
 import java.awt.Color;
 
 import desktop_resources.GUI;
+import game.Account;
 import game.Player;
 import game.Translator;
 
 public class ParkinglotData extends FieldData{
 
 
-	private int bonus;
-
-
-
-	public int getBonus() {
-		return bonus;
+	private Account balance;
+	public void TransferBonus(Account acc)
+	{
+		balance.transferTo(acc, balance.getGold());
 	}
 
-
-
-
-	public ParkinglotData(int i, int bonus) {
+	public ParkinglotData(int i, Account acc) {
 		super(i);
-		this.bonus = bonus;
+		this.balance = acc;
 	}
 
 

@@ -15,6 +15,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import Chancecards.ChanceCard;
+
 
 public class FieldLoader extends XMLParser {
 	
@@ -114,20 +116,14 @@ public class FieldLoader extends XMLParser {
 		
 		}
 	}
-	static public FieldController[] parseFields(String path)
+	static public FieldController[] parseFields(String path, ChanceCard[] chanceCards, Prison prison)
 	{
-		File fieldFile;
-		try{
-			//Does not need to be closed, as it just represents a path to the file. 
-			//the actual read/writing is done by the XMLparser. 
-			fieldFile = new File(path);
+		
+			
 			try
 			{
 				
-				System.out.println(fieldFile.getAbsolutePath());
-				//No need to store the DocumentBuilderFactory instance as we are using default settings:
-				DocumentBuilder XMLparser = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-				Document fields = XMLparser.parse(fieldFile);
+				Document fields = getXMLDocument(path);
 				
 				/***
 				 * Parses over the fields in the XML document, seperated by types. 
@@ -184,12 +180,6 @@ public class FieldLoader extends XMLParser {
 				FieldController[] retFields = new FieldController[fieldList.size()];
 				retFields = fieldList.toArray(retFields);
 				return retFields;
-			}
-			catch(IOException fileEx)
-			{
-				JOptionPane.showMessageDialog(desktop_board.Board.getInstance().getComponent(0), "File not found at: " + fieldFile.getAbsolutePath() + "\nPlease restore the file or the board cannot be created.", "Critical error accoured", JOptionPane.ERROR_MESSAGE);
-				return null;	
-			}
 		}
 		catch(Exception e)
 		{
