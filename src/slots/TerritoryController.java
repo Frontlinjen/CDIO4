@@ -91,8 +91,18 @@ public class TerritoryController extends OwnableController {
 	}
 	@Override
 	public String getDescription() {
-		
-		return null;
+		if(territoryData.getGroupID()==0 || territoryData.getGroupID()==1) {
+			return Translator.getString("SLOTDSC", 1);
+		}
+		else if(territoryData.getGroupID()==2 || territoryData.getGroupID()==3) {
+			return Translator.getString("SLOTDSC", 2);
+		}
+		else if(territoryData.getGroupID()==4 || territoryData.getGroupID()==5) {
+			return Translator.getString("SLOTDSC", 3);
+		}
+		else {
+			return Translator.getString("SLOTDSC", 4);
+		}
 	}
 
 
