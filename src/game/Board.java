@@ -147,6 +147,21 @@ public class Board {
 			}
 			else
 			{
+				String buyHouse = Translator.getString("BUYHOUSE", currentPlayer.getName());
+				String pawnField = Translator.getString("PAWNFIELD", currentPlayer.getName());
+				String rollTurn = Translator.getString("ROLLTURN", currentPlayer.getName());
+				String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), buyHouse, pawnField, rollTurn);
+				switch(response){
+				case buyHouse:
+					break;
+				case pawnField:
+					break;
+				case rollTurn:
+					break;
+				default:
+					break;
+						
+				}
 				res = currentPlayer.getDice().rollDice();
 			}
 			while(rollsLeft!=0)
@@ -192,16 +207,18 @@ public class Board {
 			swapPlayers();
 		}
 	}
-
+	//Pawns a field, if the field aren't pawned already, and add the pawn gold to the owner
 	public void pawnField(OwnableData data){
 		if(!data.pawned()){
-			
 			data.getOwner().getAccount().addGold(data.getWorth(null));
 			data.setPawned(true);
 		}
 		
 	}
 	
+	/*Releases a field from it's pawn, 
+	but only if the field are pawned 
+	and the owner have enough gold to pay the pawn gold back*/
 	public void releaseField(OwnableData data){
 		if(data.pawned() && data.getOwner().getAccount().withdraw(data.getWorth(null))){
 			data.setPawned(false);

@@ -3,15 +3,15 @@ package Chancecards;
 import game.Player;
 
 public class ChanceCardCashBonusController extends ChanceCardController{
-	private ChanceCardCashBonusData chanceCardCashBonusData;
+	private ChanceCardCashData chanceCardCashData;
 	
-	public ChanceCardCashBonusController(ChanceCardCashBonusData chanceCardCashBonusData) {
-		this.chanceCardCashBonusData = chanceCardCashBonusData;
+	public ChanceCardCashBonusController(ChanceCardCashData chanceCardCashBonusData) {
+		this.chanceCardCashData = chanceCardCashData;
 	}
 	
 	@Override
 	public void onDrawn(Player player) {
-		player.getAccount().addGold(chanceCardCashBonusData.getBonus());
+		player.getAccount().addGold(chanceCardCashData.getMoney());
 	}
 
 	@Override

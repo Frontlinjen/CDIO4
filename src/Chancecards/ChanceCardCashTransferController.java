@@ -3,18 +3,20 @@ package Chancecards;
 import game.Player;
 
 public class ChanceCardCashTransferController extends ChanceCardController{
-	private ChanceCardCashTransferData chanceCardData;
+	private ChanceCardCashData chanceCardData;
+	private Player[] players;
 	
-	public ChanceCardCashTransferController(ChanceCardCashTransferData chanceCardData) {
+	public ChanceCardCashTransferController(ChanceCardCashData chanceCardData, Player[] players) {
 		this.chanceCardData = chanceCardData;
+		this.players = players;
 	}
 	
 	@Override
 	public void onDrawn(Player player) {
-		for(Player p : chanceCardData.getPlayers())
+		for(Player p : players)
 		{
 			if(p != player) {
-			p.getAccount().transferTo(player.getAccount(), chanceCardData.getBonus());
+			p.getAccount().transferTo(player.getAccount(), chanceCardData.getMoney());
 			}
 		}
 	}
