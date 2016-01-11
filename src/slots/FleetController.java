@@ -52,7 +52,7 @@ public class FleetController extends OwnableController{
 	}
 	@Override
 	public int getRent() {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 	@Override
@@ -63,6 +63,11 @@ public class FleetController extends OwnableController{
 	public String getDescription() {
 		
 		return Translator.getString("FLEETDSC");
+	}
+	@Override
+	public FIELDGROUPS getFieldGroup() {
+		
+		return null;
 	}
 
 }

@@ -104,6 +104,11 @@ public class TerritoryController extends OwnableController {
 			return Translator.getString("SLOTDSC", 4);
 		}
 	}
+	@Override
+	public FIELDGROUPS getFieldGroup() {
+		
+		return null;
+	}
 
 
 

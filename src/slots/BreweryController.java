@@ -72,4 +72,10 @@ public class BreweryController extends OwnableController{
 		
 		return Translator.getString("BREWERYDSC");
 	}
+
+	@Override
+	public FIELDGROUPS getFieldGroup() {
+		
+		return null;
+	}
 }
