@@ -42,4 +42,9 @@ public class OwnableData extends FieldData {
 		pawned = pawned();
 	}
 	
+	public int getWorth(OwnableController data)
+	{
+		 return data.getWorth();
+	}
+	
 }
