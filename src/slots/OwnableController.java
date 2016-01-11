@@ -78,7 +78,7 @@ public abstract class OwnableController extends FieldController{
 		
 	}
 	
-	public abstract 
+	public abstract FIELDGROUPS getFieldGroup();
 	public abstract int getWorth();
 
 	@Override
