@@ -21,12 +21,17 @@ public class TerritoryController extends OwnableController {
 	 */
 	public void buyHouse(Player player){
 		if(territoryData.getOwner() == player){
-			if(player.getAccount().getGold() > territoryData.getHouseCost()){
-				player.getAccount().removeGold(territoryData.getHouseCost());
-				territoryData.addHouse();
+			if(territoryData.getHouses() < 5){
+				if(player.getAccount().getGold() > territoryData.getHouseCost()){
+					player.getAccount().removeGold(territoryData.getHouseCost());
+					territoryData.addHouse();
+				}
+				else{
+					GUI.showMessage(Translator.getString("YOUCANNOTAFFORDTHAT"));	
+				}
 			}
 			else{
-				GUI.showMessage(Translator.getString("YOUCANNOTAFFORDTHAT"));	
+				GUI.showMessage(Translator.getString("BUILDLIMIT"));
 			}
 		}
 		else{
