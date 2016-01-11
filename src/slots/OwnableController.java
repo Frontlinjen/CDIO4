@@ -17,6 +17,11 @@ public abstract class OwnableController extends FieldController{
 		return 0;
 	}
 	
+	public Player getOwner()
+	{
+		return ownableData.getOwner();
+	}
+	
 	public void removeOwner()
 	{
 		ownableData.removeOwner();
