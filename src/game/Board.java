@@ -12,6 +12,7 @@ import javax.swing.Icon;
 import desktop_codebehind.Car;
 import desktop_fields.Ownable;
 import desktop_resources.GUI;
+import slots.FieldController;
 import slots.OwnableController;
 import slots.OwnableData;
 import slots.TerritoryController;
@@ -159,10 +160,24 @@ public class Board {
 				switch(response){
 				case buyHouse: 
 					int fieldResponse = GUI.getUserInteger(Translator.getString("WHATFIELD", currentPlayer.getName()));
-					if(slots.getField(fieldResponse)){
-						
+					FieldController field = slots.getField(fieldResponse);
+					if(field instanceof TerritoryController)
+					{
+						OwnableController ownableField = (OwnableController)field;
+						if(ownableField.getOwner()==currentPlayer)
+						{
+							
+						}
+						else
+						{
+							GUI.showMessage(Translator.getString("NOTOWNER"));
+						}
 						
 					}
+				else
+				{
+					GUI.showMessage(Translator.getString("INVALIDFIELD"));
+				}
 					break;
 				case pawnField: pawnField(null);
 					break;
