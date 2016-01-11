@@ -10,8 +10,13 @@ public class ChanceCardBuildingTaxController extends ChanceCardController{
 	}
 
 	@Override
-	public void onDrawn(Player player) {
-		
+	public boolean onDrawn(Player player) {
+		if(player.getProperty().getPropertiesOwned().) {
+			
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	@Override

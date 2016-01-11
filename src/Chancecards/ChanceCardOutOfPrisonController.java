@@ -10,14 +10,15 @@ public class ChanceCardOutOfPrisonController extends ChanceCardController{
 	}
 	
 	@Override
-	public void onDrawn(Player player) {
+	public boolean onDrawn(Player player) {
 		if(player.hasGetOutOfPrisonCard() == false) 
 		{
 			player.setHasGetOutOfPrisonCard(true);
+			return true;
 		}
 		else
 		{
-			
+			return false;
 		}
 	}
 

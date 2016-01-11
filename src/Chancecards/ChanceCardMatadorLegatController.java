@@ -12,15 +12,16 @@ private ChanceCardCashData chanceCardData;
 	
 	
 	@Override
-	public void onDrawn(Player player) {
+	public boolean onDrawn(Player player) {
 		final int MAXALLOWEDVALUE = 15000;
 		int g = player.getAccount().getGold();
 		int n = player.getProperty().getPropertyWorth();
 		if(g + n < MAXALLOWEDVALUE){
 			player.getAccount().addGold(chanceCardData.getMoney());
+			return false;
 		}
 		else {
-			
+			return true;
 		}
 	}
 
