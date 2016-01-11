@@ -282,11 +282,7 @@ public class ChanceCardLoader extends XMLParser{
 			e.printStackTrace();
 			return null;
 		}
-		
-		
-		
-		
+				
 	}
-	
 	
 }
