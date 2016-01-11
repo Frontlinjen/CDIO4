@@ -1,47 +1,53 @@
 package game;
 
 public class Prison {
-	
+
 	private Inmate[] inmates;
-	
-	private final int SERVINGDAYS = 3;
-	
+
+	public final int SERVINGDAYS = 3;
+
 	public Prison(int maxInmates){
 		inmates = new Inmate [maxInmates];  
 	}
-	
+
 	Inmate getInmate(Player player)
 	{
 		for (Inmate inmate : inmates)
 		{
 			if(inmate!=null)
 			{
-				/*
-				 * inmate is player
-				 */
+				inmate.isPlayer(player);
+
+			}
+		}
+		return null;
+	}
+
+	public void addInmate(Player player){
+		for (int i = 0; i < inmates.length; i++)
+		{
+			if(inmates[i] == null)
+			{
+				Inmate newInmate = new Inmate(SERVINGDAYS, player);
+				inmates[i] = newInmate;
 			}
 		}
 	}
-	
-	public void release(Inmate inmate) {
-		for (int i = 0; i < inmates.length; i++) {
-			if(inmate==inmates[i])
-				inmates[i] = null;
-		}
-	}
-	
-	private final int getSERVINGDAYS() {
-		return SERVINGDAYS;
-	}
-	
 	public void advanceDay() {
-		for (int i = 0; i < inmates.length;i++){
+
+		for (int i=0;i<inmates.length;++i)
+		{
 			if(inmates[i] != null)
-				inmate[i].decreaseDay();
-		}
+				inmates[i].decreaseDaysLeft();
 			
+			if(inmates[i].getDaysLeft()<=0)
+			{	
+				inmates[i] = null;
+			}
+		}
 		
+
 	}
-	
-	
+
 }
+

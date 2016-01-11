@@ -16,6 +16,22 @@ public class TerritoryController extends OwnableController {
 		territoryData = data;
 
 	}
+	
+	public void buyHouse(Player player){
+		if(territoryData.getOwner() == player){
+			if(player.getAccount().getGold() > territoryData.getHouseCost()){
+				player.getAccount().removeGold(territoryData.getHouseCost());
+				territoryData.addHouse();
+			}
+			else{
+				GUI.showMessage(Translator.getString("YOUCANNOTAFFORDTHAT"));	
+			}
+		}
+		else{
+			GUI.showMessage(Translator.getString("YOUARENOTTHEOWNER"));
+		}
+	}
+	
 	@Override
 	public void landOnField(Player player) {
 		/**

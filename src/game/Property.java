@@ -52,4 +52,14 @@ public class Property {
 		}
 		return fleetsOwned;
 	}
+	
+	public int getPropertyWorth()
+	{
+		int propertyWorth = 0;
+		for (OwnableController property : properties)
+		{
+			propertyWorth += property.getWorth();
+		}
+		return propertyWorth;
+	}
 }
