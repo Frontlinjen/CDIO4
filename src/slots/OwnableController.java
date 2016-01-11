@@ -21,6 +21,7 @@ public abstract class OwnableController extends FieldController{
 		BREWERY
 	}
 	private OwnableData ownableData;
+	private boolean pawned = false;
 	private desktop_fields.Street LaborCamp;
 	public OwnableController(OwnableData dat)
 	{
@@ -76,6 +77,15 @@ public abstract class OwnableController extends FieldController{
 		return false;
 
 		
+	}
+	public boolean pawned()
+	{
+		return pawned;
+	}
+	
+	public void setPawned(boolean pawned)
+	{
+		pawned = pawned();
 	}
 	
 	public abstract FIELDGROUPS getFieldGroup();
