@@ -222,6 +222,10 @@ public class FieldLoader extends XMLParser {
 								System.out.println("Unknown type: " + element.getAttribute("type") + " detected!");
 							}
 						}
+						if(newController!=null)
+						{
+							fieldList.add(newController);
+						}
 					}
 				}
 				FieldController[] retFields = new FieldController[fieldList.size()];

@@ -22,16 +22,41 @@ public abstract class OwnableController extends FieldController{
 	}
 	private OwnableData ownableData;
 	private boolean pawned = false;
-	private desktop_fields.Street LaborCamp;
+	protected desktop_fields.Ownable guiField;
+	
 	public OwnableController(OwnableData dat)
 	{
 		super(dat);
 		ownableData = dat;
 	}
 	
-	public int getRent()
+	public abstract int getRent();
+	protected abstract void chargeRent(Player player);
+	protected abstract void registerOwner();
+	
+	@Override
+	final public void landOnField(Player player)
 	{
-		return 0;
+			/**
+			 * Player lands on brewery.
+			 * If field is owned, he pays an amount depending on a roll with
+			 * two dice times the amount of labor camps owned by the owner.
+			 * If field is not owned, player can choose to buy it.
+			 */
+			guiField.displayOnCenter();
+			if(hasOwner()){
+				if(ownableData.getOwner()!=player)
+				{
+					chargeRent(player);
+				}else{
+					GUI.showMessage(Translator.getString("YOURFIELD"));
+				}
+			}else{
+				if(buyField(player))
+				{
+					GUI.showMessage(Translator.getString("BOUGHTFIELD",ownableData.getName(), ownableData.getPrice()));
+				}
+			}
 	}
 	
 	public Player getOwner()
@@ -59,7 +84,7 @@ public abstract class OwnableController extends FieldController{
 		return(ownableData.getOwner()!=null);
 	}
 
-	public boolean BuyField (Player visitor){
+	public boolean buyField (Player visitor){
 		/**
 		 * General purchase procedure, with a withdrawal of money
 		 * and a call to setOwner if the withdraw was completed.
@@ -67,7 +92,7 @@ public abstract class OwnableController extends FieldController{
 		if(GUI.getUserLeftButtonPressed(Translator.getString("BUYFIELD", ownableData.getPrice()), Translator.getString("YES"), Translator.getString("NO"))){
 			if(visitor.getAccount().withdraw(ownableData.getPosition())){
 				setOwner(visitor);
-				visitor.getProperty().addProperty(this);
+				registerOwner();
 				return true;
 			}else{
 				GUI.showMessage(Translator.getString("NOTENOUGHGOLD"));

@@ -44,29 +44,6 @@ public class TerritoryController extends OwnableController {
 		}
 	}
 	
-	@Override
-	public void landOnField(Player player) {
-		/**
-		 * player lands on territory. If the field is owned, the player 
-		 * will have to pay the rent, depending on which field it is.
-		 * If the field is not owned, the chance to buy it, is given.
-		 */
-		territory.displayOnCenter();
-		if(hasOwner())
-		{
-			if(territoryData.getOwner()!=player)
-			{
-				GUI.showMessage(Translator.getString("PAYTHEOWNER", territoryData.getRent()));
-				player.getAccount().transferTo(territoryData.getOwner().getAccount(), territoryData.getRent());
-			}else{
-				GUI.showMessage(Translator.getString("YOURFIELD"));
-			}
-		}else{
-			if(BuyField(player)){
-				GUI.showMessage(Translator.getString("BOUGHTFIELD", territoryData.getName(), territoryData.getPrice()));
-			}
-		}
-	}
 
 	@Override
 	public desktop_fields.Field pushToGUI(int position) {
@@ -112,6 +89,21 @@ public class TerritoryController extends OwnableController {
 	@Override
 	public FIELDGROUPS getFieldGroup() {
 		return FIELDGROUPS.values()[territoryData.getGroupID()];
+	}
+	@Override
+	public int getRent() {
+		return territoryData.getRent()+territoryData.getRent()*(int)(Math.pow(territoryData.getHouses(), 2));
+	}
+	@Override
+	protected void chargeRent(Player player) {
+		GUI.showMessage(Translator.getString("PAYTHEOWNER", territoryData.getRent()));
+		player.getAccount().transferTo(territoryData.getOwner().getAccount(), territoryData.getRent());
+		
+	}
+	@Override
+	protected void registerOwner() {
+		territoryData.getOwner().getProperty().addTerritory(this);
+		
 	}
 
 
