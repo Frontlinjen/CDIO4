@@ -157,12 +157,12 @@
 		<translateID>37</translateID>
 		<cash>40000</cash>
 	</card>
-	<card type="moveplayerfields" amount="2">
+	<card type="moveplayerrelative" amount="2">
 		<translateID>38</translateID>
 		<fields>-3</fields>
 		<cashatstart>0</cashatstart>
 	</card>
-	<card type="moveplayerfleet" amount="3">
+	<card type="moveptonextfleet" amount="3">
 		<translateID>39</translateID>
 		<fleetPosition1>6</fleetPosition1>
 		<fleetPosition2>16</fleetPosition2>
@@ -172,8 +172,8 @@
 	</card>
 	<card type="buildingtax">
 		<translateID>40</translateID>
-		<houseTax>500</houseTax>
-		<hotelTax>2000</hotelTax>
+		<prhouse>500</prhouse>
+		<prhotel>2000</prhotel>
 	</card>
 	<card type="buildingtax">
 		<translateID>41</translateID>

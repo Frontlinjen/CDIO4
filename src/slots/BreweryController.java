@@ -75,7 +75,6 @@ public class BreweryController extends OwnableController{
 
 	@Override
 	public FIELDGROUPS getFieldGroup() {
-		
-		return null;
+		return FIELDGROUPS.BREWERY;
 	}
 }

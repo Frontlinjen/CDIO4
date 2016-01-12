@@ -106,8 +106,7 @@ public class TerritoryController extends OwnableController {
 	}
 	@Override
 	public FIELDGROUPS getFieldGroup() {
-		
-		return null;
+		return FIELDGROUPS.values()[territoryData.getGroupID()];
 	}
 
 
