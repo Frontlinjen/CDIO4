@@ -32,7 +32,7 @@ public class TerritoryController extends OwnableController {
 				}
 			}
 			else{
-				GUI.showMessage(Translator.getString("BUILDLIMIT"));
+				GUI.showMessage(Translator.getString("FULLYUPGRADED"));
 			}
 		}
 		else{
