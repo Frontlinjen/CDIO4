@@ -16,6 +16,7 @@ public class ChanceCardGoToPrisonController extends ChanceCardController{
 	@Override
 	public boolean onDrawn(Player player) {
 		prison.addInmate(player);
+		player.setNextPosition(chanceCardData.getPrisonLocation(), false);
 		return false;
 	}
 
