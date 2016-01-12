@@ -229,20 +229,38 @@ public class Board {
 	//Pawns a field, if the field aren't pawned already, and add the pawn gold to the owner
 	public void pawnField(OwnableController data){
 		if(!data.pawned()){
+						
+			if(GUI.getUserLeftButtonPressed(Translator.getString("TOPAWN", data.getWorth()), 
+					Translator.getString("YES"),
+					Translator.getString("NO")))
+			{
 			data.getOwner().getAccount().addGold(data.getWorth());
 			data.setPawned(true);
+			}
+			
 		}
-		
+		else{
+			GUI.showMessage(Translator.getString("CANNOTPAWN"));
+		}
 	}
 	
 	/*Releases a field from it's pawn, 
 	but only if the field are pawned 
 	and the owner have enough gold to pay the pawn gold back*/
 	public void releaseField(OwnableController data){
-		if(data.pawned()	&& data.getOwner().getAccount().withdraw(data.getWorth())){
+		if(data.pawned()){
+			if(GUI.getUserLeftButtonPressed(Translator.getString("TOUNPAWN", data.getWorth()),
+					Translator.getString("YES"),
+					Translator.getString("NO")))
+			{
+			data.getOwner().getAccount().withdraw(data.getWorth());
 			data.setPawned(false);
+			
 		}
-		
+		else{
+			GUI.showMessage(Translator.getString("CANNOTUNPAWN"));
+		}
+		}
 }
 	
 	public void startGame(){
