@@ -156,30 +156,43 @@ public class Board {
 				String pawnField = Translator.getString("PAWNFIELD", currentPlayer.getName());
 				String releasePawn = Translator.getString("PAWNFIELD", currentPlayer.getName());
 				String rollTurn = Translator.getString("ROLLTURN", currentPlayer.getName());
-				String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), buyHouse, pawnField, releasePawn, rollTurn);
-				
-				if(response.equals(response))
+				while(true)
 				{
-					String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), currentPlayer.getProperty().getTerritoryNames());
-					TerritoryController selectedField = currentPlayer.getProperty().findTerritoryByName(fieldResponse);
-					selectedField.buyHouse(currentPlayer);
-				}
-				else if(pawnField.equals(response))
-				{
-					String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), currentPlayer.getProperty().getPawnablePropertyList());
-					OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
-					pawnField(selectedField);
-				}
-				else if(releasePawn.equals(response))
-				{
-					String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), currentPlayer.getProperty().getPawnedPropertyList());
-					OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
-					releaseField(selectedField);
-				}
+					String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), buyHouse, pawnField, releasePawn, rollTurn);
 					
-				else if (rollTurn.equals(response))
-				{
-					res = currentPlayer.getDice().rollDice();
+					if(response.equals(response))
+					{
+						String[] selections = currentPlayer.getProperty().getTerritoryNames();
+						String[] extendedSelections = new String[selections.length+1];
+						//This could be implemented by an array loop as well
+						System.arraycopy(selections, 0, extendedSelections, 0, selections.length);
+						extendedSelections[selections.length-1] = "Cancel";
+						String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), extendedSelections);
+						if(!fieldResponse.equals("Cancel"))
+						{
+							TerritoryController selectedField = currentPlayer.getProperty().findTerritoryByName(fieldResponse);
+							selectedField.buyHouse(currentPlayer);
+						}
+					}
+					else if(pawnField.equals(response))
+					{
+						String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), currentPlayer.getProperty().getPawnablePropertyList());
+						OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
+						pawnField(selectedField);
+					}
+					else if(releasePawn.equals(response))
+					{
+						String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), currentPlayer.getProperty().getPawnedPropertyList());
+						OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
+						releaseField(selectedField);
+					}
+						
+					else if (rollTurn.equals(response))
+					{
+						res = currentPlayer.getDice().rollDice();
+						break;
+					}
+					
 				}
 				
 			}
