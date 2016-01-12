@@ -10,7 +10,6 @@ import game.Player;
 import game.Translator;
 
 public class BreweryController extends OwnableController{
-
 	private BreweryData breweryData;
 	private desktop_fields.Street LaborCamp;
 
@@ -19,9 +18,8 @@ public class BreweryController extends OwnableController{
 		breweryData = data;
 	}
 
-	@Override
-	public int getRent() {
-		return 0;
+	public int getRent(int roll, int breweriesOwned) {
+		return breweriesOwned * roll * 100;
 	}
 
 	@Override 
