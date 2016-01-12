@@ -10,7 +10,7 @@ public class Prison {
 		inmates = new Inmate [maxInmates];  
 	}
 
-	Inmate getInmate(Player player)
+	public Inmate getInmate(Player player)
 	{
 		for (Inmate inmate : inmates)
 		{
