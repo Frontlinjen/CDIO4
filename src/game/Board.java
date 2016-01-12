@@ -154,7 +154,7 @@ public class Board {
 			{
 				String buyHouse = Translator.getString("BUYHOUSE", currentPlayer.getName());
 				String pawnField = Translator.getString("PAWNFIELD", currentPlayer.getName());
-				String releasePawn = Translator.getString("PAWNFIELD", currentPlayer.getName());
+				String releasePawn = Translator.getString("UNPAWNFIELD", currentPlayer.getName());
 				String rollTurn = Translator.getString("ROLLTURN", currentPlayer.getName());
 				while(true)
 				{
@@ -166,8 +166,8 @@ public class Board {
 						String[] extendedSelections = new String[selections.length+1];
 						//This could be implemented by an array loop as well
 						System.arraycopy(selections, 0, extendedSelections, 0, selections.length);
-						extendedSelections[selections.length-1] = "Cancel";
-						String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"),  extendedSelections);
+						extendedSelections[extendedSelections.length-1] = "Cancel";
+						String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"),  extendedSelections);
 						if(!fieldResponse.equals("Cancel"))
 						{
 							TerritoryController selectedField = currentPlayer.getProperty().findTerritoryByName(fieldResponse);
@@ -181,7 +181,7 @@ public class Board {
 						//This could be implemented by an array loop as well
 						System.arraycopy(selections, 0, extendedSelections, 0, selections.length);
 						extendedSelections[selections.length-1] = "Cancel";
-						String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), extendedSelections);
+						String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"), extendedSelections);
 						if(!fieldResponse.equals("Cancel"))
 						{
 							OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
@@ -196,7 +196,7 @@ public class Board {
 						//This could be implemented by an array loop as well
 						System.arraycopy(selections, 0, extendedSelections, 0, selections.length);
 						extendedSelections[selections.length-1] = "Cancel";
-						String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), extendedSelections);
+						String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"), extendedSelections);
 						if(!fieldResponse.equals("Cancel"))
 						{
 							OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
@@ -225,7 +225,7 @@ public class Board {
 					
 					currentPlayer.moveToNextPosition();
 					
-					GUI.setCar(currentPlayer.getPosition(), currentPlayer.getName());
+					GUI.setCar(currentPlayer.getPosition()+1, currentPlayer.getName());
 					slots.getField(currentPlayer.getPosition()).landOnField(currentPlayer);
 				}
 				
