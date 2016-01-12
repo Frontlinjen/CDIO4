@@ -18,6 +18,17 @@ public class Property {
 	private List<slots.BreweryController> breweries = new ArrayList<slots.BreweryController>();
 	private List<slots.TerritoryController> territories = new ArrayList<slots.TerritoryController>();
 	
+	public TerritoryController findTerritoryByName(String name)
+	{
+		for(TerritoryController territory : territories)
+		{
+			if(territory.getName()==name)
+			{
+				return territory;
+			}
+		}
+		return null;
+	}
 	public Iterator<slots.TerritoryController> getTerritories()
 	{
 		return territories.iterator();
