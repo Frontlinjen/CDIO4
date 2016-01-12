@@ -23,6 +23,7 @@ public class ChanceFieldController extends FieldController {
 			//If onDrawn returns false, then the card should be put back into the pile
 			if(!newCard.onDrawn(player))
 			{
+				GUI.showMessage(Translator.getString("CARDCOULDNOTBEUSED"));
 				cards.pushBackLastCard();
 			}
 		}
