@@ -11,8 +11,8 @@ public class ChanceFieldController extends FieldController {
 	ShuffleBag<ChanceCardController> cards;
 	
 	
-	public ChanceFieldController(ShuffleBag<ChanceCardController> cards) {
-		super();
+	public ChanceFieldController(ShuffleBag<ChanceCardController> cards, FieldData data) {
+		super(data);
 		this.cards = cards;
 	}
 

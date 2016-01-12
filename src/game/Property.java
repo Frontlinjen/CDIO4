@@ -1,7 +1,5 @@
 package game;
 
-import slots.BreweryController;
-import slots.FleetController;
 import slots.OwnableController;
 import slots.TerritoryController;
 
@@ -15,74 +13,99 @@ public class Property {
  * 'Expand' adds an additional fleet/breweries, when the plays buys on of them
  */
 
-	private List<slots.OwnableController> properties = new ArrayList<slots.OwnableController>();
+	//private List<slots.OwnableController> properties = new ArrayList<slots.OwnableController>();
+	private List<slots.FleetController> fleets = new ArrayList<slots.FleetController>();
+	private List<slots.BreweryController> breweries = new ArrayList<slots.BreweryController>();
+	private List<slots.TerritoryController> territories = new ArrayList<slots.TerritoryController>();
 	
-	 
-	public Iterator<OwnableController> getPropertiesOwned()
+	public TerritoryController findTerritoryByName(String name)
 	{
-		return properties.iterator();
+		for(TerritoryController territory : territories)
+		{
+			if(territory.getName()==name)
+			{
+				return territory;
+			}
+		}
+		return null;
 	}
-	public void addProperty(OwnableController p)
+	public Iterator<slots.TerritoryController> getTerritories()
 	{
-		properties.add(p);
+		return territories.iterator();
+	}
+	public slots.OwnableController[] getPropertiesOwned()
+	{
+		slots.OwnableController[] collection = new slots.OwnableController[fleets.size()+breweries.size()+territories.size()];
+		int collectionIndex = 0;
+		for (int i = 0; i < fleets.size(); i++) {
+			collection[collectionIndex++] =  fleets.get(i);
+		}
+		for(int i = 0; i < breweries.size();++i)
+		{
+			collection[collectionIndex++] = breweries.get(i);
+		}
+		for(int i=0;i<territories.size();++i)
+		{
+			collection[collectionIndex++] = territories.get(i);
+		}
+		return collection;
+	}
+	public void addTerritory(slots.TerritoryController p)
+	{
+		territories.add(p);
+	}
+	public void addFleet(slots.FleetController t)
+	{
+		fleets.add(t);
+	}
+	public void addBreweries(slots.BreweryController b)
+	{
+		breweries.add(b);
 	}
 	public int getPropertyCount()
 	{
-		return properties.size();
+		return fleets.size() + territories.size() + breweries.size();
 	}
 	public int getTotalHotelCount()
 	{
 		int amount = 0;
-		for(OwnableController ownable : properties)
+		for(TerritoryController territory: territories)
 		{
-			if(properties instanceof TerritoryController)
-			{
-				TerritoryController territory = (TerritoryController)ownable;
-				amount += territory.getHotelAmount();
-			}
+			amount += territory.getHotelAmount();
 		}
 		return amount;
+	}
+	public String[] getTerritoryNames()
+	{
+		
+		String[] propertyNames = new String[territories.size()];
+		for(int i=0;i<territories.size();++i)
+		{
+			propertyNames[i] = territories.get(i).getName();
+		}
+		return propertyNames;
 	}
 	public int getTotalHouseCount()
 	{
 		int amount = 0;
-		for(OwnableController ownable : properties)
+		for(TerritoryController territory: territories)
 		{
-			if(properties instanceof TerritoryController)
-			{
-				TerritoryController territory = (TerritoryController)ownable;
-				amount += territory.getHouseAmount();
-			}
+			amount += territory.getHouseAmount();
 		}
 		return amount;
 	}
 	public int getBreweriesOwned()
 	{
-		int breweriesOwned = 0;
-		for(int i = 0; i<=properties.size(); i++)
-		{
-			if(properties.get(i) instanceof BreweryController)
-			{
-				breweriesOwned++;
-			}
-		}
-		return breweriesOwned;
+		return breweries.size();
 	}
 	public int getFleetOwned()
 	{
-		int fleetsOwned = 0;
-		for(int i = 0; i<=properties.size(); i++)
-		{
-			if(properties.get(i) instanceof FleetController)
-				{
-					fleetsOwned++;
-				}
-		}
-		return fleetsOwned;
+		return fleets.size();
 	}
 	
 	public int getPropertyWorth()
 	{
+		slots.OwnableController[] properties = getPropertiesOwned();
 		int propertyWorth = 0;
 		for (OwnableController property : properties)
 		{
