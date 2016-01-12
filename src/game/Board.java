@@ -158,7 +158,7 @@ public class Board {
 				String rollTurn = Translator.getString("ROLLTURN", currentPlayer.getName());
 				while(true)
 				{
-					String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), buyHouse, pawnField, releasePawn, rollTurn);
+					String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), rollTurn, buyHouse, pawnField, releasePawn);
 					
 					if(buyHouse.equals(response))
 					{
