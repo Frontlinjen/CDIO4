@@ -25,6 +25,7 @@ public abstract class OwnableController extends FieldController{
 	private desktop_fields.Street LaborCamp;
 	public OwnableController(OwnableData dat)
 	{
+		super(dat);
 		ownableData = dat;
 	}
 	
