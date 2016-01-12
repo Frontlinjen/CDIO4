@@ -154,40 +154,34 @@ public class Board {
 			{
 				String buyHouse = Translator.getString("BUYHOUSE", currentPlayer.getName());
 				String pawnField = Translator.getString("PAWNFIELD", currentPlayer.getName());
-				String releaseField = Translator.getString("PAWNFIELD", currentPlayer.getName());
+				String releasePawn = Translator.getString("PAWNFIELD", currentPlayer.getName());
 				String rollTurn = Translator.getString("ROLLTURN", currentPlayer.getName());
-				String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), buyHouse, pawnField, releaseField, rollTurn);
-				switch(response){
-				case buyHouse: 
-					int fieldResponse = GUI.getUserInteger(Translator.getString("WHATFIELD", currentPlayer.getName()));
-					FieldController field = slots.getField(fieldResponse);
-					if(field instanceof TerritoryController)
-					{
-						OwnableController ownableField = (OwnableController)field;
-						if(ownableField.getOwner()==currentPlayer)
-						{
-							
-						}
-						else
-						{
-							GUI.showMessage(Translator.getString("NOTOWNER"));
-						}
-						
-					}
-				else
+				String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), buyHouse, pawnField, releasePawn, rollTurn);
+				
+				if(response==buyHouse) 
 				{
-					GUI.showMessage(Translator.getString("INVALIDFIELD"));
+					String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), currentPlayer.getProperty().getTerritoryNames());
+					TerritoryController selectedField = currentPlayer.getProperty().findTerritoryByName(fieldResponse);
+					selectedField.buyHouse(currentPlayer);
 				}
-					break;
-				case pawnField: pawnField(null);
-					break;
-				case releaseField: releaseField(null);
-					break;
-				case rollTurn: res = currentPlayer.getDice().rollDice();
-					break;
-				default:
-					break;
+				else if(pawnField==response)
+				{
+					String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), currentPlayer.getProperty().getPawnablePropertyList());
+					OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
+					pawnField(selectedField);
 				}
+				else if(releasePawn==response)
+				{
+					String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), currentPlayer.getProperty().getPawnedPropertyList());
+					OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
+					releaseField(selectedField);
+				}
+					
+				else if (rollTurn==response)
+				{
+					res = currentPlayer.getDice().rollDice();
+				}
+				
 			}
 			while(rollsLeft!=0)
 			{
@@ -206,9 +200,9 @@ public class Board {
 				
 				
 				if (currentPlayer.getAccount().getGold() <= 0) {
-					Iterator<OwnableController> iterator = currentPlayer.getProperty().getPropertiesOwned();
-						while(iterator.hasNext()){
-							iterator.next().removeOwner();
+					OwnableController[] properties = currentPlayer.getProperty().getPropertiesOwned();
+						for (OwnableController property : properties) {
+							property.removeOwner();
 						}
 						GUI.showMessage(Translator.getString("LOSINGPLAYER", currentPlayer.getName()));
 						players.remove(currentPlayer);
@@ -245,7 +239,7 @@ public class Board {
 	but only if the field are pawned 
 	and the owner have enough gold to pay the pawn gold back*/
 	public void releaseField(OwnableController data){
-		if(data.pawned() && data.getOwner().getAccount().withdraw(data.getWorth())){
+		if(data.pawned()	&& data.getOwner().getAccount().withdraw(data.getWorth())){
 			data.setPawned(false);
 		}
 		
