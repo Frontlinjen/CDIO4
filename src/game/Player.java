@@ -68,7 +68,7 @@ public class Player {
 	}
 	
 	private void moveToPosition (int afstand){
-		final int ANTALSLOTS = 40;
+		final int ANTALSLOTS = 39; //39, since we go up from 0(0 is the 40th field)
 		final int STARTBONUS = 4000;
 		position += afstand; 
 		//add the moved distance to the old position.
