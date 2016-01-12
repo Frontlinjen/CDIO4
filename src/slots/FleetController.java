@@ -7,7 +7,6 @@ import game.Player;
 import game.Translator;
 
 public class FleetController extends OwnableController{
-	private desktop_fields.Shipping fleet;
 	private FleetData fleetData;
 	private final int RENT[] = {500, 1000, 2000, 4000};
 	public FleetController(FleetData data)
@@ -19,11 +18,11 @@ public class FleetController extends OwnableController{
 	@Override
 	public desktop_fields.Field pushToGUI(int position) {
 		fleetData.setPosition(position);
-		fleet = new desktop_fields.Shipping.Builder().setRent(String.format("%d, %d, %d, %d", RENT[0], RENT[1], RENT[2], RENT[3])).setBgColor(new Color(144f/255,211f/255, 212f/255)).build();
-		fleet.setTitle(fleetData.getName());
-		fleet.setDescription(getDescription());
-		fleet.setSubText("" + fleetData.price);
-		return fleet;
+		guiField = new desktop_fields.Shipping.Builder().setRent(String.format("%d, %d, %d, %d", RENT[0], RENT[1], RENT[2], RENT[3])).setBgColor(new Color(144f/255,211f/255, 212f/255)).build();
+		guiField.setTitle(fleetData.getName());
+		guiField.setDescription(getDescription());
+		guiField.setSubText("" + fleetData.price);
+		return guiField;
 	}
 	
 	@Override

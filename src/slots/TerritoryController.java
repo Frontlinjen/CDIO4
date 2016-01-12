@@ -7,7 +7,6 @@ import game.Player;
 import game.Translator;
 
 public class TerritoryController extends OwnableController {
-	private desktop_fields.Street territory;
 	private TerritoryData territoryData;
 
 	public TerritoryController(TerritoryData data)
@@ -27,8 +26,16 @@ public class TerritoryController extends OwnableController {
 		if(territoryData.getOwner() == player){
 			if(territoryData.getHouses() < 5){
 				if(player.getAccount().withdraw(getUpgradeCosts())){
-		
+					int houseCount = territoryData.getHouses();
 					territoryData.addHouse();
+					if(houseCount < 5)
+					{
+						GUI.setHouses(territoryData.getPosition(), territoryData.getHouses());
+					}
+					else
+					{
+						GUI.setHotel(territoryData.getPosition(), true);
+					}
 					GUI.showMessage(Translator.getString("HOUSECONFIRM"));
 				}
 				else{
@@ -48,11 +55,11 @@ public class TerritoryController extends OwnableController {
 	@Override
 	public desktop_fields.Field pushToGUI(int position) {
 		territoryData.setPosition(position);
-		territory = new desktop_fields.Street.Builder().setRent(Integer.toString(territoryData.getRent())).setBgColor(new Color(68f/255, 255f/255, 43f/255)).build();
-		territory.setDescription(getDescription());
-		territory.setTitle(territoryData.getName());
-		territory.setSubText(Integer.toString(territoryData.getPrice()));
-		return territory;
+		guiField = new desktop_fields.Street.Builder().setRent(Integer.toString(territoryData.getRent())).setBgColor(new Color(68f/255, 255f/255, 43f/255)).build();
+		guiField.setDescription(getDescription());
+		guiField.setTitle(territoryData.getName());
+		guiField.setSubText(Integer.toString(territoryData.getPrice()));
+		return guiField;
 	}
 	public int getHouseAmount()
 	{
