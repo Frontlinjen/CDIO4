@@ -160,7 +160,7 @@ public class Board {
 				{
 					String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), buyHouse, pawnField, releasePawn, rollTurn);
 					
-					if(response.equals(response))
+					if(buyHouse.equals(response))
 					{
 						String[] selections = currentPlayer.getProperty().getTerritoryNames();
 						String[] extendedSelections = new String[selections.length+1];
