@@ -29,9 +29,9 @@ public class GameBoard {
 		int pos = 1;
 		for(FieldController f : fields)
 		{
-			desktop_fields.Field guiField = f.pushToGUI(pos++);
+			desktop_fields.Field guiField = f.pushToGUI(pos);
 			guiFields[pos-1] = guiField;
-			
+			pos++;	
 		}
 		GUI.create(guiFields);
 	}

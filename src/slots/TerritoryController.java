@@ -16,6 +16,10 @@ public class TerritoryController extends OwnableController {
 		territoryData = data;
 
 	}
+	public int getUpgradeCosts()
+	{
+		return territoryData.getHouseCost();
+	}
 	/*
 	 * If a player owns a territory it will enable him to purchase a house.
 	 */
@@ -25,6 +29,7 @@ public class TerritoryController extends OwnableController {
 				if(player.getAccount().withdraw(territoryData.price)){
 					player.getAccount().removeGold(territoryData.getHouseCost());
 					territoryData.addHouse();
+					GUI.showMessage(Translator.getString("HOUSECONFIRM"));
 				}
 				else{
 					GUI.showMessage(Translator.getString("YOUCANNOTAFFORDTHAT"));	
