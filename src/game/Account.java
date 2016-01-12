@@ -39,7 +39,8 @@ public class Account {
 		{
 			setGold(0);
 		}
-		GUI.setBalance(ownerName, getGold());
+		if(ownerName!=null)
+			GUI.setBalance(ownerName, getGold());
 	}
 	/**
 	 * Transfers as much money as possible to the other account. If the balance is too low
