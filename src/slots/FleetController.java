@@ -66,8 +66,7 @@ public class FleetController extends OwnableController{
 	}
 	@Override
 	public FIELDGROUPS getFieldGroup() {
-		
-		return null;
+		return FIELDGROUPS.FLEET;
 	}
 
 }
