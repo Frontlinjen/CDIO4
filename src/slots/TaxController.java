@@ -11,8 +11,10 @@ public class TaxController extends FieldController {
 	private desktop_fields.Tax tax;
 	private TaxData taxData;
 	private Account parkinglotAccount;
-	public TaxController(TaxData data, Account parkinglotAccount)
+	private FieldController fieldController;
+	public TaxController(FieldController fieldController, TaxData data, Account parkinglotAccount)
 	{
+		super(data);
 		taxData = data;
 		this.parkinglotAccount = parkinglotAccount;
 	}
