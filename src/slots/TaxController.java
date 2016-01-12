@@ -3,15 +3,18 @@ package slots;
 import java.awt.Color;
 
 import desktop_resources.GUI;
+import game.Account;
 import game.Player;
 import game.Translator;
 
 public class TaxController extends FieldController {
 	private desktop_fields.Tax tax;
 	private TaxData taxData;
-	public TaxController(TaxData data)
+	private Account parkinglotAccount;
+	public TaxController(TaxData data, Account parkinglotAccount)
 	{
 		taxData = data;
+		this.parkinglotAccount = parkinglotAccount;
 	}
 	@Override
 	public void landOnField(Player player) {
@@ -25,10 +28,10 @@ public class TaxController extends FieldController {
 		else {
 			tax.displayOnCenter();
 			if (GUI.getUserLeftButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxData.getTaxRate()) , Integer.toString(taxData.getTaxAmount()))) {
-				player.getAccount().withdraw(taxData.getTaxRate());
+				player.getAccount().transferTo(parkinglotAccount, taxData.getTaxRate()*player.getAccount().getGold());;
 			}
 			else {
-				player.getAccount().withdraw(taxData.getTaxAmount());
+				player.getAccount().transferTo(parkinglotAccount, taxData.getTaxAmount());;
 			}
 		}
 	}
