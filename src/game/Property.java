@@ -18,6 +18,18 @@ public class Property {
 	private List<slots.BreweryController> breweries = new ArrayList<slots.BreweryController>();
 	private List<slots.TerritoryController> territories = new ArrayList<slots.TerritoryController>();
 	
+	public OwnableController findOwnableByName(String name)
+	{
+		OwnableController[] ownables = getPropertiesOwned();
+		for (OwnableController ownableController : ownables) {
+			if(ownableController.getName()==name)
+			{
+				return ownableController;
+			}
+		}
+		
+	}
+	
 	public TerritoryController findTerritoryByName(String name)
 	{
 		for(TerritoryController territory : territories)
@@ -28,6 +40,39 @@ public class Property {
 			}
 		}
 		return null;
+	}
+	public String[] getPawnedPropertyList()
+	{
+		OwnableController[] ownables = getPropertiesOwned();
+		String[] names = new String[ownables.length];
+		int index = 0;
+		for (OwnableController cont : ownables) {
+			if(cont.pawned())
+			{
+				names[index++] = cont.getName() + cont.getWorth(); 
+			}
+		}
+		return names;
+	}
+	public String[] getPawnablePropertyList()
+	{
+		OwnableController[] ownables = getPropertiesOwned();
+		String[] names = new String[ownables.length];
+		int index = 0;
+		for (OwnableController cont : ownables) {
+			if(!cont.pawned())
+			{
+				names[index++] = cont.getName() + cont.getWorth(); 
+			}
+		}
+		return names;
+	}
+	
+	public String[] getPawnedTerritoryNames()
+	{
+		for (TerritoryController territory : territories)
+						
+		}
 	}
 	public Iterator<slots.TerritoryController> getTerritories()
 	{
