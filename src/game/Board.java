@@ -233,17 +233,13 @@ public class Board {
 			}
 			while(rollsLeft>0)
 			{
+				
 				GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
 				
 				currentPlayer.move(res.getSum(), true);
 				while(currentPlayer.getNextPosition()!=currentPlayer.getPosition())
 				{
-					GUI.removeAllCars(currentPlayer.getName());
-					
-					currentPlayer.moveToNextPosition();
-					
-					GUI.setCar(currentPlayer.getPosition()+1, currentPlayer.getName());
-					slots.getField(currentPlayer.getPosition()).landOnField(currentPlayer);
+					updateCurrentPlayerPosition();
 				}
 				
 				
@@ -267,13 +263,27 @@ public class Board {
 				{
 					break;
 				}
+			
 				if(rollsLeft==0)
 				{
+					GUI.showMessage(Translator.getString("TOOMANYDOUBLES"));
 					currentPlayer.setNextPosition(11, false);
+					updateCurrentPlayerPosition();
 				}
 			} //what do?
 			swapPlayers();
 		}
+	}
+	
+	
+	public void updateCurrentPlayerPosition()
+	{
+		GUI.removeAllCars(currentPlayer.getName());
+		
+		currentPlayer.moveToNextPosition();
+		
+		GUI.setCar(currentPlayer.getPosition()+1, currentPlayer.getName());
+		slots.getField(currentPlayer.getPosition()).landOnField(currentPlayer);
 	}
 	//Pawns a field, if the field aren't pawned already, and add the pawn gold to the owner
 	public void pawnField(OwnableController data){
