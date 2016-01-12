@@ -11,30 +11,24 @@ public class LaborCampTest {
 
 	@Test
 	public void testGetRent() {
-		BreweryController laborCamp = new BreweryController(1, Types.LABORCAMP, 2500, 100);
+		BreweryData data = new BreweryData(100, 2, 3);
+		BreweryController laborCamp = new BreweryController(data);
 		
 		Player player1 = new Player("Test1");
 		Player player2 = new Player("Test2");
 		laborCamp.pushToGUI(1);
 		
 		laborCamp.setOwner(player2);
-		player2.getProperty().expandLaborCamp();
-		player2.getProperty().expandLaborCamp();
+		player2.getProperty().addProperty(laborCamp);
+		player2.getProperty().addProperty(laborCamp);
 				
 		laborCamp.landOnField(player1);
-		boolean paid = false;
+		
 		for (int i=2; i<=12 ;i++){
-			int baseRent = i * 100 * player2.getProperty().getLaborCampOwned();
+			int baseRent = laborCamp.getRent();
 			
-			if (player1.getAccount().getGold()==30000-baseRent && player2.getAccount().getGold()==30000+baseRent){
-				paid=true;
-				break;
-			}
-			
+			assertTrue(player1.getAccount().getGold()==30000-baseRent && player2.getAccount().getGold()==30000+baseRent);
 		}
-		assertTrue(paid == true);
-//		System.out.println(player1.getAccount().getGold());
-//		System.out.println(player2.getAccount().getGold());
 	}
 
 }
