@@ -9,7 +9,7 @@ public class ChanceCardTaxController extends ChanceCardController{
 	
 	public ChanceCardTaxController(ChanceCardCashData chanceCardData, Account parkinlotAccount) {
 		this.chanceCardData = chanceCardData;
-		this.parkinglotAccount = parkinglotAccount;
+		this.parkinglotAccount = parkinlotAccount;
 	}
 	
 	
