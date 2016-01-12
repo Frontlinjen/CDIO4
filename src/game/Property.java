@@ -67,13 +67,7 @@ public class Property {
 		}
 		return names;
 	}
-	
-	public String[] getPawnedTerritoryNames()
-	{
-		for (TerritoryController territory : territories)
-						
-		}
-	}
+
 	public Iterator<slots.TerritoryController> getTerritories()
 	{
 		return territories.iterator();
