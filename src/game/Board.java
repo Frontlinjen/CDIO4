@@ -158,19 +158,19 @@ public class Board {
 				String rollTurn = Translator.getString("ROLLTURN", currentPlayer.getName());
 				String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), buyHouse, pawnField, releasePawn, rollTurn);
 				
-				if(response==buyHouse) 
+				if(response.equals(response))
 				{
 					String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), currentPlayer.getProperty().getTerritoryNames());
 					TerritoryController selectedField = currentPlayer.getProperty().findTerritoryByName(fieldResponse);
 					selectedField.buyHouse(currentPlayer);
 				}
-				else if(pawnField==response)
+				else if(pawnField.equals(response))
 				{
 					String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), currentPlayer.getProperty().getPawnablePropertyList());
 					OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
 					pawnField(selectedField);
 				}
-				else if(releasePawn==response)
+				else if(releasePawn.equals(response))
 				{
 					String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), currentPlayer.getProperty().getPawnedPropertyList());
 					OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
