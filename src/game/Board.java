@@ -149,7 +149,7 @@ public class Board {
 						rollsLeft = 0;
 					}	
 			}
-			else
+			if(rollsLeft!=0)
 			{
 				String buyHouse = Translator.getString("BUYHOUSE", currentPlayer.getName());
 				String pawnField = Translator.getString("PAWNFIELD", currentPlayer.getName());
@@ -182,16 +182,24 @@ public class Board {
 					else if(pawnField.equals(response))
 					{
 						String[] selections = currentPlayer.getProperty().getPawnablePropertyList();
-						String[] extendedSelections = new String[selections.length+1];
-						//This could be implemented by an array loop as well
-						System.arraycopy(selections, 0, extendedSelections, 0, selections.length);
-						extendedSelections[extendedSelections.length-1] = Translator.getString("CANCEL");;
-						String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"), extendedSelections);
-						if(!fieldResponse.equals(Translator.getString("CANCEL")))
+						if(selections.length<1)
 						{
-							System.out.println(fieldResponse);
-							OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
-							pawnField(selectedField);
+							GUI.showMessage(Translator.getString("CANNOTUNPAWN"));
+						}
+						else
+						{
+							String[] extendedSelections = new String[selections.length+1];
+							//This could be implemented by an array loop as well
+							System.arraycopy(selections, 0, extendedSelections, 0, selections.length);
+							extendedSelections[extendedSelections.length-1] = Translator.getString("CANCEL");;
+							String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"), extendedSelections);
+							if(!fieldResponse.equals(Translator.getString("CANCEL")))
+							{
+								System.out.println(fieldResponse);
+								OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
+								pawnField(selectedField);
+							}
+						
 						}
 					
 					}
@@ -207,7 +215,7 @@ public class Board {
 							String[] extendedSelections = new String[selections.length+1];
 							//This could be implemented by an array loop as well
 							System.arraycopy(selections, 0, extendedSelections, 0, selections.length);
-							extendedSelections[selections.length-1] = Translator.getString("CANCEL");
+							extendedSelections[extendedSelections.length-1] = Translator.getString("CANCEL");
 							String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"), extendedSelections);
 							if(!fieldResponse.equals(Translator.getString("CANCEL")))
 							{
@@ -223,7 +231,7 @@ public class Board {
 				}
 				
 			}
-			while(rollsLeft!=0)
+			while(rollsLeft>0)
 			{
 				GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
 				
@@ -251,6 +259,7 @@ public class Board {
 				}
 				if(res.areDiceEqual())
 				{
+					GUI.showMessage(Translator.getString("EXTRATURN"));
 					res = currentPlayer.getDice().rollDice();
 					--rollsLeft;
 				}
