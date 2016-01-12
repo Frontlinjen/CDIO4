@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import game.Account;
 import game.Player;
-import slots.FieldController.Types;
+import slots.FieldController;
 import slots.TaxData;
 
 public class TaxTest {
