@@ -49,6 +49,7 @@ public abstract class OwnableController extends FieldController{
 		/**
 		 * General way to make the buyer of a field the owner.
 		 */
+		
 		System.out.println(ownableData.getName() + " now has " + owner.getName() + " as their owner" + " at slot " + ownableData.getPosition());
 		ownableData.setOwner(owner);
 		GUI.setOwner(ownableData.getPosition(), owner.getName());

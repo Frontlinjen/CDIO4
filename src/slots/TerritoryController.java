@@ -86,7 +86,7 @@ public class TerritoryController extends OwnableController {
 	}
 	public int getHotelAmount()
 	{
-		return territoryData.getHouses()==5 ? 1 : 0;
+		return territoryData.getHouses()>4 ? 1 : 0;
 	}
 
 	@Override

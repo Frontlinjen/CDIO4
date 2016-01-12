@@ -15,7 +15,7 @@ import slots.FieldData;
 
 public class TaxTest {
 	
-	FieldData fieldData;
+
 	Account acc;
 	TaxData taxD;
 	TaxController tax;
@@ -23,10 +23,10 @@ public class TaxTest {
 	
 	@Before
 	public void preTest(){
-		fieldData = new FieldData(1);
+
 		acc = new Account(0, "Test");
 		taxD = new TaxData(1, 2000, 10);
-		tax = new TaxController(fieldData, taxD, acc);
+		tax = new TaxController(taxD, acc);
 		player = new Player("Test");
 	}
 
