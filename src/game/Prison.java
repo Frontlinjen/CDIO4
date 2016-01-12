@@ -16,7 +16,7 @@ public class Prison {
 		{
 			if(inmate!=null && inmate.isPlayer(player))
 			{
-				return true;
+				return inmate;
 			}
 		}
 		return null;
