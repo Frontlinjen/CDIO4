@@ -25,6 +25,7 @@ public class TerritoryController extends OwnableController {
 				if(player.getAccount().withdraw(territoryData.price)){
 					player.getAccount().removeGold(territoryData.getHouseCost());
 					territoryData.addHouse();
+					GUI.showMessage(Translator.getString("HOUSECONFIRM"));
 				}
 				else{
 					GUI.showMessage(Translator.getString("YOUCANNOTAFFORDTHAT"));	
