@@ -38,11 +38,13 @@ public class Prison {
 		for (int i=0;i<inmates.length;++i)
 		{
 			if(inmates[i] != null)
+			{
 				inmates[i].decreaseDaysLeft();
 			
-			if(inmates[i].getDaysLeft()<=0)
-			{	
-				inmates[i] = null;
+				if(inmates[i].getDaysLeft()<=0)
+				{	
+					inmates[i] = null;
+				}
 			}
 		}
 		
