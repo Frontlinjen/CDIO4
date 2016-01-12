@@ -5,10 +5,9 @@ import game.Player;
 import game.Translator;
 
 public class EmptyFieldController extends FieldController{
-	FieldData fieldData;
 	
 	public EmptyFieldController(FieldData fieldData) {
-		this.fieldData = fieldData;
+		super(fieldData);
 	}
 //Field is supposed to do nothing, so there for it is empty.
 	@Override

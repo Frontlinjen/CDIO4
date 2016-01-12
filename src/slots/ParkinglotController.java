@@ -11,6 +11,7 @@ public class ParkinglotController extends FieldController{
 	private ParkinglotData parkinglotData;
 	public ParkinglotController(ParkinglotData data)
 	{
+		super(data);
 		parkinglotData = data;
 	}
 

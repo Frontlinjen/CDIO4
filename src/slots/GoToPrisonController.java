@@ -11,6 +11,7 @@ public class GoToPrisonController extends FieldController{
 	GoToPrisonData goToPrisonData;
 	public GoToPrisonController(GoToPrisonData data)
 	{
+		super(data);
 		goToPrisonData = data;
 	}
 

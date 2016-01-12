@@ -16,6 +16,10 @@ public class TerritoryController extends OwnableController {
 		territoryData = data;
 
 	}
+	public int getUpgradeCosts()
+	{
+		return territoryData.getHouseCost();
+	}
 	/*
 	 * If a player owns a territory it will enable him to purchase a house.
 	 */
