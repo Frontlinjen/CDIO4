@@ -92,7 +92,7 @@ public class FieldLoader extends XMLParser {
 		
 		}
 	}
-	private static TaxController parseTax(Element e, Account parkingAcc) throws Exception
+	private static TaxController parseTax(FieldController fieldController, Element e, Account parkingAcc) throws Exception
 	{
 		System.out.println("Parsing tax...");
 		try {
@@ -103,7 +103,7 @@ public class FieldLoader extends XMLParser {
 			int tax = parseInteger(taxNode);
 			int taxPercentage = parseInteger(taxPercentageNode); 
 			TaxData newData = new TaxData(translateID, tax, taxPercentage);
-			return new TaxController(newData, parkingAcc);
+			return new TaxController(fieldController, newData, parkingAcc);
 			
 		} catch (Exception exc) {
 			
@@ -130,7 +130,24 @@ public class FieldLoader extends XMLParser {
 		
 		}
 	}
-	static public FieldController[] parseFields(String path, ShuffleBag<ChanceCardController> chanceCards, Prison prison, Account parkinglotAccount)
+	private static FieldController parseGotoPrison(Element e, Prison p) throws Exception {
+		System.out.println("Parsing gotoPrison...");
+		try {
+			
+			Node translateNode = getUnique(e, "translateID");
+			Node prisonNode = getUnique(e, "prisonPosition");
+			int translateID = parseInteger(translateNode);
+			int prisonLocation = parseInteger(prisonNode);
+			GoToPrisonData newData = new GoToPrisonData(translateID, prisonLocation, p);
+			return new GoToPrisonController(newData);
+			
+		} catch (Exception exc) {
+			
+			throw new Exception("Failed to parse gotoPrison", exc);
+		
+		}
+	}
+	static public FieldController[] parseFields(String path, ShuffleBag<ChanceCardController> chanceCards, Prison prison, Account parkinglotAccount, FieldController fieldController, FieldData data)
 	{
 		
 			
@@ -144,7 +161,6 @@ public class FieldLoader extends XMLParser {
 				 */
 				NodeList fieldNodes = fields.getElementsByTagName("field");
 				List<FieldController> fieldList = new ArrayList<FieldController>();
-				System.out.println(fieldList.size());
 				for(int index=0;index < fieldNodes.getLength();++index)
 				{
 					Node node = fieldNodes.item(index);
@@ -174,7 +190,7 @@ public class FieldLoader extends XMLParser {
 							}
 							case "tax":
 							{
-								FieldController f = parseTax(element, parkinglotAccount);
+								FieldController f = parseTax(fieldController, element, parkinglotAccount);
 								fieldList.add(f);
 								break;
 							}
@@ -186,7 +202,7 @@ public class FieldLoader extends XMLParser {
 							}
 							case "chancefield":
 							{
-								FieldController f = parseChanceCard(element, chanceCards);
+								FieldController f = parseChanceCard(element, chanceCards, data);
 								fieldList.add(f);
 								break;
 							}
@@ -218,32 +234,13 @@ public class FieldLoader extends XMLParser {
 			return null;
 		}
 		
-		
-		
-		
 	}
-	private static FieldController parseGotoPrison(Element e, Prison p) throws Exception {
-		System.out.println("Parsing gotoPrison...");
-		try {
-			
-			Node translateNode = getUnique(e, "translateID");
-			Node prisonNode = getUnique(e, "prisonPosition");
-			int translateID = parseInteger(translateNode);
-			int prisonLocation = parseInteger(prisonNode);
-			GoToPrisonData newData = new GoToPrisonData(translateID, prisonLocation, p);
-			return new GoToPrisonController(newData);
-			
-		} catch (Exception exc) {
-			
-			throw new Exception("Failed to parse gotoPrison", exc);
-		
-		}
-	}
-	private static FieldController parseChanceCard(Element element, ShuffleBag<ChanceCardController> cards) throws Exception {
+	
+	private static FieldController parseChanceCard(Element element, ShuffleBag<ChanceCardController> cards, FieldData data) throws Exception {
 		
 		System.out.println("Parsing chanceCard...");
 		try {
-			return new ChanceFieldController(cards);
+			return new ChanceFieldController(cards, data);
 			
 		} catch (Exception exc) {
 			

@@ -38,10 +38,10 @@ public class PlayerTest {
 
 	@Test
 	public void testMoveToNextPosition(){
-		player.move(22, true);
-		player.move(10, true);
+		player.move(30, true);
+		player.move(15, true);
 		player.moveToNextPosition();
-		assertTrue("Fail, the player should be on position 22", player.getPosition() == 32);
+		assertTrue("Fail, the player should be on position 22", player.getPosition() == 5 && player.getAccount().getGold() == 34000);
 	}
 	
 	@Test

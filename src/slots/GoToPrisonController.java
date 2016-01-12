@@ -32,7 +32,7 @@ public class GoToPrisonController extends FieldController{
 		goToPrison = new desktop_fields.Street.Builder().setBgColor(new Color(223f/255, 255f/255, 43f/255)).build();
 		goToPrison.setDescription(this.getDescription());
 		goToPrison.setTitle(goToPrisonData.getName());
-		goToPrison.setSubText("You are going to prison!");
+		goToPrison.setSubText("GOTOPRISONDSC");
 		return goToPrison;
 	}
 	@Override
