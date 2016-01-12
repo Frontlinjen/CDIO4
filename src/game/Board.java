@@ -167,7 +167,7 @@ public class Board {
 						//This could be implemented by an array loop as well
 						System.arraycopy(selections, 0, extendedSelections, 0, selections.length);
 						extendedSelections[selections.length-1] = "Cancel";
-						String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), extendedSelections);
+						String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"),  extendedSelections);
 						if(!fieldResponse.equals("Cancel"))
 						{
 							TerritoryController selectedField = currentPlayer.getProperty().findTerritoryByName(fieldResponse);
@@ -176,15 +176,33 @@ public class Board {
 					}
 					else if(pawnField.equals(response))
 					{
-						String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), currentPlayer.getProperty().getPawnablePropertyList());
-						OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
-						pawnField(selectedField);
+						String[] selections = currentPlayer.getProperty().getPawnablePropertyList();
+						String[] extendedSelections = new String[selections.length+1];
+						//This could be implemented by an array loop as well
+						System.arraycopy(selections, 0, extendedSelections, 0, selections.length);
+						extendedSelections[selections.length-1] = "Cancel";
+						String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), extendedSelections);
+						if(!fieldResponse.equals("Cancel"))
+						{
+							OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
+							pawnField(selectedField);
+						}
+					
 					}
 					else if(releasePawn.equals(response))
 					{
-						String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), currentPlayer.getProperty().getPawnedPropertyList());
-						OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
-						releaseField(selectedField);
+						String[] selections = currentPlayer.getProperty().getPawnedPropertyList();
+						String[] extendedSelections = new String[selections.length+1];
+						//This could be implemented by an array loop as well
+						System.arraycopy(selections, 0, extendedSelections, 0, selections.length);
+						extendedSelections[selections.length-1] = "Cancel";
+						String fieldResponse = GUI.getUserSelection(Translator.getString("WHATFIELD"), extendedSelections);
+						if(!fieldResponse.equals("Cancel"))
+						{
+							OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
+							releaseField(selectedField);
+						}
+						
 					}
 						
 					else if (rollTurn.equals(response))
