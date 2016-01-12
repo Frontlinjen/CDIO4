@@ -45,6 +45,6 @@ public class TaxController extends FieldController {
 	@Override
 	public String getDescription() {
 		
-		return Translator.getString("TAXCONTROLLERDSC");
+		return Translator.getString("TAXDSC");
 	}
 }
