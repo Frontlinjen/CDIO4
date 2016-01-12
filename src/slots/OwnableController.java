@@ -45,7 +45,7 @@ public abstract class OwnableController extends FieldController{
 			 */
 			guiField.displayOnCenter();
 			if(hasOwner()){
-				if(ownableData.getOwner()!=player)
+				if(ownableData.getOwner()!=player && !pawned)
 				{
 					chargeRent(player);
 				}else{
@@ -112,7 +112,7 @@ public abstract class OwnableController extends FieldController{
 	
 	public void setPawned(boolean pawned)
 	{
-		pawned = pawned();
+		this.pawned = pawned;
 	}
 	
 	public abstract FIELDGROUPS getFieldGroup();
