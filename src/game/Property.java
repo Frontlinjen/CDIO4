@@ -22,7 +22,8 @@ public class Property {
 	{
 		OwnableController[] ownables = getPropertiesOwned();
 		for (OwnableController ownableController : ownables) {
-			if(ownableController.getName()==name)
+			String ownableName = ownableController.getName();
+			if(ownableName.equals(name))
 			{
 				return ownableController;
 			}
@@ -35,7 +36,7 @@ public class Property {
 	{
 		for(TerritoryController territory : territories)
 		{
-			if(territory.getName()==name)
+			if(territory.getName().equals(name))
 			{
 				return territory;
 			}
@@ -50,7 +51,7 @@ public class Property {
 		for (OwnableController cont : ownables) {
 			if(cont.pawned())
 			{
-				names[index++] = cont.getName() + cont.getWorth(); 
+				names[index++] = cont.getName(); 
 			}
 		}
 		return names;
@@ -63,7 +64,7 @@ public class Property {
 		for (OwnableController cont : ownables) {
 			if(!cont.pawned())
 			{
-				names[index++] = cont.getName() + cont.getWorth(); 
+				names[index++] = cont.getName(); 
 			}
 		}
 		return names;
