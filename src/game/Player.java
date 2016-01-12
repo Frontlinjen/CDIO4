@@ -34,6 +34,8 @@ public class Player {
 		{
 			moveToPosition(distance);
 		}
+		//Fixes an error which accours when the nextPosition has been sat past start
+		nextPosition = position;
 		
 	}
 
