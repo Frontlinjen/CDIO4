@@ -8,6 +8,7 @@ public class ChanceCardBuildingTaxController extends ChanceCardController{
 	private Account parkinglotAccount;
 	
 	public ChanceCardBuildingTaxController(ChanceCardBuildingTaxData chanceCardData, Account parkinglotAccount) {
+		super(chanceCardData);
 		this.chanceCardData = chanceCardData;
 		this.parkinglotAccount = parkinglotAccount;
 	}
@@ -28,10 +29,6 @@ public class ChanceCardBuildingTaxController extends ChanceCardController{
 		}
 	}
 
-	@Override
-	public String getDescription() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 }

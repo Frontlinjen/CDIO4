@@ -6,6 +6,7 @@ public class ChanceCardOutOfPrisonController extends ChanceCardController{
 	private ChanceCardData chanceCardData;
 	
 	public ChanceCardOutOfPrisonController(ChanceCardData chanceCardData){
+		super(chanceCardData);
 		this.chanceCardData = chanceCardData;
 	}
 	
@@ -22,10 +23,6 @@ public class ChanceCardOutOfPrisonController extends ChanceCardController{
 		}
 	}
 
-	@Override
-	public String getDescription() {
-		
-		return null;
-	}
+	
 
 }
