@@ -142,7 +142,7 @@ public class Board {
 					}
 					else
 					{
-						GUI.showMessage(Translator.getString("YOUAREINPRISON ", currentPlayer.getName()));
+						GUI.showMessage(Translator.getString("YOUAREINPRISON", currentPlayer.getName()));
 						for(int i = 0; i != 3; i++){
 							 res = currentPlayer.dice.rollDice();
 							 GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
