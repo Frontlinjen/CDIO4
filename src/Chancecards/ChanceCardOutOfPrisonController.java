@@ -15,11 +15,11 @@ public class ChanceCardOutOfPrisonController extends ChanceCardController{
 		if(player.hasGetOutOfPrisonCard() == false) 
 		{
 			player.setHasGetOutOfPrisonCard(true);
-			return true;
+			return false;
 		}
 		else
 		{
-			return false;
+			return true;
 		}
 	}
 
