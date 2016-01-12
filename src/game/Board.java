@@ -118,7 +118,9 @@ public class Board {
 		{
 			//If it does, then we have reached the end of the list and shall therefore start over
 			currentPlayer = players.get(0);
-
+			
+			//If everyone has had their turn we also decrease the amount of days the players has to be in prison:
+			prison.advanceDay();
 		}
 		else
 		{
@@ -130,7 +132,6 @@ public class Board {
 	private void advanceGame()
 	{
 		while(players.size() > 1) {
-			prison.advanceDay();
 			DiceResult res = null;
 			int rollsLeft = 2;
 			Inmate inmate = prison.getInmate(currentPlayer);
@@ -142,7 +143,7 @@ public class Board {
 					}
 					else
 					{
-						GUI.showMessage(Translator.getString("YOUAREINPRISON", currentPlayer.getName()));
+						GUI.showMessage(Translator.getString("YOUAREINPRISON", currentPlayer.getName(), inmate.getDaysLeft()));
 						for(int i = 0; i != 3; i++){
 							 res = currentPlayer.dice.rollDice();
 							 GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
