@@ -37,6 +37,24 @@ public class FieldLoader extends XMLParser {
 		}
 		
 	}
+	
+	private static EmptyFieldController parseEmptyField(Element e) throws Exception
+	{
+		System.out.println("Parsing empty field...");
+		try
+		{
+			Node translateNode = getUnique(e, "translateID");
+			int translateID = parseInteger(translateNode);
+			FieldData newData = new FieldData(translateID);
+			return new EmptyFieldController(newData);
+		}
+		catch(Exception exc)
+		{
+			throw new Exception("Failed to parse EmptyField", exc);
+		}
+		
+	}
+	
 	private static ParkinglotController parseParkinglot(Element e, Account parkingAcc) throws Exception
 	{
 		System.out.println("Parsing refuge...");
@@ -65,7 +83,7 @@ public class FieldLoader extends XMLParser {
 			int translateID = parseInteger(translateNode);
 			int rent = parseInteger(rentNode);
 			int price = parseInteger(priceNode);
-			BreweryData newData = new BreweryData(translateID, price, rent);
+			BreweryData newData = new BreweryData(rent,translateID, price );
 			return new BreweryController(newData);
 			
 		} catch (Exception exc) {
@@ -74,7 +92,7 @@ public class FieldLoader extends XMLParser {
 		
 		}
 	}
-	private static TaxController parseTax(Element e) throws Exception
+	private static TaxController parseTax(Element e, Account parkingAcc) throws Exception
 	{
 		System.out.println("Parsing tax...");
 		try {
@@ -85,7 +103,7 @@ public class FieldLoader extends XMLParser {
 			int tax = parseInteger(taxNode);
 			int taxPercentage = parseInteger(taxPercentageNode); 
 			TaxData newData = new TaxData(translateID, tax, taxPercentage);
-			return new TaxController(newData);
+			return new TaxController(newData, parkingAcc);
 			
 		} catch (Exception exc) {
 			
@@ -126,6 +144,7 @@ public class FieldLoader extends XMLParser {
 				 */
 				NodeList fieldNodes = fields.getElementsByTagName("field");
 				List<FieldController> fieldList = new ArrayList<FieldController>();
+				System.out.println(fieldList.size());
 				for(int index=0;index < fieldNodes.getLength();++index)
 				{
 					Node node = fieldNodes.item(index);
@@ -141,6 +160,12 @@ public class FieldLoader extends XMLParser {
 								fieldList.add(f);
 								break;
 							}
+							case "empty":
+							{
+								FieldController f = parseEmptyField(element);
+								fieldList.add(f);
+								break;
+							}
 							case "brewery":
 							{
 								FieldController f = parseBrewery(element);
@@ -149,7 +174,7 @@ public class FieldLoader extends XMLParser {
 							}
 							case "tax":
 							{
-								FieldController f = parseTax(element);
+								FieldController f = parseTax(element, parkinglotAccount);
 								fieldList.add(f);
 								break;
 							}

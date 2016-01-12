@@ -9,7 +9,7 @@ import game.Translator;
 public class TaxData extends FieldData{
 
 	private int taxAmount;
-	private int taxRate = -1;
+	private int taxRate;
 
 
 	public int getTaxAmount() {

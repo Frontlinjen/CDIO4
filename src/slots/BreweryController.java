@@ -10,7 +10,6 @@ import game.Player;
 import game.Translator;
 
 public class BreweryController extends OwnableController{
-
 	private BreweryData breweryData;
 	private desktop_fields.Street LaborCamp;
 
@@ -19,9 +18,8 @@ public class BreweryController extends OwnableController{
 		breweryData = data;
 	}
 
-	@Override
-	public int getRent() {
-		return 0;
+	public int getRent(int roll, int breweriesOwned) {
+		return breweriesOwned * roll * 100;
 	}
 
 	@Override 
@@ -52,9 +50,9 @@ public class BreweryController extends OwnableController{
 		}
 	}
 	public desktop_fields.Field pushToGUI(int position){
-
+		
 		breweryData.setPosition(position);
-		LaborCamp = new desktop_fields.Street.Builder().setRent(Translator.getString("LABORCAMPRENT",/*HARDCODED VARIABLES IS NEVER GOOD! TODO: REMOVE*/ 100)).setBgColor(new Color(255f/255, 165f/255, 48f/255)).build();
+		LaborCamp = new desktop_fields.Street.Builder().setRent(Translator.getString("BREWERYRENT",/*HARDCODED VARIABLES IS NEVER GOOD! TODO: REMOVE*/ 100)).setBgColor(new Color(255f/255, 165f/255, 48f/255)).build();
 		LaborCamp.setDescription(getDescription());
 		LaborCamp.setTitle(breweryData.getName());
 
