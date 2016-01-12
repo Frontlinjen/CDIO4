@@ -29,13 +29,13 @@ public class BreweryController extends OwnableController{
 	public desktop_fields.Field pushToGUI(int position){
 		
 		breweryData.setPosition(position);
-		LaborCamp = new desktop_fields.Street.Builder().setRent(Translator.getString("BREWERYRENT",/*HARDCODED VARIABLES IS NEVER GOOD! TODO: REMOVE*/ 100)).setBgColor(new Color(255f/255, 165f/255, 48f/255)).build();
-		LaborCamp.setDescription(getDescription());
-		LaborCamp.setTitle(breweryData.getName());
+		guiField = new desktop_fields.Brewery.Builder().setRent(Translator.getString("BREWERYRENT",/*HARDCODED VARIABLES IS NEVER GOOD! TODO: REMOVE*/ 100)).setBgColor(new Color(255f/255, 165f/255, 48f/255)).build();
+		guiField.setDescription(getDescription());
+		guiField.setTitle(breweryData.getName());
 
-		LaborCamp.setSubText(Integer.toString(breweryData.getPrice()));
+		guiField.setSubText(Integer.toString(breweryData.getPrice()));
 
-		return LaborCamp;
+		return guiField;
 	}
 
 	@Override

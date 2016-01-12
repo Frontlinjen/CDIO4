@@ -1,5 +1,8 @@
 package slots;
 
+
+import java.awt.Color;
+import desktop_fields.Empty;
 import desktop_fields.Field;
 import game.Player;
 import game.Translator;
@@ -23,10 +26,15 @@ public class EmptyFieldController extends FieldController{
 
 	@Override
 	public Field pushToGUI(int position) {
-		return null;
+		desktop_fields.Street field = new desktop_fields.Street.Builder().setBgColor(new Color(255f/255, 165f/255, 48f/255)).build();
+		field.setDescription(getDescription());
+		field.setTitle(this.getName());
+		field.setSubText("");
+
+		return field;
 	}
 	@Override
 	public String getDescription() {
-		return Translator.getString("EMPTYFIELDSC");
+		return Translator.getString("EMPTYFIELDDSC");
 	}
 }

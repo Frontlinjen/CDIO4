@@ -22,7 +22,7 @@ public abstract class OwnableController extends FieldController{
 	}
 	private OwnableData ownableData;
 	private boolean pawned = false;
-	protected desktop_fields.Street LaborCamp;
+	protected desktop_fields.Ownable guiField;
 	
 	public OwnableController(OwnableData dat)
 	{
@@ -43,7 +43,7 @@ public abstract class OwnableController extends FieldController{
 			 * two dice times the amount of labor camps owned by the owner.
 			 * If field is not owned, player can choose to buy it.
 			 */
-			LaborCamp.displayOnCenter();
+			guiField.displayOnCenter();
 			if(hasOwner()){
 				if(ownableData.getOwner()!=player)
 				{
