@@ -92,7 +92,7 @@ public class FieldLoader extends XMLParser {
 		
 		}
 	}
-	private static TaxData parseTax(FieldController fieldController, Element e, Account parkingAcc) throws Exception
+	private static TaxData parseTax(Element e) throws Exception
 	{
 		System.out.println("Parsing tax...");
 		try {
@@ -145,7 +145,7 @@ public class FieldLoader extends XMLParser {
 		
 		}
 	}
-	static public FieldController[] parseFields(String path, ShuffleBag<ChanceCardController> chanceCards, Prison prison, Account parkinglotAccount, FieldController fieldController, FieldData data)
+	static public FieldController[] parseFields(String path, ShuffleBag<ChanceCardController> chanceCards, Prison prison, Account parkinglotAccount)
 	{
 		
 			
@@ -189,8 +189,8 @@ public class FieldLoader extends XMLParser {
 							}
 							case "tax":
 							{
-								TaxData newField = parseTax(fieldController, element, parkinglotAccount);
-								newController = new TaxController(fieldController, newField, parkinglotAccount);
+								TaxData newField = parseTax(element);
+								newController = new TaxController(newField, parkinglotAccount);
 								break;
 							}
 							case "fleet":
