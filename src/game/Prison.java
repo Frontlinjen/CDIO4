@@ -14,10 +14,9 @@ public class Prison {
 	{
 		for (Inmate inmate : inmates)
 		{
-			if(inmate!=null)
+			if(inmate!=null && inmate.isPlayer(player))
 			{
-				inmate.isPlayer(player);
-
+				return true;
 			}
 		}
 		return null;
