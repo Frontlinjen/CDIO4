@@ -1,7 +1,7 @@
 package test;	
 import game.*;
 import slots.*;
-import slots.FieldController.Types;
+//import slots.FieldController.Types;
 
 import static org.junit.Assert.*;
 
@@ -11,7 +11,7 @@ public class LaborCampTest {
 
 	@Test
 	public void testGetRent() {
-		BreweryData data = new BreweryData(100, 2, 3);
+		BreweryData data = new BreweryData(1, 2, 3);
 		BreweryController laborCamp = new BreweryController(data);
 		
 		Player player1 = new Player("Test1");
@@ -25,7 +25,7 @@ public class LaborCampTest {
 		laborCamp.landOnField(player1);
 		
 		for (int i=2; i<=12 ;i++){
-			int baseRent = laborCamp.getRent();
+			int baseRent = laborCamp.getRent(player2.getProperty().getBreweriesOwned(), i);
 			
 			assertTrue(player1.getAccount().getGold()==30000-baseRent && player2.getAccount().getGold()==30000+baseRent);
 		}
