@@ -103,16 +103,16 @@
 		<translateID>26</translateID>
 		<cash>200</cash>
 	</card>
-	<card type="moveplayer">
+	<!--<card type="moveplayer">
 		<translateID>27</translateID>
 		<fieldnumber>20</fieldnumber>
 		<cashatstart>1</cashatstart>
 	</card>
-	<card type="moveplayer">
+	 <card type="moveplayer">
 		<translateID>28</translateID>
 		<fieldnumber>11</fieldnumber>
-		<cashatstart>0</cashatstart>
-	</card>
+		<cashatstart>1</cashatstart>
+	</card>-->
 	<card type="moveplayer">
 		<translateID>29</translateID>
 		<fieldnumber>11</fieldnumber>
@@ -182,6 +182,6 @@
 	</card>
 	<card type="gotoprison" amount="2">
 		<translateID>42</translateID>
-		<fieldnumber>11</fieldnumber>
+		<fieldnumber>10</fieldnumber>
 	</card>
 </cards>
