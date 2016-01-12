@@ -74,7 +74,7 @@ public class FieldLoader extends XMLParser {
 		
 		}
 	}
-	private static TaxController parseTax(Element e) throws Exception
+	private static TaxController parseTax(Element e, Account parkingAcc) throws Exception
 	{
 		System.out.println("Parsing tax...");
 		try {
@@ -85,7 +85,7 @@ public class FieldLoader extends XMLParser {
 			int tax = parseInteger(taxNode);
 			int taxPercentage = parseInteger(taxPercentageNode); 
 			TaxData newData = new TaxData(translateID, tax, taxPercentage);
-			return new TaxController(newData);
+			return new TaxController(newData, parkingAcc);
 			
 		} catch (Exception exc) {
 			
@@ -149,7 +149,7 @@ public class FieldLoader extends XMLParser {
 							}
 							case "tax":
 							{
-								FieldController f = parseTax(element);
+								FieldController f = parseTax(element, parkinglotAccount);
 								fieldList.add(f);
 								break;
 							}
