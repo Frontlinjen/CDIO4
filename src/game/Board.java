@@ -177,7 +177,7 @@ public class Board {
 					releaseField(selectedField);
 				}
 					
-				else if (rollTurn==response)
+				else if (rollTurn.equals(response))
 				{
 					res = currentPlayer.getDice().rollDice();
 				}
