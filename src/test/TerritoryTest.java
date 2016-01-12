@@ -62,6 +62,8 @@ public class TerritoryTest {
 	@Test
 	public void testBuyHouse(){
 		territoryController.buyHouse(player1);
-		assertTrue("Fejl, huset blev ikke købt", territoryController.getHouseAmount() == 1 && player1.getAccount().getGold() == 27000);
+		assertTrue("Fejl, huset blev ikke købt", territoryController.getHouseAmount() == 1);
+		assertTrue("Fejl, pengene blev ikke overført korrekt", player1.getAccount().getGold() == 26500);
+		assertTrue("Fejl, værdien skulle være 3500", territoryController.getWorth() == 3500);
 	}
 }
