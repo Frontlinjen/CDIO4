@@ -11,8 +11,7 @@ public class TaxController extends FieldController {
 	private desktop_fields.Tax tax;
 	private TaxData taxData;
 	private Account parkinglotAccount;
-	private FieldController fieldController;
-	public TaxController(FieldController fieldController, TaxData data, Account parkinglotAccount)
+	public TaxController(TaxData data, Account parkinglotAccount)
 	{
 		super(data);
 		taxData = data;
@@ -29,8 +28,8 @@ public class TaxController extends FieldController {
 		}
 		else {
 			tax.displayOnCenter();
-			if (GUI.getUserLeftButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxData.getTaxRate()) , Integer.toString(taxData.getTaxAmount()))) {
-				player.getAccount().transferTo(parkinglotAccount, taxData.getTaxRate()*player.getAccount().getGold());;
+			if (GUI.getUserLeftButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxData.getTaxRate())+"%" , Integer.toString(taxData.getTaxAmount()))) {
+				player.getAccount().transferTo(parkinglotAccount, (int)(((float)taxData.getTaxRate()/100f)*player.getAccount().getGold()));;
 			}
 			else {
 				player.getAccount().transferTo(parkinglotAccount, taxData.getTaxAmount());;

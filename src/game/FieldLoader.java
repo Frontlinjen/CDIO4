@@ -13,7 +13,7 @@ import Chancecards.ChanceCardController;
 
 public class FieldLoader extends XMLParser {
 	
-	private static TerritoryController parseTerritory(Element e) throws Exception
+	private static TerritoryData parseTerritory(Element e) throws Exception
 	{
 		System.out.println("Parsing territory...");
 		try
@@ -29,7 +29,7 @@ public class FieldLoader extends XMLParser {
 			int price = parseInteger(priceNode);
 			int houseprice = parseInteger(housepriceNode);
 			TerritoryData newData = new TerritoryData(translateID, groupID, price, rent, houseprice);
-			return new TerritoryController(newData);
+			return newData;
 		}
 		catch(Exception exc)
 		{
@@ -38,7 +38,7 @@ public class FieldLoader extends XMLParser {
 		
 	}
 	
-	private static EmptyFieldController parseEmptyField(Element e) throws Exception
+	private static FieldData parseEmptyField(Element e) throws Exception
 	{
 		System.out.println("Parsing empty field...");
 		try
@@ -46,7 +46,7 @@ public class FieldLoader extends XMLParser {
 			Node translateNode = getUnique(e, "translateID");
 			int translateID = parseInteger(translateNode);
 			FieldData newData = new FieldData(translateID);
-			return new EmptyFieldController(newData);
+			return newData;
 		}
 		catch(Exception exc)
 		{
@@ -55,7 +55,7 @@ public class FieldLoader extends XMLParser {
 		
 	}
 	
-	private static ParkinglotController parseParkinglot(Element e, Account parkingAcc) throws Exception
+	private static ParkinglotData parseParkinglot(Element e, Account parkingAcc) throws Exception
 	{
 		System.out.println("Parsing refuge...");
 		try {
@@ -64,7 +64,7 @@ public class FieldLoader extends XMLParser {
 			Node bonusNode = getUnique(e, "bonus");
 			int translateID = parseInteger(translateNode);
 			ParkinglotData newData = new ParkinglotData(translateID, parkingAcc);
-			return new ParkinglotController(newData);
+			return newData;
 			
 		} catch (Exception exc) {
 			
@@ -73,7 +73,7 @@ public class FieldLoader extends XMLParser {
 		}
 		
 	}
-	private static BreweryController parseBrewery(Element e) throws Exception
+	private static BreweryData parseBrewery(Element e) throws Exception
 	{
 		System.out.println("Parsing laborCamp...");
 		try {
@@ -84,7 +84,7 @@ public class FieldLoader extends XMLParser {
 			int rent = parseInteger(rentNode);
 			int price = parseInteger(priceNode);
 			BreweryData newData = new BreweryData(rent,translateID, price );
-			return new BreweryController(newData);
+			return newData;
 			
 		} catch (Exception exc) {
 			
@@ -92,7 +92,7 @@ public class FieldLoader extends XMLParser {
 		
 		}
 	}
-	private static TaxController parseTax(FieldController fieldController, Element e, Account parkingAcc) throws Exception
+	private static TaxData parseTax(Element e) throws Exception
 	{
 		System.out.println("Parsing tax...");
 		try {
@@ -103,7 +103,7 @@ public class FieldLoader extends XMLParser {
 			int tax = parseInteger(taxNode);
 			int taxPercentage = parseInteger(taxPercentageNode); 
 			TaxData newData = new TaxData(translateID, tax, taxPercentage);
-			return new TaxController(fieldController, newData, parkingAcc);
+			return newData;
 			
 		} catch (Exception exc) {
 			
@@ -111,18 +111,16 @@ public class FieldLoader extends XMLParser {
 		
 		}
 	}
-	private static FleetController parseFleet(Element e) throws Exception
+	private static FleetData parseFleet(Element e) throws Exception
 	{
 		System.out.println("Parsing fleet...");
 		try {
 			Node translateNode = getUnique(e, "translateID");
 			Node priceNode = getUnique(e, "price");
-			
 			int translateID = parseInteger(translateNode);
 			int price = parseInteger(priceNode);
-			
 			FleetData newData = new FleetData(translateID, price);
-			return new FleetController(newData);
+			return newData;
 			
 		} catch (Exception exc) {
 			
@@ -130,7 +128,7 @@ public class FieldLoader extends XMLParser {
 		
 		}
 	}
-	private static FieldController parseGotoPrison(Element e, Prison p) throws Exception {
+	private static GoToPrisonData parseGoToPrison(Element e, Prison p) throws Exception {
 		System.out.println("Parsing gotoPrison...");
 		try {
 			
@@ -139,7 +137,7 @@ public class FieldLoader extends XMLParser {
 			int translateID = parseInteger(translateNode);
 			int prisonLocation = parseInteger(prisonNode);
 			GoToPrisonData newData = new GoToPrisonData(translateID, prisonLocation, p);
-			return new GoToPrisonController(newData);
+			return newData;
 			
 		} catch (Exception exc) {
 			
@@ -147,7 +145,7 @@ public class FieldLoader extends XMLParser {
 		
 		}
 	}
-	static public FieldController[] parseFields(String path, ShuffleBag<ChanceCardController> chanceCards, Prison prison, Account parkinglotAccount, FieldController fieldController, FieldData data)
+	static public FieldController[] parseFields(String path, ShuffleBag<ChanceCardController> chanceCards, Prison prison, Account parkinglotAccount)
 	{
 		
 			
@@ -167,55 +165,57 @@ public class FieldLoader extends XMLParser {
 					//Saveguard to check if the node actually is an element and not a comment, etc. 
 					if(node.getNodeType()==Node.ELEMENT_NODE)
 					{
+						FieldController newController = null;
 						Element element = (Element)node;
 						switch(element.getAttribute("type"))
 						{
 							case "territory":
 							{
-								FieldController f = parseTerritory(element);
-								fieldList.add(f);
+								TerritoryData newField = parseTerritory(element);
+								newController = new TerritoryController(newField);
 								break;
 							}
 							case "empty":
 							{
-								FieldController f = parseEmptyField(element);
-								fieldList.add(f);
+								FieldData newField = parseEmptyField(element);
+								newController = new EmptyFieldController(newField);
 								break;
 							}
 							case "brewery":
 							{
-								FieldController f = parseBrewery(element);
-								fieldList.add(f);
+								BreweryData newField = parseBrewery(element);
+								newController = new BreweryController(newField);
 								break;
 							}
 							case "tax":
 							{
-								FieldController f = parseTax(fieldController, element, parkinglotAccount);
-								fieldList.add(f);
+								TaxData newField = parseTax(element);
+								newController = new TaxController(newField, parkinglotAccount);
 								break;
 							}
 							case "fleet":
 							{
-								FieldController f = parseFleet(element);
-								fieldList.add(f);
+								FleetData newField = parseFleet(element);
+								newController = new FleetController(newField);
 								break;
 							}
 							case "chancefield":
 							{
-								FieldController f = parseChanceCard(element, chanceCards, data);
-								fieldList.add(f);
+								FieldData newField = new FieldData(3);
+								newController = new ChanceFieldController(chanceCards, newField);
 								break;
 							}
 							case "gotoprison":
 							{
-								FieldController f = parseGotoPrison(element, prison);
-								fieldList.add(f);
+								GoToPrisonData newField = parseGoToPrison(element, prison);
+								newController = new GoToPrisonController(newField);
 								break;
 							}
 							case "parkinglot":
 							{
-								FieldController f = parseParkinglot(element, parkinglotAccount);
-								fieldList.add(f);
+								ParkinglotData newField = parseParkinglot(element, parkinglotAccount);
+								newController = new ParkinglotController(newField);
+								break;
 							}
 							default:
 							{
@@ -235,18 +235,5 @@ public class FieldLoader extends XMLParser {
 		}
 		
 	}
-	
-	private static FieldController parseChanceCard(Element element, ShuffleBag<ChanceCardController> cards, FieldData data) throws Exception {
-		
-		System.out.println("Parsing chanceCard...");
-		try {
-			return new ChanceFieldController(cards, data);
-			
-		} catch (Exception exc) {
-			
-			throw new Exception("Failed to parse chancecardfield", exc);
-		
-		}
-	}
-	
+
 }
