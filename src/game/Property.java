@@ -27,6 +27,7 @@ public class Property {
 				return ownableController;
 			}
 		}
+		return null;
 		
 	}
 	

@@ -27,10 +27,6 @@ public class EmptyFieldController extends FieldController{
 	}
 	@Override
 	public String getDescription() {
-		if(fieldData.getPosition() == 1) {
-		return Translator.getString("EMPTYFIELDDSC",2);
-		} else {
-		return Translator.getString("EMPTYFIELDDSC",1);
-		}
+		return Translator.getString("EMPTYFIELDSC");
 	}
 }
