@@ -57,11 +57,10 @@ public class FieldLoader extends XMLParser {
 	
 	private static ParkinglotData parseParkinglot(Element e, Account parkingAcc) throws Exception
 	{
-		System.out.println("Parsing refuge...");
+		System.out.println("Parsing parkinglot...");
 		try {
 			
 			Node translateNode = getUnique(e, "translateID");
-			Node bonusNode = getUnique(e, "bonus");
 			int translateID = parseInteger(translateNode);
 			ParkinglotData newData = new ParkinglotData(translateID, parkingAcc);
 			return newData;
