@@ -69,7 +69,7 @@ public class ChanceCardLoader extends XMLParser{
 	
 	private static ChanceCardMovePlayerData parseMovePlayer(Element e) throws Exception
 	{
-		System.out.println("Parsing cash chancecard...");
+		System.out.println("Parsing move player chancecard...");
 		try
 		{
 			Node translateNode = getUnique(e, "translateID");
@@ -83,17 +83,17 @@ public class ChanceCardLoader extends XMLParser{
 		}
 		catch(Exception exc)
 		{
-			throw new Exception("Failed to parse cash chancecard", exc);
+			throw new Exception("Failed to parse move player chancecard", exc);
 		}	
 	}
 	
 	private static ChanceCardMovePlayerRelativeData parseMovePlayerRelative(Element e) throws Exception
 	{
-		System.out.println("Parsing cash chancecard...");
+		System.out.println("Parsing move player relative chancecard...");
 		try
 		{
 			Node translateNode = getUnique(e, "translateID");
-			Node fieldsNode = getUnique(e, "fieldnumber");
+			Node fieldsNode = getUnique(e, "fields");
 			Node cashatstartNode = getUnique(e, "cashatstart");
 			int translateID = parseInteger(translateNode);
 			int fields = parseInteger(fieldsNode);
@@ -103,13 +103,13 @@ public class ChanceCardLoader extends XMLParser{
 		}
 		catch(Exception exc)
 		{
-			throw new Exception("Failed to parse cash chancecard", exc);
+			throw new Exception("Failed to parse move player relative chancecard", exc);
 		}	
 	}
 	
 	private static ChanceCardMoveToNextFleetData parseMoveToNextFleet(Element e) throws Exception
 	{
-		System.out.println("Parsing cash chancecard...");
+		System.out.println("Parsing move to next fleet chancecard...");
 		try
 		{
 			Node translateNode = getUnique(e, "translateID");
@@ -129,13 +129,13 @@ public class ChanceCardLoader extends XMLParser{
 		}
 		catch(Exception exc)
 		{
-			throw new Exception("Failed to parse cash chancecard", exc);
+			throw new Exception("Failed to parse move to next fleet chancecard", exc);
 		}	
 	}
 	
 	private static ChanceCardData parseChanceCard(Element e) throws Exception
 	{
-		System.out.println("Parsing cash chancecard...");
+		System.out.println("Parsing empty chancecard...");
 		try
 		{
 			Node translateNode = getUnique(e, "translateID");
@@ -145,13 +145,13 @@ public class ChanceCardLoader extends XMLParser{
 		}
 		catch(Exception exc)
 		{
-			throw new Exception("Failed to parse cash chancecard", exc);
+			throw new Exception("Failed to parse empty chancecard", exc);
 		}	
 	}
 	
 	private static ChanceCardGoToPrisonData parseGoToPrison(Element e) throws Exception
 	{
-		System.out.println("Parsing cash chancecard...");
+		System.out.println("Parsing go to prison chancecard...");
 		try
 		{
 			Node translateNode = getUnique(e, "translateID");
@@ -163,7 +163,7 @@ public class ChanceCardLoader extends XMLParser{
 		}
 		catch(Exception exc)
 		{
-			throw new Exception("Failed to parse cash chancecard", exc);
+			throw new Exception("Failed to parse go to prison chancecard", exc);
 		}	
 	}
 	

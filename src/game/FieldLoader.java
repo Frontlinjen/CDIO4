@@ -22,13 +22,13 @@ public class FieldLoader extends XMLParser {
 			Node groupNode = getUnique(e, "groupID");
 			Node rentNode = getUnique(e, "rent");
 			Node priceNode = getUnique(e, "price");
-			Node housePriceNode = getUnique(e, "housePrice");
+			Node housepriceNode = getUnique(e, "houseprice");
 			int translateID = parseInteger(translateNode);
 			int groupID = parseInteger(groupNode);
 			int rent = parseInteger(rentNode);
 			int price = parseInteger(priceNode);
-			int housePrice = parseInteger(housePriceNode);
-			TerritoryData newData = new TerritoryData(translateID, groupID, price, rent, housePrice);
+			int houseprice = parseInteger(housepriceNode);
+			TerritoryData newData = new TerritoryData(translateID, groupID, price, rent, houseprice);
 			return new TerritoryController(newData);
 		}
 		catch(Exception exc)
@@ -57,7 +57,7 @@ public class FieldLoader extends XMLParser {
 	}
 	private static BreweryController parseBrewery(Element e) throws Exception
 	{
-		System.out.println("Parsing labotCamp...");
+		System.out.println("Parsing laborCamp...");
 		try {
 			Node translateNode = getUnique(e, "translateID");
 			Node rentNode = getUnique(e, "rent");
