@@ -135,19 +135,39 @@ public class Board {
 			int rollsLeft = 2;
 			Inmate inmate = prison.getInmate(currentPlayer);
 			if (inmate != null){
-					for(int i = 0; i != 3; i++){
-						 res = currentPlayer.dice.rollDice();
-						 if(res.areDiceEqual())
-						 {
-							 inmate.release();
-							 break;
-						 }
-					}
-					//If you failed to roll two equal dices, you skip your turn. 
-					if(!res.areDiceEqual())
+					if(currentPlayer.hasGetOutOfPrisonCard() && GUI.getUserLeftButtonPressed(
+							Translator.getString("YOUAREINPRISONWITHCARD", currentPlayer.getName()), Translator.getString("YES"), Translator.getString("NO")))
 					{
-						rollsLeft = 0;
-					}	
+						currentPlayer.setHasGetOutOfPrisonCard(false);
+					}
+					else
+					{
+						GUI.showMessage(Translator.getString("YOUAREINPRISON ", currentPlayer.getName()));
+						for(int i = 0; i != 3; i++){
+							 res = currentPlayer.dice.rollDice();
+							 GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
+							 try
+							 {
+								 Thread.sleep(100);
+							 }
+							 catch(Exception e)
+							 {
+								 System.out.println("Something interrupted the dice roll");
+							 }
+							 if(res.areDiceEqual())
+							 {
+								 GUI.showMessage(Translator.getString("NOWOUTOFPRISON"));
+								 inmate.release();
+								 break;
+							 }
+						}
+						//If you failed to roll two equal dices, you skip your turn. 
+						if(!res.areDiceEqual())
+						{
+							rollsLeft = 0;
+						}	
+					}
+					
 			}
 			if(rollsLeft!=0)
 			{
@@ -231,7 +251,8 @@ public class Board {
 				}
 				
 			}
-			while(rollsLeft>0)
+			//2nd check is necessary is send to prison during his turn
+			while(rollsLeft>0 && prison.getInmate(currentPlayer)==null)
 			{
 				
 				GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
@@ -267,7 +288,8 @@ public class Board {
 				if(rollsLeft==0)
 				{
 					GUI.showMessage(Translator.getString("TOOMANYDOUBLES"));
-					currentPlayer.setNextPosition(11, false);
+					prison.addInmate(getCurrentPlayer());
+					currentPlayer.setNextPosition(10, false);
 					updateCurrentPlayerPosition();
 				}
 			} //what do?
