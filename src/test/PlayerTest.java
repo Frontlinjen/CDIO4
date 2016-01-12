@@ -16,14 +16,14 @@ public class PlayerTest {
 	@Test
 	public void testGetProperty() {
 		Player player = new Player("Sheep");
-		assertTrue("Fail, A player should not own anything at the start of the game.", player.getProperty().getFleetOwned() == 0 && player.getProperty().getLaborCampOwned() == 0);
+		assertTrue("Fail, A player should not own anything at the start of the game.", player.getProperty().getPropertyCount() == 0);
 	}
 
 	@Test
 	public void testMove() {
 		Player player = new Player("Sheep");
-		player.move(22);
-		assertTrue("Fail, the player should be on the first",player.getPosition()==1);
+		player.move(22, true);
+		assertTrue("Fail, the player should be on the first",player.getPosition() == 0);
 	}
 
 	@Test
