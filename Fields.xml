@@ -64,6 +64,7 @@
 	<field type="brewery">
 		<translateID>13</translateID>
 		<price>3000</price>
+		<rent>500</rent>
 	</field>
 	<field type="territory">
 		<translateID>14</translateID>
@@ -154,6 +155,7 @@
 	<field type="brewery">
 		<translateID>29</translateID>
 		<price>3000</price>
+		<rent>500</rent>
 	</field>
 	<field type="territory">
 		<translateID>30</translateID>
