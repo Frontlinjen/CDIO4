@@ -148,7 +148,7 @@ public class Board {
 							 GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
 							 try
 							 {
-								 Thread.sleep(100);
+								 Thread.sleep(400);
 							 }
 							 catch(Exception e)
 							 {
@@ -252,7 +252,7 @@ public class Board {
 				
 			}
 			//2nd check is necessary is send to prison during his turn
-			while(rollsLeft>0 && prison.getInmate(currentPlayer)==null)
+			while(rollsLeft>0 && (prison.getInmate(currentPlayer)==null || prison.getInmate(currentPlayer).getDaysLeft()==0))
 			{
 				
 				GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
