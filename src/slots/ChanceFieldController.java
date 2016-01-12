@@ -28,6 +28,10 @@ public class ChanceFieldController extends FieldController {
 				GUI.showMessage(Translator.getString("CARDCOULDNOTBEUSED"));
 				cards.pushBackLastCard();
 			}
+			else
+			{
+				GUI.displayChanceCard(newCard.getDescription());
+			}
 		}
 		catch(Exception e)
 		{
