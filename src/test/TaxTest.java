@@ -23,8 +23,8 @@ public class TaxTest {
 	
 	@Before
 	public void preTest(){
-		fieldData = new FieldData(39);
-		Account acc = new Account(0, "Test");
+		fieldData = new FieldData(1);
+		acc = new Account(0, "Test");
 		taxD = new TaxData(1, 2000, 10);
 		tax = new TaxController(fieldData, taxD, acc);
 		player = new Player("Test");
@@ -34,11 +34,12 @@ public class TaxTest {
 	public void testFlatTax() {
 
 		tax.pushToGUI(1);
-		player.move(1, false);
 		tax.landOnField(player);
 		
+	
 		assertTrue(player.getAccount().getGold()== 27000 || player.getAccount().getGold()== 28000);
 		assertTrue(acc.getGold()==2000 || acc.getGold()==3000);
+		
 
 	}
 //	

@@ -29,8 +29,8 @@ public class TaxController extends FieldController {
 		}
 		else {
 			tax.displayOnCenter();
-			if (GUI.getUserLeftButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxData.getTaxRate()) , Integer.toString(taxData.getTaxAmount()))) {
-				player.getAccount().transferTo(parkinglotAccount, taxData.getTaxRate()*player.getAccount().getGold());;
+			if (GUI.getUserLeftButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxData.getTaxRate())+"%" , Integer.toString(taxData.getTaxAmount()))) {
+				player.getAccount().transferTo(parkinglotAccount, (int)(((float)taxData.getTaxRate()/100f)*player.getAccount().getGold()));;
 			}
 			else {
 				player.getAccount().transferTo(parkinglotAccount, taxData.getTaxAmount());;
