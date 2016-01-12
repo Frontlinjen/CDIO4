@@ -45,9 +45,17 @@ public abstract class OwnableController extends FieldController{
 			 */
 			guiField.displayOnCenter();
 			if(hasOwner()){
-				if(ownableData.getOwner()!=player && !pawned)
+				if(ownableData.getOwner()!=player)
 				{
-					chargeRent(player);
+					if(!pawned)
+					{
+						chargeRent(player);
+					}
+					else
+					{
+						GUI.showMessage(Translator.getString("PAWNEDFIELD"));
+					}
+					
 				}else{
 					GUI.showMessage(Translator.getString("YOURFIELD"));
 				}
