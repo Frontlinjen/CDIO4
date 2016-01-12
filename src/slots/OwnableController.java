@@ -90,7 +90,7 @@ public abstract class OwnableController extends FieldController{
 		 * and a call to setOwner if the withdraw was completed.
 		 */
 		if(GUI.getUserLeftButtonPressed(Translator.getString("BUYFIELD", ownableData.getPrice()), Translator.getString("YES"), Translator.getString("NO"))){
-			if(visitor.getAccount().withdraw(ownableData.getPosition())){
+			if(visitor.getAccount().withdraw(ownableData.getPrice())){
 				setOwner(visitor);
 				registerOwner();
 				return true;
