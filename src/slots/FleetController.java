@@ -14,32 +14,7 @@ public class FleetController extends OwnableController{
 	{
 		super((OwnableData)data);
 		fleetData = data;
-	}
-	@Override
-	public void landOnField(Player player) {
-
-		fleet.displayOnCenter();
-		/**
-		 * Player lands on a fleet.
-		 * If the field is owned, the player pays the rent, 
-		 * which is determined by calling getRent.
-		 * If the field is not owned, he has the choice to buy it.
-		 */
-		if(hasOwner()){
-			if(fleetData.getOwner()!=player)
-			{
-				GUI.showMessage(Translator.getString("PAYTHEOWNER", getRent()));
-				player.getAccount().transferTo(fleetData.getOwner().getAccount(), getRent());
-			}else{
-				GUI.showMessage(Translator.getString("YOURFIELD"));
-			}
-		}else{
-			if(BuyField(player)){
-				GUI.showMessage(Translator.getString("BOUGHTFIELD",fleetData.getName(), fleetData.getPrice()));
-			}	
-		}
-	}
-		
+	}		
 
 	@Override
 	public desktop_fields.Field pushToGUI(int position) {
@@ -50,10 +25,17 @@ public class FleetController extends OwnableController{
 		fleet.setSubText("" + fleetData.price);
 		return fleet;
 	}
+	
 	@Override
-	public int getRent() {
+	public int getRent()
+	{
+		Player owner = fleetData.getOwner();
+		if(owner==null)
+			return 500;
 		
-		return 0;
+		int[] prices = {500, 1000, 2000, 4000};
+		return prices[owner.getProperty().getFleetOwned()-1];
+		
 	}
 	@Override
 	public int getWorth() {
@@ -67,6 +49,16 @@ public class FleetController extends OwnableController{
 	@Override
 	public FIELDGROUPS getFieldGroup() {
 		return FIELDGROUPS.FLEET;
+	}
+	@Override
+	protected void chargeRent(Player player) {
+		GUI.showMessage(Translator.getString("PAYTHEOWNER", getRent()));
+		player.getAccount().transferTo(fleetData.getOwner().getAccount(), getRent());
+		
+	}
+	@Override
+	protected void registerOwner() {
+		fleetData.getOwner().getProperty().addFleet(this);
 	}
 
 }
