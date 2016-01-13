@@ -1,13 +1,12 @@
 package slots;
 
 public class BreweryData extends OwnableData{
-
-	private int baseRent;
 	
+	private int baserent;
 	
-	public BreweryData(int baseRent, int translateID, int price) {
+	public BreweryData(int rent, int translateID, int price) {
 		super(translateID, price);
-		this.baseRent = baseRent;
+		this.baserent = rent;
 	}
 
 }

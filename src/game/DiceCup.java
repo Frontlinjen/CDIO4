@@ -7,7 +7,6 @@ public class DiceCup {
 
 	private int[] diceArray;
 	private Random rGen = new Random(System.currentTimeMillis());
-	private int[] latestRoll;
 	
 	public DiceCup(int numberOfDice){
 		
@@ -21,7 +20,7 @@ public class DiceCup {
  * 	for the game. The array extends depending on the amount of dice
  * 	chosen. And spits out a random generated number for each array slot. 
  */
-			latestRoll = diceArray;
+	
 			
 			for(int i=0; i < diceArray.length; i++){
 				diceArray[i] = rGen.nextInt(6)+1;

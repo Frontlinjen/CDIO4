@@ -27,9 +27,7 @@ public class FieldLoader extends XMLParser {
 			for (int i = 0; i < 6; i++) {
 				Node houserentNode = getUnique(e, "houserent"+i);
 				rentPrices[i] = parseInteger(houserentNode);
-				
 			}
-			
 			int translateID = parseInteger(translateNode);
 			int groupID = parseInteger(groupNode);
 			int price = parseInteger(priceNode);
@@ -88,7 +86,7 @@ public class FieldLoader extends XMLParser {
 			int translateID = parseInteger(translateNode);
 			int rent = parseInteger(rentNode);
 			int price = parseInteger(priceNode);
-			BreweryData newData = new BreweryData(rent,translateID, price );
+			BreweryData newData = new BreweryData(rent, translateID, price);
 			return newData;
 			
 		} catch (Exception exc) {
