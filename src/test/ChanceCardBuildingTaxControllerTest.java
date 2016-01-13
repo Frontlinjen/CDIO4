@@ -20,6 +20,7 @@ public class ChanceCardBuildingTaxControllerTest {
 	TerritoryController felt, felt1;
 	TerritoryData territoryData, territoryData1;
 	Account acc;
+	int[] buildingtax;
 	
 	
 	
@@ -30,8 +31,10 @@ public class ChanceCardBuildingTaxControllerTest {
 		
 		acc = new Account(0, "ParkingLot");
 		player = new Player("Test");
-		territoryData = new TerritoryData(1, 1, 2500, 500, 1000);
-		territoryData1 = new TerritoryData(2, 2, 5000, 1500, 2000);
+		buildingtax = new int[6];
+		
+		territoryData = new TerritoryData(1, 2500, 500, 1000, buildingtax);
+		territoryData1 = new TerritoryData(2, 5000, 1500, 2000, buildingtax);
 		felt = new TerritoryController(territoryData);
 		felt1 = new TerritoryController(territoryData1);
 		felt.pushToGUI(1);
@@ -56,17 +59,12 @@ public class ChanceCardBuildingTaxControllerTest {
 		
 		ccTax = new ChanceCardBuildingTaxController(data, acc);
 		ccTax.onDrawn(player);
-		int hu = felt1.getHouseAmount();
-		int ho = felt.getHotelAmount();
-		
-		System.out.println(hu);
-		System.out.println(ho);
-		
-		player.getAccount().transferTo(acc, hu*1000+ho*2000);
 		
 		System.out.println(player.getAccount().getGold());
-		assertTrue(player.getAccount().getGold() == 24000 && ccTax.onDrawn(player) == true);
-		assertTrue(acc.getGold() == 6000 && ccTax.onDrawn(player) == true);
+		System.out.println(acc.getGold());
+		
+		assertTrue(player.getAccount().getGold() == 24000);
+		assertTrue(acc.getGold() == 6000);
 	}
 	
 }

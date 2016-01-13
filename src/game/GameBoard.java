@@ -17,8 +17,9 @@ public class GameBoard {
 		
 		System.out.println("Loading board...");
 		Account acc = new Account(0, null);
+		int[] houseRent = new int[6];
 		ChanceCardController[] chanceCards = ChanceCardLoader.parseChanceCards("ChanceCard.xml", acc, prison, players);
-		fields = FieldLoader.parseFields("Fields.xml", new ShuffleBag<ChanceCardController>(chanceCards), prison,acc);
+		fields = FieldLoader.parseFields("Fields.xml", new ShuffleBag<ChanceCardController>(chanceCards), prison,acc, houseRent);
 		desktop_fields.Field[] guiFields = new desktop_fields.Field[fields.length];
 		
 		for (FieldController field : fields) {

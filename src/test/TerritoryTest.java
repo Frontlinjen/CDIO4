@@ -14,10 +14,11 @@ public class TerritoryTest {
 	TerritoryData data;
 	TerritoryController territoryController;
 	Player player1, player2;
+	private int[] buildingtax;
 	
 	@Before
 	public void initialize(){
-		data = new TerritoryData(2, 1, 2500, 500, 1000);
+		data = new TerritoryData(2, 2500, 500, 1000, buildingtax);
 		territoryController = new TerritoryController(data);
 		
 		player1 = new Player("Test1");

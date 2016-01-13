@@ -18,17 +18,23 @@ public class FieldLoader extends XMLParser {
 		System.out.println("Parsing territory...");
 		try
 		{
+			int[] rentPrices = new int[6];
+			
 			Node translateNode = getUnique(e, "translateID");
 			Node groupNode = getUnique(e, "groupID");
-			Node rentNode = getUnique(e, "rent");
 			Node priceNode = getUnique(e, "price");
 			Node housepriceNode = getUnique(e, "houseprice");
+			for (int i = 0; i < 6; i++) {
+				Node houserentNode = getUnique(e, "houserent"+i);
+				rentPrices[i] = parseInteger(houserentNode);
+				
+			}
+			
 			int translateID = parseInteger(translateNode);
 			int groupID = parseInteger(groupNode);
-			int rent = parseInteger(rentNode);
 			int price = parseInteger(priceNode);
 			int houseprice = parseInteger(housepriceNode);
-			TerritoryData newData = new TerritoryData(translateID, groupID, price, rent, houseprice);
+			TerritoryData newData = new TerritoryData(translateID, groupID, price, houseprice, rentPrices);
 			return newData;
 		}
 		catch(Exception exc)
@@ -144,7 +150,7 @@ public class FieldLoader extends XMLParser {
 		
 		}
 	}
-	static public FieldController[] parseFields(String path, ShuffleBag<ChanceCardController> chanceCards, Prison prison, Account parkinglotAccount)
+	static public FieldController[] parseFields(String path, ShuffleBag<ChanceCardController> chanceCards, Prison prison, Account parkinglotAccount, int[] buildingRent)
 	{
 		
 			

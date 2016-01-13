@@ -13,7 +13,6 @@ public class TerritoryController extends OwnableController {
 	{
 		super(data);
 		territoryData = data;
-
 	}
 	public int getUpgradeCosts()
 	{
