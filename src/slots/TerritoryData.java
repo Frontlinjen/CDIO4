@@ -23,7 +23,10 @@ public class TerritoryData extends OwnableData{
 	public int getHouses(){
 		return houses;
 	}
-	
+	public void resetHouses()
+	{
+		houses = 0;
+	}
 	public void addHouse(){
 		houses++;
 	}

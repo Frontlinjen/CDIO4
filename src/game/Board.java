@@ -320,13 +320,10 @@ public class Board {
 				
 				
 				if (currentPlayer.getAccount().getGold() <= 0) {
-					OwnableController[] properties = currentPlayer.getProperty().getPropertiesOwned();
-						for (OwnableController property : properties) {
-							property.removeOwner();
-						}
+						currentPlayer.getProperty().resetPlayerProperties();
 						GUI.showMessage(Translator.getString("LOSINGPLAYER", currentPlayer.getName()));
-						players.remove(currentPlayer);
 						GUI.removeAllCars(currentPlayer.getName());
+						players.remove(currentPlayer);
 						break;
 				}
 				if(res.areDiceEqual())

@@ -33,7 +33,20 @@ public class Property {
 		return null;
 		
 	}
-	
+	public void resetPlayerProperties()
+	{
+		for(TerritoryController territory : territories)
+		{
+			territory.removeHouses();
+			territory.reset();
+		}
+		for (FleetController fleet : fleets) {
+			fleet.reset();
+		}
+		for (BreweryController brewery : breweries) {
+			brewery.reset();
+		}
+	}
 	public TerritoryController findTerritoryByName(String name)
 	{
 		for(TerritoryController territory : territories)

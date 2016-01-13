@@ -34,6 +34,7 @@ public abstract class OwnableController extends FieldController{
 	protected abstract void chargeRent(Player player);
 	protected abstract void registerOwner();
 	protected abstract void UnRegisterOwner();
+	
 	public void transferOwnershipTo(Player player)
 	{
 		
@@ -75,7 +76,12 @@ public abstract class OwnableController extends FieldController{
 	{
 		return ownableData.getOwner();
 	}
-	
+	public void reset()
+	{
+		removeOwner();
+		setPawned(false);
+		
+	}
 	public void removeOwner()
 	{
 		UnRegisterOwner();

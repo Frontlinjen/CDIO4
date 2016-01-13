@@ -14,6 +14,10 @@ public class TerritoryController extends OwnableController {
 		super(data);
 		territoryData = data;
 	}
+	public void removeHouses()
+	{
+		territoryData.resetHouses();
+	}
 	public int getUpgradeCosts()
 	{
 		return territoryData.getHouseCost();
