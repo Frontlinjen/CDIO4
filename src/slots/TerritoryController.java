@@ -104,8 +104,8 @@ public class TerritoryController extends OwnableController {
 	}
 	@Override
 	protected void chargeRent(Player player) {
-		GUI.showMessage(Translator.getString("PAYTHEOWNER", territoryData.getRent()));
-		player.getAccount().transferTo(territoryData.getOwner().getAccount(), territoryData.getRent());
+		GUI.showMessage(Translator.getString("PAYTHEOWNER", this.getRent()));
+		player.getAccount().transferTo(territoryData.getOwner().getAccount(), this.getRent());
 		
 	}
 	@Override
