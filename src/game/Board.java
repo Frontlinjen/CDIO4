@@ -270,6 +270,7 @@ public class Board {
 					prison.addInmate(getCurrentPlayer());
 					currentPlayer.setNextPosition(10, false);
 					updateCurrentPlayerPosition();
+					continue;
 				}
 				
 				GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
