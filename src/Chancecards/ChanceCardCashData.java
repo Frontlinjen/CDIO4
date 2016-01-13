@@ -1,8 +1,5 @@
 package Chancecards;
 
-import game.Account;
-import game.Player;
-
 public class ChanceCardCashData extends ChanceCardData{
 	private int money;
 	

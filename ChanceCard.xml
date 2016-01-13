@@ -162,7 +162,7 @@
 		<fields>-3</fields>
 		<cashatstart>0</cashatstart>
 	</card>
-	<card type="moveptonextfleet" amount="3">
+	<card type="movetonextfleet" amount="3">
 		<translateID>39</translateID>
 		<fleetPosition1>6</fleetPosition1>
 		<fleetPosition2>16</fleetPosition2>

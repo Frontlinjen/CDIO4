@@ -1,17 +1,25 @@
 package test;
 import slots.FieldController;
+import utilities.ShuffleBag;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import Chancecards.ChanceCardController;
+import game.Account;
 import game.FieldLoader;
+import game.Prison;
 
 public class FieldLoaderTest {
-	final int EXPECTEDFIELDAMOUNT = 21;
+	private Prison prison;
+	private Account parkinglotAccount;
+	private ShuffleBag<ChanceCardController> chanceCards;
+	
+	final int EXPECTEDFIELDAMOUNT = 40;
 	@Test
 	public void testParseFields() {
-		FieldController[] fields = FieldLoader.parseFields("Fields.xml");
+		FieldController[] fields = FieldLoader.parseFields("Fields.xml", chanceCards, prison, parkinglotAccount);
 		assertFalse("Failed to parse fields!", fields==null);
 		assertTrue("Failed to parse the expected amount of fields", fields.length==EXPECTEDFIELDAMOUNT);
 		for(FieldController f : fields)

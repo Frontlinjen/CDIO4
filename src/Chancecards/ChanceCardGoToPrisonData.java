@@ -1,7 +1,5 @@
 package Chancecards;
 
-import game.Prison;
-
 public class ChanceCardGoToPrisonData extends ChanceCardData{
 	private int prisonLocation;
 	

@@ -1,11 +1,7 @@
 package slots;
 
-import java.awt.Color;
-
-import desktop_resources.GUI;
 import game.Account;
-import game.Player;
-import game.Translator;
+
 
 public class ParkinglotData extends FieldData{
 

@@ -1,6 +1,4 @@
 package test;
-import game.*;
-import slots.FieldController;
 import utilities.ShuffleBag;
 
 import static org.junit.Assert.*;
@@ -52,6 +50,7 @@ public class ShuffleBagTest {
 				e.printStackTrace();
 			}
 		}
+		assertTrue("Random were not random!", random);
 		testreset.Reset();
 		amount = 0;
 		for(int i = 0; i < testtal1.length; i++) {

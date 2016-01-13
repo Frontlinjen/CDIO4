@@ -2,7 +2,6 @@ package slots;
 
 
 import java.awt.Color;
-import desktop_fields.Empty;
 import desktop_fields.Field;
 import game.Player;
 import game.Translator;

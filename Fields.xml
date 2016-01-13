@@ -9,6 +9,11 @@
 		<rent>50</rent>
 		<price>1200</price>
 		<houseprice>1000</houseprice>
+		<houserent1>250</houserent1>
+		<houserent2>750</houserent2>
+		<houserent3>2250</houserent3>
+		<houserent4>4000</houserent4>
+		<hotelrent>6000</hotelrent>
 	</field>
 	<field type="chancefield">
 	</field>
@@ -18,6 +23,11 @@
 		<rent>50</rent>
 		<price>1200</price>
 		<houseprice>1000</houseprice>
+		<houserent1>250</houserent1>
+		<houserent2>750</houserent2>
+		<houserent3>2250</houserent3>
+		<houserent4>4000</houserent4>
+		<hotelrent>6000</hotelrent>
 	</field>
 	<field type="tax">
 		<translateID>5</translateID>
@@ -34,6 +44,11 @@
 		<rent>100</rent>
 		<price>2000</price>
 		<houseprice>1000</houseprice>
+		<houserent1>600</houserent1>
+		<houserent2>1800</houserent2>
+		<houserent3>5400</houserent3>
+		<houserent4>8000</houserent4>
+		<hotelrent>11000</hotelrent>
 	</field>
 	<field type="chancefield">
 	</field>
@@ -43,6 +58,11 @@
 		<rent>100</rent>
 		<price>2000</price>
 		<houseprice>1000</houseprice>
+		<houserent1>600</houserent1>
+		<houserent2>1800</houserent2>
+		<houserent3>5400</houserent3>
+		<houserent4>8000</houserent4>
+		<hotelrent>11000</hotelrent>
 	</field>
 	<field type="territory">
 		<translateID>10</translateID>
@@ -50,6 +70,11 @@
 		<rent>150</rent>
 		<price>2400</price>
 		<houseprice>1000</houseprice>
+		<houserent1>800</houserent1>
+		<houserent2>2000</houserent2>
+		<houserent3>6000</houserent3>
+		<houserent4>9000</houserent4>
+		<hotelrent>12000</hotelrent>
 	</field>
 	<field type="empty">
 		<translateID>11</translateID>
@@ -60,6 +85,11 @@
 		<rent>200</rent>
 		<price>2800</price>
 		<houseprice>2000</houseprice>
+		<houserent1>1000</houserent1>
+		<houserent2>3000</houserent2>
+		<houserent3>9000</houserent3>
+		<houserent4>12500</houserent4>
+		<hotelrent>15000</hotelrent>
 	</field>
 	<field type="brewery">
 		<translateID>13</translateID>
@@ -72,6 +102,11 @@
 		<rent>200</rent>
 		<price>2800</price>
 		<houseprice>2000</houseprice>
+		<houserent1>1000</houserent1>
+		<houserent2>3000</houserent2>
+		<houserent3>9000</houserent3>
+		<houserent4>12500</houserent4>
+		<hotelrent>15000</hotelrent>
 	</field>
 	<field type="territory">
 		<translateID>15</translateID>
@@ -79,6 +114,11 @@
 		<rent>250</rent>
 		<price>3200</price>
 		<houseprice>2000</houseprice>
+		<houserent1>1250</houserent1>
+		<houserent2>3750</houserent2>
+		<houserent3>10000</houserent3>
+		<houserent4>14000</houserent4>
+		<hotelrent>18000</hotelrent>
 	</field>
 	<field type="fleet">
 		<translateID>16</translateID>
@@ -90,6 +130,11 @@
 		<rent>300</rent>
 		<price>3600</price>
 		<houseprice>2000</houseprice>
+		<houserent1>1400</houserent1>
+		<houserent2>4000</houserent2>
+		<houserent3>11000</houserent3>
+		<houserent4>15000</houserent4>
+		<hotelrent>19000</hotelrent>
 	</field>
 	<field type="chancefield">
 	</field>
@@ -99,6 +144,11 @@
 		<rent>300</rent>
 		<price>3600</price>
 		<houseprice>2000</houseprice>
+		<houserent1>1400</houserent1>
+		<houserent2>4000</houserent2>
+		<houserent3>11000</houserent3>
+		<houserent4>15000</houserent4>
+		<hotelrent>19000</hotelrent>
 	</field>
 	<field type="territory">
 		<translateID>20</translateID>
@@ -106,6 +156,11 @@
 		<rent>350</rent>
 		<price>4000</price>
 		<houseprice>2000</houseprice>
+		<houserent1>1600</houserent1>
+		<houserent2>4400</houserent2>
+		<houserent3>12000</houserent3>
+		<houserent4>16000</houserent4>
+		<hotelrent>20000</hotelrent>
 	</field>
 	<field type="parkinglot">
 		<translateID>21</translateID>
@@ -117,6 +172,11 @@
 		<rent>350</rent>
 		<price>4400</price>
 		<houseprice>3000</houseprice>
+		<houserent1>1800</houserent1>
+		<houserent2>5000</houserent2>
+		<houserent3>14000</houserent3>
+		<houserent4>17500</houserent4>
+		<hotelrent>21000</hotelrent>
 	</field>
 	<field type="chancefield">
 	</field>
@@ -126,6 +186,11 @@
 		<rent>350</rent>
 		<price>440</price>
 		<houseprice>3000</houseprice>
+		<houserent1>1800</houserent1>
+		<houserent2>5000</houserent2>
+		<houserent3>14000</houserent3>
+		<houserent4>17500</houserent4>
+		<hotelrent>21000</hotelrent>
 	</field>
 	<field type="territory">
 		<translateID>25</translateID>
@@ -133,6 +198,11 @@
 		<rent>400</rent>
 		<price>4800</price>
 		<houseprice>3000</houseprice>
+		<houserent1>2000</houserent1>
+		<houserent2>6000</houserent2>
+		<houserent3>15000</houserent3>
+		<houserent4>18500</houserent4>
+		<hotelrent>22000</hotelrent>
 	</field>
 	<field type="fleet">
 		<translateID>26</translateID>
@@ -144,6 +214,11 @@
 		<rent>450</rent>
 		<price>5200</price>
 		<houseprice>3000</houseprice>
+		<houserent1>2200</houserent1>
+		<houserent2>6600</houserent2>
+		<houserent3>16000</houserent3>
+		<houserent4>19500</houserent4>
+		<hotelrent>23000</hotelrent>
 	</field>
 	<field type="territory">
 		<translateID>28</translateID>
@@ -151,6 +226,11 @@
 		<rent>450</rent>
 		<price>5200</price>
 		<houseprice>3000</houseprice>
+		<houserent1>2200</houserent1>
+		<houserent2>6600</houserent2>
+		<houserent3>16000</houserent3>
+		<houserent4>19500</houserent4>
+		<hotelrent>23000</hotelrent>
 	</field>
 	<field type="brewery">
 		<translateID>29</translateID>
@@ -163,6 +243,11 @@
 		<rent>500</rent>
 		<price>5600</price>
 		<houseprice>3000</houseprice>
+		<houserent1>2400</houserent1>
+		<houserent2>7200</houserent2>
+		<houserent3>17000</houserent3>
+		<houserent4>20500</houserent4>
+		<hotelrent>24000</hotelrent>
 	</field>
 	<field type="gotoprison">
 		<translateID>31</translateID>
@@ -174,6 +259,11 @@
 		<rent>550</rent>
 		<price>6000</price>
 		<houseprice>4000</houseprice>
+		<houserent1>2600</houserent1>
+		<houserent2>7800</houserent2>
+		<houserent3>18000</houserent3>
+		<houserent4>22000</houserent4>
+		<hotelrent>25000</hotelrent>
 	</field>
 	<field type="territory">
 		<translateID>33</translateID>
@@ -181,6 +271,11 @@
 		<rent>550</rent>
 		<price>6000</price>
 		<houseprice>4000</houseprice>
+		<houserent1>2600</houserent1>
+		<houserent2>7800</houserent2>
+		<houserent3>18000</houserent3>
+		<houserent4>22000</houserent4>
+		<hotelrent>25000</hotelrent>
 	</field>
 	<field type="chancefield">
 	</field>
@@ -190,6 +285,11 @@
 		<rent>600</rent>
 		<price>6400</price>
 		<houseprice>4000</houseprice>
+		<houserent1>3000</houserent1>
+		<houserent2>9000</houserent2>
+		<houserent3>20000</houserent3>
+		<houserent4>24000</houserent4>
+		<hotelrent>28000</hotelrent>
 	</field>
 	<field type="fleet">
 		<translateID>36</translateID>
@@ -203,6 +303,11 @@
 		<rent>700</rent>
 		<price>7000</price>
 		<houseprice>4000</houseprice>
+		<houserent1>3500</houserent1>
+		<houserent2>10000</houserent2>
+		<houserent3>22000</houserent3>
+		<houserent4>26000</houserent4>
+		<hotelrent>30000</hotelrent>
 	</field>
 	<field type="tax">
 		<translateID>39</translateID>
@@ -215,5 +320,10 @@
 		<rent>1000</rent>
 		<price>8000</price>
 		<houseprice>4000</houseprice>
+		<houserent1>4000</houserent1>
+		<houserent2>12000</houserent2>
+		<houserent3>28000</houserent3>
+		<houserent4>34000</houserent4>
+		<hotelrent>40000</hotelrent>
 	</field>
 </fields>

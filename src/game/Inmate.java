@@ -1,7 +1,5 @@
 package game;
 
-import desktop_resources.GUI;
-
 public class Inmate {
 	private int days;
 	private Player player;

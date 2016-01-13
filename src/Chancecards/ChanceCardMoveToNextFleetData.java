@@ -1,7 +1,5 @@
 package Chancecards;
 
-import game.Player;
-
 public class ChanceCardMoveToNextFleetData extends ChanceCardData{
 	int[] fleetPositions;
 	boolean cashAtStart;

@@ -1,7 +1,5 @@
 package Chancecards;
 
-import game.Account;
-
 public class ChanceCardBuildingTaxData extends ChanceCardData{
 	private int houseTax;
 	private int hotelTax;

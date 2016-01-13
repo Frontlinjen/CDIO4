@@ -7,11 +7,8 @@ import org.junit.Test;
 
 import game.Account;
 import game.Player;
-import slots.FieldController;
 import slots.TaxData;
 import slots.TaxController;
-import slots.ParkinglotData;
-import slots.FieldData;
 
 public class TaxTest {
 	

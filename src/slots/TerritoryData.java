@@ -1,12 +1,5 @@
 package slots;
 
-import java.awt.Color;
-
-import desktop_resources.GUI;
-import slots.OwnableController;
-import game.Player;
-import game.Translator;
-
 public class TerritoryData extends OwnableData{
 
 	private int rent;
