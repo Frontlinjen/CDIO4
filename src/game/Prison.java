@@ -29,6 +29,7 @@ public class Prison {
 			{
 				Inmate newInmate = new Inmate(SERVINGDAYS, player);
 				inmates[i] = newInmate;
+				break;
 			}
 		}
 	}
