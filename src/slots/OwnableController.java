@@ -76,12 +76,15 @@ public abstract class OwnableController extends FieldController{
 	{
 		return ownableData.getOwner();
 	}
+	//Should be used when a player goes to 0 cash
 	public void reset()
 	{
-		removeOwner();
+		ownableData.removeOwner();
+		GUI.removeOwner(ownableData.getPosition());
 		setPawned(false);
 		
 	}
+	//Should never be used when looping over a player's properties
 	public void removeOwner()
 	{
 		UnRegisterOwner();
