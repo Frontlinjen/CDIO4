@@ -50,11 +50,11 @@
 	</card>
 	<card type="tax">
 		<translateID>13</translateID>
-		<cash>-1000</cash>
+		<cash>1000</cash>
 	</card>
 	<card type="tax">
 		<translateID>14</translateID>
-		<cash>-300</cash>
+		<cash>300</cash>
 	</card>
 	<card type="bonus">
 		<translateID>15</translateID>
@@ -62,11 +62,11 @@
 	</card>
 	<card type="tax">
 		<translateID>16</translateID>
-		<cash>-200</cash>
+		<cash>200</cash>
 	</card>
 	<card type="tax">
 		<translateID>17</translateID>
-		<cash>-1000</cash>
+		<cash>1000</cash>
 	</card>
 	<card type="bonus">
 		<translateID>18</translateID>
@@ -115,42 +115,42 @@
 	</card>-->
 	<card type="moveplayer">
 		<translateID>29</translateID>
-		<fieldnumber>11</fieldnumber>
+		<fieldnumber>10</fieldnumber>
 		<cashatstart>0</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>30</translateID>
-		<fieldnumber>33</fieldnumber>
+		<fieldnumber>32</fieldnumber>
 		<cashatstart>1</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>31</translateID>
-		<fieldnumber>16</fieldnumber>
+		<fieldnumber>15</fieldnumber>
 		<cashatstart>1</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>32</translateID>
-		<fieldnumber>38</fieldnumber>
+		<fieldnumber>37</fieldnumber>
 		<cashatstart>1</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>33</translateID>
-		<fieldnumber>1</fieldnumber>
+		<fieldnumber>0</fieldnumber>
 		<cashatstart>1</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>34</translateID>
-		<fieldnumber>40</fieldnumber>
+		<fieldnumber>39</fieldnumber>
 		<cashatstart>1</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>35</translateID>
-		<fieldnumber>25</fieldnumber>
+		<fieldnumber>24</fieldnumber>
 		<cashatstart>1</cashatstart>
 	</card>
 	<card type="moveplayer">
 		<translateID>36</translateID>
-		<fieldnumber>20</fieldnumber>
+		<fieldnumber>19</fieldnumber>
 		<cashatstart>1</cashatstart>
 	</card>
 	<card type="matadorlegat">
