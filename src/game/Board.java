@@ -133,7 +133,7 @@ public class Board {
 	{
 		while(players.size() > 1) {
 			DiceResult res = null;
-			int rollsLeft = 2;
+			int rollsLeft = 3;
 			Inmate inmate = prison.getInmate(currentPlayer);
 			if (inmate != null){
 						if(currentPlayer.hasGetOutOfPrisonCard() && GUI.getUserLeftButtonPressed(
@@ -263,6 +263,14 @@ public class Board {
 			//2nd check is necessary is send to prison during his turn
 			while(rollsLeft>0 && (prison.getInmate(currentPlayer)==null || prison.getInmate(currentPlayer).getDaysLeft()==0))
 			{
+				--rollsLeft;
+				if(rollsLeft==0)
+				{
+					GUI.showMessage(Translator.getString("TOOMANYDOUBLES"));
+					prison.addInmate(getCurrentPlayer());
+					currentPlayer.setNextPosition(10, false);
+					updateCurrentPlayerPosition();
+				}
 				
 				GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
 				
@@ -287,20 +295,13 @@ public class Board {
 				{
 					GUI.showMessage(Translator.getString("EXTRATURN"));
 					res = currentPlayer.getDice().rollDice();
-					--rollsLeft;
 				}
 				else
 				{
 					break;
 				}
 			
-				if(rollsLeft==0)
-				{
-					GUI.showMessage(Translator.getString("TOOMANYDOUBLES"));
-					prison.addInmate(getCurrentPlayer());
-					currentPlayer.setNextPosition(10, false);
-					updateCurrentPlayerPosition();
-				}
+				
 			} //what do?
 			swapPlayers();
 		}
