@@ -34,7 +34,7 @@ public class ParkinglotController extends FieldController{
 		parkingLot = new desktop_fields.Street.Builder().setBgColor(new Color(223f/255, 255f/255, 43f/255)).build();
 		parkingLot.setDescription(getDescription());
 		parkingLot.setTitle(parkinglotData.getName());
-		parkingLot.setSubText(Translator.getString("PARKINGLOTSUB"));
+		parkingLot.setSubText(Translator.getString("PARKINGLOTSUB", parkinglotData.getAccount().getGold()));
 		return parkingLot;
 	}
 	@Override
