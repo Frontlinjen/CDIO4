@@ -188,9 +188,10 @@ public class Board {
 				String pawnField = Translator.getString("PAWNFIELD", currentPlayer.getName());
 				String releasePawn = Translator.getString("RELEASEFIELD", currentPlayer.getName());
 				String rollTurn = Translator.getString("ROLLTURN", currentPlayer.getName());
+				String buyAnothersField = Translator.getString("BUYPLAYERPROPERTY");
 				while(true)
 				{
-					String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), rollTurn, buyHouse, pawnField, releasePawn);
+					String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), rollTurn, buyHouse, pawnField, releasePawn,buyAnothersField);
 					
 					
 					if(rollTurn.equals(response))
@@ -259,7 +260,39 @@ public class Board {
 						
 						
 					}
-				
+					else if(buyAnothersField.equals(response))
+					{
+						String[] playerNames = new String[players.size()-1];
+						int index = 0;
+						for (Player player : players) {
+							if(player!=currentPlayer)
+							{
+								playerNames[index++] = player.getName();
+							}
+						}
+						String playerSelections = GUI.getUserSelection(Translator.getString("WHOOWNSPROPERTY"), appendCancelOption(playerNames));
+						if(!playerSelections.equals(Translator.getString("CANCEL")))
+						{
+							Player selectedPlayer = getPlayerByName(playerSelections);
+							//Cannot buy a pawned field, so we are getting those which are able to be pawned(ie. not pawned already)
+							String[] selections = selectedPlayer.getProperty().getPawnablePropertyList();
+							if(selections.length<1)
+							{
+								GUI.showMessage(Translator.getString("CANNOTUNPAWN"));
+							}
+							else
+							{
+								String[] extendedSelections = appendCancelOption(selections);
+								String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"), extendedSelections);
+								if(!fieldResponse.equals(Translator.getString("CANCEL")))
+								{
+									OwnableController selectedField = selectedPlayer.getProperty().findOwnableByName(fieldResponse);
+									buyPlayerField(selectedField);
+								}
+							}
+						}
+						
+					}
 					
 				}
 				
@@ -312,7 +345,49 @@ public class Board {
 		}
 	}
 	
+	private Player getPlayerByName(String name)
+	{
+		for (Player player : players) {
+			if(player.getName().equals(name))
+				return player;
+		}
+		return null;
+	}
+	private String[] appendCancelOption(String[] source)
+	{
+		String[] extendedSelections = new String[source.length+1];
+		//This could be implemented by an array loop as well
+		System.arraycopy(source, 0, extendedSelections, 0, source.length);
+		extendedSelections[extendedSelections.length-1] = Translator.getString("CANCEL");
+		return extendedSelections;
+	}
 	
+	private void buyPlayerField(OwnableController selectedField) {
+		while(true)
+		{
+			int cost = GUI.getUserInteger(Translator.getString("PLAYERFIELDCOST", selectedField.getOwner().getName()));
+			if(GUI.getUserLeftButtonPressed(Translator.getString("PLAYERFIELDACCEPT", currentPlayer.getName(), selectedField.getName()), Translator.getString("YES"), Translator.getString("NO")))
+			{
+				if(currentPlayer.getAccount().withdraw(cost))
+				{
+					selectedField.removeOwner();
+					selectedField.setOwner(currentPlayer);
+					GUI.showMessage(Translator.getString("BOUGHTFIELD", currentPlayer.getName(), cost));
+					return;
+				}
+				else
+				{
+					GUI.showMessage(Translator.getString("NOMONEYNOFUNNY"));
+				}
+				
+			}
+			if(!GUI.getUserLeftButtonPressed(Translator.getString("PLAYERNEWOFFER", selectedField.getOwner().getName()), Translator.getString("YES"), Translator.getString("NO")))
+			{
+				break;
+			}
+		}
+			
+	}
 	public void updateCurrentPlayerPosition()
 	{
 		GUI.removeAllCars(currentPlayer.getName());
