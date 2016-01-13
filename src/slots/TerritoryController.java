@@ -55,8 +55,12 @@ public class TerritoryController extends OwnableController {
 
 	@Override
 	public desktop_fields.Field pushToGUI(int position) {
+
+		Color[] colors = {Color.blue, Color.pink, Color.green, Color.gray, Color.red, Color.lightGray, Color.yellow, new Color(110, 31, 4)};
+		Color thisColor = colors[getFieldGroup().ordinal()];
 		territoryData.setPosition(position);
-		guiField = new desktop_fields.Street.Builder().setRent(Integer.toString(territoryData.getRent())).setBgColor(new Color(68f/255, 255f/255, 43f/255)).build();
+		
+		guiField = new desktop_fields.Street.Builder().setRent(Integer.toString(territoryData.getRent())).setBgColor(thisColor).build();
 		guiField.setDescription(getDescription());
 		guiField.setTitle(territoryData.getName());
 		guiField.setSubText(Integer.toString(territoryData.getPrice()));
