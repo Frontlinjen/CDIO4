@@ -7,6 +7,7 @@ public class ChanceCardMatadorLegatController extends ChanceCardController{
 private ChanceCardCashData chanceCardData;
 	
 	public ChanceCardMatadorLegatController(ChanceCardCashData chanceCardData) {
+		super(chanceCardData);
 		this.chanceCardData = chanceCardData;
 	}
 	
@@ -25,10 +26,6 @@ private ChanceCardCashData chanceCardData;
 		}
 	}
 
-	@Override
-	public String getDescription() {
-		
-		return null;
-	}
+	
 
 }

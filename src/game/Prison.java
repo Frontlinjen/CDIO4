@@ -14,10 +14,9 @@ public class Prison {
 	{
 		for (Inmate inmate : inmates)
 		{
-			if(inmate!=null)
+			if(inmate!=null && inmate.isPlayer(player))
 			{
-				inmate.isPlayer(player);
-
+				return inmate;
 			}
 		}
 		return null;
@@ -30,6 +29,7 @@ public class Prison {
 			{
 				Inmate newInmate = new Inmate(SERVINGDAYS, player);
 				inmates[i] = newInmate;
+				break;
 			}
 		}
 	}
@@ -38,11 +38,13 @@ public class Prison {
 		for (int i=0;i<inmates.length;++i)
 		{
 			if(inmates[i] != null)
+			{
 				inmates[i].decreaseDaysLeft();
 			
-			if(inmates[i].getDaysLeft()<=0)
-			{	
-				inmates[i] = null;
+				if(inmates[i].getDaysLeft()<=0)
+				{	
+					inmates[i] = null;
+				}
 			}
 		}
 		

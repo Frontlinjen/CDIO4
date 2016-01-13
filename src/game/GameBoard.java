@@ -17,19 +17,24 @@ public class GameBoard {
 		//desktop_fields.Brewery b = new desktop_fields.Brewery.Builder().setRent("2000").build();
 		
 		System.out.println("Loading board...");
-		Account acc = new Account(0, "Unused");
+		Account acc = new Account(0, null);
 		ChanceCardController[] chanceCards = ChanceCardLoader.parseChanceCards("ChanceCard.xml", acc, prison, players);
 		fields = FieldLoader.parseFields("Fields.xml", new ShuffleBag<ChanceCardController>(chanceCards), prison,acc);
-		/*for(FieldController f : fields)
-		{
-			System.out.println(f.getName());
-		}*/
 		desktop_fields.Field[] guiFields = new desktop_fields.Field[fields.length];
+		
+		for (FieldController field : fields) {
+			System.out.println(field.getName());
+		}
+		System.out.println("Loaded: " + fields.length + "fields..");
 		
 		int pos = 1;
 		for(FieldController f : fields)
 		{
 			desktop_fields.Field guiField = f.pushToGUI(pos);
+			if(guiField==null)
+			{
+				System.out.println("[WARNING]" + f.getName() + " returned null!");
+			}
 			guiFields[pos-1] = guiField;
 			pos++;	
 		}

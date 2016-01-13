@@ -9,6 +9,7 @@ public class ChanceCardCashTransferController extends ChanceCardController{
 	private  List<Player>  players;
 	
 	public ChanceCardCashTransferController(ChanceCardCashData chanceCardData, List<Player> players) {
+		super(chanceCardData);
 		this.chanceCardData = chanceCardData;
 		this.players = players;
 	}
@@ -24,10 +25,5 @@ public class ChanceCardCashTransferController extends ChanceCardController{
 		return false;
 	}
 
-	@Override
-	public String getDescription() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

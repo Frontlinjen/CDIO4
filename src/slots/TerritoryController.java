@@ -7,7 +7,6 @@ import game.Player;
 import game.Translator;
 
 public class TerritoryController extends OwnableController {
-	private desktop_fields.Street territory;
 	private TerritoryData territoryData;
 
 	public TerritoryController(TerritoryData data)
@@ -27,8 +26,17 @@ public class TerritoryController extends OwnableController {
 		if(territoryData.getOwner() == player){
 			if(territoryData.getHouses() < 5){
 				if(player.getAccount().withdraw(getUpgradeCosts())){
-		
 					territoryData.addHouse();
+					int houseCount = territoryData.getHouses();
+					
+					if(houseCount < 5)
+					{
+						GUI.setHouses(territoryData.getPosition(), territoryData.getHouses());
+					}
+					else
+					{
+						GUI.setHotel(territoryData.getPosition(), true);
+					}
 					GUI.showMessage(Translator.getString("HOUSECONFIRM"));
 				}
 				else{
@@ -44,38 +52,15 @@ public class TerritoryController extends OwnableController {
 		}
 	}
 	
-	@Override
-	public void landOnField(Player player) {
-		/**
-		 * player lands on territory. If the field is owned, the player 
-		 * will have to pay the rent, depending on which field it is.
-		 * If the field is not owned, the chance to buy it, is given.
-		 */
-		territory.displayOnCenter();
-		if(hasOwner())
-		{
-			if(territoryData.getOwner()!=player)
-			{
-				GUI.showMessage(Translator.getString("PAYTHEOWNER", territoryData.getRent()));
-				player.getAccount().transferTo(territoryData.getOwner().getAccount(), territoryData.getRent());
-			}else{
-				GUI.showMessage(Translator.getString("YOURFIELD"));
-			}
-		}else{
-			if(BuyField(player)){
-				GUI.showMessage(Translator.getString("BOUGHTFIELD", territoryData.getName(), territoryData.getPrice()));
-			}
-		}
-	}
 
 	@Override
 	public desktop_fields.Field pushToGUI(int position) {
 		territoryData.setPosition(position);
-		territory = new desktop_fields.Street.Builder().setRent(Integer.toString(territoryData.getRent())).setBgColor(new Color(68f/255, 255f/255, 43f/255)).build();
-		territory.setDescription(getDescription());
-		territory.setTitle(territoryData.getName());
-		territory.setSubText(Integer.toString(territoryData.getPrice()));
-		return territory;
+		guiField = new desktop_fields.Street.Builder().setRent(Integer.toString(territoryData.getRent())).setBgColor(new Color(68f/255, 255f/255, 43f/255)).build();
+		guiField.setDescription(getDescription());
+		guiField.setTitle(territoryData.getName());
+		guiField.setSubText(Integer.toString(territoryData.getPrice()));
+		return guiField;
 	}
 	public int getHouseAmount()
 	{
@@ -86,7 +71,7 @@ public class TerritoryController extends OwnableController {
 	}
 	public int getHotelAmount()
 	{
-		return territoryData.getHouses()==5 ? 1 : 0;
+		return territoryData.getHouses()>4 ? 1 : 0;
 	}
 
 	@Override
@@ -112,6 +97,21 @@ public class TerritoryController extends OwnableController {
 	@Override
 	public FIELDGROUPS getFieldGroup() {
 		return FIELDGROUPS.values()[territoryData.getGroupID()];
+	}
+	@Override
+	public int getRent() {
+		return territoryData.getRent()+territoryData.getRent()*(int)(Math.pow(territoryData.getHouses(), 2));
+	}
+	@Override
+	protected void chargeRent(Player player) {
+		GUI.showMessage(Translator.getString("PAYTHEOWNER", territoryData.getRent()));
+		player.getAccount().transferTo(territoryData.getOwner().getAccount(), territoryData.getRent());
+		
+	}
+	@Override
+	protected void registerOwner() {
+		territoryData.getOwner().getProperty().addTerritory(this);
+		
 	}
 
 

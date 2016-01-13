@@ -6,6 +6,7 @@ public class ChanceCardMoveToNextFleetController extends ChanceCardController{
 	private ChanceCardMoveToNextFleetData chanceCardData;
 	
 	public ChanceCardMoveToNextFleetController(ChanceCardMoveToNextFleetData chanceCardData) {
+		super(chanceCardData);
 		this.chanceCardData = chanceCardData;
 	}
 	
@@ -40,10 +41,5 @@ public class ChanceCardMoveToNextFleetController extends ChanceCardController{
 		return false;
 	}
 
-	@Override
-	public String getDescription() {
-		
-		return null;
-	}
 
 }

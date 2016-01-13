@@ -22,7 +22,8 @@ public class Property {
 	{
 		OwnableController[] ownables = getPropertiesOwned();
 		for (OwnableController ownableController : ownables) {
-			if(ownableController.getName()==name)
+			String ownableName = ownableController.getName();
+			if(ownableName.equals(name))
 			{
 				return ownableController;
 			}
@@ -35,7 +36,7 @@ public class Property {
 	{
 		for(TerritoryController territory : territories)
 		{
-			if(territory.getName()==name)
+			if(territory.getName().equals(name))
 			{
 				return territory;
 			}
@@ -50,10 +51,12 @@ public class Property {
 		for (OwnableController cont : ownables) {
 			if(cont.pawned())
 			{
-				names[index++] = cont.getName() + cont.getWorth(); 
+				names[index++] = cont.getName(); 
 			}
 		}
-		return names;
+		String[] retNames= new String[index];//no need to +1 on index, since its always one larger than the current array contains
+		System.arraycopy(names, 0, retNames, 0, index); 
+		return retNames;
 	}
 	public String[] getPawnablePropertyList()
 	{
@@ -63,10 +66,12 @@ public class Property {
 		for (OwnableController cont : ownables) {
 			if(!cont.pawned())
 			{
-				names[index++] = cont.getName() + cont.getWorth(); 
+				names[index++] = cont.getName(); 
 			}
 		}
-		return names;
+		String[] retNames= new String[index];
+		System.arraycopy(names, 0, retNames, 0, index);
+		return retNames;
 	}
 
 	public Iterator<slots.TerritoryController> getTerritories()

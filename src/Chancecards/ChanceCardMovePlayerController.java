@@ -6,6 +6,7 @@ public class ChanceCardMovePlayerController extends ChanceCardController{
 	private ChanceCardMovePlayerData chanceCardData;
 	
 	public ChanceCardMovePlayerController(ChanceCardMovePlayerData chanceCardData) {
+		super(chanceCardData);
 		this.chanceCardData = chanceCardData;
 	}
 	
@@ -15,10 +16,5 @@ public class ChanceCardMovePlayerController extends ChanceCardController{
 		return false;
 	}
 
-	@Override
-	public String getDescription() {
-		
-		return null;
-	}
 
 }

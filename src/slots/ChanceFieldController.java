@@ -1,5 +1,7 @@
 package slots;
 
+import java.awt.Color;
+
 import Chancecards.ChanceCardController;
 import desktop_fields.Field;
 import desktop_resources.GUI;
@@ -21,10 +23,15 @@ public class ChanceFieldController extends FieldController {
 		try{
 			ChanceCardController newCard = cards.getNext();
 			//If onDrawn returns false, then the card should be put back into the pile
-			if(!newCard.onDrawn(player))
+
+			GUI.displayChanceCard(newCard.getDescription());
+			GUI.showMessage(Translator.getString("CHANCECARDDRAWN"));
+			if(newCard.onDrawn(player))
 			{
+				GUI.showMessage(Translator.getString("CARDCOULDNOTBEUSED"));
 				cards.pushBackLastCard();
 			}
+			
 		}
 		catch(Exception e)
 		{
@@ -35,8 +42,9 @@ public class ChanceFieldController extends FieldController {
 
 	@Override
 	public Field pushToGUI(int position) {
-		// TODO Auto-generated method stub
-		return null;
+		desktop_fields.Chance newField = new desktop_fields.Chance.Builder().setBgColor(Color.gray).build();
+		newField.setTitle(getName());
+		return newField;
 	}
 	@Override
 	public String getDescription() {

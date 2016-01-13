@@ -7,7 +7,7 @@ import game.Player;
 import game.Translator;
 
 public class GoToPrisonController extends FieldController{
-	desktop_fields.Street goToPrison; 
+	desktop_fields.Jail goToPrison; 
 	GoToPrisonData goToPrisonData;
 	public GoToPrisonController(GoToPrisonData data)
 	{
@@ -29,10 +29,10 @@ public class GoToPrisonController extends FieldController{
 	@Override
 	public desktop_fields.Field pushToGUI(int position){
 		position = goToPrisonData.getPrisonPosition();
-		goToPrison = new desktop_fields.Street.Builder().setBgColor(new Color(223f/255, 255f/255, 43f/255)).build();
+		goToPrison = new desktop_fields.Jail.Builder().setBgColor(new Color(223f/255, 255f/255, 43f/255)).build();
 		goToPrison.setDescription(this.getDescription());
 		goToPrison.setTitle(goToPrisonData.getName());
-		goToPrison.setSubText("GOTOPRISONDSC");
+		goToPrison.setSubText(getDescription());
 		return goToPrison;
 	}
 	@Override

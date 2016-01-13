@@ -10,7 +10,7 @@
 	</card>
 	<card type="tax">
 		<translateID>3</translateID>
-		<cash>-3000</cash>
+		<cash>3000</cash>
 	</card>
 	<card type="bonus">
 		<translateID>4</translateID>
@@ -18,11 +18,11 @@
 	</card>
 	<card type="tax">
 		<translateID>5</translateID>
-		<cash>-3000</cash>
+		<cash>3000</cash>
 	</card>
 	<card type="tax">
 		<translateID>6</translateID>
-		<cash>-2000</cash>
+		<cash>2000</cash>
 	</card>
 	<card type="bonus">
 		<translateID>7</translateID>
@@ -34,7 +34,7 @@
 	</card>
 	<card type="tax">
 		<translateID>9</translateID>
-		<cash>-1000</cash>
+		<cash>1000</cash>
 	</card>
 	<card type="bonus">
 		<translateID>10</translateID>
@@ -78,11 +78,11 @@
 	</card>
 	<card type="tax">
 		<translateID>20</translateID>
-		<cash>-200</cash>
+		<cash>200</cash>
 	</card>
 	<card type="tax">
 		<translateID>21</translateID>
-		<cash>-200</cash>
+		<cash>200</cash>
 	</card>
 	<card type="bonus">
 		<translateID>22</translateID>
@@ -103,16 +103,16 @@
 		<translateID>26</translateID>
 		<cash>200</cash>
 	</card>
-	<card type="moveplayer">
+	<!--<card type="moveplayer">
 		<translateID>27</translateID>
 		<fieldnumber>20</fieldnumber>
 		<cashatstart>1</cashatstart>
 	</card>
-	<card type="moveplayer">
+	 <card type="moveplayer">
 		<translateID>28</translateID>
 		<fieldnumber>11</fieldnumber>
-		<cashatstart>0</cashatstart>
-	</card>
+		<cashatstart>1</cashatstart>
+	</card>-->
 	<card type="moveplayer">
 		<translateID>29</translateID>
 		<fieldnumber>11</fieldnumber>
@@ -182,6 +182,6 @@
 	</card>
 	<card type="gotoprison" amount="2">
 		<translateID>42</translateID>
-		<fieldnumber>11</fieldnumber>
+		<fieldnumber>10</fieldnumber>
 	</card>
 </cards>

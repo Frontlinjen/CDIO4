@@ -34,6 +34,8 @@ public class Player {
 		{
 			moveToPosition(distance);
 		}
+		//Fixes an error which accours when the nextPosition has been sat past start
+		nextPosition = position;
 		
 	}
 
@@ -66,7 +68,7 @@ public class Player {
 	}
 	
 	private void moveToPosition (int afstand){
-		final int ANTALSLOTS = 40;
+		final int ANTALSLOTS = 40; 
 		final int STARTBONUS = 4000;
 		position += afstand; 
 		//add the moved distance to the old position.
@@ -76,7 +78,7 @@ public class Player {
 		 * If it does, it take the amount of fields from the position
 		 * to find the new position.
 		 */
-		if(position > ANTALSLOTS){ 
+		if(position >= ANTALSLOTS){ //since we are 0-index, 40 is the 0th field
 			position -= ANTALSLOTS;
 			if(cashAtStart)
 				account.addGold(STARTBONUS);

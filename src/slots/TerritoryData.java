@@ -34,7 +34,6 @@ public class TerritoryData extends OwnableData{
 	public void addHouse(){
 		houses++;
 	}
-	
 	public int getHouseCost(){
 		return houseCost;
 	}

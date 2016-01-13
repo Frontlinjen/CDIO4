@@ -166,7 +166,7 @@
 	</field>
 	<field type="gotoprison">
 		<translateID>31</translateID>
-		<prisonPosition>11</prisonPosition>
+		<prisonPosition>10</prisonPosition>
 	</field>
 	<field type="territory">
 		<translateID>32</translateID>

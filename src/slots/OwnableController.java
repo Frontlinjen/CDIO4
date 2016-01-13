@@ -22,16 +22,49 @@ public abstract class OwnableController extends FieldController{
 	}
 	private OwnableData ownableData;
 	private boolean pawned = false;
-	private desktop_fields.Street LaborCamp;
+	protected desktop_fields.Ownable guiField;
+	
 	public OwnableController(OwnableData dat)
 	{
 		super(dat);
 		ownableData = dat;
 	}
 	
-	public int getRent()
+	public abstract int getRent();
+	protected abstract void chargeRent(Player player);
+	protected abstract void registerOwner();
+	
+	@Override
+	final public void landOnField(Player player)
 	{
-		return 0;
+			/**
+			 * Player lands on brewery.
+			 * If field is owned, he pays an amount depending on a roll with
+			 * two dice times the amount of labor camps owned by the owner.
+			 * If field is not owned, player can choose to buy it.
+			 */
+			guiField.displayOnCenter();
+			if(hasOwner()){
+				if(ownableData.getOwner()!=player)
+				{
+					if(!pawned)
+					{
+						chargeRent(player);
+					}
+					else
+					{
+						GUI.showMessage(Translator.getString("PAWNEDFIELD"));
+					}
+					
+				}else{
+					GUI.showMessage(Translator.getString("YOURFIELD"));
+				}
+			}else{
+				if(buyField(player))
+				{
+					GUI.showMessage(Translator.getString("BOUGHTFIELD",ownableData.getName(), ownableData.getPrice()));
+				}
+			}
 	}
 	
 	public Player getOwner()
@@ -49,6 +82,7 @@ public abstract class OwnableController extends FieldController{
 		/**
 		 * General way to make the buyer of a field the owner.
 		 */
+		
 		System.out.println(ownableData.getName() + " now has " + owner.getName() + " as their owner" + " at slot " + ownableData.getPosition());
 		ownableData.setOwner(owner);
 		GUI.setOwner(ownableData.getPosition(), owner.getName());
@@ -58,22 +92,22 @@ public abstract class OwnableController extends FieldController{
 		return(ownableData.getOwner()!=null);
 	}
 
-	public boolean BuyField (Player visitor){
+	public boolean buyField (Player visitor){
 		/**
 		 * General purchase procedure, with a withdrawal of money
 		 * and a call to setOwner if the withdraw was completed.
 		 */
 		if(GUI.getUserLeftButtonPressed(Translator.getString("BUYFIELD", ownableData.getPrice()), Translator.getString("YES"), Translator.getString("NO"))){
-			if(visitor.getAccount().withdraw(ownableData.getPosition())){
+			if(visitor.getAccount().withdraw(ownableData.getPrice())){
 				setOwner(visitor);
-				visitor.getProperty().addProperty(this);
+				registerOwner();
 				return true;
 			}else{
 				GUI.showMessage(Translator.getString("NOTENOUGHGOLD"));
 			}
 		}
 		else{
-			GUI.showMessage(Translator.getString("ENDTURN"));
+			GUI.showMessage(Translator.getString("CONTINUETURN"));
 		}
 		return false;
 
@@ -86,7 +120,7 @@ public abstract class OwnableController extends FieldController{
 	
 	public void setPawned(boolean pawned)
 	{
-		pawned = pawned();
+		this.pawned = pawned;
 	}
 	
 	public abstract FIELDGROUPS getFieldGroup();

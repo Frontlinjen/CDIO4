@@ -11,6 +11,7 @@ public class GoToPrisonData extends FieldData{
 	public GoToPrisonData(int i, int prisonPosition, Prison prison) {
 		super(i);
 		this.prisonPosition = prisonPosition;
+		this.prison = prison;
 	}
 	
 	public int getPrisonPosition(){

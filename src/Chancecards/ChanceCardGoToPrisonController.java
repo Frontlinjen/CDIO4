@@ -8,6 +8,7 @@ public class ChanceCardGoToPrisonController extends ChanceCardController{
 	private ChanceCardGoToPrisonData chanceCardData;
 	
 	public ChanceCardGoToPrisonController(ChanceCardGoToPrisonData chanceCardData, Prison prison) {
+		super(chanceCardData);
 		this.chanceCardData = chanceCardData;
 		this.prison = prison;
 	}
@@ -15,13 +16,10 @@ public class ChanceCardGoToPrisonController extends ChanceCardController{
 	@Override
 	public boolean onDrawn(Player player) {
 		prison.addInmate(player);
+		player.setNextPosition(chanceCardData.getPrisonLocation(), false);
 		return false;
 	}
 
-	@Override
-	public String getDescription() {
-		
-		return null;
-	}
+
 
 }

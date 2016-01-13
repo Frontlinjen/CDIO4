@@ -6,6 +6,7 @@ public class ChanceCardOutOfPrisonController extends ChanceCardController{
 	private ChanceCardData chanceCardData;
 	
 	public ChanceCardOutOfPrisonController(ChanceCardData chanceCardData){
+		super(chanceCardData);
 		this.chanceCardData = chanceCardData;
 	}
 	
@@ -14,18 +15,14 @@ public class ChanceCardOutOfPrisonController extends ChanceCardController{
 		if(player.hasGetOutOfPrisonCard() == false) 
 		{
 			player.setHasGetOutOfPrisonCard(true);
-			return true;
+			return false;
 		}
 		else
 		{
-			return false;
+			return true;
 		}
 	}
 
-	@Override
-	public String getDescription() {
-		
-		return null;
-	}
+	
 
 }

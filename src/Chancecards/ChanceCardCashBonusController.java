@@ -6,7 +6,8 @@ public class ChanceCardCashBonusController extends ChanceCardController{
 	private ChanceCardCashData chanceCardCashData;
 	
 	public ChanceCardCashBonusController(ChanceCardCashData chanceCardCashBonusData) {
-		this.chanceCardCashData = chanceCardCashData;
+		super(chanceCardCashBonusData);
+		this.chanceCardCashData = chanceCardCashBonusData;
 	}
 	
 	@Override
@@ -15,10 +16,6 @@ public class ChanceCardCashBonusController extends ChanceCardController{
 		return false;
 	}
 
-	@Override
-	public String getDescription() {
-		
-		return null;
-	}
+
 
 }
