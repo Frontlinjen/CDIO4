@@ -54,7 +54,9 @@ public class Property {
 				names[index++] = cont.getName(); 
 			}
 		}
-		return names;
+		String[] retNames= new String[index];//no need to +1 on index, since its always one larger than the current array contains
+		System.arraycopy(names, 0, retNames, 0, index); 
+		return retNames;
 	}
 	public String[] getPawnablePropertyList()
 	{
@@ -67,7 +69,9 @@ public class Property {
 				names[index++] = cont.getName(); 
 			}
 		}
-		return names;
+		String[] retNames= new String[index];
+		System.arraycopy(names, 0, retNames, 0, index);
+		return retNames;
 	}
 
 	public Iterator<slots.TerritoryController> getTerritories()
