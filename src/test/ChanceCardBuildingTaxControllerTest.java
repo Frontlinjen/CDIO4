@@ -56,17 +56,12 @@ public class ChanceCardBuildingTaxControllerTest {
 		
 		ccTax = new ChanceCardBuildingTaxController(data, acc);
 		ccTax.onDrawn(player);
-		int hu = felt1.getHouseAmount();
-		int ho = felt.getHotelAmount();
-		
-		System.out.println(hu);
-		System.out.println(ho);
-		
-		player.getAccount().transferTo(acc, hu*1000+ho*2000);
 		
 		System.out.println(player.getAccount().getGold());
-		assertTrue(player.getAccount().getGold() == 24000 && ccTax.onDrawn(player) == true);
-		assertTrue(acc.getGold() == 6000 && ccTax.onDrawn(player) == true);
+		System.out.println(acc.getGold());
+		
+		assertTrue(player.getAccount().getGold() == 24000);
+		assertTrue(acc.getGold() == 6000);
 	}
 	
 }
