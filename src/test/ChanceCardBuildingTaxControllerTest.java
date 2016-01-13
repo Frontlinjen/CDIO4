@@ -14,13 +14,13 @@ import slots.TerritoryData;
 
 public class ChanceCardBuildingTaxControllerTest {
 	
-	ChanceCardBuildingTaxData data;
-	ChanceCardBuildingTaxController ccTax;
-	Player player;
-	TerritoryController felt, felt1;
-	TerritoryData territoryData, territoryData1;
-	Account acc;
-	int[] buildingtax;
+	private ChanceCardBuildingTaxData data;
+	private ChanceCardBuildingTaxController ccTax;
+	private Player player;
+	private TerritoryController felt, felt1;
+	private TerritoryData territoryData, territoryData1;
+	private Account acc;
+	private int[] buildingtax;
 	
 	
 	
@@ -31,7 +31,6 @@ public class ChanceCardBuildingTaxControllerTest {
 		
 		acc = new Account(0, "ParkingLot");
 		player = new Player("Test");
-		buildingtax = new int[6];
 		
 		territoryData = new TerritoryData(1, 2500, 500, 1000, buildingtax);
 		territoryData1 = new TerritoryData(2, 5000, 1500, 2000, buildingtax);
