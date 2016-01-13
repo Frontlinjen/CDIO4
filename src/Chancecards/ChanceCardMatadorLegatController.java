@@ -1,7 +1,6 @@
 package Chancecards;
 
 import game.Player;
-import game.Property;
 
 public class ChanceCardMatadorLegatController extends ChanceCardController{
 private ChanceCardCashData chanceCardData;

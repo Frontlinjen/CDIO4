@@ -24,7 +24,6 @@ public class DiceCupTest {
 		DiceCup dice = new DiceCup(antalSlag);
 		DiceResult a = dice.rollDice();
 		double[] sider = new double[6];
-		double[] probability = {(1.0d/36*100),(1.0d/18*100),(1.0d/12*100),(1.0d/9*100),(5.0d/36*100),(1.0d/6*100),(5.0d/36*100),(1.0d/9*100),(1.0d/12*100),(1.0d/18*100),(1.0d/36*100)};
 		
 		
 		for(int i = 0; i < a.getDiceAmount(); i++){

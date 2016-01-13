@@ -2,7 +2,6 @@ package test;
 
 import static org.junit.Assert.*;
 import game.DiceResult;
-import game.DiceCup;
 
 import org.junit.Test;
 

@@ -1,14 +1,5 @@
 package slots;
 
-import java.awt.Color;
-
-
-import desktop_resources.GUI;
-import slots.OwnableController;
-import game.DiceResult;
-import game.Player;
-import game.Translator;
-
 public class BreweryData extends OwnableData{
 
 	private int baseRent;

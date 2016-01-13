@@ -1,7 +1,5 @@
 package Chancecards;
 
-import game.Player;
-
 public class ChanceCardMovePlayerData extends ChanceCardData{
 	private int fieldPosition;
 	private boolean cashInAtStart;

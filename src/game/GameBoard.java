@@ -4,7 +4,6 @@ import slots.*;
 import utilities.ShuffleBag;
 import desktop_resources.GUI;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import Chancecards.*;

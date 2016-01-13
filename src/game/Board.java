@@ -3,20 +3,13 @@ package game;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import javax.swing.Icon;
-
 import desktop_codebehind.Car;
-import desktop_fields.Ownable;
 import desktop_resources.GUI;
-import slots.FieldController;
 import slots.OwnableController;
-import slots.OwnableData;
 import slots.TerritoryController;
-import slots.TerritoryData;
 import utilities.ShuffleBag;
 
 public class Board {

@@ -1,6 +1,4 @@
 package test;
-import game.*;
-import slots.FieldController;
 import utilities.ShuffleBag;
 
 import static org.junit.Assert.*;
@@ -38,7 +36,7 @@ public class ShuffleBagTest {
 		Integer[] testtal1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
 		ShuffleBag<Integer> testreset = new ShuffleBag<Integer>(testtal1);
 		int j = 0;
-		boolean random = false;
+		boolean random;
 		int amount = 0;
 		for(int i = 0; i < testtal1.length; i++) {
 			try {
