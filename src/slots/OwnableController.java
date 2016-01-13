@@ -33,7 +33,11 @@ public abstract class OwnableController extends FieldController{
 	public abstract int getRent();
 	protected abstract void chargeRent(Player player);
 	protected abstract void registerOwner();
-	
+	protected abstract void UnRegisterOwner();
+	public void transferOwnershipTo(Player player)
+	{
+		
+	}
 	@Override
 	final public void landOnField(Player player)
 	{
@@ -74,6 +78,7 @@ public abstract class OwnableController extends FieldController{
 	
 	public void removeOwner()
 	{
+		UnRegisterOwner();
 		ownableData.removeOwner();
 		GUI.removeOwner(ownableData.getPosition());
 
@@ -85,6 +90,7 @@ public abstract class OwnableController extends FieldController{
 		
 		System.out.println(ownableData.getName() + " now has " + owner.getName() + " as their owner" + " at slot " + ownableData.getPosition());
 		ownableData.setOwner(owner);
+		registerOwner();
 		GUI.setOwner(ownableData.getPosition(), owner.getName());
 	}
 	public boolean hasOwner()
@@ -100,7 +106,6 @@ public abstract class OwnableController extends FieldController{
 		if(GUI.getUserLeftButtonPressed(Translator.getString("BUYFIELD", ownableData.getPrice()), Translator.getString("YES"), Translator.getString("NO"))){
 			if(visitor.getAccount().withdraw(ownableData.getPrice())){
 				setOwner(visitor);
-				registerOwner();
 				return true;
 			}else{
 				GUI.showMessage(Translator.getString("NOTENOUGHGOLD"));

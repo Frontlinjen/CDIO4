@@ -101,13 +101,50 @@ public class Property {
 	{
 		territories.add(p);
 	}
+	public void removeTerritory(slots.TerritoryController p)
+	{
+		int pos = territories.indexOf(p);
+		if(pos!=-1)
+		{
+			territories.remove(pos);
+		}
+		else
+		{
+			System.out.println("Attempt to remove non-existent territory");
+		}
+		
+	}
 	public void addFleet(slots.FleetController t)
 	{
 		fleets.add(t);
 	}
+	public void removeFleet(slots.FleetController fleet)
+	{
+		int pos = territories.indexOf(fleet);
+		if(pos!=-1)
+		{
+			territories.remove(pos);
+		}
+		else
+		{
+			System.out.println("Attempt to remove non-existent fleet");
+		}
+	}
 	public void addBreweries(slots.BreweryController b)
 	{
 		breweries.add(b);
+	}
+	public void removeBreweries(slots.BreweryController b)
+	{
+		int pos = territories.indexOf(b);
+		if(pos!=-1)
+		{
+			territories.remove(pos);
+		}
+		else
+		{
+			System.out.println("Attempt to remove non-existent brewery");
+		}
 	}
 	public int getPropertyCount()
 	{
