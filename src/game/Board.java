@@ -137,7 +137,17 @@ public class Board {
 						}
 						else
 						{
-							GUI.showMessage(Translator.getString("YOUAREINPRISON", currentPlayer.getName(), inmate.getDaysLeft()));
+							if(GUI.getUserLeftButtonPressed(Translator.getString("YOUAREINPRISON", currentPlayer.getName(), inmate.getDaysLeft()), Translator.getString("PAY1KKR"), Translator.getString("ROLL")))
+							{
+								if(currentPlayer.getAccount().withdraw(1000))
+								{
+									inmate.release();
+								}
+								else
+								{
+									GUI.showMessage(Translator.getString("NOMONEYNOFUNNY"));
+								}
+							}
 						}
 						if(inmate.getDaysLeft()>0)
 						{	
