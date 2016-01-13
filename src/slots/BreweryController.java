@@ -19,7 +19,7 @@ public class BreweryController extends OwnableController{
 	
 	public void chargeRent(Player player)
 	{
-		GUI.getUserButtonPressed(Translator.getString("LABORCAMP"), Translator.getString("ROLL"));
+		GUI.getUserButtonPressed(Translator.getString("BREWERY"), Translator.getString("ROLL"));
 		DiceResult res = player.getDice().rollDice();
 		int price = res.getSum() * getRent();
 		GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
