@@ -140,6 +140,7 @@ public class Board {
 							Translator.getString("YOUAREINPRISONWITHCARD", currentPlayer.getName()), Translator.getString("YES"), Translator.getString("NO")))
 					{
 						currentPlayer.setHasGetOutOfPrisonCard(false);
+						inmate.release();
 					}
 					else
 					{
@@ -157,7 +158,6 @@ public class Board {
 							 }
 							 if(res.areDiceEqual())
 							 {
-								 GUI.showMessage(Translator.getString("NOWOUTOFPRISON"));
 								 inmate.release();
 								 break;
 							 }
@@ -167,6 +167,10 @@ public class Board {
 						{
 							rollsLeft = 0;
 						}	
+					}
+					if(inmate.getDaysLeft()==0)
+					{
+						GUI.showMessage(Translator.getString("NOWOUTOFPRISON"));
 					}
 					
 			}
