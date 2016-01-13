@@ -56,7 +56,7 @@ public class TerritoryController extends OwnableController {
 	@Override
 	public desktop_fields.Field pushToGUI(int position) {
 
-		Color[] colors = {Color.blue, Color.pink, Color.green, Color.lightGray, Color.red, Color.white, Color.yellow, new Color(110, 31, 4)};
+		Color[] colors = {Color.blue, Color.pink, Color.green, Color.lightGray, Color.red, Color.white, Color.yellow, /*light brown*/ new Color(140, 52, 22)};
 		Color thisColor = colors[getFieldGroup().ordinal()];
 		territoryData.setPosition(position);
 		
