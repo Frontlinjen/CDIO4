@@ -35,7 +35,7 @@ public class ChanceCardBuildingTaxControllerTest {
 		felt = new TerritoryController(territoryData);
 		felt1 = new TerritoryController(territoryData1);
 		felt.pushToGUI(1);
-		felt.setOwner(player);
+		felt.buyField(player);
 		felt.buyHouse(player);
 		felt.buyHouse(player);
 		felt.buyHouse(player);
@@ -43,13 +43,14 @@ public class ChanceCardBuildingTaxControllerTest {
 		felt.buyHouse(player);
 		
 		felt1.pushToGUI(2);
-		felt1.setOwner(player);
+		felt1.buyField(player);
 		felt1.buyHouse(player);
 		felt1.buyHouse(player);
 		felt1.buyHouse(player);
 		felt1.buyHouse(player);
 		
 		System.out.println(felt.getHotelAmount());
+		System.out.println(felt.getHouseAmount());
 		
 		player.getAccount().setGold(30000);
 		
@@ -67,5 +68,5 @@ public class ChanceCardBuildingTaxControllerTest {
 		assertTrue(player.getAccount().getGold() == 24000 && ccTax.onDrawn(player) == true);
 		assertTrue(acc.getGold() == 6000 && ccTax.onDrawn(player) == true);
 	}
-
+	
 }

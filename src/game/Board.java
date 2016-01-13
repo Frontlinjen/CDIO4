@@ -165,12 +165,13 @@ public class Board {
 									 break;
 								 }
 							}
+							//If you failed to roll two equal dices, you skip your turn. 
+							if(!res.areDiceEqual())
+							{
+								rollsLeft = 0;
+							}	
 						}
-						//If you failed to roll two equal dices, you skip your turn. 
-						if(!res.areDiceEqual())
-						{
-							rollsLeft = 0;
-						}	
+						
 					
 					if(inmate.getDaysLeft()==0)
 					{
