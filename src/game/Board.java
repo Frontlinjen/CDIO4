@@ -136,38 +136,42 @@ public class Board {
 			int rollsLeft = 2;
 			Inmate inmate = prison.getInmate(currentPlayer);
 			if (inmate != null){
-					if(currentPlayer.hasGetOutOfPrisonCard() && GUI.getUserLeftButtonPressed(
-							Translator.getString("YOUAREINPRISONWITHCARD", currentPlayer.getName()), Translator.getString("YES"), Translator.getString("NO")))
-					{
-						currentPlayer.setHasGetOutOfPrisonCard(false);
-						inmate.release();
-					}
-					else
-					{
-						GUI.showMessage(Translator.getString("YOUAREINPRISON", currentPlayer.getName(), inmate.getDaysLeft()));
-						for(int i = 0; i != 3; i++){
-							 res = currentPlayer.dice.rollDice();
-							 GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
-							 try
-							 {
-								 Thread.sleep(400);
-							 }
-							 catch(Exception e)
-							 {
-								 System.out.println("Something interrupted the dice roll");
-							 }
-							 if(res.areDiceEqual())
-							 {
-								 inmate.release();
-								 break;
-							 }
+						if(currentPlayer.hasGetOutOfPrisonCard() && GUI.getUserLeftButtonPressed(
+								Translator.getString("YOUAREINPRISONWITHCARD", currentPlayer.getName()), Translator.getString("YES"), Translator.getString("NO")))
+						{
+							currentPlayer.setHasGetOutOfPrisonCard(false);
+							inmate.release();
+						}
+						else
+						{
+							GUI.showMessage(Translator.getString("YOUAREINPRISON", currentPlayer.getName(), inmate.getDaysLeft()));
+						}
+						if(inmate.getDaysLeft()>0)
+						{	
+							for(int i = 0; i != 3; i++){
+								 res = currentPlayer.dice.rollDice();
+								 GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
+								 try
+								 {
+									 Thread.sleep(400);
+								 }
+								 catch(Exception e)
+								 {
+									 System.out.println("Something interrupted the dice roll");
+								 }
+								 if(res.areDiceEqual())
+								 {
+									 inmate.release();
+									 break;
+								 }
+							}
 						}
 						//If you failed to roll two equal dices, you skip your turn. 
 						if(!res.areDiceEqual())
 						{
 							rollsLeft = 0;
 						}	
-					}
+					
 					if(inmate.getDaysLeft()==0)
 					{
 						GUI.showMessage(Translator.getString("NOWOUTOFPRISON"));
