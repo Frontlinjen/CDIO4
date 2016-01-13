@@ -17,7 +17,6 @@ public class Prison {
 			if(inmate!=null && inmate.isPlayer(player))
 			{
 				return inmate;
-				break;
 			}
 		}
 		return null;
