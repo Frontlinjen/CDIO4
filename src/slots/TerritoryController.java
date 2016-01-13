@@ -103,7 +103,7 @@ public class TerritoryController extends OwnableController {
 	}
 	@Override
 	public int getRent() {
-		return territoryData.getRent()+territoryData.getRent()*(int)(Math.pow(territoryData.getHouses(), 2));
+		return territoryData.getRent();
 	}
 	@Override
 	protected void chargeRent(Player player) {
