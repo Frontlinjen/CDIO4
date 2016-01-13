@@ -50,11 +50,11 @@
 	</card>
 	<card type="tax">
 		<translateID>13</translateID>
-		<cash>-1000</cash>
+		<cash>1000</cash>
 	</card>
 	<card type="tax">
 		<translateID>14</translateID>
-		<cash>-300</cash>
+		<cash>300</cash>
 	</card>
 	<card type="bonus">
 		<translateID>15</translateID>
@@ -62,11 +62,11 @@
 	</card>
 	<card type="tax">
 		<translateID>16</translateID>
-		<cash>-200</cash>
+		<cash>200</cash>
 	</card>
 	<card type="tax">
 		<translateID>17</translateID>
-		<cash>-1000</cash>
+		<cash>1000</cash>
 	</card>
 	<card type="bonus">
 		<translateID>18</translateID>

@@ -1,5 +1,7 @@
 package game;
 
+import slots.BreweryController;
+import slots.FleetController;
 import slots.OwnableController;
 import slots.TerritoryController;
 
@@ -141,11 +143,25 @@ public class Property {
 	}
 	public int getBreweriesOwned()
 	{
-		return breweries.size();
+		int count = 0;
+		for (BreweryController breweryController : breweries) {
+			if(!breweryController.pawned())
+			{
+				++count;
+			}
+		}
+		return count;
 	}
 	public int getFleetOwned()
 	{
-		return fleets.size();
+		int count = 0;
+		for (FleetController fleetController : fleets) {
+			if(!fleetController.pawned())
+			{
+				++count;
+			}
+		}
+		return count;
 	}
 	
 	public int getPropertyWorth()

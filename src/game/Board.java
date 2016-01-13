@@ -165,12 +165,13 @@ public class Board {
 									 break;
 								 }
 							}
+							//If you failed to roll two equal dices, you skip your turn. 
+							if(!res.areDiceEqual())
+							{
+								rollsLeft = 0;
+							}	
 						}
-						//If you failed to roll two equal dices, you skip your turn. 
-						if(!res.areDiceEqual())
-						{
-							rollsLeft = 0;
-						}	
+						
 					
 					if(inmate.getDaysLeft()==0)
 					{
@@ -270,6 +271,7 @@ public class Board {
 					prison.addInmate(getCurrentPlayer());
 					currentPlayer.setNextPosition(10, false);
 					updateCurrentPlayerPosition();
+					continue;
 				}
 				
 				GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);

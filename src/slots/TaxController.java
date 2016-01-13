@@ -23,18 +23,21 @@ public class TaxController extends FieldController {
 		 * Player lands on Tax and has to pay, either a flat amount or
 		 * a percentage of his fortune. 
 		 */
+		int taxPaid = 0;
 		if (taxData.getTaxRate() == 0){
 			GUI.getUserButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxData.getTaxAmount()));
+			taxPaid = taxData.getTaxAmount();
 		}
 		else {
 			tax.displayOnCenter();
 			if (GUI.getUserLeftButtonPressed(Translator.getString("LANDONTAX"), Integer.toString(taxData.getTaxRate())+"%" , Integer.toString(taxData.getTaxAmount()))) {
-				player.getAccount().transferTo(parkinglotAccount, (int)(((float)taxData.getTaxRate()/100f)*player.getAccount().getGold()));;
+				taxPaid = (int)(((float)taxData.getTaxRate()/100f)*player.getAccount().getGold());
 			}
 			else {
-				player.getAccount().transferTo(parkinglotAccount, taxData.getTaxAmount());;
+				taxPaid = taxData.getTaxAmount();
 			}
 		}
+		player.getAccount().transferTo(parkinglotAccount, taxPaid);
 	}
 
 	@Override
