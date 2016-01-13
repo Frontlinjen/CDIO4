@@ -26,8 +26,9 @@ public class TerritoryController extends OwnableController {
 		if(territoryData.getOwner() == player){
 			if(territoryData.getHouses() < 5){
 				if(player.getAccount().withdraw(getUpgradeCosts())){
-					int houseCount = territoryData.getHouses();
 					territoryData.addHouse();
+					int houseCount = territoryData.getHouses();
+					
 					if(houseCount < 5)
 					{
 						GUI.setHouses(territoryData.getPosition(), territoryData.getHouses());
