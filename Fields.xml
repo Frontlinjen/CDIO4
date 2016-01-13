@@ -317,13 +317,14 @@
 	<field type="territory">
 		<translateID>40</translateID>
 		<groupID>7</groupID>
-		<rent>1000</rent>
 		<price>8000</price>
+		
 		<houseprice>4000</houseprice>
+		<houserent0>1000</houserent0>
 		<houserent1>4000</houserent1>
 		<houserent2>12000</houserent2>
 		<houserent3>28000</houserent3>
 		<houserent4>34000</houserent4>
-		<hotelrent>40000</hotelrent>
+		<houserent5>40000</houserent5>
 	</field>
 </fields>

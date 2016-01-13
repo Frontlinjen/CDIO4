@@ -2,22 +2,22 @@ package slots;
 
 public class TerritoryData extends OwnableData{
 
-	private int rent;
 	private int houses;
 	private int houseCost;
 	private int groupID;
+	private int[] buildingRent;
 	
-	public TerritoryData(int i, int id, int price, int rent, int houseCost) {
+	public TerritoryData(int i, int id, int price, int houseCost, int[] buildingRent) {
 		super(i, price);
-		this.rent = rent;
 		this.houseCost = houseCost;
 		houses = 0;
 		groupID = id;
+		this.buildingRent = buildingRent;
 	}
 
 
 	public int getRent() {
-		return rent;
+		return buildingRent[getHouses()];
 	}
 	
 	public int getHouses(){
