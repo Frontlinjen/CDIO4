@@ -62,4 +62,10 @@ public class BreweryController extends OwnableController{
 	protected void registerOwner() {
 		breweryData.getOwner().getProperty().addBreweries(this);
 	}
+
+	@Override
+	protected void UnRegisterOwner() {
+		breweryData.getOwner().getProperty().removeBreweries(this);
+		
+	}
 }

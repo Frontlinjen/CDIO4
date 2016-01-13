@@ -116,6 +116,11 @@ public class TerritoryController extends OwnableController {
 		territoryData.getOwner().getProperty().addTerritory(this);
 		
 	}
+	@Override
+	protected void UnRegisterOwner() {
+		territoryData.getOwner().getProperty().removeTerritory(this);
+		
+	}
 
 
 

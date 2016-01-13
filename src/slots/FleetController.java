@@ -60,4 +60,9 @@ public class FleetController extends OwnableController{
 		fleetData.getOwner().getProperty().addFleet(this);
 	}
 
+	@Override
+	protected void UnRegisterOwner() {
+		fleetData.getOwner().getProperty().removeFleet(this);
+	}
+
 }
