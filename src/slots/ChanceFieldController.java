@@ -21,6 +21,11 @@ public class ChanceFieldController extends FieldController {
 	@Override
 	public void landOnField(Player player) {
 		try{
+			//If all cards has been used, reset the pile
+			if(cards.getElementsLeft()==0)
+			{
+				cards.reset();
+			}
 			ChanceCardController newCard = cards.getNext();
 			//If onDrawn returns false, then the card should be put back into the pile
 
