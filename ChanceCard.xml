@@ -164,10 +164,10 @@
 	</card>
 	<card type="movetonextfleet" amount="3">
 		<translateID>39</translateID>
-		<fleetPosition1>6</fleetPosition1>
-		<fleetPosition2>16</fleetPosition2>
-		<fleetPosition3>26</fleetPosition3>
-		<fleetPosition4>36</fleetPosition4>
+		<fleetPosition1>5</fleetPosition1>
+		<fleetPosition2>15</fleetPosition2>
+		<fleetPosition3>25</fleetPosition3>
+		<fleetPosition4>35</fleetPosition4>
 		<cashatstart>1</cashatstart>
 	</card>
 	<card type="buildingtax">
