@@ -19,9 +19,12 @@ public class Board {
 	private Player currentPlayer;
 	private ShuffleBag<Color> availableCarColors = new ShuffleBag<Color>(new Color[]{Color.BLUE, Color.YELLOW, new Color(0, 107f/255, 15f/255), Color.PINK, Color.RED, Color.MAGENTA});
 	private Prison prison;
-	
 	DiceCup dice = new DiceCup(2);
 	
+	Board(DiceCup dice)
+	{
+		this.dice = dice;
+	}
 	public DiceCup getDice()
 	{
 		return dice;
@@ -474,7 +477,7 @@ public class Board {
 		GUI.close();
 	}
 	public static void main(String[] args) {
-		Board board = new Board();
+		Board board = new Board(new DiceCup(2));
 		board.startGame();
 	}
 	@Override
