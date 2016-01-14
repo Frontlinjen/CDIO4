@@ -42,4 +42,8 @@ public class ParkinglotController extends FieldController{
 		
 		return Translator.getString("PARKINGLOTDSC");
 	}
+	
+	public String toString(){
+		return "getDescription()=" + getDescription();
+	}
 }
