@@ -20,6 +20,13 @@ public class Board {
 	private ShuffleBag<Color> availableCarColors = new ShuffleBag<Color>(new Color[]{Color.BLUE, Color.YELLOW, new Color(0, 107f/255, 15f/255), Color.PINK, Color.RED, Color.MAGENTA});
 	private Prison prison;
 	
+	DiceCup dice = new DiceCup(2);
+	
+	public DiceCup getDice()
+	{
+		return dice;
+	}
+	
 	public Player getCurrentPlayer()
 	{
 		return currentPlayer;
