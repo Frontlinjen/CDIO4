@@ -26,4 +26,7 @@ public class GoToPrisonData extends FieldData{
 		return prison;
 	}
 
+	public String toString(){
+		return "getPrisonPosition()=" + getPrisonPosition() + " getPrison()=" + getPrison();
+	}
 }
