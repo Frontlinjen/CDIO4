@@ -154,7 +154,7 @@ public class Board {
 		{	
 			DiceResult res = null;
 			for(int i = 0; i != 3; i++){
-				 res = currentPlayer.dice.rollDice();
+				 res = dice.rollDice();
 				 GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
 				 try
 				 {
@@ -219,7 +219,7 @@ public class Board {
 					{
 						//In case the player already rolled the dice to get out of prison
 						if(res==null)
-							res = currentPlayer.getDice().rollDice();
+							res = dice.rollDice();
 						break;
 					}
 					else if(buyHouse.equals(response))
@@ -353,7 +353,7 @@ public class Board {
 				if(res.areDiceEqual())
 				{
 					GUI.showMessage(Translator.getString("EXTRATURN"));
-					res = currentPlayer.getDice().rollDice();
+					res = dice.rollDice();
 				}
 				else
 				{
