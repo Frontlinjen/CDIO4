@@ -5,6 +5,7 @@ import java.awt.Color;
 
 import desktop_resources.GUI;
 import slots.OwnableController;
+import game.DiceCup;
 import game.DiceResult;
 import game.Player;
 import game.Translator;
@@ -19,8 +20,10 @@ public class BreweryController extends OwnableController{
 	
 	public void chargeRent(Player player)
 	{
+		
 		GUI.getUserButtonPressed(Translator.getString("BREWERY"), Translator.getString("ROLL"));
-		DiceResult res = player.getDice().rollDice();
+		DiceCup dice = new DiceCup(2);
+		DiceResult res = dice.rollDice();
 		int price = res.getSum() * getRent();
 		GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
 		GUI.showMessage(Translator.getString("BREWERYCONCLUSION", res.getSum(), price));
