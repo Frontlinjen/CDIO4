@@ -121,6 +121,58 @@ public class Board {
 			currentPlayer = players.get(pos+1);
 		}
 	}
+	private DiceResult tryGetOutOfPrison(Inmate inmate)
+	{
+		if(currentPlayer.hasGetOutOfPrisonCard() && GUI.getUserLeftButtonPressed(
+				Translator.getString("YOUAREINPRISONWITHCARD", currentPlayer.getName()), Translator.getString("YES"), Translator.getString("NO")))
+		{
+			currentPlayer.setHasGetOutOfPrisonCard(false);
+			inmate.release();
+		}
+		else
+		{
+			if(GUI.getUserLeftButtonPressed(Translator.getString("YOUAREINPRISON", currentPlayer.getName(), inmate.getDaysLeft()), Translator.getString("PAY1KKR"), Translator.getString("ROLL")))
+			{
+				if(currentPlayer.getAccount().withdraw(1000))
+				{
+					inmate.release();
+				}
+				else
+				{
+					GUI.showMessage(Translator.getString("NOMONEYNOFUNNY"));
+				}
+			}
+		}
+		if(inmate.getDaysLeft()>0)
+		{	
+			DiceResult res = null;
+			for(int i = 0; i != 3; i++){
+				 res = currentPlayer.dice.rollDice();
+				 GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
+				 try
+				 {
+					 Thread.sleep(400);
+				 }
+				 catch(Exception e)
+				 {
+					 System.out.println("Something interrupted the dice roll");
+				 }
+				 if(res.areDiceEqual())
+				 {
+					 inmate.release();
+					 return res;
+				 }
+			}
+//			//If you failed to roll two equal dices, you skip your turn. 
+//			if(!res.areDiceEqual())
+//			{
+//				return null;
+//			}	
+		}
+		
+	return null;
+		
+	}
 
 	private void advanceGame()
 	{
@@ -129,65 +181,27 @@ public class Board {
 			int rollsLeft = 3;
 			Inmate inmate = prison.getInmate(currentPlayer);
 			if (inmate != null){
-						if(currentPlayer.hasGetOutOfPrisonCard() && GUI.getUserLeftButtonPressed(
-								Translator.getString("YOUAREINPRISONWITHCARD", currentPlayer.getName()), Translator.getString("YES"), Translator.getString("NO")))
-						{
-							currentPlayer.setHasGetOutOfPrisonCard(false);
-							inmate.release();
-						}
-						else
-						{
-							if(GUI.getUserLeftButtonPressed(Translator.getString("YOUAREINPRISON", currentPlayer.getName(), inmate.getDaysLeft()), Translator.getString("PAY1KKR"), Translator.getString("ROLL")))
-							{
-								if(currentPlayer.getAccount().withdraw(1000))
-								{
-									inmate.release();
-								}
-								else
-								{
-									GUI.showMessage(Translator.getString("NOMONEYNOFUNNY"));
-								}
-							}
-						}
-						if(inmate.getDaysLeft()>0)
-						{	
-							for(int i = 0; i != 3; i++){
-								 res = currentPlayer.dice.rollDice();
-								 GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
-								 try
-								 {
-									 Thread.sleep(400);
-								 }
-								 catch(Exception e)
-								 {
-									 System.out.println("Something interrupted the dice roll");
-								 }
-								 if(res.areDiceEqual())
-								 {
-									 inmate.release();
-									 break;
-								 }
-							}
-							//If you failed to roll two equal dices, you skip your turn. 
-							if(!res.areDiceEqual())
-							{
-								rollsLeft = 0;
-							}	
-						}
-						
-					
-					if(inmate.getDaysLeft()==0)
-					{
-						GUI.showMessage(Translator.getString("NOWOUTOFPRISON"));
-					}
-					
+				res = tryGetOutOfPrison(inmate);
+				if(inmate.getDaysLeft()==0)
+				{
+					GUI.showMessage(Translator.getString("NOWOUTOFPRISON"));
+				}
 			}
-			if(rollsLeft!=0)
+			
+			if(inmate==null || inmate.getDaysLeft()==0)
 			{
 				String buyHouse = Translator.getString("BUYHOUSE", currentPlayer.getName());
 				String pawnField = Translator.getString("PAWNFIELD", currentPlayer.getName());
 				String releasePawn = Translator.getString("RELEASEFIELD", currentPlayer.getName());
-				String rollTurn = Translator.getString("ROLLTURN", currentPlayer.getName());
+				String rollTurn;
+						if(res!=null)
+						{
+							rollTurn = Translator.getString("MOVEOUTOFPRISON");
+						}
+						else
+						{
+							rollTurn = Translator.getString("ROLLTURN");
+						}	
 				String buyAnothersField = Translator.getString("BUYPLAYERPROPERTY");
 				while(true)
 				{
@@ -196,7 +210,9 @@ public class Board {
 					
 					if(rollTurn.equals(response))
 					{
-						res = currentPlayer.getDice().rollDice();
+						//In case the player already rolled the dice to get out of prison
+						if(res==null)
+							res = currentPlayer.getDice().rollDice();
 						break;
 					}
 					else if(buyHouse.equals(response))
@@ -300,6 +316,7 @@ public class Board {
 			//2nd check is necessary is send to prison during his turn
 			while(rollsLeft>0 && (prison.getInmate(currentPlayer)==null || prison.getInmate(currentPlayer).getDaysLeft()==0))
 			{
+				//Since the player has already rolled when selecting to move, we decrease this here
 				--rollsLeft;
 				if(rollsLeft==0)
 				{
