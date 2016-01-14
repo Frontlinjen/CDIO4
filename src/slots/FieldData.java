@@ -22,4 +22,8 @@ public class FieldData {
 	{
 		return position;
 	}
+	
+	public String toString(){
+		return "getName()=" + getName() + "getPosition()=" + getPosition();
+	}
 }
