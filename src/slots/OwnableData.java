@@ -32,6 +32,8 @@ public abstract class OwnableData extends FieldData {
 		return (owner!=null);
 	}
 	
-
+	public String toString(){
+		return "getPrice()=" + getPrice() + ", getOwner()=" + getOwner();
+	}
 		
 }
