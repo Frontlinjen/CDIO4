@@ -21,7 +21,7 @@ public class Board {
 	private Prison prison;
 	DiceCup dice = new DiceCup(2);
 	
-	Board(DiceCup dice)
+	public Board(DiceCup dice)
 	{
 		this.dice = dice;
 	}
