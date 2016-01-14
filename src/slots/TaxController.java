@@ -54,4 +54,8 @@ public class TaxController extends FieldController {
 		
 		return Translator.getString("TAXDSC");
 	}
+	
+	public String toString(){
+		return "getDescription()=" + getDescription();
+	}
 }
