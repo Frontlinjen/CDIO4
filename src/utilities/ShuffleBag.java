@@ -9,18 +9,15 @@ public class ShuffleBag<T> {
 	public ShuffleBag(T[] values)
 	{
 		this.values = values;
-		Reset();
+		reset();
 	}
-	public int elementsLeft()
+
+	public int getElementsLeft()
 	{
 		//+1 since currentPos goes from 0, and hence if the first element(0) is left it would return 0. 
 		return currentPos+1;
 	}
-	public int getElementsLeft()
-	{
-		return currentPos+1;
-	}
-	public void Reset()
+	public void reset()
 	{
 		currentPos = values.length-1;
 	}
