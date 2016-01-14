@@ -184,7 +184,26 @@ public class Board {
 	return null;
 		
 	}
-
+	private OwnableController getPawnedPropertySelection(Player owner)
+	{
+		String[] selections = owner.getProperty().getPawnablePropertyList();
+		if(selections.length<1)
+		{
+			GUI.showMessage(Translator.getString("CANNOTUNPAWN"));
+		}
+		else
+		{
+			String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"), appendCancelOption(selections));
+			if(!fieldResponse.equals(Translator.getString("CANCEL")))
+			{
+				System.out.println(fieldResponse);
+				OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
+				return selectedField;
+			}
+		
+		}
+		return null;
+	}
 	private void advanceGame()
 	{
 		while(players.size() > 1) {
@@ -229,11 +248,7 @@ public class Board {
 					else if(buyHouse.equals(response))
 					{
 						String[] selections = currentPlayer.getProperty().getTerritoryNames();
-						String[] extendedSelections = new String[selections.length+1];
-						//This could be implemented by an array loop as well
-						System.arraycopy(selections, 0, extendedSelections, 0, selections.length);
-						extendedSelections[extendedSelections.length-1] = Translator.getString("CANCEL");;
-						String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"),  extendedSelections);
+						String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"),  appendCancelOption(selections));
 						if(!fieldResponse.equals(Translator.getString("CANCEL")))
 						{
 							TerritoryController selectedField = currentPlayer.getProperty().findTerritoryByName(fieldResponse);
@@ -242,49 +257,14 @@ public class Board {
 					}
 					else if(pawnField.equals(response))
 					{
-						String[] selections = currentPlayer.getProperty().getPawnablePropertyList();
-						if(selections.length<1)
-						{
-							GUI.showMessage(Translator.getString("CANNOTUNPAWN"));
-						}
-						else
-						{
-							String[] extendedSelections = new String[selections.length+1];
-							//This could be implemented by an array loop as well
-							System.arraycopy(selections, 0, extendedSelections, 0, selections.length);
-							extendedSelections[extendedSelections.length-1] = Translator.getString("CANCEL");;
-							String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"), extendedSelections);
-							if(!fieldResponse.equals(Translator.getString("CANCEL")))
-							{
-								System.out.println(fieldResponse);
-								OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
-								pawnField(selectedField);
-							}
-						
-						}
+						OwnableController slot = getPawnedPropertySelection(currentPlayer);
+						pawnField(slot);
 					
 					}
 					else if(releasePawn.equals(response))
 					{
-						String[] selections = currentPlayer.getProperty().getPawnedPropertyList();
-						if(selections.length<1)
-						{
-							GUI.showMessage(Translator.getString("CANNOTUNPAWN"));
-						}
-						else
-						{
-							String[] extendedSelections = new String[selections.length+1];
-							//This could be implemented by an array loop as well
-							System.arraycopy(selections, 0, extendedSelections, 0, selections.length);
-							extendedSelections[extendedSelections.length-1] = Translator.getString("CANCEL");
-							String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"), extendedSelections);
-							if(!fieldResponse.equals(Translator.getString("CANCEL")))
-							{
-								OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
-								releaseField(selectedField);
-							}
-						}
-						
+						OwnableController slot = getPawnedPropertySelection(currentPlayer);
+						releaseField(slot);
 						
 					}
 					else if(buyAnothersField.equals(response))
@@ -302,21 +282,9 @@ public class Board {
 						{
 							Player selectedPlayer = getPlayerByName(playerSelections);
 							//Cannot buy a pawned field, so we are getting those which are able to be pawned(ie. not pawned already)
-							String[] selections = selectedPlayer.getProperty().getPawnablePropertyList();
-							if(selections.length<1)
-							{
-								GUI.showMessage(Translator.getString("CANNOTUNPAWN"));
-							}
-							else
-							{
-								String[] extendedSelections = appendCancelOption(selections);
-								String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"), extendedSelections);
-								if(!fieldResponse.equals(Translator.getString("CANCEL")))
-								{
-									OwnableController selectedField = selectedPlayer.getProperty().findOwnableByName(fieldResponse);
+							
+									OwnableController selectedField = getPawnedPropertySelection(selectedPlayer);
 									buyPlayerField(selectedField);
-								}
-							}
 						}
 						
 					}
