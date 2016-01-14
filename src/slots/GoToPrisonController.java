@@ -40,4 +40,8 @@ public class GoToPrisonController extends FieldController{
 		
 		return Translator.getString("GOTOPRISONDSC");
 	}
+	
+	public String toString(){
+		return "getDescription()=" + getDescription();
+	}
 }
