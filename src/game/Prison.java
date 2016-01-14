@@ -35,7 +35,7 @@ public class Prison {
 	}
 	public void advanceDay() {
 
-		for (int i=0;i<inmates.length;++i)
+		for (int i=0;i<=inmates.length;++i)
 		{
 			if(inmates[i] != null)
 			{
