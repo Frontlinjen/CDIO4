@@ -126,6 +126,8 @@ public class TerritoryController extends OwnableController {
 		
 	}
 
-
+	public String toString(){
+		return "getUpgradeCosts()=" + getUpgradeCosts() + ", getHouseAmount()=" + getHouseAmount() + ", getHotelAmount()=" + getHotelAmount() + ", getWorth()=" + getWorth() + ", getDescription()=" + getDescription() + ", getFieldGroup()=" + getFieldGroup() + "getRent()=" + getRent();
+	}
 
 }
