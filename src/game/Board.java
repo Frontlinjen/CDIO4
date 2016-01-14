@@ -186,7 +186,7 @@ public class Board {
 	}
 	private OwnableController getPawnedPropertySelection(Player owner)
 	{
-		String[] selections = owner.getProperty().getPawnablePropertyList();
+		String[] selections = owner.getProperty().getPawnedPropertyList();
 		if(selections.length<1)
 		{
 			GUI.showMessage(Translator.getString("CANNOTUNPAWN"));
@@ -194,6 +194,26 @@ public class Board {
 		else
 		{
 			String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"), appendCancelOption(selections));
+			if(!fieldResponse.equals(Translator.getString("CANCEL")))
+			{
+				System.out.println(fieldResponse);
+				OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
+				return selectedField;
+			}
+		
+		}
+		return null;
+	}
+	private OwnableController getUnPawnedPropertySelection(Player owner)
+	{
+		String[] selections = owner.getProperty().getPawnablePropertyList();
+		if(selections.length<1)
+		{
+			GUI.showMessage(Translator.getString("CANNOTUNPAWN"));
+		}
+		else
+		{
+			String fieldResponse = GUI.getUserSelection(Translator.getString("PAWNFIELD"), appendCancelOption(selections));
 			if(!fieldResponse.equals(Translator.getString("CANCEL")))
 			{
 				System.out.println(fieldResponse);
@@ -257,7 +277,7 @@ public class Board {
 					}
 					else if(pawnField.equals(response))
 					{
-						OwnableController slot = getPawnedPropertySelection(currentPlayer);
+						OwnableController slot = getUnPawnedPropertySelection(currentPlayer);
 						if(slot!=null)
 							pawnField(slot);
 					
@@ -284,8 +304,8 @@ public class Board {
 						{
 							Player selectedPlayer = getPlayerByName(playerSelections);
 							//Cannot buy a pawned field, so we are getting those which are able to be pawned(ie. not pawned already)
-									OwnableController selectedField = getPawnedPropertySelection(selectedPlayer);
-									if(slot!=null)
+									OwnableController selectedField = getUnPawnedPropertySelection(selectedPlayer);
+									if(selectedField!=null)
 										buyPlayerField(selectedField);
 						}
 						
