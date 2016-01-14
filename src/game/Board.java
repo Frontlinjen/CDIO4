@@ -258,13 +258,15 @@ public class Board {
 					else if(pawnField.equals(response))
 					{
 						OwnableController slot = getPawnedPropertySelection(currentPlayer);
-						pawnField(slot);
+						if(slots!=null)
+							pawnField(slot);
 					
 					}
 					else if(releasePawn.equals(response))
 					{
 						OwnableController slot = getPawnedPropertySelection(currentPlayer);
-						releaseField(slot);
+						if(slots!=null)
+							releaseField(slot);
 						
 					}
 					else if(buyAnothersField.equals(response))
@@ -282,9 +284,9 @@ public class Board {
 						{
 							Player selectedPlayer = getPlayerByName(playerSelections);
 							//Cannot buy a pawned field, so we are getting those which are able to be pawned(ie. not pawned already)
-							
 									OwnableController selectedField = getPawnedPropertySelection(selectedPlayer);
-									buyPlayerField(selectedField);
+									if(slots!=null)
+										buyPlayerField(selectedField);
 						}
 						
 					}
