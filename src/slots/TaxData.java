@@ -21,5 +21,9 @@ public class TaxData extends FieldData{
 		this.taxAmount = price;
 		taxRate = taxPercentage;
 	}
+	
+	public String toString(){
+		return "getTaxAmount()=" + getTaxAmount() + ", getTaxRate" + getTaxRate();
+	}
 
 }
