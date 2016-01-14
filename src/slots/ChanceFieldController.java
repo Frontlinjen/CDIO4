@@ -56,4 +56,8 @@ public class ChanceFieldController extends FieldController {
 		
 		return Translator.getString("CHANCEFIELDDSC");
 	}
+	
+	public String toString(){
+		return "getDescription=" + getDescription();
+	}
 }
