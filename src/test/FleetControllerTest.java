@@ -9,7 +9,7 @@ public class FleetControllerTest {
 
 	@Test
 	public void testGetRent() {
-		FleetData fleetData1 = new FleetData(1,100);
+		FleetData fleetData1 = new FleetData(1,100, 2000);
 		FleetController ship1 = new FleetController(fleetData1);
 		ship1.pushToGUI(1);
 		Player player1 = new Player("Sheep");
