@@ -7,9 +7,11 @@ public abstract class OwnableData extends FieldData {
 	
 	protected int price;
 	private Player owner;
-	public OwnableData(int i, int price) {
+	private int pawnvalue;
+	public OwnableData(int i, int price, int pawnvalue) {
 		super(i);
 		this.price = price;
+		this.pawnvalue = pawnvalue;
 	}
 	public int getPrice()
 	{
@@ -30,6 +32,10 @@ public abstract class OwnableData extends FieldData {
 	public boolean hasOwner()
 	{
 		return (owner!=null);
+	}
+	
+	public int getPawnValue(){
+		return pawnvalue;
 	}
 	
 	public String toString(){

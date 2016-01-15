@@ -416,11 +416,11 @@ public class Board {
 	public void pawnField(OwnableController data){
 		if(!data.pawned()){
 						
-			if(GUI.getUserLeftButtonPressed(Translator.getString("TOPAWN", data.getWorth()), 
+			if(GUI.getUserLeftButtonPressed(Translator.getString("TOPAWN", data.getPawnValue()), 
 					Translator.getString("YES"),
 					Translator.getString("NO")))
 			{
-			data.getOwner().getAccount().addGold(data.getWorth());
+			data.getOwner().getAccount().addGold(data.getPawnValue());
 			data.setPawned(true);
 			}
 			
@@ -435,11 +435,11 @@ public class Board {
 	and the owner have enough gold to pay the pawn gold back*/
 	public void releaseField(OwnableController data){
 		if(data.pawned()){
-			if(GUI.getUserLeftButtonPressed(Translator.getString("TOUNPAWN", data.getWorth()),
+			if(GUI.getUserLeftButtonPressed(Translator.getString("TOUNPAWN", data.getPawnValue()),
 					Translator.getString("YES"),
 					Translator.getString("NO")))
 			{
-			data.getOwner().getAccount().withdraw(data.getWorth());
+			data.getOwner().getAccount().withdraw(data.getPawnValue());
 			data.setPawned(false);
 			
 		}
