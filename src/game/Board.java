@@ -251,7 +251,8 @@ public class Board {
 			{
 				//Since the player has already rolled when selecting to move, we decrease this here
 				--rollsLeft;
-				if(rollsLeft==0)
+				GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
+				if(rollsLeft==0 && res.areDiceEqual())
 				{
 					GUI.showMessage(Translator.getString("TOOMANYDOUBLES"));
 					prison.addInmate(getCurrentPlayer());
@@ -260,7 +261,7 @@ public class Board {
 					continue;
 				}
 				
-				GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
+				
 				
 				getCurrentPlayer().move(res.getSum(), true);
 				while(getCurrentPlayer().getNextPosition()!=getCurrentPlayer().getPosition())
