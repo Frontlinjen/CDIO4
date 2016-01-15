@@ -125,7 +125,7 @@ public class Board {
 		}
 		else
 		{
-			String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"), appendCancelOption(selections));
+			String fieldResponse = GUI.getUserSelection(Translator.getString("MAKESELECTION"), appendCancelOption(selections));
 			if(!fieldResponse.equals(Translator.getString("CANCEL")))
 			{
 				System.out.println(fieldResponse);
@@ -145,7 +145,7 @@ public class Board {
 		}
 		else
 		{
-			String fieldResponse = GUI.getUserSelection(Translator.getString("PAWNFIELD"), appendCancelOption(selections));
+			String fieldResponse = GUI.getUserSelection(Translator.getString("MAKESELECTION"), appendCancelOption(selections));
 			if(!fieldResponse.equals(Translator.getString("CANCEL")))
 			{
 				System.out.println(fieldResponse);
