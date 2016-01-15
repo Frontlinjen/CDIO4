@@ -5,13 +5,15 @@ public class TerritoryData extends OwnableData{
 	private int houses;
 	private int houseCost;
 	private int groupID;
+	private int pawnvalue;
 	private int[] buildingRent;
 	
-	public TerritoryData(int i, int id, int price, int houseCost, int[] buildingRent) {
+	public TerritoryData(int i, int id, int price, int houseCost, int pawnvalue, int[] buildingRent) {
 		super(i, price);
 		this.houseCost = houseCost;
 		houses = 0;
 		groupID = id;
+		this.pawnvalue = pawnvalue;
 		this.buildingRent = buildingRent;
 	}
 
@@ -36,6 +38,10 @@ public class TerritoryData extends OwnableData{
 	
 	public int getGroupID(){
 		return groupID;
+	}
+	
+	public int getPawnValue(){
+		return pawnvalue;
 	}
 	
 	public String toString(){
