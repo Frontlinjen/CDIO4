@@ -416,7 +416,7 @@ public class Board {
 	public void pawnField(OwnableController data){
 		if(!data.pawned()){
 						
-			if(GUI.getUserLeftButtonPressed(Translator.getString("TOPAWN", data.getWorth()), 
+			if(GUI.getUserLeftButtonPressed(Translator.getString("TOPAWN", data.getPawnValue()), 
 					Translator.getString("YES"),
 					Translator.getString("NO")))
 			{
