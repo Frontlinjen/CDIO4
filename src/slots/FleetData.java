@@ -2,9 +2,11 @@ package slots;
 
 public class FleetData extends OwnableData{
 	private final int[] RENT = {500, 1000, 2000, 4000};
-	public FleetData(int i, int price) {
+	private int pawnvalue;
+	
+	public FleetData(int i, int price, int pawnvalue) {
 		super(i, price);
-		// TODO Auto-generated constructor stub
+		this.pawnvalue = pawnvalue;
 	}
 	public int getRent(int shipAmount)
 	{
