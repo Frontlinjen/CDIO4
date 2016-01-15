@@ -1,0 +1,7 @@
+Program krav:
+Java 1.7 eller nyere
+150mb ram eller mere
+
+System krav:
+Windows 7, 8 eller 10
+Mac OS X v10.8 og frem
