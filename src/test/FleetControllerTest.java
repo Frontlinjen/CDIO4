@@ -9,13 +9,12 @@ public class FleetControllerTest {
 
 	@Test
 	public void testGetRent() {
-		FleetData fleetData1 = new FleetData(1,100);
+		FleetData fleetData1 = new FleetData(1,100, 2000);
 		FleetController ship1 = new FleetController(fleetData1);
 		ship1.pushToGUI(1);
 		Player player1 = new Player("Sheep");
 				
 		ship1.setOwner(player1);
-		player1.getProperty().addFleet(ship1);
 		assertTrue("Fail, the rent should be 500 with 1 fleet owned",ship1.getRent()==500);
 		player1.getProperty().addFleet(ship1);
 		assertTrue("Fail, the rent should be 1000 with 2 fleet owned",ship1.getRent()==1000);

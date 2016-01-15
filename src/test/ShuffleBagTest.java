@@ -32,6 +32,22 @@ public class ShuffleBagTest {
 	}
 	
 	@Test
+	public void testPutBackInBag() throws Exception{
+		Integer[] testtal = {1,2,3,4,5};
+		ShuffleBag<Integer> testbag = new ShuffleBag<Integer>(testtal);
+		int firstNumber = testbag.getNext();
+		testbag.pushBackLastCard();
+		while(testbag.getElementsLeft()!=0)
+		{
+			int num = testbag.getNext();
+			if(firstNumber==num)
+			{
+				assertTrue("The element could be found again after being put back into the bag", true);
+			}
+		}
+	}
+	
+	@Test
 	public void testResetSuffleBag() {
 		Integer[] testtal1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
 		ShuffleBag<Integer> testreset = new ShuffleBag<Integer>(testtal1);
@@ -51,7 +67,7 @@ public class ShuffleBagTest {
 			}
 		}
 		assertTrue("Random were not random!", random);
-		testreset.Reset();
+		testreset.reset();
 		amount = 0;
 		for(int i = 0; i < testtal1.length; i++) {
 			try {

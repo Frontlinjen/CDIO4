@@ -7,11 +7,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class LaborCampTest {
+public class BreweryControllerTest {
 
 	@Test
 	public void testGetRent() {
-		BreweryData data = new BreweryData(100, 1, 4000);
+		BreweryData data = new BreweryData(100, 1, 4000, 2000);
 		BreweryController laborCamp = new BreweryController(data);
 		Player player = new Player("Test");
 		laborCamp.pushToGUI(1);
@@ -21,21 +21,21 @@ public class LaborCampTest {
 	
 	@Test
 	public void testGetWorth() {
-		BreweryData data = new BreweryData(1, 13, 3);
+		BreweryData data = new BreweryData(1, 13, 3, 2000);
 		BreweryController laborCamp = new BreweryController(data);
 		assertTrue(laborCamp.getWorth() == 3);
 	}
 	
 	@Test
 	public void testGetDescription() {
-		BreweryData data = new BreweryData(1, 13, 3);
+		BreweryData data = new BreweryData(1, 13, 3, 2000);
 		BreweryController laborCamp = new BreweryController(data);
 		assertTrue(!laborCamp.getDescription().isEmpty());
 	}
 	
 	@Test
 	public void testLandOnField(){
-		BreweryData data = new BreweryData(100, 2, 4000);
+		BreweryData data = new BreweryData(100, 2, 4000, 2000);
 		BreweryController laborCamp = new BreweryController(data);
 		Player player1 = new Player("Test1");
 		Player player2 = new Player("Test2");
