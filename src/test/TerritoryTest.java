@@ -18,7 +18,7 @@ public class TerritoryTest {
 	
 	@Before
 	public void initialize(){
-		data = new TerritoryData(2, 2500, 500, 1000, buildingtax);
+		data = new TerritoryData(2, 2, 2500, 500, 1000, buildingtax);
 		territoryController = new TerritoryController(data);
 		
 		player1 = new Player("Test1");
