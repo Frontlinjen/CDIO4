@@ -3,6 +3,7 @@ package game;
 import slots.BreweryController;
 import slots.FleetController;
 import slots.OwnableController;
+import slots.OwnableController.FIELDGROUPS;
 import slots.TerritoryController;
 
 import java.util.ArrayList;
@@ -223,5 +224,24 @@ public class Property {
 			propertyWorth += property.getWorth();
 		}
 		return propertyWorth;
+	}
+	
+	public boolean ownsEntireGroup(FIELDGROUPS Id){
+			int groupCount = 0;
+		for (TerritoryController ownableController : territories) { 
+			FIELDGROUPS ownableId = ownableController.getFieldGroup();
+			
+			if(ownableId == Id){
+			groupCount++;		
+			}	
+		}
+		
+		if(Id.BLUE == Id || Id.PURPLE == Id){
+			return groupCount==2;
+		}
+		
+		else{ 
+			return groupCount==3;
+		}
 	}
 }
