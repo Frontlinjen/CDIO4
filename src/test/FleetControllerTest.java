@@ -15,7 +15,6 @@ public class FleetControllerTest {
 		Player player1 = new Player("Sheep");
 				
 		ship1.setOwner(player1);
-		player1.getProperty().addFleet(ship1);
 		assertTrue("Fail, the rent should be 500 with 1 fleet owned",ship1.getRent()==500);
 		player1.getProperty().addFleet(ship1);
 		assertTrue("Fail, the rent should be 1000 with 2 fleet owned",ship1.getRent()==1000);
