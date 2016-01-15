@@ -49,17 +49,5 @@ public class ShuffleBag<T> {
 		swapToEnd(index);
 		return value;		
 	}
-	public static void main(String[] args) {
-		ShuffleBag<Integer> bag = new ShuffleBag<Integer>(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8 , 9, 9 ,9});
-		try{
-			while(true)
-			{
-				System.out.println(bag.getNext());
-			}
-		}catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
 	
 }

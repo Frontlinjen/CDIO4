@@ -15,7 +15,7 @@ import game.Prison;
 public class ChanceCardLoaderTest {
 	private Prison prison;
 	private Account parkinglotAccount;
-	private List<Player> players;
+	private Player[] players;
 	
 	@Test
 	public void testParseCards() {
