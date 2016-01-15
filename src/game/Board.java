@@ -420,7 +420,7 @@ public class Board {
 					Translator.getString("YES"),
 					Translator.getString("NO")))
 			{
-			data.getOwner().getAccount().addGold(data.getWorth());
+			data.getOwner().getAccount().addGold(data.getPawnValue());
 			data.setPawned(true);
 			}
 			
