@@ -204,7 +204,12 @@ public class Board {
 						if(!fieldResponse.equals(Translator.getString("CANCEL")))
 						{
 							TerritoryController selectedField = getCurrentPlayer().getProperty().findTerritoryByName(fieldResponse);
+							if(getCurrentPlayer().getProperty().ownsEntireGroup(selectedField.getFieldGroup())){
 							selectedField.buyHouse(getCurrentPlayer());
+							}
+							else{
+								GUI.showMessage(Translator.getString("YOUDONTOWNGROUP"));
+							}
 						}
 					}
 					else if(pawnField.equals(response))
