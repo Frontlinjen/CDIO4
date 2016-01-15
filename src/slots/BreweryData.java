@@ -8,5 +8,8 @@ public class BreweryData extends OwnableData{
 		super(translateID, price);
 		this.baserent = rent;
 	}
-
+	
+	public String toString(){
+		return "baserent=" + baserent;
+	}
 }

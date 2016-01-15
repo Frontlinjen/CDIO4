@@ -22,5 +22,9 @@ public abstract class FieldController {
 	{
 		return data.getName();
 	}
+	
+	public String toString(){
+		return "No applicable data";
+	}
 }
 

@@ -20,5 +20,9 @@ public class ParkinglotData extends FieldData{
 	public Account getAccount(){
 		return balance;
 	}
+	
+	public String toString(){
+		return "getAccount()=" + getAccount();
+	}
 
 }

@@ -37,5 +37,9 @@ public class TerritoryData extends OwnableData{
 	public int getGroupID(){
 		return groupID;
 	}
+	
+	public String toString(){
+		return "getRent()=" + getRent() + ", getHouses()=" + getHouses() + ", getHouseCost()=" + getHouseCost() + ", getGroupID()=" + getGroupID();
+	}
 
 }

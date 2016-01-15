@@ -71,4 +71,8 @@ public class BreweryController extends OwnableController{
 		breweryData.getOwner().getProperty().removeBreweries(this);
 		
 	}
+	
+	public String toString(){
+		return "getWorth()=" + getWorth() + ", getDescription()=" + getDescription() + ", getFieldGroup()=" + getFieldGroup() + ", getRent()=" + getRent();
+	}
 }

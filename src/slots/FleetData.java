@@ -11,4 +11,7 @@ public class FleetData extends OwnableData{
 		return RENT[shipAmount];
 	}
 	
+	public String toString(){
+		return "RENT[]=" + RENT;
+	}
 }

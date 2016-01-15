@@ -64,5 +64,9 @@ public class FleetController extends OwnableController{
 	protected void UnRegisterOwner() {
 		fleetData.getOwner().getProperty().removeFleet(this);
 	}
+	
+	public String toString(){
+		return "RENT[]=" + RENT + "getRent()=" + getRent();
+	}
 
 }
