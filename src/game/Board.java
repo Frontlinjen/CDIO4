@@ -15,9 +15,9 @@ import utilities.ShuffleBag;
 public class Board {
 	private GameBoard slots = new GameBoard();
 	private List<Player> players = new ArrayList<Player>();
-	private final int PLAYERSTARTINGCASH = 30000;
+	
 	private Player currentPlayer;
-	private ShuffleBag<Color> availableCarColors = new ShuffleBag<Color>(new Color[]{Color.BLUE, Color.YELLOW, new Color(0, 107f/255, 15f/255), Color.PINK, Color.RED, Color.MAGENTA});
+	
 	private Prison prison;
 	DiceCup dice = new DiceCup(2);
 	
@@ -34,82 +34,6 @@ public class Board {
 	{
 		return currentPlayer;
 	}
-	public void createPlayer(String name)
-	{
-		Player newPlayer = new Player(name);
-		players.add(newPlayer);
-		Color color = Color.white;
-		try {
-			color = availableCarColors.getNext();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		Car car;
-		int result = (int)((Math.random())*3+1);
-		if(result == 1)
-		{
-			car = new Car.Builder().primaryColor(color).secondaryColor(Color.black).patternZebra().build();
-
-		}
-		else if(result == 2)
-		{
-			car = new Car.Builder().primaryColor(color).secondaryColor(Color.black).patternDotted().build();
-		}
-		else
-		{
-			car = new Car.Builder().primaryColor(color).secondaryColor(Color.black).patternCheckered().build();
-		}
-		GUI.addPlayer(name, PLAYERSTARTINGCASH, car);
-
-		desktop_board.Board.getInstance().updatePlayers();
-	}
-	private boolean verifyName(String s)
-	{
-		if(s.isEmpty())
-		{
-			return false;
-		}
-		
-			//Checks if the string contains a whitespace character
-			Pattern pattern = Pattern.compile("\\s");
-			java.util.regex.Matcher m = pattern.matcher(s);
-			
-			return (!m.find());
-		
-	}
-	private boolean setupPlayer(String user){
-		if (!verifyName(user) || user.length() > 15)
-		{
-			return false;
-		}
-		for(Player i : players) {
-			if (i.getName().equals(user)){
-				return false;
-			}
-		}
-		createPlayer(user);
-		return true;
-	}
-	
-	private void setupPlayers(int i) {
-		for(int j = 0; j < i; j++) {
-			String user;
-			if(players.isEmpty())
-			{
-				 user = GUI.getUserString(Translator.getString("ENTERNAME1"));
-			}
-			else
-			{
-				user = GUI.getUserString(Translator.getString("ENTERNAME2"));
-			}
-		while(setupPlayer(user) == false) {
-			user = GUI.getUserString(Translator.getString("NAMEERROR"));
-		}
-		}
-		currentPlayer = players.get(0);
-	}
-
 	/**
 	 * Advances to the next player. 
 	 */
@@ -453,15 +377,7 @@ public class Board {
 		System.out.println("Starting game..");
 		prison = new Prison(6);
 		slots.initializeBoard(prison,  players);
-		int amount = GUI.getUserInteger(Translator.getString("NUMBEROFPLAYERS"));
-		final int PLAYERAMOUNTMIN = 2;
-		final int PLAYERAMOUNTMAX = 6;
-		while(amount < PLAYERAMOUNTMIN || amount > PLAYERAMOUNTMAX){
-			GUI.showMessage(Translator.getString("NUMBEROFPLAYERSERROR",PLAYERAMOUNTMIN,PLAYERAMOUNTMAX));
-			
-			amount = GUI.getUserInteger(Translator.getString("NUMBEROFPLAYERS"));	
-		}
-		setupPlayers(amount);
+		
 		advanceGame();
 		
 		GUI.showMessage(Translator.getString("WINNINGPLAYERNAME", currentPlayer.getName(), currentPlayer.getAccount().getGold()));
