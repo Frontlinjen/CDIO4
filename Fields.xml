@@ -14,6 +14,7 @@
 		<houserent3>2250</houserent3>
 		<houserent4>4000</houserent4>
 		<houserent5>6000</houserent5>
+		<pawnvalue>600</pawnvalue>
 	</field>
 	<field type="chancefield">
 	</field>
@@ -28,6 +29,7 @@
 		<houserent3>2250</houserent3>
 		<houserent4>4000</houserent4>
 		<houserent5>6000</houserent5>
+		<pawnvalue>600</pawnvalue>
 	</field>
 	<field type="tax">
 		<translateID>5</translateID>
@@ -37,6 +39,7 @@
 	<field type="fleet">
 		<translateID>6</translateID>
 		<price>4000</price>
+		<pawnvalue>2000</pawnvalue>
 	</field>
 	<field type="territory">
 		<translateID>7</translateID>
@@ -49,6 +52,7 @@
 		<houserent3>5400</houserent3>
 		<houserent4>8000</houserent4>
 		<houserent5>11000</houserent5>
+		<pawnvalue>1000</pawnvalue>
 	</field>
 	<field type="chancefield">
 	</field>
@@ -63,6 +67,7 @@
 		<houserent3>5400</houserent3>
 		<houserent4>8000</houserent4>
 		<houserent5>11000</houserent5>
+		<pawnvalue>1000</pawnvalue>
 	</field>
 	<field type="territory">
 		<translateID>10</translateID>
@@ -75,6 +80,7 @@
 		<houserent3>6000</houserent3>
 		<houserent4>9000</houserent4>
 		<houserent5>12000</houserent5>
+		<pawnvalue>1000</pawnvalue>
 	</field>
 	<field type="empty">
 		<translateID>11</translateID>
@@ -90,11 +96,13 @@
 		<houserent3>9000</houserent3>
 		<houserent4>12500</houserent4>
 		<houserent5>15000</houserent5>
+		<pawnvalue>1400</pawnvalue>
 	</field>
 	<field type="brewery">
 		<translateID>13</translateID>
 		<price>3000</price>
 		<rent>500</rent>
+		<pawnvalue>1500</pawnvalue>
 	</field>
 	<field type="territory">
 		<translateID>14</translateID>
@@ -107,6 +115,7 @@
 		<houserent3>9000</houserent3>
 		<houserent4>12500</houserent4>
 		<houserent5>15000</houserent5>
+		<pawnvalue>1400</pawnvalue>
 	</field>
 	<field type="territory">
 		<translateID>15</translateID>
@@ -119,10 +128,12 @@
 		<houserent3>10000</houserent3>
 		<houserent4>14000</houserent4>
 		<houserent5>18000</houserent5>
+		<pawnvalue>1600</pawnvalue>
 	</field>
 	<field type="fleet">
 		<translateID>16</translateID>
 		<price>4000</price>
+		<pawnvalue>2000</pawnvalue>
 	</field>
 	<field type="territory">
 		<translateID>17</translateID>
@@ -135,6 +146,7 @@
 		<houserent3>11000</houserent3>
 		<houserent4>15000</houserent4>
 		<houserent5>19000</houserent5>
+		<pawnvalue>1800</pawnvalue>
 	</field>
 	<field type="chancefield">
 	</field>
@@ -149,6 +161,7 @@
 		<houserent3>11000</houserent3>
 		<houserent4>15000</houserent4>
 		<houserent5>19000</houserent5>
+		<pawnvalue>1800</pawnvalue>
 	</field>
 	<field type="territory">
 		<translateID>20</translateID>
@@ -161,6 +174,7 @@
 		<houserent3>12000</houserent3>
 		<houserent4>16000</houserent4>
 		<houserent5>20000</houserent5>
+		<pawnvalue>2000</pawnvalue>
 	</field>
 	<field type="parkinglot">
 		<translateID>21</translateID>
@@ -177,6 +191,7 @@
 		<houserent3>14000</houserent3>
 		<houserent4>17500</houserent4>
 		<houserent5>21000</houserent5>
+		<pawnvalue>2200</pawnvalue>
 	</field>
 	<field type="chancefield">
 	</field>
@@ -191,6 +206,7 @@
 		<houserent3>14000</houserent3>
 		<houserent4>17500</houserent4>
 		<houserent5>21000</houserent5>
+		<pawnvalue>2200</pawnvalue>
 	</field>
 	<field type="territory">
 		<translateID>25</translateID>
@@ -203,10 +219,12 @@
 		<houserent3>15000</houserent3>
 		<houserent4>18500</houserent4>
 		<houserent5>22000</houserent5>
+		<pawnvalue>2400</pawnvalue>
 	</field>
 	<field type="fleet">
 		<translateID>26</translateID>
 		<price>4000</price>
+		<pawnvalue>2000</pawnvalue>
 	</field>
 	<field type="territory">
 		<translateID>27</translateID>
@@ -219,6 +237,7 @@
 		<houserent3>16000</houserent3>
 		<houserent4>19500</houserent4>
 		<houserent5>23000</houserent5>
+		<pawnvalue>2600</pawnvalue>
 	</field>
 	<field type="territory">
 		<translateID>28</translateID>
@@ -231,11 +250,13 @@
 		<houserent3>16000</houserent3>
 		<houserent4>19500</houserent4>
 		<houserent5>23000</houserent5>
+		<pawnvalue>2600</pawnvalue>
 	</field>
 	<field type="brewery">
 		<translateID>29</translateID>
 		<price>3000</price>
 		<rent>500</rent>
+		<pawnvalue>1500</pawnvalue>
 	</field>
 	<field type="territory">
 		<translateID>30</translateID>
@@ -248,6 +269,7 @@
 		<houserent3>17000</houserent3>
 		<houserent4>20500</houserent4>
 		<houserent5>24000</houserent5>
+		<pawnvalue>2800</pawnvalue>
 	</field>
 	<field type="gotoprison">
 		<translateID>31</translateID>
@@ -264,6 +286,7 @@
 		<houserent3>18000</houserent3>
 		<houserent4>22000</houserent4>
 		<houserent5>25000</houserent5>
+		<pawnvalue>3000</pawnvalue>
 	</field>
 	<field type="territory">
 		<translateID>33</translateID>
@@ -276,6 +299,7 @@
 		<houserent3>18000</houserent3>
 		<houserent4>22000</houserent4>
 		<houserent5>25000</houserent5>
+		<pawnvalue>3000</pawnvalue>
 	</field>
 	<field type="chancefield">
 	</field>
@@ -290,10 +314,12 @@
 		<houserent3>20000</houserent3>
 		<houserent4>24000</houserent4>
 		<houserent5>28000</houserent5>
+		<pawnvalue>3200</pawnvalue>
 	</field>
 	<field type="fleet">
 		<translateID>36</translateID>
 		<price>4000</price>
+		<pawnvalue>2000</pawnvalue>
 	</field>
 	<field type="chancefield">
 	</field>
@@ -308,6 +334,7 @@
 		<houserent3>22000</houserent3>
 		<houserent4>26000</houserent4>
 		<houserent5>30000</houserent5>
+		<pawnvalue>3500</pawnvalue>
 	</field>
 	<field type="tax">
 		<translateID>39</translateID>
@@ -325,5 +352,6 @@
 		<houserent3>28000</houserent3>
 		<houserent4>34000</houserent4>
 		<houserent5>40000</houserent5>
+		<pawnvalue>4000</pawnvalue>
 	</field>
 </fields>
