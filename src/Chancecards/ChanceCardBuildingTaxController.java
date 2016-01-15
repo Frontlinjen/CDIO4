@@ -29,6 +29,8 @@ public class ChanceCardBuildingTaxController extends ChanceCardController{
 		}
 	}
 
-
+	public String toString(){
+		return "chanceCardData=" + chanceCardData + ", parkinglotAccount=" + parkinglotAccount;
+	}
 
 }
