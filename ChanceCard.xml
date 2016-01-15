@@ -103,16 +103,6 @@
 		<translateID>26</translateID>
 		<cash>200</cash>
 	</card>
-	<!--<card type="moveplayer">
-		<translateID>27</translateID>
-		<fieldnumber>20</fieldnumber>
-		<cashatstart>1</cashatstart>
-	</card>
-	 <card type="moveplayer">
-		<translateID>28</translateID>
-		<fieldnumber>11</fieldnumber>
-		<cashatstart>1</cashatstart>
-	</card>-->
 	<card type="moveplayer">
 		<translateID>29</translateID>
 		<fieldnumber>10</fieldnumber>
@@ -130,7 +120,7 @@
 	</card>
 	<card type="moveplayer">
 		<translateID>32</translateID>
-		<fieldnumber>37</fieldnumber>
+		<fieldnumber>11</fieldnumber>
 		<cashatstart>1</cashatstart>
 	</card>
 	<card type="moveplayer">
