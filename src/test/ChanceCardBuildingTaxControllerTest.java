@@ -32,8 +32,8 @@ public class ChanceCardBuildingTaxControllerTest {
 		acc = new Account(0, "ParkingLot");
 		player = new Player("Test");
 		
-		territoryData = new TerritoryData(1, 2500, 500, 1000, buildingtax);
-		territoryData1 = new TerritoryData(2, 5000, 1500, 2000, buildingtax);
+		territoryData = new TerritoryData(1, 1, 2500, 500, 1000, buildingtax);
+		territoryData1 = new TerritoryData(2, 2, 5000, 1500, 2000, buildingtax);
 		felt = new TerritoryController(territoryData);
 		felt1 = new TerritoryController(territoryData1);
 		felt.pushToGUI(1);

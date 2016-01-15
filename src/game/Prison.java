@@ -4,7 +4,7 @@ public class Prison {
 
 	private Inmate[] inmates;
 
-	public final int SERVINGDAYS = 3;
+	public final int SERVINGDAYS = 4;
 
 	public Prison(int maxInmates){
 		inmates = new Inmate [maxInmates];  

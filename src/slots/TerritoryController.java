@@ -17,6 +17,8 @@ public class TerritoryController extends OwnableController {
 	public void removeHouses()
 	{
 		territoryData.resetHouses();
+		GUI.setHouses(territoryData.getPosition(), 0);
+		GUI.setHotel(territoryData.getPosition(), false);
 	}
 	public int getUpgradeCosts()
 	{

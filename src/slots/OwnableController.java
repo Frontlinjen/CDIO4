@@ -137,6 +137,10 @@ public abstract class OwnableController extends FieldController{
 		this.pawned = pawned;
 	}
 	
+	public int getPawnValue(){
+		return ownableData.getPawnValue();
+	}
+	
 	public abstract FIELDGROUPS getFieldGroup();
 	public abstract int getWorth();
 
