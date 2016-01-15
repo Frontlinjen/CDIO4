@@ -11,4 +11,8 @@ public class ChanceCardCashData extends ChanceCardData{
 	public int getMoney() {
 		return money;
 	}
+	
+	public String toString(){
+		return "getMoney()=" + getMoney();
+	}
 }
