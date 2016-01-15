@@ -27,11 +27,11 @@ public class ChanceCardMatadorLegatControllerTest {
 	public void test() {
 		player = new Player("Test");
 		buildingtax = new int[6];
-		td = new TerritoryData(1,6200,1200,3000, buildingtax);
-		td1 = new TerritoryData(2,4200,800,2000, buildingtax);
+		td = new TerritoryData(1, 1, 6200,1200,3000, buildingtax);
+		td1 = new TerritoryData(2, 2, 4200,800,2000, buildingtax);
 		tc = new TerritoryController(td);
 		tc1 = new TerritoryController(td1);
-		bd = new BreweryData(500,3,4000);
+		bd = new BreweryData(500,3,4000, 2000);
 		bc = new BreweryController(bd);
 		bc.pushToGUI(3);
 		bc.buyField(player);
@@ -57,7 +57,7 @@ public class ChanceCardMatadorLegatControllerTest {
 	public void test2()	{
 		player = new Player("Test");
 		buildingtax = new int[6];
-		td1 = new TerritoryData(2,4200,800,2000, buildingtax);
+		td1 = new TerritoryData(2, 2, 4200,800,2000, buildingtax);
 		tc1 = new TerritoryController(td1);
 		tc1.pushToGUI(2);
 		tc1.buyField(player);
