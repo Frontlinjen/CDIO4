@@ -23,6 +23,7 @@ public class FieldLoader extends XMLParser {
 			Node translateNode = getUnique(e, "translateID");
 			Node groupNode = getUnique(e, "groupID");
 			Node priceNode = getUnique(e, "price");
+			Node pawnvalueNode = getUnique(e, "pawnvalue");
 			Node housepriceNode = getUnique(e, "houseprice");
 			for (int i = 0; i < 6; i++) {
 				Node houserentNode = getUnique(e, "houserent"+i);
@@ -31,8 +32,9 @@ public class FieldLoader extends XMLParser {
 			int translateID = parseInteger(translateNode);
 			int groupID = parseInteger(groupNode);
 			int price = parseInteger(priceNode);
+			int pawnvalue = parseInteger(pawnvalueNode);
 			int houseprice = parseInteger(housepriceNode);
-			TerritoryData newData = new TerritoryData(translateID, groupID, price, houseprice, rentPrices);
+			TerritoryData newData = new TerritoryData(translateID, groupID, price, houseprice, pawnvalue, rentPrices);
 			return newData;
 		}
 		catch(Exception exc)
@@ -83,10 +85,12 @@ public class FieldLoader extends XMLParser {
 			Node translateNode = getUnique(e, "translateID");
 			Node rentNode = getUnique(e, "rent");
 			Node priceNode = getUnique(e, "price");
+			Node pawnvalueNode = getUnique(e, "pawnvalue");
 			int translateID = parseInteger(translateNode);
 			int rent = parseInteger(rentNode);
 			int price = parseInteger(priceNode);
-			BreweryData newData = new BreweryData(rent, translateID, price);
+			int pawnvalue = parseInteger(pawnvalueNode);
+			BreweryData newData = new BreweryData(rent, translateID, price, pawnvalue);
 			return newData;
 			
 		} catch (Exception exc) {
@@ -120,9 +124,11 @@ public class FieldLoader extends XMLParser {
 		try {
 			Node translateNode = getUnique(e, "translateID");
 			Node priceNode = getUnique(e, "price");
+			Node pawnvalueNode = getUnique(e, "pawnvalue");
 			int translateID = parseInteger(translateNode);
 			int price = parseInteger(priceNode);
-			FleetData newData = new FleetData(translateID, price);
+			int pawnvalue = parseInteger(pawnvalueNode);
+			FleetData newData = new FleetData(translateID, price, pawnvalue);
 			return newData;
 			
 		} catch (Exception exc) {

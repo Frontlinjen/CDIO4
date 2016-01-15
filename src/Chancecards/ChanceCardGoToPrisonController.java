@@ -20,6 +20,8 @@ public class ChanceCardGoToPrisonController extends ChanceCardController{
 		return false;
 	}
 
-
+	public String toString(){
+		return "prison=" + prison + ", chanceCardData=" + chanceCardData;
+	}
 
 }

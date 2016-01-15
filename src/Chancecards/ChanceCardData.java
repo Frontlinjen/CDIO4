@@ -11,4 +11,7 @@ public class ChanceCardData {
 		this.translateID = translateID;
 	}
 	
+	public String toString(){
+		return "getTranslateID()=" + getTranslateID();
+	}
 }

@@ -24,6 +24,10 @@ public class ChanceCardCashTransferController extends ChanceCardController{
 		}
 		return false;
 	}
+	
+	public String toString(){
+		return "No applicable data";
+	}
 
 
 }
