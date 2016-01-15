@@ -6,8 +6,8 @@ public class FieldData {
 	private int translateID;
 	protected int position;
 
-	public FieldData(int i){
-		translateID = i;
+	public FieldData(int translateID){
+		this.translateID = translateID;
 	}
 
 	public String getName() {

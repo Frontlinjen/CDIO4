@@ -8,8 +8,8 @@ public abstract class OwnableData extends FieldData {
 	protected int price;
 	private Player owner;
 	private int pawnvalue;
-	public OwnableData(int i, int price, int pawnvalue) {
-		super(i);
+	public OwnableData(int translateID, int price, int pawnvalue) {
+		super(translateID);
 		this.price = price;
 		this.pawnvalue = pawnvalue;
 	}
