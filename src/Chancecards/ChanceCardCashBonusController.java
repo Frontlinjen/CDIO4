@@ -16,6 +16,8 @@ public class ChanceCardCashBonusController extends ChanceCardController{
 		return false;
 	}
 
-
+	public String toString(){
+		return "No applicable data";
+	}
 
 }

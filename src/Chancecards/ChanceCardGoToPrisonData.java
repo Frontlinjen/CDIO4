@@ -11,4 +11,8 @@ public class ChanceCardGoToPrisonData extends ChanceCardData{
 	public int getPrisonLocation() {
 		return prisonLocation;
 	}
+	
+	public String toString(){
+		return "getPrisonLocation()=" + getPrisonLocation();
+	}
 }

@@ -17,4 +17,8 @@ public abstract class ChanceCardController {
 	{
 		return Translator.getString("CHANCECARDDSC"+dat.getTranslateID());
 	}
+	
+	public String toString(){
+		return "getDescription()=" + getDescription();
+	}
 }

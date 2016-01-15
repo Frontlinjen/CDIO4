@@ -25,6 +25,8 @@ private ChanceCardCashData chanceCardData;
 		}
 	}
 
-	
+	public String toString(){
+		return "chanceCardData=" + chanceCardData;
+	}
 
 }

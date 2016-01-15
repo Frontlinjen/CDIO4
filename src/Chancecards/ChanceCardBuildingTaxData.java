@@ -17,4 +17,9 @@ public class ChanceCardBuildingTaxData extends ChanceCardData{
 	public int getHotelTax() {
 		return hotelTax;
 	}
+	
+	public String toString(){
+		return "getHouseTax()=" + getHouseTax() + ", getHotelTax()=" + getHotelTax();
+	}
+
 }
