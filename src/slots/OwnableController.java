@@ -16,7 +16,7 @@ public abstract class OwnableController extends FieldController{
 		RED,
 		WHITE,
 		YELLOW,
-		BROWN,
+		PURPLE,
 		FLEET,
 		BREWERY
 	}
