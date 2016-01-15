@@ -38,7 +38,9 @@ public class PlayerCreator {
 		{
 			car = new Car.Builder().primaryColor(color).secondaryColor(Color.black).patternCheckered().build();
 		}
+		System.out.println(car + " " + name);
 		GUI.addPlayer(name, PLAYERSTARTINGCASH, car);
+	
 		return newPlayer;
 	}
 	private boolean verifyName(String s)
@@ -56,7 +58,7 @@ public class PlayerCreator {
 		
 	}
 	private Player setupPlayer(String user){
-		if (!verifyName(user) && user.length() > 15)
+		if (!verifyName(user) || user.length() > 15)
 		{
 			return null;
 		}

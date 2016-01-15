@@ -14,9 +14,10 @@ import utilities.ShuffleBag;
 
 public class Board {
 	private GameBoard slots = new GameBoard();
-	private List<Player> players = new ArrayList<Player>();
-	
-	private Player currentPlayer;
+	//private List<Player> players = new ArrayList<Player>();
+	private Player[] players;
+	//private Player currentPlayer;
+	private int currentPlayerIndex;
 	
 	private Prison prison;
 	DiceCup dice = new DiceCup(2);
@@ -24,6 +25,7 @@ public class Board {
 	public Board(DiceCup dice)
 	{
 		this.dice = dice;
+		currentPlayerIndex = 0;
 	}
 	public DiceCup getDice()
 	{
@@ -32,42 +34,48 @@ public class Board {
 	
 	public Player getCurrentPlayer()
 	{
-		return currentPlayer;
+		return players[currentPlayerIndex];
 	}
 	/**
 	 * Advances to the next player. 
 	 */
 	private void swapPlayers()
-	{
-		int pos = players.indexOf(currentPlayer);
-		//Checks to see if we will surpass the bonds 
-		if(pos+1 >= players.size())
-		{
-			//If it does, then we have reached the end of the list and shall therefore start over
-			currentPlayer = players.get(0);
+	{		
 			
-			//If everyone has had their turn we also decrease the amount of days the players has to be in prison:
-			prison.advanceDay();
-		}
-		else
+		do
 		{
-			//If it doesn't, then advance to the next player. 
-			currentPlayer = players.get(pos+1);
+			if(++currentPlayerIndex==players.length)
+			{
+				prison.advanceDay();
+				currentPlayerIndex = 0;
+			}
+		}while(players[currentPlayerIndex]==null);
+		
+	}
+	private int getPlayersLeft()
+	{
+		int count = 0;
+		for (Player player : players) {
+			if(player!=null)
+			{
+				++count;
+			}
 		}
+		return count;
 	}
 	private DiceResult tryGetOutOfPrison(Inmate inmate)
 	{
-		if(currentPlayer.hasGetOutOfPrisonCard() && GUI.getUserLeftButtonPressed(
-				Translator.getString("YOUAREINPRISONWITHCARD", currentPlayer.getName()), Translator.getString("YES"), Translator.getString("NO")))
+		if(getCurrentPlayer().hasGetOutOfPrisonCard() && GUI.getUserLeftButtonPressed(
+				Translator.getString("YOUAREINPRISONWITHCARD", getCurrentPlayer().getName()), Translator.getString("YES"), Translator.getString("NO")))
 		{
-			currentPlayer.setHasGetOutOfPrisonCard(false);
+			getCurrentPlayer().setHasGetOutOfPrisonCard(false);
 			inmate.release();
 		}
 		else
 		{
-			if(GUI.getUserLeftButtonPressed(Translator.getString("YOUAREINPRISON", currentPlayer.getName(), inmate.getDaysLeft()), Translator.getString("PAY1KKR"), Translator.getString("ROLL")))
+			if(GUI.getUserLeftButtonPressed(Translator.getString("YOUAREINPRISON", getCurrentPlayer().getName(), inmate.getDaysLeft()), Translator.getString("PAY1KKR"), Translator.getString("ROLL")))
 			{
-				if(currentPlayer.getAccount().withdraw(1000))
+				if(getCurrentPlayer().getAccount().withdraw(1000))
 				{
 					inmate.release();
 				}
@@ -121,7 +129,7 @@ public class Board {
 			if(!fieldResponse.equals(Translator.getString("CANCEL")))
 			{
 				System.out.println(fieldResponse);
-				OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
+				OwnableController selectedField = getCurrentPlayer().getProperty().findOwnableByName(fieldResponse);
 				return selectedField;
 			}
 		
@@ -141,7 +149,7 @@ public class Board {
 			if(!fieldResponse.equals(Translator.getString("CANCEL")))
 			{
 				System.out.println(fieldResponse);
-				OwnableController selectedField = currentPlayer.getProperty().findOwnableByName(fieldResponse);
+				OwnableController selectedField = owner.getProperty().findOwnableByName(fieldResponse);
 				return selectedField;
 			}
 		
@@ -150,10 +158,10 @@ public class Board {
 	}
 	private void advanceGame()
 	{
-		while(players.size() > 1) {
+		while(getPlayersLeft() > 1) {
 			DiceResult res = null;
 			int rollsLeft = 3;
-			Inmate inmate = prison.getInmate(currentPlayer);
+			Inmate inmate = prison.getInmate(getCurrentPlayer());
 			if (inmate != null){
 				res = tryGetOutOfPrison(inmate);
 				if(inmate.getDaysLeft()==0)
@@ -164,9 +172,9 @@ public class Board {
 			
 			if(inmate==null || inmate.getDaysLeft()==0)
 			{
-				String buyHouse = Translator.getString("BUYHOUSE", currentPlayer.getName());
-				String pawnField = Translator.getString("PAWNFIELD", currentPlayer.getName());
-				String releasePawn = Translator.getString("RELEASEFIELD", currentPlayer.getName());
+				String buyHouse = Translator.getString("BUYHOUSE", getCurrentPlayer().getName());
+				String pawnField = Translator.getString("PAWNFIELD", getCurrentPlayer().getName());
+				String releasePawn = Translator.getString("RELEASEFIELD", getCurrentPlayer().getName());
 				String rollTurn;
 						if(res!=null)
 						{
@@ -179,7 +187,7 @@ public class Board {
 				String buyAnothersField = Translator.getString("BUYPLAYERPROPERTY");
 				while(true)
 				{
-					String response = GUI.getUserSelection(Translator.getString("ASKUSER", currentPlayer.getName()), rollTurn, buyHouse, pawnField, releasePawn,buyAnothersField);
+					String response = GUI.getUserSelection(Translator.getString("ASKUSER", getCurrentPlayer().getName()), rollTurn, buyHouse, pawnField, releasePawn,buyAnothersField);
 					
 					
 					if(rollTurn.equals(response))
@@ -191,34 +199,34 @@ public class Board {
 					}
 					else if(buyHouse.equals(response))
 					{
-						String[] selections = currentPlayer.getProperty().getTerritoryNames();
+						String[] selections = getCurrentPlayer().getProperty().getTerritoryNames();
 						String fieldResponse = GUI.getUserSelection(Translator.getString("UNPAWNFIELD"),  appendCancelOption(selections));
 						if(!fieldResponse.equals(Translator.getString("CANCEL")))
 						{
-							TerritoryController selectedField = currentPlayer.getProperty().findTerritoryByName(fieldResponse);
-							selectedField.buyHouse(currentPlayer);
+							TerritoryController selectedField = getCurrentPlayer().getProperty().findTerritoryByName(fieldResponse);
+							selectedField.buyHouse(getCurrentPlayer());
 						}
 					}
 					else if(pawnField.equals(response))
 					{
-						OwnableController slot = getUnPawnedPropertySelection(currentPlayer);
+						OwnableController slot = getUnPawnedPropertySelection(getCurrentPlayer());
 						if(slot!=null)
 							pawnField(slot);
 					
 					}
 					else if(releasePawn.equals(response))
 					{
-						OwnableController slot = getPawnedPropertySelection(currentPlayer);
+						OwnableController slot = getPawnedPropertySelection(getCurrentPlayer());
 						if(slot!=null)
 							releaseField(slot);
 						
 					}
 					else if(buyAnothersField.equals(response))
 					{
-						String[] playerNames = new String[players.size()-1];
+						String[] playerNames = new String[getPlayersLeft()-1];
 						int index = 0;
 						for (Player player : players) {
-							if(player!=currentPlayer)
+							if(player!=getCurrentPlayer() && player!=null)
 							{
 								playerNames[index++] = player.getName();
 							}
@@ -239,7 +247,7 @@ public class Board {
 				
 			}
 			//2nd check is necessary is send to prison during his turn
-			while(rollsLeft>0 && (prison.getInmate(currentPlayer)==null || prison.getInmate(currentPlayer).getDaysLeft()==0))
+			while(rollsLeft>0 && (prison.getInmate(getCurrentPlayer())==null || prison.getInmate(getCurrentPlayer()).getDaysLeft()==0))
 			{
 				//Since the player has already rolled when selecting to move, we decrease this here
 				--rollsLeft;
@@ -247,25 +255,25 @@ public class Board {
 				{
 					GUI.showMessage(Translator.getString("TOOMANYDOUBLES"));
 					prison.addInmate(getCurrentPlayer());
-					currentPlayer.setNextPosition(10, false);
+					getCurrentPlayer().setNextPosition(10, false);
 					updateCurrentPlayerPosition();
 					continue;
 				}
 				
 				GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
 				
-				currentPlayer.move(res.getSum(), true);
-				while(currentPlayer.getNextPosition()!=currentPlayer.getPosition())
+				getCurrentPlayer().move(res.getSum(), true);
+				while(getCurrentPlayer().getNextPosition()!=getCurrentPlayer().getPosition())
 				{
 					updateCurrentPlayerPosition();
 				}
 				
 				
-				if (currentPlayer.getAccount().getGold() <= 0) {
-						currentPlayer.getProperty().resetPlayerProperties();
-						GUI.showMessage(Translator.getString("LOSINGPLAYER", currentPlayer.getName()));
-						GUI.removeAllCars(currentPlayer.getName());
-						players.remove(currentPlayer);
+				if (getCurrentPlayer().getAccount().getGold() <= 0) {
+					getCurrentPlayer().getProperty().resetPlayerProperties();
+						GUI.showMessage(Translator.getString("LOSINGPLAYER", getCurrentPlayer().getName()));
+						GUI.removeAllCars(getCurrentPlayer().getName());
+						players[currentPlayerIndex] = null;
 						break;
 				}
 				if(res.areDiceEqual())
@@ -287,7 +295,7 @@ public class Board {
 	private Player getPlayerByName(String name)
 	{
 		for (Player player : players) {
-			if(player.getName().equals(name))
+			if(player!=null && player.getName().equals(name))
 				return player;
 		}
 		return null;
@@ -305,13 +313,13 @@ public class Board {
 		while(true)
 		{
 			int cost = GUI.getUserInteger(Translator.getString("PLAYERFIELDCOST", selectedField.getOwner().getName()));
-			if(GUI.getUserLeftButtonPressed(Translator.getString("PLAYERFIELDACCEPT", currentPlayer.getName(), selectedField.getName()), Translator.getString("YES"), Translator.getString("NO")))
+			if(GUI.getUserLeftButtonPressed(Translator.getString("PLAYERFIELDACCEPT", getCurrentPlayer().getName(), selectedField.getName()), Translator.getString("YES"), Translator.getString("NO")))
 			{
-				if(currentPlayer.getAccount().withdraw(cost))
+				if(getCurrentPlayer().getAccount().withdraw(cost))
 				{
 					selectedField.removeOwner();
-					selectedField.setOwner(currentPlayer);
-					GUI.showMessage(Translator.getString("BOUGHTFIELD", currentPlayer.getName(), cost));
+					selectedField.setOwner(getCurrentPlayer());
+					GUI.showMessage(Translator.getString("BOUGHTFIELD", getCurrentPlayer().getName(), cost));
 					return;
 				}
 				else
@@ -329,12 +337,12 @@ public class Board {
 	}
 	public void updateCurrentPlayerPosition()
 	{
-		GUI.removeAllCars(currentPlayer.getName());
+		GUI.removeAllCars(getCurrentPlayer().getName());
 		
-		currentPlayer.moveToNextPosition();
-		
-		GUI.setCar(currentPlayer.getPosition()+1, currentPlayer.getName());
-		slots.getField(currentPlayer.getPosition()).landOnField(currentPlayer);
+		getCurrentPlayer().moveToNextPosition();
+		System.out.println(getCurrentPlayer().getName());
+		GUI.setCar(getCurrentPlayer().getPosition()+1, getCurrentPlayer().getName());
+		slots.getField(getCurrentPlayer().getPosition()).landOnField(getCurrentPlayer());
 	}
 	//Pawns a field, if the field aren't pawned already, and add the pawn gold to the owner
 	public void pawnField(OwnableController data){
@@ -377,10 +385,11 @@ public class Board {
 		System.out.println("Starting game..");
 		prison = new Prison(6);
 		slots.initializeBoard(prison,  players);
-		
+		PlayerCreator playerFactory = new PlayerCreator();
+		players = playerFactory.setupPlayers();
 		advanceGame();
 		
-		GUI.showMessage(Translator.getString("WINNINGPLAYERNAME", currentPlayer.getName(), currentPlayer.getAccount().getGold()));
+		GUI.showMessage(Translator.getString("WINNINGPLAYERNAME", getCurrentPlayer().getName(), getCurrentPlayer().getAccount().getGold()));
 		GUI.close();
 	}
 	public static void main(String[] args) {
