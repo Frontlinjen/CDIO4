@@ -323,6 +323,7 @@ public class Board {
 			{
 				if(getCurrentPlayer().getAccount().withdraw(cost))
 				{
+					selectedField.getOwner().getAccount().addGold(cost);
 					selectedField.removeOwner();
 					selectedField.setOwner(getCurrentPlayer());
 					GUI.showMessage(Translator.getString("BOUGHTFIELD", getCurrentPlayer().getName(), cost));
