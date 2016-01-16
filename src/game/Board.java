@@ -152,7 +152,14 @@ public class Board {
 			{
 				System.out.println(fieldResponse);
 				OwnableController selectedField = getCurrentPlayer().getProperty().findOwnableByName(fieldResponse);
+				if (owner.getAccount().getGold() > selectedField.getPawnValue()) {
+				owner.getAccount().withdraw(selectedField.getPawnValue());
 				return selectedField;
+				}
+				else {
+				GUI.showMessage(Translator.getString("NOMONEYNOFUNNY"));
+				return null;
+				}
 			}
 		
 		}
