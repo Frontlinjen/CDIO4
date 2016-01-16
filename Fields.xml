@@ -33,7 +33,7 @@
 	</field>
 	<field type="tax">
 		<translateID>5</translateID>
-		<taxPercentage>0</taxPercentage>
+		<taxPercentage>10</taxPercentage>
 		<tax>4000</tax>
 	</field>
 	<field type="fleet">
@@ -338,7 +338,7 @@
 	</field>
 	<field type="tax">
 		<translateID>39</translateID>
-		<taxPercentage>10</taxPercentage>
+		<taxPercentage>0</taxPercentage>
 		<tax>2000</tax>
 	</field>
 	<field type="territory">
