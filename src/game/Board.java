@@ -52,6 +52,9 @@ public class Board {
 		}while(players[currentPlayerIndex]==null);
 		
 	}
+	/**
+	 * Returns the number of players left, so we can tell who the winner is, when count is returned as 1.
+	 */
 	private int getPlayersLeft()
 	{
 		int count = 0;
@@ -63,6 +66,16 @@ public class Board {
 		}
 		return count;
 	}
+	
+	/**
+	 * This operation handles the situation where a player is in prison. First it checks if the player
+	 * has a chancecard that can set him/her free. If he/she has one get the possibility of using the
+	 * card. If not it takes the player to the option of paying 1000 DKK or roll the dice. 
+	 * If the option of rolling the way out is chosen, the days left in prison for the player
+	 * is checked. If the days left is bigger than zero, the dice has to be rolled. Here we have an
+	 * automatic dice, that rolls three times automatic. If one of the rolls gives to equal die, the
+	 * player is released, if not null is returned to say, the player is still in prison.
+	 */
 	private DiceResult tryGetOutOfPrison(Inmate inmate)
 	{
 		if(getCurrentPlayer().hasGetOutOfPrisonCard() && GUI.getUserLeftButtonPressed(
@@ -116,6 +129,15 @@ public class Board {
 	return null;
 		
 	}
+	
+	/**
+	 * This operation is made to make a list of the pawned properties a player owns. Of course, if a
+	 * player has not pawned any properties, the GUI will show a message that says, that it is not 
+	 * possible to get a list of pawned properties. If the player has a pawned property, the GUI
+	 * will make it possible for the player to choose the property to unpawn or cancel the operation.
+	 * If anything but cancel is chosen, the selected property is moved back to the array of the players
+	 * fields, so it functions as a "normal" field again.
+	 */
 	private OwnableController getPawnedPropertySelection(Player owner)
 	{
 		String[] selections = owner.getProperty().getPawnedPropertyList();
@@ -136,6 +158,10 @@ public class Board {
 		}
 		return null;
 	}
+	
+	/**
+	 * This operation makes it possible for the player to select a property to pawn.
+	 */
 	private OwnableController getUnPawnedPropertySelection(Player owner)
 	{
 		String[] selections = owner.getProperty().getPawnablePropertyList();
@@ -298,6 +324,9 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * This operation makes it possible to get a player by the name.
+	 */
 	private Player getPlayerByName(String name)
 	{
 		for (Player player : players) {
@@ -306,6 +335,10 @@ public class Board {
 		}
 		return null;
 	}
+	
+	/**
+	 * 
+	 */
 	private String[] appendCancelOption(String[] source)
 	{
 		String[] extendedSelections = new String[source.length+1];
@@ -315,6 +348,11 @@ public class Board {
 		return extendedSelections;
 	}
 	
+	/**
+	 * This handles the situation where a player wants to buy a field from another player. It is the 
+	 * correspondence between the owner and the possible buyer. It works so the owner of the field 
+	 * comes with an offer, and the buyer (currentplayer) can choose to accept or not.
+	 */
 	private void buyPlayerField(OwnableController selectedField) {
 		while(true)
 		{
@@ -342,6 +380,12 @@ public class Board {
 		}
 			
 	}
+	
+	/**
+	 * Everytime a player rolls a dice, the position has to be updated. First the car needs to be 
+	 * moved from the board, then the players position is set, and at last, the car is put on the 
+	 * new field.
+	 */
 	public void updateCurrentPlayerPosition()
 	{
 		GUI.removeAllCars(getCurrentPlayer().getName());
