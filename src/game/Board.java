@@ -448,7 +448,7 @@ public class Board {
 		players = playerFactory.setupPlayers();
 		advanceGame();
 		
-		GUI.showMessage(Translator.getString("WINNINGPLAYERNAME", getCurrentPlayer().getName(), getCurrentPlayer().getAccount().getGold()));
+		GUI.showMessage(Translator.getString("WINNINGPLAYERNAME", getCurrentPlayer().getName(), getCurrentPlayer().getProperty().getPropertyWorth()));
 		GUI.close();
 	}
 	public static void main(String[] args) {
