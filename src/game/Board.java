@@ -152,14 +152,8 @@ public class Board {
 			{
 				System.out.println(fieldResponse);
 				OwnableController selectedField = getCurrentPlayer().getProperty().findOwnableByName(fieldResponse);
-				if (owner.getAccount().getGold() > selectedField.getPawnValue()) {
-				owner.getAccount().withdraw(selectedField.getPawnValue());
+				
 				return selectedField;
-				}
-				else {
-				GUI.showMessage(Translator.getString("NOMONEYNOFUNNY"));
-				return null;
-				}
 			}
 		
 		}
@@ -429,8 +423,15 @@ public class Board {
 					Translator.getString("YES"),
 					Translator.getString("NO")))
 			{
-			data.getOwner().getAccount().withdraw(data.getPawnValue());
-			data.setPawned(false);
+			
+			if(data.getOwner().getAccount().withdraw(data.getPawnValue()))
+			{
+				data.setPawned(false);
+			}
+			else
+			{
+				GUI.showMessage(Translator.getString("NOMONEYNOFUNNY"));
+			}
 			
 		}
 		else{
