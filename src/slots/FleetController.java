@@ -30,10 +30,8 @@ public class FleetController extends OwnableController{
 	{
 		Player owner = fleetData.getOwner();
 		if(owner==null)
-			return 500;
-		
-		int[] prices = {500, 1000, 2000, 4000};
-		return prices[owner.getProperty().getFleetOwned()-1];
+			return RENT[0];
+		return RENT[owner.getProperty().getFleetOwned()-1];
 		
 	}
 	@Override
