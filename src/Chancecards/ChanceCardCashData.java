@@ -3,9 +3,9 @@ package Chancecards;
 public class ChanceCardCashData extends ChanceCardData{
 	private int money;
 	
-	public ChanceCardCashData(int translateID, int tax) {
+	public ChanceCardCashData(int translateID, int money) {
 		super(translateID);
-		this.money = tax;
+		this.money = money;
 	}
 	
 	public int getMoney() {
