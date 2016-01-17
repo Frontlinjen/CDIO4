@@ -8,7 +8,7 @@ import game.Player;
 
 public class PlayerTest {
 	
-	Player player;
+	private Player player;
 	
 	@Before
 	public void initialize(){

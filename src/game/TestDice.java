@@ -1,9 +1,9 @@
 package game;
 
 public class TestDice extends DiceCup {
-	int[][] diceSequence;
+	private int[][] diceSequence;
 	//Has to be -1 since it gets increased by one before its used for the first time
-	int currentIndex = -1;
+	private int currentIndex = -1;
 	
 	public TestDice(int[][] diceSequence)
 	{

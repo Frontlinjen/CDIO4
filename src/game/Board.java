@@ -20,7 +20,7 @@ public class Board {
 	private int currentPlayerIndex;
 	
 	private Prison prison;
-	DiceCup dice = new DiceCup(2);
+	private DiceCup dice = new DiceCup(2);
 	
 	public Board(DiceCup dice)
 	{

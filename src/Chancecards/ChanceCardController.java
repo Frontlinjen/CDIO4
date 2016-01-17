@@ -4,7 +4,7 @@ import game.Player;
 import game.Translator;
 
 public abstract class ChanceCardController {
-	ChanceCardData dat;
+	private ChanceCardData dat;
 	
 	ChanceCardController(ChanceCardData dat)
 	{

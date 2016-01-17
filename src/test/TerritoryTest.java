@@ -11,9 +11,9 @@ import slots.TerritoryData;
 
 public class TerritoryTest {
 
-	TerritoryData data;
-	TerritoryController territoryController;
-	Player player1, player2;
+	private TerritoryData data;
+	private TerritoryController territoryController;
+	private Player player1, player2;
 	private int[] buildingtax;
 	
 	@Before

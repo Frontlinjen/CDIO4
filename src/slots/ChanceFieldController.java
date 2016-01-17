@@ -10,7 +10,7 @@ import game.Translator;
 import utilities.ShuffleBag;
 
 public class ChanceFieldController extends FieldController {
-	ShuffleBag<ChanceCardController> cards;
+	private ShuffleBag<ChanceCardController> cards;
 	
 	
 	public ChanceFieldController(ShuffleBag<ChanceCardController> cards, FieldData data) {
