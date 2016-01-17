@@ -23,6 +23,10 @@ public class FieldData {
 		return position;
 	}
 	
+	public int getTranslateID() {
+		return translateID;
+	}
+	
 	public String toString(){
 		return "getName()=" + getName() + "getPosition()=" + getPosition();
 	}
