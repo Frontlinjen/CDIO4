@@ -35,10 +35,6 @@ public abstract class OwnableController extends FieldController{
 	protected abstract void registerOwner();
 	protected abstract void UnRegisterOwner();
 	
-	public void transferOwnershipTo(Player player)
-	{
-		
-	}
 	@Override
 	final public void landOnField(Player player)
 	{
