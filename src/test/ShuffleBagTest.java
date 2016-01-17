@@ -36,7 +36,7 @@ public class ShuffleBagTest {
 		Integer[] testtal = {1,2,3,4,5};
 		ShuffleBag<Integer> testbag = new ShuffleBag<Integer>(testtal);
 		int firstNumber = testbag.getNext();
-		testbag.pushBackLastCard();
+		testbag.pushBackLastElement();
 		while(testbag.getElementsLeft()!=0)
 		{
 			int num = testbag.getNext();

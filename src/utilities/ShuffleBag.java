@@ -30,7 +30,7 @@ public class ShuffleBag<T> {
 		//Removed the used index out of scope. 
 		--currentPos;
 	}
-	public void pushBackLastCard()
+	public void pushBackLastElement()
 	{
 		if(currentPos < values.length-1)
 		{
