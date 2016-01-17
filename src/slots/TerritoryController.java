@@ -117,8 +117,14 @@ public class TerritoryController extends OwnableController {
 	
 	@Override
 	protected void chargeRent(Player player) {
-			GUI.showMessage(Translator.getString("PAYTHEOWNER", this.getRent()));
+		if(property.ownsEntireGroup(getFieldGroup())== true){
+			GUI.showMessage(Translator.getString("PAYTHEOWNERDOUBLE", this.getRent()*2));
+			player.getAccount().transferTo(territoryData.getOwner().getAccount(), this.getRent()*2);
+		}
+		else{	
+		GUI.showMessage(Translator.getString("PAYTHEOWNER", this.getRent()));
 			player.getAccount().transferTo(territoryData.getOwner().getAccount(), this.getRent());
+		}
 			
 	}
 	@Override
