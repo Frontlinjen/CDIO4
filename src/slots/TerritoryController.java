@@ -5,7 +5,6 @@ import java.awt.Color;
 import desktop_resources.GUI;
 import game.Player;
 import game.Translator;
-import game.Property;
 
 public class TerritoryController extends OwnableController {
 	private TerritoryData territoryData;

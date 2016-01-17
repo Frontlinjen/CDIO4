@@ -1,16 +1,8 @@
 package game;
 
-
-import java.awt.Color;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Pattern;
-
-import desktop_codebehind.Car;
 import desktop_resources.GUI;
 import slots.OwnableController;
 import slots.TerritoryController;
-import utilities.ShuffleBag;
 
 public class Board {
 	private GameBoard slots = new GameBoard();

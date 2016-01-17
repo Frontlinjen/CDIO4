@@ -3,9 +3,6 @@ package game;
 import slots.*;
 import utilities.ShuffleBag;
 import desktop_resources.GUI;
-
-import java.util.List;
-
 import Chancecards.*;
 
 public class GameBoard {

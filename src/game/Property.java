@@ -236,7 +236,7 @@ public class Property {
 			}	
 		}
 		
-		if(Id.BLUE == Id || Id.PURPLE == Id){
+		if(FIELDGROUPS.BLUE == Id || FIELDGROUPS.PURPLE == Id){
 			return groupCount==2;
 		}
 		
