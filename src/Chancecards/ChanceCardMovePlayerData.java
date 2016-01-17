@@ -17,4 +17,9 @@ public class ChanceCardMovePlayerData extends ChanceCardData{
 	public boolean getCashInAtStart() {
 		return cashInAtStart;
 	}
+
+	@Override
+	public String toString() {
+		return "ChanceCardMovePlayerData [fieldPosition=" + fieldPosition + ", cashInAtStart=" + cashInAtStart + "]";
+	}
 }

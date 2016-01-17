@@ -16,5 +16,10 @@ public class ChanceCardMovePlayerController extends ChanceCardController{
 		return false;
 	}
 
+	@Override
+	public String toString() {
+		return chanceCardData.toString();
+	}
+
 
 }

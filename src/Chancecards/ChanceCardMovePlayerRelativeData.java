@@ -17,4 +17,9 @@ public class ChanceCardMovePlayerRelativeData extends ChanceCardData{
 	public boolean getCashAtStart() {
 		return cashAtStart;
 	}
+
+	@Override
+	public String toString() {
+		return "ChanceCardMovePlayerRelativeData [distance=" + distance + ", cashAtStart=" + cashAtStart + "]";
+	}
 }

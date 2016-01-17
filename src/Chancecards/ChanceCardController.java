@@ -19,6 +19,6 @@ public abstract class ChanceCardController {
 	}
 	
 	public String toString(){
-		return "getDescription()=" + getDescription();
+		return dat.toString();
 	}
 }

@@ -23,6 +23,11 @@ public class ChanceCardOutOfPrisonController extends ChanceCardController{
 		}
 	}
 
+	@Override
+	public String toString() {
+		return chanceCardData.toString();
+	}
+
 	
 
 }
