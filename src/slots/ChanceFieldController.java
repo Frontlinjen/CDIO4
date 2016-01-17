@@ -34,7 +34,7 @@ public class ChanceFieldController extends FieldController {
 			if(newCard.onDrawn(player))
 			{
 				GUI.showMessage(Translator.getString("CARDCOULDNOTBEUSED"));
-				cards.pushBackLastCard();
+				cards.pushBackLastElement();
 			}
 			
 		}
