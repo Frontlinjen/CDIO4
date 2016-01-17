@@ -20,6 +20,13 @@ public class ChanceCardTaxController extends ChanceCardController{
 		return false;
 	}
 
+
+	@Override
+	public String toString() {
+		return "ChanceCardTaxController [chanceCardData=" + chanceCardData + ", parkinglotAccount=" + parkinglotAccount
+				+ "]";
+	}
+
 	
 
 }

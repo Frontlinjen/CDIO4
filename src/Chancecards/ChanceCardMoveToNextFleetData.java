@@ -1,5 +1,7 @@
 package Chancecards;
 
+import java.util.Arrays;
+
 public class ChanceCardMoveToNextFleetData extends ChanceCardData{
 	private int[] fleetPositions;
 	private boolean cashAtStart;
@@ -12,5 +14,11 @@ public class ChanceCardMoveToNextFleetData extends ChanceCardData{
 
 	public int[] getFleetPositions() {
 		return fleetPositions;
+	}
+
+	@Override
+	public String toString() {
+		return "ChanceCardMoveToNextFleetData [fleetPositions=" + Arrays.toString(fleetPositions) + ", cashAtStart="
+				+ cashAtStart + "]";
 	}
 }

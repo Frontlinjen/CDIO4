@@ -42,4 +42,10 @@ public class ChanceCardMoveToNextFleetController extends ChanceCardController{
 	}
 
 
+	@Override
+	public String toString() {
+		return chanceCardData.toString();
+	}
+
+
 }

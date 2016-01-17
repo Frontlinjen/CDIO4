@@ -21,7 +21,7 @@ public class ChanceCardGoToPrisonController extends ChanceCardController{
 	}
 
 	public String toString(){
-		return "prison=" + prison + ", chanceCardData=" + chanceCardData;
+		return chanceCardData.toString();
 	}
 
 }
