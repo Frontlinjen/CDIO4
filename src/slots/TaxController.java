@@ -56,6 +56,6 @@ public class TaxController extends FieldController {
 	}
 	
 	public String toString(){
-		return "getDescription()=" + getDescription();
+		return taxData.toString();
 	}
 }

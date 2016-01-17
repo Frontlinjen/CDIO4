@@ -142,6 +142,6 @@ public abstract class OwnableController extends FieldController{
 
 	@Override
 	public String toString() {
-		return "Ownable [price=" + ownableData.getPrice() + ", owner=" + ownableData.getOwner() + "]";
+		return ownableData.toString();
 	}
 }

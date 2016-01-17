@@ -73,6 +73,6 @@ public class BreweryController extends OwnableController{
 	}
 	
 	public String toString(){
-		return "getWorth()=" + getWorth() + ", getDescription()=" + getDescription() + ", getFieldGroup()=" + getFieldGroup() + ", getRent()=" + getRent();
+		return "getWorth()=" + getWorth() + ", getDescription()=" + getDescription() + ", getFieldGroup()=" + getFieldGroup() + ", getRent()=" + getRent() + ", BreweryData()" + breweryData.toString();
 	}
 }

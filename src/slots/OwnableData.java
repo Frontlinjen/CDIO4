@@ -38,8 +38,9 @@ public abstract class OwnableData extends FieldData {
 		return pawnvalue;
 	}
 	
-	public String toString(){
-		return "getPrice()=" + getPrice() + ", getOwner()=" + getOwner();
+	@Override
+	public String toString() {
+		return "OwnableData [price=" + price + ", owner=" + owner + ", pawnvalue=" + pawnvalue + "]";
 	}
 		
 }

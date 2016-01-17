@@ -25,7 +25,7 @@ public abstract class FieldController {
 	}
 	
 	public String toString(){
-		return "No applicable data";
+		return data.toString() + ", getName()" + getName();
 	}
 }
 

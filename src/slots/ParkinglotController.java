@@ -44,6 +44,6 @@ public class ParkinglotController extends FieldController{
 	}
 	
 	public String toString(){
-		return "getDescription()=" + getDescription();
+		return parkinglotData.toString();
 	}
 }

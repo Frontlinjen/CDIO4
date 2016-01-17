@@ -42,6 +42,6 @@ public class GoToPrisonController extends FieldController{
 	}
 	
 	public String toString(){
-		return "getDescription()=" + getDescription();
+		return goToPrisonData.toString();
 	}
 }

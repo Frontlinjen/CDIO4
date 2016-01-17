@@ -64,7 +64,7 @@ public class FleetController extends OwnableController{
 	}
 	
 	public String toString(){
-		return "RENT[]=" + RENT + "getRent()=" + getRent();
+		return fleetData.toString() +  ", getRent()=" + getRent();
 	}
 
 }

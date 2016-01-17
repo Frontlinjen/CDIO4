@@ -28,6 +28,6 @@ public class FieldData {
 	}
 	
 	public String toString(){
-		return "getName()=" + getName() + "getPosition()=" + getPosition();
+		return "getName()=" + getName() + "getPosition()=" + getPosition() + ", getTranslateID()" + getTranslateID();
 	}
 }
