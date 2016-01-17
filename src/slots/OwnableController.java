@@ -117,7 +117,7 @@ public abstract class OwnableController extends FieldController{
 			}
 		}
 		else{
-			GUI.showMessage(Translator.getString("CONTINUETURN"));
+			GUI.showMessage(Translator.getString("ENDTURN"));
 		}
 		return false;
 
