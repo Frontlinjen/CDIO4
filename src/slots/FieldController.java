@@ -4,7 +4,8 @@ import game.*;
 
 public abstract class FieldController {
 
-	FieldData data;
+	private FieldData data;
+	
 	public FieldController(FieldData d)
 	{
 		data = d;

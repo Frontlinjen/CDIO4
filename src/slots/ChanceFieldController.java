@@ -10,7 +10,7 @@ import game.Translator;
 import utilities.ShuffleBag;
 
 public class ChanceFieldController extends FieldController {
-	ShuffleBag<ChanceCardController> cards;
+	private ShuffleBag<ChanceCardController> cards;
 	
 	
 	public ChanceFieldController(ShuffleBag<ChanceCardController> cards, FieldData data) {
@@ -34,7 +34,7 @@ public class ChanceFieldController extends FieldController {
 			if(newCard.onDrawn(player))
 			{
 				GUI.showMessage(Translator.getString("CARDCOULDNOTBEUSED"));
-				cards.pushBackLastCard();
+				cards.pushBackLastElement();
 			}
 			
 		}

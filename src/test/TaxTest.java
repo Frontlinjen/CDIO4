@@ -13,10 +13,10 @@ import slots.TaxController;
 public class TaxTest {
 	
 
-	Account acc;
-	TaxData taxD;
-	TaxController tax;
-	Player player;
+	private Account acc;
+	private TaxData taxD;
+	private TaxController tax;
+	private Player player;
 	
 	@Before
 	public void preTest(){

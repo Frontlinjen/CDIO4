@@ -12,7 +12,7 @@ public class GotoPrisonTest {
 
 	@Test
 	public void test() {
-		TestDice dice = new TestDice(new int[][]{{30,0},{30,0},{20,0},{20,0},{20,0},{20,0}});
+		TestDice dice = new TestDice(new int[][]{{30,0},{30,0},{6,6},{6,6}});
 		Board board = new Board((DiceCup)dice);
 		board.startGame();
 	}

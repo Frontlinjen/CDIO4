@@ -263,7 +263,7 @@ public class ChanceCardLoader extends XMLParser{
 							if(element.hasAttribute("amount"))
 							{
 								String strAmount = element.getAttribute("amount");
-								 amount = Integer.parseInt(strAmount);
+								amount = Integer.parseInt(strAmount);
 							}
 							
 							while(amount-->0)

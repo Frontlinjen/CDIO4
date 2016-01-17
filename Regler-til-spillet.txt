@@ -1,0 +1,33 @@
+Spillets formål:
+
+Formålet med Matador er at købe, udleje og sælge ejendomme. 
+Man begynder spillet ved, at alle starter på feltet: "START"
+Derefter flyttes brikken venstre om spillepladen, og undervejs kan man købe og interagere med fleterne.
+Hver spiller starter med 30.000 kr
+Målet er for spillerne til ikke at gå falit, hvilket man gør, hvis man løber tør for penge.
+Spillet er vundet, når alle andre end en spiller er gået falit.
+
+Fleterne er delt op på følgende måde:
+
+START - Hver man start passeres, modtager den pågældende spiller 4.000 kr
+Ejendomme - Ejendomme kan købes for den pris, som står på det pågældende felt. Ejendomme er delt op i farver, og man kan senere købe huse og hoteler.
+Rederier - Der er 4 rederier i spillet, rederiers leje stiger alt efter hvor mange ejes af sammen spiller.
+Bryggerier - Hvis et bryggeri ejes er leje 100x et terningslag, Hvis to ejes af sammen spiller fordobles dette til 200x et terningslag.
+Helle - Alle bøder betales til Helle, og hvis en spiller lander der, indkasser han det beløb, som ligger der.
+Fængsel - Der er flere møder at komme i fængsel på, men for at komme ud kan man prøve at slå 2 ens, betale 1.000 kr eller bruge et chancekort.
+Chancefeltet - Her kan man prøve lykken, man kan trække alt fra en bøde til Matador-legatet.
+Skatte-felter - Her skal man betale når man lander der.
+
+Hus og hoteler:
+
+Der kan bygges op til 4 huse på en grund, for at kunne bygge et hus, kræves det at eje alle grunde i samme farvegruppe. 
+Hvis en spiller ejer alle i en gruppe, kan han altså begynde at bygge huse.
+Når en grund har 4 huse, kan han bygge et hotel. Et hotel giver den største leje af en grund.
+
+Pantsætning:
+
+Når man pantsætter en grund, kan man ikke modtage leje af grunden, men man får derimod en sum penge, alt efter hvor meget grunden er værd.
+En pantsat grund skal købes tilbage før, at man igen kan modtage leje for grunden.
+Hvis en spiller føler sig presset, kan man også sælge sine grunde til en anden spiller.
+
+

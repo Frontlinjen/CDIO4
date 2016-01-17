@@ -5,6 +5,7 @@ import java.awt.Color;
 import desktop_resources.GUI;
 import game.Player;
 import game.Translator;
+import game.Property;
 
 public class TerritoryController extends OwnableController {
 	private TerritoryData territoryData;
@@ -111,11 +112,19 @@ public class TerritoryController extends OwnableController {
 	public int getRent() {
 		return territoryData.getRent();
 	}
+	
+	
 	@Override
 	protected void chargeRent(Player player) {
+		if(getOwner().getProperty().ownsEntireGroup(getFieldGroup()) == true && getHouseAmount()==0){
+			GUI.showMessage(Translator.getString("PAYTHEOWNERDOUBLE", this.getRent()*2));
+			player.getAccount().transferTo(territoryData.getOwner().getAccount(), this.getRent()*2);
+		}
+		else{	
 		GUI.showMessage(Translator.getString("PAYTHEOWNER", this.getRent()));
-		player.getAccount().transferTo(territoryData.getOwner().getAccount(), this.getRent());
-		
+			player.getAccount().transferTo(territoryData.getOwner().getAccount(), this.getRent());
+		}
+			
 	}
 	@Override
 	protected void registerOwner() {

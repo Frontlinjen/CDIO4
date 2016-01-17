@@ -35,10 +35,6 @@ public abstract class OwnableController extends FieldController{
 	protected abstract void registerOwner();
 	protected abstract void UnRegisterOwner();
 	
-	public void transferOwnershipTo(Player player)
-	{
-		
-	}
 	@Override
 	final public void landOnField(Player player)
 	{
@@ -121,7 +117,7 @@ public abstract class OwnableController extends FieldController{
 			}
 		}
 		else{
-			GUI.showMessage(Translator.getString("CONTINUETURN"));
+			GUI.showMessage(Translator.getString("ENDTURN"));
 		}
 		return false;
 
