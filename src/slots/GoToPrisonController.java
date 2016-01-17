@@ -7,8 +7,8 @@ import game.Player;
 import game.Translator;
 
 public class GoToPrisonController extends FieldController{
-	desktop_fields.Jail goToPrison; 
-	GoToPrisonData goToPrisonData;
+	private desktop_fields.Jail goToPrison; 
+	private GoToPrisonData goToPrisonData;
 	public GoToPrisonController(GoToPrisonData data)
 	{
 		super(data);

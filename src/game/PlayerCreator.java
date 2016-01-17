@@ -10,7 +10,7 @@ import utilities.ShuffleBag;
 public class PlayerCreator {
 	private final int PLAYERSTARTINGCASH = 30000;
 	private ShuffleBag<Color> availableCarColors = new ShuffleBag<Color>(new Color[]{Color.BLUE, Color.YELLOW, new Color(0, 107f/255, 15f/255), Color.PINK, Color.RED, Color.MAGENTA});
-	Player[] players;
+	private Player[] players;
 	
 	
 	public Player createPlayer(String name)

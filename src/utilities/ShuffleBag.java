@@ -5,7 +5,7 @@ import java.util.Random;
 public class ShuffleBag<T> {
 	private T[] values;
 	private int currentPos;
-	Random rng = new Random(System.currentTimeMillis());
+	private Random rng = new Random(System.currentTimeMillis());
 	public ShuffleBag(T[] values)
 	{
 		this.values = values;

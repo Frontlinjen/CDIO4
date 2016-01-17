@@ -16,7 +16,7 @@ import desktop_resources.GUI;
 
 public class PropertyTest {
 	
-	Player player = new Player("player1");
+	private Player player = new Player("player1");
 	
 	@Test
 	public void ownsEntireGroupTest() {

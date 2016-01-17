@@ -1,8 +1,8 @@
 package Chancecards;
 
 public class ChanceCardMoveToNextFleetData extends ChanceCardData{
-	int[] fleetPositions;
-	boolean cashAtStart;
+	private int[] fleetPositions;
+	private boolean cashAtStart;
 	
 	public ChanceCardMoveToNextFleetData(int translateID, int[] fleetPositions, boolean cashAtStart) {
 		super(translateID);

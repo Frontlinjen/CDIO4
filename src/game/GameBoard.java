@@ -10,7 +10,7 @@ import Chancecards.*;
 
 public class GameBoard {
 
-	FieldController[] fields;
+	private FieldController[] fields;
 	public void initializeBoard(Prison prison, Player[] players) //This method builds up the game board when the game starts
 	{	
 		//desktop_fields.Brewery b = new desktop_fields.Brewery.Builder().setRent("2000").build();
