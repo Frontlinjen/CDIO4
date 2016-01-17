@@ -113,11 +113,10 @@ public class TerritoryController extends OwnableController {
 		return territoryData.getRent();
 	}
 	
-	public Property property = new Property();
 	
 	@Override
 	protected void chargeRent(Player player) {
-		if(property.ownsEntireGroup(getFieldGroup())== true){
+		if(getOwner().getProperty().ownsEntireGroup(getFieldGroup()) == true && getHouseAmount()==0){
 			GUI.showMessage(Translator.getString("PAYTHEOWNERDOUBLE", this.getRent()*2));
 			player.getAccount().transferTo(territoryData.getOwner().getAccount(), this.getRent()*2);
 		}
