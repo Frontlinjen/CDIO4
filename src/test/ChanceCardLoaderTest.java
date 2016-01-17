@@ -2,7 +2,6 @@ package test;
 
 import static org.junit.Assert.assertFalse;
 
-import java.util.List;
 
 import org.junit.Test;
 

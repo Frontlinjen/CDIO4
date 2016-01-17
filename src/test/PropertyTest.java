@@ -2,7 +2,6 @@ package test;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 
 import game.*;
 import slots.OwnableController.FIELDGROUPS;
