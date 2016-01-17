@@ -17,8 +17,8 @@ public class ChanceCardCashTransferController extends ChanceCardController{
 	public boolean onDrawn(Player player) {
 		for(Player p : players)
 		{
-			if(p != player) {
-			p.getAccount().transferTo(player.getAccount(), chanceCardData.getMoney());
+			if(p != player && p != null) {
+				p.getAccount().transferTo(player.getAccount(), chanceCardData.getMoney());
 			}
 		}
 		return false;
