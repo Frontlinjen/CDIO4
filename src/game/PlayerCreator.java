@@ -22,7 +22,10 @@ public class PlayerCreator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		/*
+		 * Giving players a random colored car, as well as setting up the player on the GUI
+		 * with starting cash, name and their newly given car.
+		 */
 		Car car;
 		int result = (int)((Math.random())*3+1);
 		if(result == 1)
@@ -80,6 +83,10 @@ public class PlayerCreator {
 			
 			amount = GUI.getUserInteger(Translator.getString("NUMBEROFPLAYERS"));	
 		}
+		/*
+		 * adds each player to the players[] array. Used to keep track of running players in the game
+		 * and whose turn it is. Also checks if each player are fulfilling the conditions, for making a name.
+		 */
 		players = new Player[amount];
 		for(int j = 0; j < amount; j++) {
 			String user;
@@ -99,7 +106,7 @@ public class PlayerCreator {
 		}
 		desktop_board.Board.getInstance().updatePlayers();
 		return players;
-//		currentPlayer = PlayerCreator.this.players.get(0);
+
 	}
 
 }
