@@ -101,9 +101,8 @@ public class Board {
 		if(inmate.getDaysLeft()>0)
 		{	
 			DiceResult res = null;
-			DiceCup prisonDice = new DiceCup(2);
 			for(int i = 0; i != 3; i++){
-				 res = prisonDice.rollDice();
+				 res = dice.rollDice();
 				 GUI.setDice(res.getDice(0), 3, 7, res.getDice(1), 4,8);
 				 try
 				 {
