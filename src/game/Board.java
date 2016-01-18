@@ -434,9 +434,11 @@ public class Board {
 	public void startGame(){
 		System.out.println("Starting game..");
 		prison = new Prison(6);
-		slots.initializeBoard(prison,  players);
 		PlayerCreator playerFactory = new PlayerCreator();
 		players = playerFactory.setupPlayers();
+		slots.initializeBoard(prison,  players);
+		
+		
 		advanceGame();
 		
 		GUI.showMessage(Translator.getString("WINNINGPLAYERNAME", getCurrentPlayer().getName(), getCurrentPlayer().getProperty().getPropertyWorth()));
