@@ -15,6 +15,7 @@ Rederier - Der er 4 rederier i spillet, rederiers leje stiger alt efter hvor man
 Bryggerier - Hvis et bryggeri ejes er leje 100x et terningslag, Hvis to ejes af sammen spiller fordobles dette til 200x et terningslag.
 Helle - Alle bøder betales til Helle, og hvis en spiller lander der, indkasser han det beløb, som ligger der.
 Fængsel - Der er flere møder at komme i fængsel på, men for at komme ud kan man prøve at slå 2 ens, betale 1.000 kr eller bruge et chancekort.
+		  Slår man sig ud af fængslet med to ens, så rykker man det antal øjne terningerne viser. 
 Chancefeltet - Her kan man prøve lykken, man kan trække alt fra en bøde til Matador-legatet.
 Skatte-felter - Her skal man betale når man lander der.
 
