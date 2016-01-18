@@ -77,7 +77,7 @@
 		<cash>1000</cash>
 	</card>
 	<card type="tax">
-		<translateID>20</translateID>
+		<translateID>21</translateID>
 		<cash>200</cash>
 	</card>
 	<card type="tax">
