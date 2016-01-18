@@ -439,7 +439,7 @@ public class Board {
 		slots.initializeBoard(prison,  chanceCardPlayers);
 		players = playerFactory.setupPlayers();
 		//Workaround for players needed before the board is created, but player names can only be gotten after. 
-		for(int i=0;i<6;++i)
+		for(int i=0;i<players.length;++i)
 		{
 			chanceCardPlayers[i] = players[i];
 		}
